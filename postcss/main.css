@@ -1,0 +1,9 @@
+@import './fonts.css';
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@import './content.css';
+@import './sidebar.css';

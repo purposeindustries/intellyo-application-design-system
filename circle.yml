@@ -1,0 +1,35 @@
+machine:
+  node:
+    version: 6.5.0
+test:
+  override:
+    - npm run test
+
+dependencies:
+  pre:
+    - echo -e "$NPMRC" >>$HOME/.npmrc
+  cache_directories:
+    - "cache"
+  post:
+    - NODE_ENV=production npm run build
+
+deployment:
+  release:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - npm run deploy
+  tagging:
+    branch: master
+    commands:
+      - >
+        if [ -n "$RELEASE_TYPE" ]; then
+          git config --global user.email "dev@purposeindustries.co"
+          git config --global user.name "purpose-bot"
+          npm version $RELEASE_TYPE;
+          repo=https://$GITHUB_ACCESS_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git;
+          git push $repo $CIRCLE_BRANCH &> /dev/null;
+          git push --tags $repo &> /dev/null;
+        fi;
+        if [ -n "$DEPLOY" ]; then
+          npm run deploy:s3;
+        fi

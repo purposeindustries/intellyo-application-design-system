@@ -4,6 +4,11 @@
   "version": "1.0.1",
   "devDependencies": {
     "aws-sdk": "^2.85.0",
+    "aws-sdk-then": "^1.1.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015-node": "^6.1.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",

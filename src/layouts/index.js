@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
+import Logo from '../components/logo';
 
-import "../css/typography.css"
+import '../../css/main.css';
 
 export default class Template extends React.Component {
   static propTypes = {
@@ -12,7 +13,7 @@ export default class Template extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <Helmet
           title="Intellyo's Application Design System"
           meta={[
@@ -20,7 +21,12 @@ export default class Template extends React.Component {
             { name: "keywords", content: "intellyo, design system, ux, style guide, frontend framework, fef" },
           ]}
         />
-        <div>
+        <aside className="sidebar">
+          <div className="logo">
+            <Logo />
+          </div>
+        </aside>
+        <div className="content">
           { this.props.children() }
         </div>
       </div>

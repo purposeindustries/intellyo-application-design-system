@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "devDependencies": {
     "aws-sdk": "^2.85.0",
     "aws-sdk-then": "^1.1.0",

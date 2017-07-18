@@ -1,0 +1,7 @@
+.subheading {
+  font-size: $subheading-font-size;
+  line-height: $subheading-line-height;
+  font-weight: $subheading-font-weight;
+  margin: 0;
+  letter-spacing: 0;
+}

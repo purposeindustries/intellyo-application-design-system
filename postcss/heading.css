@@ -1,0 +1,7 @@
+.heading {
+  font-size: $heading-font-size;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
+  margin: 0;
+  letter-spacing: 0;
+}

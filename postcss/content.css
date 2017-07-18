@@ -1,3 +1,3 @@
 .content {
-  padding: 15px 15px 15px calc(230px + 15px);
+  padding: $gutter-base $gutter-base $gutter-base calc(230px + $gutter-base);
 }

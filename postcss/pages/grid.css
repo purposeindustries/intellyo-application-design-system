@@ -1,0 +1,28 @@
+.page-grid {
+
+  padding: $gutter-base 0;
+
+  & .card {
+    margin-bottom: $gutter-base;
+  }
+
+  & .row {
+    margin: 0 0 $gutter-base;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  & .col {
+
+    &> span {
+      display: block;
+      background: $color-blue-4;
+      padding: calc($gutter-base / 2);
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+    }
+  }
+}

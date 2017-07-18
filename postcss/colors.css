@@ -1,0 +1,48 @@
+
+/* Neutral colors */
+
+$color-grey-1: #EFEFEF;
+$color-grey-2: #E6E6E6;
+$color-grey-3: #DCDCDC;
+$color-grey-4: #D1D1D1;
+$color-grey-5: #B5B5B5;
+
+$color-black-1: #BDBDBD;
+$color-black-2: #989898;
+$color-black-3: #6E6E6E;
+$color-black-4: #404040;
+$color-black-5: #373737;
+
+/* Basic colors */
+
+$color-primary-1: #A8E9EB;
+$color-primary-2: #76DDDF;
+$color-primary-3: #3ECED2;
+$color-primary-4: #01BFC4;
+$color-primary-5: #019DA1;
+
+$color-danger-1: #F9ACBC;
+$color-danger-2: #F67D95;
+$color-danger-3: #F2486A;
+$color-danger-4: #EE0E3B;
+$color-danger-5: #D10C40;
+
+$color-warning-1: #FFDCA7;
+$color-warning-2: #FFC876;
+$color-warning-3: #FFB13D;
+$color-warning-4: #FF9800;
+$color-warning-5: #E07800;
+
+$color-success-1: #C1E4C3;
+$color-success-2: #9FD4A1;
+$color-success-3: #77C27A;
+$color-success-4: #4CAF50;
+$color-success-5: #429747;
+
+$color-blue-1: #C1D9F5;
+$color-blue-2: #9EC3EF;
+$color-blue-3: #75ABE9;
+$color-blue-4: #4A90E2;
+$color-blue-5: #3D79C8;
+
+

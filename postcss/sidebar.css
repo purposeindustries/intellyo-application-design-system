@@ -8,5 +8,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px 0 0 0;
+  padding: $gutter-base 0;
+
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 50px 0 0;
+  }
+
+  & nav {
+    width: 100%;
+  }
+}
+
+.sidebar-item {
+  color: #fff;
+  border-bottom: 1px solid $color-black-3;
+  padding: $gutter-base;
+
+  &:last-child {
+    border: none;
+  }
+
+  & a {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    &:hover {
+      color: $color-primary-3;
+    }
+  }
 }

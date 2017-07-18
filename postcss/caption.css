@@ -1,0 +1,6 @@
+.caption {
+  margin: 0;
+  font-size: $caption-font-size;
+  line-height: $caption-line-height;
+  letter-spacing: 0;
+}

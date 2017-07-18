@@ -1,0 +1,31 @@
+.display-text {
+  font-size: $display-text-font-size-regular;
+  line-height: $display-text-line-height-regular;
+  font-weight: $display-text-font-weight-regular;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.display-text--small {
+  font-size: $display-text-font-size-small;
+  line-height: $display-text-line-height-small;
+  font-weight: $display-text-font-weight-small;
+}
+
+.display-text--regular {
+  font-size: $display-text-font-size-regular;
+  line-height: $display-text-line-height-regular;
+  font-weight: $display-text-font-weight-regular;
+}
+
+.display-text--large {
+  font-size: $display-text-font-size-large;
+  line-height: $display-text-line-height-large;
+  font-weight: $display-text-font-weight-large;
+}
+
+.display-text--extra-large {
+  font-size: $display-text-font-size-extra-large;
+  line-height: $display-text-line-height-extra-large;
+  font-weight: $display-text-font-weight-extra-large;
+}

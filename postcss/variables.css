@@ -1,0 +1,60 @@
+/* Basic layout settings */
+  $gutter-base: 15px;
+  $box-shadow-base: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+
+/* Basic typography */
+
+  $font-family-base: 'Open Sans';
+  $font-size-base: 14px;
+  $line-height-multiplier-base: 1.5;
+  $line-height-base: calc($font-size-base * $line-height-multiplier-base);
+
+
+/* Display text */
+
+  /* Regular */
+  $display-text-font-size-regular: 21px;
+  $display-text-line-height-regular: calc($display-text-font-size-regular * $line-height-multiplier-base);
+  $display-text-font-weight-regular: 600;
+
+  /* Small */
+  $display-text-font-size-small: 16px;
+  $display-text-line-height-small: calc($display-text-font-size-small * $line-height-multiplier-base);
+  $display-text-font-weight-small: 600;
+
+  /* Large */
+  $display-text-font-size-large: 24px;
+  $display-text-line-height-large: calc($display-text-font-size-large * $line-height-multiplier-base);
+  $display-text-font-weight-large: 600;
+
+  /* Extra large */
+  $display-text-font-size-extra-large: 28px;
+  $display-text-line-height-extra-large: calc($display-text-font-size-extra-large * $line-height-multiplier-base);
+  $display-text-font-weight-extra-large: 600;
+
+/* Heading */
+
+  $heading-font-size: 17px;
+  $heading-line-height: calc($heading-font-size * $line-height-multiplier-base);
+  $heading-font-weight: 600;
+
+/* Subheading */
+
+  $subheading-font-size: 13px;
+  $subheading-line-height: calc($subheading-font-size * $line-height-multiplier-base);
+  $subheading-font-weight: 600;
+
+/* Caption */
+
+  $caption-font-size: 12px;
+  $caption-line-height: calc($caption-font-size * $line-height-multiplier-base);
+
+/* Button */
+
+  $button-font-size: 12px;
+  $button-line-height: calc($button-font-size * $line-height-multiplier-base);
+  $button-font-weight: 600;
+
+  $button-font-size-small: 10px;
+  $button-line-height-small: calc($button-font-size-small * $line-height-multiplier-base);
+  $button-font-weight-small: 400;

@@ -1,12 +1,13 @@
 import React from "react"
-import Link from "gatsby-link"
-import Helmet from "react-helmet"
+import DisplayText from '../components/display-text';
 
 export default class Index extends React.Component {
   render() {
     return (
       <div>
-        <h1>Intellyo's Application Design System</h1>
+        <DisplayText tagName="h1">
+          Intellyo's Application Design System
+        </DisplayText>
         <p>Comming soon.</p>
       </div>
     )

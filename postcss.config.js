@@ -1,9 +1,9 @@
 module.exports = {
   plugins: {
+    'postcss-nesting': {},
     'postcss-import': {},
     'postcss-mixins': {},
     'postcss-for': {},
-    'postcss-nesting': {},
     'autoprefixer': {},
     'postcss-custom-properties': {},
     'postcss-simple-vars': {},

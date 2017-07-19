@@ -39,4 +39,10 @@ Row.defaultProps = {
   style: {}
 };
 
+Row.displayName = 'GridRow';
+
+Row.propTypes = {
+  children: PropTypes.node
+};
+
 export default Row;

@@ -5,6 +5,7 @@ import Col from '../components/col';
 import Card from '../components/card';
 
 export default class Grid extends Component {
+  static displayName = 'GridPage'
   render() {
     return (
       <div>
@@ -14,7 +15,7 @@ export default class Grid extends Component {
         <div className="page-grid">
           <Card>
             {
-              Array.apply(null, Array(12)).map((col, i) => {
+              [...Array(12)].map((col, i) => {
                 const span = 12 / (i + 1);
                 if (!Number.isInteger(span)) {
                   return null;
@@ -22,9 +23,9 @@ export default class Grid extends Component {
                 return (
                   <Row key={ `row-${i}` } gutter={ 15 }>
                     {
-                      Array.apply(null, Array(i + 1)).map((row, j) => {
+                      [...Array(i + 1)].map((row, j) => {
                         return (
-                          <Col span={ span }>
+                          <Col key={ `col-${j}` } span={ span }>
                             <span>
                               { j + 1 }
                             </span>
@@ -33,24 +34,24 @@ export default class Grid extends Component {
                       })
                     }
                   </Row>
-                )
+                );
               })
             }
           </Card>
           <Card>
             <Row gutter={ 15 }>
-              <Col span={ 12 * 3/4 }>
+              <Col span={ 12 * 3 / 4 }>
                 <span>3 / 4</span>
               </Col>
-              <Col span={ 12 * 1/4 }>
+              <Col span={ 12 * 1 / 4 }>
                 <span>1 / 4</span>
               </Col>
             </Row>
             <Row gutter={ 15 }>
-              <Col span={ 12 * 1/3 }>
+              <Col span={ 12 * 1 / 3 }>
                 <span>1 / 3</span>
               </Col>
-              <Col span={ 12 * 2/3 }>
+              <Col span={ 12 * 2 / 3 }>
                 <span>2 / 3</span>
               </Col>
             </Row>

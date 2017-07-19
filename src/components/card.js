@@ -1,6 +1,7 @@
 import React from 'react';
 import DisplayText from './display-text';
 import Caption from './caption';
+import PropTypes from 'prop-types';
 
 const Card = (props) => (
   <div className="card">
@@ -30,5 +31,14 @@ const Card = (props) => (
     }
   </div>
 );
+
+Card.displayName = 'Card';
+
+Card.propTypes = {
+  title: PropTypes.string,
+  titleCaption: PropTypes.string,
+  children: PropTypes.node,
+  footer: PropTypes.node
+};
 
 export default Card;

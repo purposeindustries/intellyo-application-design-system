@@ -8,8 +8,12 @@ const Col = (props) => (
   </div>
 );
 
+Col.displayName = 'GridCol';
+
 Col.propTypes = {
-  span: PropTypes.number
+  span: PropTypes.number,
+  style: PropTypes.object,
+  children: PropTypes.node
 };
 
 Col.defaultProps = {

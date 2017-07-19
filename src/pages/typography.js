@@ -7,6 +7,7 @@ import Row from '../components/row';
 import Col from '../components/col';
 
 export default class Typography extends Component {
+  static displayName = 'TypographyPage'
   render() {
     return (
       <div className="page-typography">

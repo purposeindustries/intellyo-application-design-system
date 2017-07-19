@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './logo';
+import PropTypes from 'prop-types';
 
 const SidebarItem = (props) => (
   <li className="sidebar-item">
@@ -8,6 +9,13 @@ const SidebarItem = (props) => (
     </a>
   </li>
 );
+
+SidebarItem.displayName = 'SidebarItem';
+
+SidebarItem.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string
+};
 
 const Sidebar = (props) => (
   <aside className="sidebar">
@@ -21,6 +29,12 @@ const Sidebar = (props) => (
     </nav>
   </aside>
 );
+
+Sidebar.displayName = 'Sidebar';
+
+Sidebar.propTypes = {
+  children: PropTypes.node
+};
 
 export { SidebarItem };
 

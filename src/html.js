@@ -1,23 +1,26 @@
-import React from "react"
-import PropTypes from "prop-types"
-
-const BUILD_TIME = new Date().getTime()
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class HTML extends React.Component {
+  static displayName = 'HTML'
   static propTypes = {
     body: PropTypes.string,
+    headComponents: PropTypes.node,
+    postBodyComponents: PropTypes.node
   }
 
   render() {
-    let css
-    if (process.env.NODE_ENV === "production") {
+    let css;
+    // eslint-disable-next-line no-process-env
+    if (process.env.NODE_ENV === 'production') {
       css = (
         <style
-          dangerouslySetInnerHTML={{
-            __html: require("!raw!../public/styles.css"),
-          }}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={ {
+            __html: require('!raw!../public/styles.css'),
+          } }
         />
-      )
+      );
     }
 
     return (
@@ -35,11 +38,12 @@ export default class HTML extends React.Component {
         <body>
           <div
             id="___gatsby"
-            dangerouslySetInnerHTML={{ __html: this.props.body }}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={ { __html: this.props.body } }
           />
           {this.props.postBodyComponents}
         </body>
       </html>
-    )
+    );
   }
 }

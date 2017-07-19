@@ -9,7 +9,7 @@ export default class Grid extends Component {
     return (
       <div>
         <DisplayText tagName="h1">
-          Grid
+          Grid System
         </DisplayText>
         <div className="page-grid">
           <Card>

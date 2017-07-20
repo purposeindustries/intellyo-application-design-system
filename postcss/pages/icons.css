@@ -4,9 +4,11 @@
     float: left;
     text-align: center;
     white-space: nowrap;
+    width: 200px;
   }
 
   & .card-footer {
-    font-size: 12px;
+    font-size: 10px;
+    line-height: calc(10px * 1.5);
   }
 }

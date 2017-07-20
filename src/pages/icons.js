@@ -23,6 +23,7 @@ export default class Icons extends Component {
                   >
                     <Icon
                       icon={ icon.tags[0] }
+                      fontSize="30px"
                     />
                   </Card>
                 );

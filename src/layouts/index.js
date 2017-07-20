@@ -30,6 +30,9 @@ export default class Template extends React.Component {
           <SidebarItem href="/colors">
             Colors
           </SidebarItem>
+          <SidebarItem href="/icons">
+            Icons
+          </SidebarItem>
         </Sidebar>
         <div className="content">
           { this.props.children() }

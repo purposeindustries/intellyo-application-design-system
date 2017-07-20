@@ -356,3 +356,15 @@ section ul{
     margin: 0 0 15px;
   }
 }
+.icons-page {
+  & .card {
+    margin: 0 15px 15px 0;
+    float: left;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  & .card-footer {
+    font-size: 12px;
+  }
+}

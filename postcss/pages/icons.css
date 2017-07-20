@@ -1,0 +1,12 @@
+.icons-page {
+  & .card {
+    margin: 0 $gutter-base $gutter-base 0;
+    float: left;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  & .card-footer {
+    font-size: 12px;
+  }
+}

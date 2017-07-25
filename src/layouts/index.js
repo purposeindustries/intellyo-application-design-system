@@ -30,6 +30,16 @@ export default class Template extends React.Component {
           <SidebarItem href="/colors">
             Colors
           </SidebarItem>
+          <SidebarItem
+            expandable={ true }
+            items={ ([
+              <SidebarItem key="sidebar-item-buttons" href="/buttons">
+                Buttons
+              </SidebarItem>
+            ]) }
+          >
+            Components
+          </SidebarItem>
           <SidebarItem href="/icons">
             Icons
           </SidebarItem>

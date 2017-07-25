@@ -10,14 +10,14 @@
   align-items: center;
   padding: $gutter-base 0;
 
-  & ul {
+  & nav {
+    width: 100%;
+  }
+
+  &> nav > ul {
     list-style: none;
     margin: 0;
     padding: 50px 0 0;
-  }
-
-  & nav {
-    width: 100%;
   }
 }
 
@@ -25,6 +25,7 @@
   color: #fff;
   border-bottom: 1px solid $color-black-3;
   padding: $gutter-base;
+  cursor: pointer;
 
   &:last-child {
     border: none;
@@ -35,9 +36,56 @@
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    display: flex;
 
     &:hover {
       color: $color-primary-3;
+    }
+  }
+
+  & .icon-arrow {
+    fill: #fff;
+    margin-left: 25px;
+    display: none;
+  }
+
+  & .icon-arrow-right {
+    display: block;
+  }
+
+  &> ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+
+    &> .sidebar-item {
+      padding: 7px 20px;
+      border: 0;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      & a {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &.sidebar-item--expanded {
+    &> ul {
+      max-height: 1000px;
+      padding: 10px 0;
+    }
+
+    & .icon-arrow-right {
+      display: none;
+    }
+
+    & .icon-arrow-down {
+      display: block;
     }
   }
 }

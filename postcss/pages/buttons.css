@@ -1,0 +1,5 @@
+.buttons-page {
+  & .button {
+    margin-bottom: $gutter-base;
+  }
+}

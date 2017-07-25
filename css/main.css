@@ -142,14 +142,14 @@ section ul{
           align-items: center;
   padding: 15px 0;
 
-  & ul {
+  & nav {
+    width: 100%;
+  }
+
+  &> nav > ul {
     list-style: none;
     margin: 0;
     padding: 50px 0 0;
-  }
-
-  & nav {
-    width: 100%;
   }
 }
 
@@ -157,6 +157,7 @@ section ul{
   color: #fff;
   border-bottom: 1px solid #6E6E6E;
   padding: 15px;
+  cursor: pointer;
 
   &:last-child {
     border: none;
@@ -167,9 +168,59 @@ section ul{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
 
     &:hover {
       color: #3ECED2;
+    }
+  }
+
+  & .icon-arrow {
+    fill: #fff;
+    margin-left: 25px;
+    display: none;
+  }
+
+  & .icon-arrow-right {
+    display: block;
+  }
+
+  &> ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+
+    &> .sidebar-item {
+      padding: 7px 20px;
+      border: 0;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      & a {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  &.sidebar-item--expanded {
+    &> ul {
+      max-height: 1000px;
+      padding: 10px 0;
+    }
+
+    & .icon-arrow-right {
+      display: none;
+    }
+
+    & .icon-arrow-down {
+      display: block;
     }
   }
 }
@@ -261,6 +312,116 @@ section ul{
 .col-12 {
   width: 100%;
 }
+.button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 30px;
+  height: 30px;
+  padding: 0px 7.5px;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  background: #3ECED2;
+  outline: none;
+  border: 1px solid transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button:hover {
+  background: #01BFC4;
+}
+
+.button:active {
+  background: #019DA1;
+}
+
+.button-icon-wrapper {
+  line-height: normal;
+  & svg {
+    fill: #fff;
+    display: block;
+  }
+}
+
+.button-icon-wrapper + .button-content {
+  margin-left: 5px;
+}
+
+.button--danger {
+  background: #F2486A;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: #fff;
+    }
+  }
+}
+
+.button--danger:hover {
+  background: #EE0E3B;
+}
+
+.button--danger:active {
+  background: #D10C40;
+}
+
+.button--neutral {
+  background: #fff;
+  border-color: #6E6E6E;
+  color: #404040;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: #404040;
+    }
+  }
+}
+
+.button--neutral:hover {
+  background: #fff;
+  border-color: #01BFC4;
+  color: #01BFC4;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: #01BFC4;
+    }
+  }
+}
+
+.button--neutral:active {
+  background: #fff;
+  border-color: #019DA1;
+  color: #019DA1;
+}
+
+.button--small {
+  height: 25px;
+  line-height: 25px;
+  font-size: 10px;
+  padding: 0 6.5px;
+  font-weight: 600;
+}
+
+.button--large {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  padding: 0 10px;
+  font-weight: 600;
+}
 
 .page-typography {
 
@@ -282,14 +443,14 @@ section ul{
 
   & .button-text-style {
     font-size: 12px;
-    line-height: calc(12px * 1.5);
+    line-height: 30px;
     font-weight: 600;
   }
 
   & .button-small-text-style {
     font-size: 10px;
-    line-height: calc(10px * 1.5);
-    font-weight: 400;
+    line-height: 25px;
+    font-weight: 600;
   }
 
   & .row {
@@ -368,5 +529,10 @@ section ul{
   & .card-footer {
     font-size: 10px;
     line-height: calc(10px * 1.5);
+  }
+}
+.buttons-page {
+  & .button {
+    margin-bottom: 15px;
   }
 }

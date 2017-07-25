@@ -54,7 +54,43 @@
   $button-font-size: 12px;
   $button-line-height: calc($button-font-size * $line-height-multiplier-base);
   $button-font-weight: 600;
+  $button-horizontal-padding: 7.5px;
+  $button-height: 30px;
+  $button-line-height: 30px;
 
   $button-font-size-small: 10px;
-  $button-line-height-small: calc($button-font-size-small * $line-height-multiplier-base);
-  $button-font-weight-small: 400;
+  $button-font-weight-small: 600;
+  $button-horizontal-padding-small: 6.5px;
+  $button-height-small: 25px;
+  $button-line-height-small: 25px;
+
+  $button-font-size-large: 14px;
+  $button-font-weight-large: 600;
+  $button-horizontal-padding-large: 10px;
+  $button-height-large: 40px;
+  $button-line-height-large: 40px;
+
+  $button-color-primary: #fff;
+  $button-background-color-primary: $color-primary-3;
+  $button-background-color-primary-hover: $color-primary-4;
+  $button-background-color-primary-active: $color-primary-5;
+
+  $button-icon-fill-primary: #fff;
+
+  $button-color-danger: #fff;
+  $button-background-color-danger: $color-danger-3;
+  $button-background-color-danger-hover: $color-danger-4;
+  $button-background-color-danger-active: $color-danger-5;
+
+  $button-icon-fill-danger: #fff;
+
+  $button-color-neutral: $color-black-4;
+  $button-color-neutral-hover: $color-primary-4;
+  $button-color-neutral-active: $color-primary-5;
+  $button-background-color-neutral: #fff;
+  $button-border-color-neutral: $color-black-3;
+  $button-border-color-neutral-hover: $color-primary-4;
+  $button-border-color-neutral-active: $color-primary-5;
+
+  $button-icon-fill-neutral: $color-black-4;
+  $button-icon-fill-neutral-hover: $color-primary-4;

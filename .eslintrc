@@ -8,5 +8,8 @@
     "browser": true,
     "node": true,
     "es6"
+  },
+  "rules": {
+    "react/jsx-boolean-value": 0
   }
 }

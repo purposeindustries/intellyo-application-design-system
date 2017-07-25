@@ -1,0 +1,103 @@
+.button {
+  appearance: none;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: $button-line-height;
+  height: $button-height;
+  padding: 0px $button-horizontal-padding;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 5px;
+  color: $button-color-primary;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  background: $button-background-color-primary;
+  outline: none;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+}
+
+.button:hover {
+  background: $button-background-color-primary-hover;
+}
+
+.button:active {
+  background: $button-background-color-primary-active;
+}
+
+.button-icon-wrapper {
+  line-height: normal;
+  & svg {
+    fill: $button-icon-fill-primary;
+    display: block;
+  }
+}
+
+.button-icon-wrapper + .button-content {
+  margin-left: 5px;
+}
+
+.button--danger {
+  background: $button-background-color-danger;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: $button-icon-fill-danger;
+    }
+  }
+}
+
+.button--danger:hover {
+  background: $button-background-color-danger-hover;
+}
+
+.button--danger:active {
+  background: $button-background-color-danger-active;
+}
+
+.button--neutral {
+  background: $button-background-color-neutral;
+  border-color: $button-border-color-neutral;
+  color: $button-color-neutral;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: $button-icon-fill-neutral;
+    }
+  }
+}
+
+.button--neutral:hover {
+  background: $button-background-color-neutral;
+  border-color: $button-border-color-neutral-hover;
+  color: $button-color-neutral-hover;
+
+  & .button-icon-wrapper {
+    & svg {
+      fill: $button-icon-fill-neutral-hover;
+    }
+  }
+}
+
+.button--neutral:active {
+  background: $button-background-color-neutral;
+  border-color: $button-border-color-neutral-active;
+  color: $button-color-neutral-active;
+}
+
+.button--small {
+  height: $button-height-small;
+  line-height: $button-line-height-small;
+  font-size: $button-font-size-small;
+  padding: 0 $button-horizontal-padding-small;
+  font-weight: $button-font-weight-small;
+}
+
+.button--large {
+  height: $button-height-large;
+  line-height: $button-line-height-large;
+  font-size: $button-font-size-large;
+  padding: 0 $button-horizontal-padding-large;
+  font-weight: $button-font-weight-large;
+}

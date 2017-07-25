@@ -174,7 +174,7 @@ section ul{
     display: flex;
 
     &:hover {
-      color: #3ECED2;
+      color: #0F65D9;
     }
   }
 
@@ -327,7 +327,7 @@ section ul{
   color: #fff;
   font-size: 12px;
   font-weight: 600;
-  background: #3ECED2;
+  background: #0F65D9;
   outline: none;
   border: 1px solid transparent;
   display: -webkit-box;
@@ -340,11 +340,11 @@ section ul{
 }
 
 .button:hover {
-  background: #01BFC4;
+  background: #0053D2;
 }
 
 .button:active {
-  background: #019DA1;
+  background: #00398C;
 }
 
 .button-icon-wrapper {
@@ -391,20 +391,20 @@ section ul{
 
 .button--neutral:hover {
   background: #fff;
-  border-color: #01BFC4;
-  color: #01BFC4;
+  border-color: #0053D2;
+  color: #0053D2;
 
   & .button-icon-wrapper {
     & svg {
-      fill: #01BFC4;
+      fill: #0053D2;
     }
   }
 }
 
 .button--neutral:active {
   background: #fff;
-  border-color: #019DA1;
-  color: #019DA1;
+  border-color: #00398C;
+  color: #00398C;
 }
 
 .button--small {

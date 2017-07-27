@@ -1,0 +1,63 @@
+.input-wrapper {
+
+  & .input {
+    background: $input-background-color;
+    border: 1px solid $input-border-color;
+    min-width: $input-width;
+    min-height: $input-height;
+    border-radius: $input-border-radius;
+    padding: $input-padding;
+    color: $input-color;
+    outline: none;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+
+    &::placeholder {
+      color: $input-placeholder-color;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: $input-border-color--focus-and-hover;
+    }
+
+    &--error {
+      border-color: $input-border-color--error;
+      color: $input-color--error;
+
+      &::placeholder {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: inherit;
+      }
+
+    }
+
+    &--disabled {
+      background-color: $input-background-color--disabled;
+      pointer-events: none;
+
+      &::placeholder {
+        border-color: inherit;
+      }
+
+      &:focus,
+      &:hover {
+        color: inherit;
+      }
+
+    }
+
+  }
+
+  & .input-error-message {
+    display: block;
+    color: $input-color--error;
+    font-size: $input-error-message-font-size;
+    margin: 2.5px 0 0 0;
+  }
+
+}

@@ -83,4 +83,11 @@
     fill: $input-icon-fill--focus;
   }
 
+  & .input-label {
+    display: block;
+    margin: 0 0 5px;
+    font-size: $input-label-font-size;
+    font-family: $input-label-font-family;
+  }
+
 }

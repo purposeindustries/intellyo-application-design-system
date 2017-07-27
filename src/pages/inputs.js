@@ -30,8 +30,15 @@ export default class Buttons extends Component {
                   placeholder="Disabled"
                 />
                 <Input
-                  placeholder="Input field with an icon"
+                  placeholder="Input with an icon"
                   icon={ (<Icon icon="ion-search" />) }
+                />
+                <Input
+                  placeholder="example@gmail.com"
+                  label="Email:"
+                  id="email"
+                  type="email"
+                  required
                 />
               </Col>
               <Col span={ 3 }>

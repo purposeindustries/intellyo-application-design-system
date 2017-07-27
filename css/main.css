@@ -32,6 +32,8 @@
   /* Disabled */
 
   /* Input with an icon */
+
+  /* Input label */
 *,
 *:before,
 *:after {
@@ -538,6 +540,13 @@ section ul{
 
   & .input--icon:focus + .input-icon-wrapper svg {
     fill: #0F65D9;
+  }
+
+  & .input-label {
+    display: block;
+    margin: 0 0 5px;
+    font-size: 14px;
+    font-family: 'Open Sans';
   }
 
 }

@@ -126,3 +126,8 @@
   $input-padding--icon: 10px 8px 10px 35px;
   $input-icon-fill: $color-black-2;
   $input-icon-fill--focus: $color-primary-3;
+
+  /* Input label */
+
+  $input-label-font-size: $font-size-base;
+  $input-label-font-family: $font-family-base;

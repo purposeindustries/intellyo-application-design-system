@@ -4,6 +4,11 @@ import classNames from 'classnames';
 
 const Input = (props) => (
   <div className="input-wrapper">
+    {
+      props.label && (
+        <label className="input-label">{ props.label }</label>
+      )
+    }
     <input
       className={
         classNames('input', {
@@ -16,6 +21,7 @@ const Input = (props) => (
       placeholder={ props.placeholder }
       required={ props.required }
       type={ props.type }
+      id={ props.id }
     />
     {
       props.icon && (
@@ -41,13 +47,15 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  id: PropTypes.string,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   icon: PropTypes.node,
   type: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  label: PropTypes.string
 };
 
 Input.displayName = 'Input';

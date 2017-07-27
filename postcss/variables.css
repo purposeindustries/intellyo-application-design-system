@@ -1,6 +1,7 @@
 /* Basic layout settings */
   $gutter-base: 15px;
   $box-shadow-base: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+  $border-radius-base: 4px;
 
 /* Basic typography */
 
@@ -8,7 +9,6 @@
   $font-size-base: 14px;
   $line-height-multiplier-base: 1.5;
   $line-height-base: calc($font-size-base * $line-height-multiplier-base);
-
 
 /* Display text */
 

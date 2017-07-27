@@ -8,7 +8,8 @@ const Input = (props) => (
       className={
         classNames('input', {
           'input--error': props.error,
-          'input--disabled': props.disabled
+          'input--disabled': props.disabled,
+          'input--icon': props.icon
         })
       }
       disabled={ props.disabled }

@@ -4,7 +4,7 @@ import Input from '../components/input';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-// import Icon from '../components/icon';
+import Icon from '../components/icon';
 
 export default class Buttons extends Component {
   displayName = 'InputsPage'
@@ -28,6 +28,10 @@ export default class Buttons extends Component {
                 <Input
                   disabled
                   placeholder="Disabled"
+                />
+                <Input
+                  placeholder="Input field with an icon"
+                  icon={ (<Icon icon="ion-search" />) }
                 />
               </Col>
               <Col span={ 3 }>

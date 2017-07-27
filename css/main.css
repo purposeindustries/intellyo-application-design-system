@@ -30,6 +30,8 @@
   /* Error */
 
   /* Disabled */
+
+  /* Input with an icon */
 *,
 *:before,
 *:after {
@@ -429,6 +431,7 @@ section ul{
   font-weight: 600;
 }
 .input-wrapper {
+  position: relative;
 
   & .input {
     background: #fff;
@@ -505,6 +508,10 @@ section ul{
 
     }
 
+    &--icon {
+      padding: 10px 8px 10px 35px;
+    }
+
   }
 
   & .input-error-message {
@@ -512,6 +519,25 @@ section ul{
     color: #EE0E3B;
     font-size: 12px;
     margin: 2.5px 0 0 0;
+  }
+
+  & .input-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+    & svg {
+      fill: #989898;
+    }
+
+  }
+
+  & .input--icon:focus + .input-icon-wrapper svg {
+    fill: #0F65D9;
   }
 
 }

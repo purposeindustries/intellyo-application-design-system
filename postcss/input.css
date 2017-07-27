@@ -1,4 +1,5 @@
 .input-wrapper {
+  position: relative;
 
   & .input {
     background: $input-background-color;
@@ -51,6 +52,10 @@
 
     }
 
+    &--icon {
+      padding: $input-padding--icon;
+    }
+
   }
 
   & .input-error-message {
@@ -58,6 +63,24 @@
     color: $input-color--error;
     font-size: $input-error-message-font-size;
     margin: 2.5px 0 0 0;
+  }
+
+  & .input-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    & svg {
+      fill: $input-icon-fill;
+    }
+
+  }
+
+  & .input--icon:focus + .input-icon-wrapper svg {
+    fill: $input-icon-fill--focus;
   }
 
 }

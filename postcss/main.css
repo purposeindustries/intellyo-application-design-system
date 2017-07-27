@@ -32,6 +32,7 @@ section {
 @import './card.css';
 @import './grid.css';
 @import './button.css';
+@import './tagsinput.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

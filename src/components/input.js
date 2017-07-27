@@ -14,6 +14,7 @@ const Input = (props) => (
       disabled={ props.disabled }
       placeholder={ props.placeholder }
       required={ props.required }
+      type={ props.type }
     />
     {
       props.icon && (

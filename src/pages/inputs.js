@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
-import Button from '../components/button';
+import Input from '../components/input';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -16,7 +16,7 @@ export default class Buttons extends Component {
           <Card>
             <Row>
               <Col span={ 3 }>
-                Hello
+                <Input danger={ true } placeholder="Danger" icon={ (<Icon icon="ion-close-circled" />) } />
               </Col>
               <Col span={ 3 }>
                 there

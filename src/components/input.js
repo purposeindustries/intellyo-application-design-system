@@ -7,12 +7,13 @@ const Input = (props) => (
     <input
       className={
         classNames('input', {
-          'input--danger': props.danger,
-          'input--neutral': props.neutral,
+          'input--error': props.error,
           'input--disabled': props.disabled
         })
       }
+      disabled={ props.disabled }
       placeholder={ props.placeholder }
+      required={ props.required }
     />
     {
       props.icon && (
@@ -21,15 +22,30 @@ const Input = (props) => (
         </span>
       )
     }
+    {
+      props.error && props.errorMessage && (
+        <span className="input-error-message">
+          { props.errorMessage }
+        </span>
+      )
+    }
   </div>
 );
 
+Input.defaultProps = {
+  type: 'text',
+  required: false,
+  disabled: false
+};
+
 Input.propTypes = {
-  danger: PropTypes.boolean,
-  neutral: PropTypes.boolean,
-  disabled: PropTypes.boolean,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  disabled: PropTypes.bool,
   placeholder: PropTypes.string,
-  icon: PropTypes.node
+  icon: PropTypes.node,
+  type: PropTypes.string,
+  required: PropTypes.bool
 };
 
 Input.displayName = 'Input';

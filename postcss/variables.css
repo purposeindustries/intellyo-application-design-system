@@ -1,6 +1,7 @@
 /* Basic layout settings */
   $gutter-base: 15px;
   $box-shadow-base: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+  $border-radius-base: 4px;
 
 /* Basic typography */
 
@@ -94,3 +95,28 @@
 
   $button-icon-fill-neutral: $color-black-4;
   $button-icon-fill-neutral-hover: $color-primary-4;
+
+/* Input */
+
+  $input-border-color: $color-black-2;
+  $input-border-radius: 4px;
+  $input-border-color--focus-and-hover: $color-primary-3;
+  $input-placeholder-color: $color-black-1;
+  $input-color: #000;
+  $input-background-color: #fff;
+
+  $input-width: 200px;
+  $input-height: 35px;
+  $input-padding: 10px 8px;
+  $input-font-family: $font-family-base;
+  $input-font-size: $font-size-base;
+
+  /* Error */
+
+  $input-border-color--error: $color-danger-4;
+  $input-color--error: $color-danger-4;
+  $input-error-message-font-size: $caption-font-size;
+
+  /* Disabled */
+
+  $input-background-color--disabled: $color-grey-3;

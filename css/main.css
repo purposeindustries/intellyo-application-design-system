@@ -24,6 +24,12 @@
 /* Caption */
 
 /* Button */
+
+/* Input */
+
+  /* Error */
+
+  /* Disabled */
 *,
 *:before,
 *:after {
@@ -422,6 +428,93 @@ section ul{
   padding: 0 10px;
   font-weight: 600;
 }
+.input-wrapper {
+
+  & .input {
+    background: #fff;
+    border: 1px solid #989898;
+    min-width: 200px;
+    min-height: 35px;
+    border-radius: 4px;
+    padding: 10px 8px;
+    color: #000;
+    outline: none;
+    font-family: 'Open Sans';
+    font-size: 14px;
+
+    &::-webkit-input-placeholder {
+      color: #BDBDBD;
+    }
+
+    &:-ms-input-placeholder {
+      color: #BDBDBD;
+    }
+
+    &::placeholder {
+      color: #BDBDBD;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: #0F65D9;
+    }
+
+    &--error {
+      border-color: #EE0E3B;
+      color: #EE0E3B;
+
+      &::-webkit-input-placeholder {
+        color: inherit;
+      }
+
+      &:-ms-input-placeholder {
+        color: inherit;
+      }
+
+      &::placeholder {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: inherit;
+      }
+
+    }
+
+    &--disabled {
+      background-color: #DCDCDC;
+      pointer-events: none;
+
+      &::-webkit-input-placeholder {
+        border-color: inherit;
+      }
+
+      &:-ms-input-placeholder {
+        border-color: inherit;
+      }
+
+      &::placeholder {
+        border-color: inherit;
+      }
+
+      &:focus,
+      &:hover {
+        color: inherit;
+      }
+
+    }
+
+  }
+
+  & .input-error-message {
+    display: block;
+    color: #EE0E3B;
+    font-size: 12px;
+    margin: 2.5px 0 0 0;
+  }
+
+}
 
 .page-typography {
 
@@ -533,6 +626,11 @@ section ul{
 }
 .buttons-page {
   & .button {
+    margin-bottom: 15px;
+  }
+}
+.inputs-page {
+  & .input-wrapper {
     margin-bottom: 15px;
   }
 }

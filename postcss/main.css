@@ -32,9 +32,11 @@ section {
 @import './card.css';
 @import './grid.css';
 @import './button.css';
+@import './input.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
 @import './pages/colors.css';
 @import './pages/icons.css';
 @import './pages/buttons.css';
+@import './pages/inputs.css';

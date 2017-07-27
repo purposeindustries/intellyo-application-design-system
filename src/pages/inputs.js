@@ -4,10 +4,10 @@ import Input from '../components/input';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-import Icon from '../components/icon';
+// import Icon from '../components/icon';
 
 export default class Buttons extends Component {
-  displayName = 'ButtonsPage'
+  displayName = 'InputsPage'
   render() {
     return (
       <div>
@@ -16,7 +16,19 @@ export default class Buttons extends Component {
           <Card>
             <Row>
               <Col span={ 3 }>
-                <Input danger={ true } placeholder="Danger" icon={ (<Icon icon="ion-close-circled" />) } />
+                <Input
+                  placeholder="Basic"
+                />
+                <Input
+                  error
+                  placeholder="Error"
+                  required
+                  errorMessage="This field is required."
+                />
+                <Input
+                  disabled
+                  placeholder="Disabled"
+                />
               </Col>
               <Col span={ 3 }>
                 there

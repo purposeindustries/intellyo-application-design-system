@@ -34,6 +34,7 @@ section {
 @import './button.css';
 @import './input.css';
 @import './tagsinput.css';
+@import './select.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

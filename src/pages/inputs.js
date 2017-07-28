@@ -6,7 +6,7 @@ import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
 
-export default class Buttons extends Component {
+export default class Inputs extends Component {
   displayName = 'InputsPage'
   render() {
     return (

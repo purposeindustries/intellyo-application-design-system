@@ -54,9 +54,9 @@
   $button-font-size: 12px;
   $button-line-height: calc($button-font-size * $line-height-multiplier-base);
   $button-font-weight: 600;
-  $button-horizontal-padding: 7.5px;
-  $button-height: 30px;
-  $button-line-height: 30px;
+  $button-horizontal-padding: 10px;
+  $button-height: 35px;
+  $button-line-height: 35px;
 
   $button-font-size-small: 10px;
   $button-font-weight-small: 600;

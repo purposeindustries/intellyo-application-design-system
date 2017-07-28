@@ -327,9 +327,9 @@ section ul{
           appearance: none;
   cursor: pointer;
   white-space: nowrap;
-  line-height: 30px;
-  height: 30px;
-  padding: 0px 7.5px;
+  line-height: 35px;
+  height: 35px;
+  padding: 0px 10px;
   vertical-align: middle;
   border: 0;
   border-radius: 5px;
@@ -346,6 +346,7 @@ section ul{
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  box-sizing: content-box;
 }
 
 .button:hover {
@@ -642,7 +643,7 @@ section ul{
 
   & .button-text-style {
     font-size: 12px;
-    line-height: 30px;
+    line-height: 35px;
     font-weight: 600;
   }
 

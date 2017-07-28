@@ -50,7 +50,9 @@ Input.defaultProps = {
 Input.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
-  error: PropTypes.object,
+  error: PropTypes.shape({
+    message: PropTypes.string.isRequired
+  }),
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   icon: PropTypes.node,

@@ -20,11 +20,7 @@ export default class Inputs extends Component {
                   placeholder="Basic"
                 />
                 <Input
-                  error={
-                  {
-                    hasError: true,
-                    message: 'This field is required.'
-                  } }
+                  error={ {message: 'This field is required.'} }
                   placeholder="Error"
                   required
                 />

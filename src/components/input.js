@@ -48,6 +48,7 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.string,
   error: PropTypes.object,
   disabled: PropTypes.bool,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
+import Select from '../components/select';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -41,7 +42,12 @@ export default class Inputs extends Component {
                 />
               </Col>
               <Col span={ 3 }>
-                there
+                <Select>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </Select>
               </Col>
               <Col span={ 3 }>
                 World!

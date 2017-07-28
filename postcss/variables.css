@@ -94,3 +94,39 @@
 
   $button-icon-fill-neutral: $color-black-4;
   $button-icon-fill-neutral-hover: $color-primary-4;
+
+/* Input */
+
+  $input-border-color: $color-black-2;
+  $input-border-radius: $border-radius-base;
+  $input-border-color--focus-and-hover: $color-primary-3;
+  $input-placeholder-color: $color-black-1;
+  $input-color: #000;
+  $input-background-color: #fff;
+
+  $input-min-width: 200px;
+  $input-min-height: 35px;
+  $input-padding: 10px 8px;
+  $input-font-family: $font-family-base;
+  $input-font-size: $font-size-base;
+
+  /* Error */
+
+  $input-border-color--error: $color-danger-4;
+  $input-color--error: $color-danger-4;
+  $input-error-message-font-size: $caption-font-size;
+
+  /* Disabled */
+
+  $input-background-color--disabled: $color-grey-3;
+
+  /* Input with an icon */
+
+  $input-padding--icon: 10px 8px 10px 35px;
+  $input-icon-fill: $color-black-2;
+  $input-icon-fill--focus: $color-primary-3;
+
+  /* Input label */
+
+  $input-label-font-size: $font-size-base;
+  $input-label-font-family: $font-family-base;

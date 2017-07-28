@@ -23,6 +23,16 @@
 /* Caption */
 
 /* Button */
+
+/* Input */
+
+  /* Error */
+
+  /* Disabled */
+
+  /* Input with an icon */
+
+  /* Input label */
 *,
 *:before,
 *:after {
@@ -421,6 +431,125 @@ section ul{
   padding: 0 10px;
   font-weight: 600;
 }
+.input {
+  position: relative;
+
+  & input {
+    background: #fff;
+    border: 1px solid #989898;
+    min-width: 200px;
+    min-height: 35px;
+    border-radius: 4px;
+    padding: 10px 8px;
+    color: #000;
+    outline: none;
+    font-family: 'Open Sans';
+    font-size: 14px;
+
+    &::-webkit-input-placeholder {
+      color: #BDBDBD;
+    }
+
+    &:-ms-input-placeholder {
+      color: #BDBDBD;
+    }
+
+    &::placeholder {
+      color: #BDBDBD;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: #0F65D9;
+    }
+
+  }
+
+  &--error input {
+    border-color: #EE0E3B;
+    color: #EE0E3B;
+
+    &::-webkit-input-placeholder {
+      color: inherit;
+    }
+
+    &:-ms-input-placeholder {
+      color: inherit;
+    }
+
+    &::placeholder {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+
+  }
+
+  &--disabled input {
+    background-color: #DCDCDC;
+    pointer-events: none;
+
+    &::-webkit-input-placeholder {
+      border-color: inherit;
+    }
+
+    &:-ms-input-placeholder {
+      border-color: inherit;
+    }
+
+    &::placeholder {
+      border-color: inherit;
+    }
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+
+  }
+
+  &--icon input {
+    padding: 10px 8px 10px 35px;
+
+    &:focus + .input-icon-wrapper svg {
+      fill: #0F65D9;
+    }
+
+  }
+
+  & .input-error-message {
+    display: block;
+    color: #EE0E3B;
+    font-size: 12px;
+    margin: 2.5px 0 0 0;
+  }
+
+  & .input-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+    & svg {
+      fill: #989898;
+    }
+
+  }
+
+  & .input-label {
+    display: block;
+    margin: 0 0 5px;
+    font-size: 14px;
+    font-family: 'Open Sans';
+  }
+
+}
 .tagsinput {
   background: #fff;
   border-radius: 4px;
@@ -603,6 +732,11 @@ section ul{
 }
 .buttons-page {
   & .button {
+    margin-bottom: 15px;
+  }
+}
+.inputs-page {
+  & .input {
     margin-bottom: 15px;
   }
 }

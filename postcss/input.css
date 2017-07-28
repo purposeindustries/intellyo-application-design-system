@@ -1,0 +1,94 @@
+.input {
+  position: relative;
+
+  & input {
+    background: $input-background-color;
+    border: 1px solid $input-border-color;
+    min-width: $input-min-width;
+    min-height: $input-min-height;
+    border-radius: $input-border-radius;
+    padding: $input-padding;
+    color: $input-color;
+    outline: none;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+
+    &::placeholder {
+      color: $input-placeholder-color;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: $input-border-color--focus-and-hover;
+    }
+
+  }
+
+  &--error input {
+    border-color: $input-border-color--error;
+    color: $input-color--error;
+
+    &::placeholder {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+
+  }
+
+  &--disabled input {
+    background-color: $input-background-color--disabled;
+    pointer-events: none;
+
+    &::placeholder {
+      border-color: inherit;
+    }
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+
+  }
+
+  &--icon input {
+    padding: $input-padding--icon;
+
+    &:focus + .input-icon-wrapper svg {
+      fill: $input-icon-fill--focus;
+    }
+
+  }
+
+  & .input-error-message {
+    display: block;
+    color: $input-color--error;
+    font-size: $input-error-message-font-size;
+    margin: 2.5px 0 0 0;
+  }
+
+  & .input-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    & svg {
+      fill: $input-icon-fill;
+    }
+
+  }
+
+  & .input-label {
+    display: block;
+    margin: 0 0 5px;
+    font-size: $input-label-font-size;
+    font-family: $input-label-font-family;
+  }
+
+}

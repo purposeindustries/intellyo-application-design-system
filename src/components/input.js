@@ -32,9 +32,9 @@ const Input = (props) => (
       )
     }
     {
-      props.error && props.errorMessage && (
+      props.error && (
         <span className="input-error-message">
-          { props.errorMessage }
+          { props.error.message }
         </span>
       )
     }
@@ -49,8 +49,7 @@ Input.defaultProps = {
 
 Input.propTypes = {
   id: PropTypes.string,
-  error: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  error: PropTypes.object,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   icon: PropTypes.node,

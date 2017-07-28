@@ -20,10 +20,13 @@ export default class Buttons extends Component {
                   placeholder="Basic"
                 />
                 <Input
-                  error
+                  error={
+                  {
+                    hasError: true,
+                    message: 'This field is required.'
+                  } }
                   placeholder="Error"
                   required
-                  errorMessage="This field is required."
                 />
                 <Input
                   disabled

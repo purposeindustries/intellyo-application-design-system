@@ -432,10 +432,10 @@ section ul{
   padding: 0 10px;
   font-weight: 600;
 }
-.input-wrapper {
+.input {
   position: relative;
 
-  & .input {
+  & input {
     background: #fff;
     border: 1px solid #989898;
     min-width: 200px;
@@ -464,54 +464,59 @@ section ul{
       border-color: #0F65D9;
     }
 
-    &--error {
-      border-color: #EE0E3B;
-      color: #EE0E3B;
+  }
 
-      &::-webkit-input-placeholder {
-        color: inherit;
-      }
+  &--error input {
+    border-color: #EE0E3B;
+    color: #EE0E3B;
 
-      &:-ms-input-placeholder {
-        color: inherit;
-      }
-
-      &::placeholder {
-        color: inherit;
-      }
-
-      &:hover,
-      &:focus {
-        border-color: inherit;
-      }
-
+    &::-webkit-input-placeholder {
+      color: inherit;
     }
 
-    &--disabled {
-      background-color: #DCDCDC;
-      pointer-events: none;
-
-      &::-webkit-input-placeholder {
-        border-color: inherit;
-      }
-
-      &:-ms-input-placeholder {
-        border-color: inherit;
-      }
-
-      &::placeholder {
-        border-color: inherit;
-      }
-
-      &:focus,
-      &:hover {
-        color: inherit;
-      }
-
+    &:-ms-input-placeholder {
+      color: inherit;
     }
 
-    &--icon {
-      padding: 10px 8px 10px 35px;
+    &::placeholder {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+
+  }
+
+  &--disabled input {
+    background-color: #DCDCDC;
+    pointer-events: none;
+
+    &::-webkit-input-placeholder {
+      border-color: inherit;
+    }
+
+    &:-ms-input-placeholder {
+      border-color: inherit;
+    }
+
+    &::placeholder {
+      border-color: inherit;
+    }
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+
+  }
+
+  &--icon input {
+    padding: 10px 8px 10px 35px;
+
+    &:focus + .input-icon-wrapper svg {
+      fill: #0F65D9;
     }
 
   }
@@ -536,10 +541,6 @@ section ul{
       fill: #989898;
     }
 
-  }
-
-  & .input--icon:focus + .input-icon-wrapper svg {
-    fill: #0F65D9;
   }
 
   & .input-label {
@@ -665,7 +666,7 @@ section ul{
   }
 }
 .inputs-page {
-  & .input-wrapper {
+  & .input {
     margin-bottom: 15px;
   }
 }

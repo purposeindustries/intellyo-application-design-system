@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Input = (props) => (
-  <div className="input-wrapper">
+  <div
+    className={
+      classNames('input', props.className, {
+        'input--error': props.error,
+        'input--disabled': props.disabled,
+        'input--icon': props.icon
+      })
+    }
+  >
     {
       props.label && (
         <label className="input-label">{ props.label }</label>
       )
     }
     <input
-      className={
-        classNames('input', {
-          'input--error': props.error,
-          'input--disabled': props.disabled,
-          'input--icon': props.icon
-        })
-      }
       disabled={ props.disabled }
       placeholder={ props.placeholder }
       required={ props.required }

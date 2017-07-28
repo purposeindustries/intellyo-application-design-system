@@ -7,7 +7,7 @@ import Col from '../components/col';
 import Icon from '../components/icon';
 
 export default class Inputs extends Component {
-  displayName = 'InputsPage'
+  displayName = 'Inputs'
   render() {
     return (
       <div>

@@ -10,7 +10,6 @@
   $line-height-multiplier-base: 1.5;
   $line-height-base: calc($font-size-base * $line-height-multiplier-base);
 
-
 /* Display text */
 
   /* Regular */

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const Button = (props) => (
   <button
     className={
-      classNames('button', {
+      classNames('button', props.className, {
         'button--danger': props.danger,
         'button--neutral': props.neutral,
         'button--disabled': props.disabled,
@@ -53,7 +53,8 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'normal', 'large']),
   children: PropTypes.node,
   icon: PropTypes.node,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  className: PropTypes.string
 };
 
 Button.defaultProps = {

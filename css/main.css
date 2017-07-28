@@ -6,7 +6,6 @@
 
 /* Basic typography */
 
-
 /* Display text */
 
   /* Regular */
@@ -550,6 +549,77 @@ section ul{
     font-family: 'Open Sans';
   }
 
+}
+.tagsinput {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #BDBDBD;
+  padding: 5px 0 0 5px;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.tagsinput-input {
+  display: none;
+}
+
+.tagsinput--input-visible {
+  & .tagsinput-input {
+    display: block;
+  }
+  & .tagsinput-add-tag {
+    display: none;
+  }
+}
+
+.tagsinput-tag {
+  border-radius: 4px;
+  background: #6E6E6E;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  padding: 0 10px;
+  margin: 0 5px 5px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-column-align: center;
+      justify-items: center;
+  font-size: 12px;
+
+  & .icon {
+    display: block;
+    line-height: normal;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+
+    & svg {
+      fill: #D1D1D1;
+      width: 15px;
+      height: 15px;
+
+      &:hover {
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.tagsinput-input-controls {
+  display: inline-block;
+  margin: 0 5px 5px 0;
 }
 
 .page-typography {

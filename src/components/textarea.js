@@ -6,7 +6,8 @@ class Textarea extends Component {
   static displayName = 'Textarea'
 
   static propTypes = {
-    charLimit: PropTypes.number
+    charLimit: PropTypes.number,
+    placeholder: PropTypes.string
   }
 
   constructor(props) {

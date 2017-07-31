@@ -1,5 +1,11 @@
 .inputs-page {
+
   & .input {
     margin-bottom: $gutter-base;
   }
+
+  & .textarea {
+    margin-bottom: $gutter-base;
+  }
+
 }

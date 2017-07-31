@@ -130,3 +130,26 @@
 
   $input-label-font-size: $font-size-base;
   $input-label-font-family: $font-family-base;
+
+/* Textarea */
+
+  $textarea-width: 250px;
+  $textarea-height: 95px;
+  $textarea-padding: 10px;
+
+  $textarea-border-radius: $border-radius-base;
+  $textarea-border-color: $color-black-2;
+
+  $textarea-bg-color: #fff;
+  $textarea-border-color--focus-and-hover: $color-primary-3;
+
+  $textarea-font-family: $font-family-base;
+  $textarea-font-color : $color-black-5;
+  $textarea-font-size: $font-size-base;
+
+  /* charCounter */
+
+  $char-counter-margin: 0 5px 0 auto;
+  $char-counter-font-size: 12px;
+  $char-counter-font-color: $color-black-2;
+  $char-counter-color--over-limit: $color-danger-3;

@@ -1,0 +1,38 @@
+.textarea {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+
+  & textarea {
+    width: $textarea-width;
+    height: $textarea-height;
+    padding: $textarea-padding;
+    border-radius: $textarea-border-radius;
+    border: 1px solid $textarea-border-color;
+    background: $textarea-bg-color;
+    color: $textarea-font-color;
+    font-family: $textarea-font-family;
+    font-size: $textarea-font-size;
+    outline: none;
+    appearance: none;
+    resize: none;
+
+    &:hover,
+    &:focus {
+      border-color: $textarea-border-color--focus-and-hover;
+    }
+
+  }
+
+  & span.char-counter {
+    margin: $char-counter-margin;
+    font-size: $char-counter-font-size;
+    color: $char-counter-font-color;
+
+    &.over-limit {
+      color: $char-counter-color--over-limit;
+    }
+
+  }
+
+}

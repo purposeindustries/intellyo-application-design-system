@@ -28,15 +28,20 @@ class Textarea extends Component {
 
   render() {
     return (
-      <div>
-        <textarea onChange={ this.handleChange } placeholder="Text goes here..." />
-        <span
-          className={ classNames('char-counter', {
-            'over-limit': this.state.charCount < 0
-          }) }
-        >
-          { this.state.charCount }
-        </span>
+      <div className="textarea">
+        <textarea
+          onChange={ this.handleChange }
+          placeholder={ this.props.placeholder }
+        />
+        { this.props.charLimit && (
+          <span
+            className={ classNames('char-counter', {
+              'over-limit': this.state.charCount < 0
+            }) }
+          >
+            { this.state.charCount }
+          </span>
+        ) }
       </div>
     );
   }

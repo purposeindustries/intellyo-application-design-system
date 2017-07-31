@@ -19,11 +19,10 @@ class Textarea extends Component {
   }
 
   handleChange(e) {
-    const lengthOfText = e.target.value.length;
     this.setState({
-      charCount: lengthOfText === 0 ?
+      charCount: e.target.value.length === 0 ?
         this.props.charLimit
-        : this.props.charLimit - lengthOfText
+        : this.props.charLimit - e.target.value.length
     });
   }
 

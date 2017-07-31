@@ -45,7 +45,13 @@ export default class Inputs extends Component {
                 there
               </Col>
               <Col span={ 3 }>
-                <Textarea charLimit={ 12 } />
+                <Textarea
+                  charLimit={ 12 }
+                  placeholder="Text goes here..."
+                />
+                <Textarea
+                  placeholder="Text goes here..."
+                />
               </Col>
             </Row>
           </Card>

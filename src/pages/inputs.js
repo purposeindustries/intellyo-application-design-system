@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
+import Textarea from '../components/textarea';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -44,7 +45,7 @@ export default class Inputs extends Component {
                 there
               </Col>
               <Col span={ 3 }>
-                World!
+                <Textarea charLimit={ 12 } />
               </Col>
             </Row>
           </Card>

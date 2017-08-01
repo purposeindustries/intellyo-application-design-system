@@ -140,3 +140,16 @@
   $avatar-font-color: #fff;
 
   $avatar-bg-color: $color-blue-4;
+
+  /* Avatar name */
+
+  $avatar-name-font-size: $heading-font-size;
+  $avatar-name-line-height: $heading-line-height;
+  $avatar-name-font-weight: $heading-font-weight;
+  $avatar-name-font-color: $color-black-5;
+
+  /* Avatar job & Avatar location */
+
+  $avatar-job-loc-font-size: $caption-font-size;
+  $avatar-job-loc-line-height: $caption-line-height;
+  $avatar-job-loc-font-color: $color-black-2;

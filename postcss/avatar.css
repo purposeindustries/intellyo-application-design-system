@@ -15,4 +15,47 @@
     font-size: $avatar-font-size--medium;
   }
 
+  &--horizontal {
+    display: flex;
+    align-items: center;
+
+    & .avatar-job-position-wrapper,
+    & .avatar-location-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 0 10px;
+
+      & .avatar-name {
+        font-size: $avatar-name-font-size;
+        line-height: $avatar-name-line-height;
+        font-weight: $avatar-name-font-weight;
+        color: $avatar-name-font-color;
+      }
+
+      & .avatar-job-position,
+      & .avatar-location {
+        font-size: $avatar-job-loc-font-size;
+        line-height: $avatar-job-loc-line-height;
+        color: $avatar-job-loc-font-color;
+      }
+
+    }
+
+    & .avatar-location-wrapper .location-wrap {
+      display: flex;
+      align-items: center;
+
+      & .icon {
+        height: 22px;
+
+        & svg {
+          fill: $color-black-2;
+        }
+
+      }
+
+    }
+
+  }
+
 }

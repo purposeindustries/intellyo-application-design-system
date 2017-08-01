@@ -4,7 +4,7 @@ import Avatar from '../components/avatar';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-// import Icon from '../components/icon';
+import StackedAvatar from '../components/stacked-avatar';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
@@ -43,6 +43,30 @@ export default class Avatars extends Component {
                   <Avatar
                     name="Donald Trump"
                     src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  />
+                </div>
+                <div className="avatar-wrapper">
+                  <StackedAvatar
+                    avatars={ [
+                      {
+                        name: 'Donald Trump',
+                        src: 'http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg',
+                      },
+                      {
+                        name: 'Ivanka Trump',
+                        src: 'https://images.britcdn.com/wp-content/uploads/2016/08/Ivanka-Trump-_-a-_-featured.jpg',
+                      },
+                      {
+                        name: 'Melinia Trump',
+                        src: 'https://ae01.alicdn.com/kf/HTB17nUYPpXXXXc8XVXXq6xXFXXX5/Modny-Melania-font-b-Trump-b-font-Celebrity-font-b-Dress-b-font-O-Szyi-Kolano.jpg',
+                      },
+                      {
+                        name: 'Melinia Trump'
+                      },
+                      {
+                        name: 'Melinia Trump'
+                      }
+                    ] }
                   />
                 </div>
               </Col>

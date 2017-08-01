@@ -12,6 +12,7 @@ const Avatar = (props) => {
         'user-avatar--medium': props.size === 'medium',
         'user-avatar--horizontal': props.location || props.jobPosition
       }) }
+      style={ props.style }
     >
       <UserAvatar
         size={ (() => {
@@ -47,6 +48,7 @@ Avatar.displayName = 'Avatar';
 
 Avatar.propTypes = {
   size: PropTypes.string,
+  style: PropTypes.object,
   name: PropTypes.string,
   jobPosition: PropTypes.string,
   location: PropTypes.string,

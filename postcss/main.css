@@ -34,6 +34,7 @@ section {
 @import './button.css';
 @import './input.css';
 @import './tagsinput.css';
+@import './avatar.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -41,3 +42,4 @@ section {
 @import './pages/icons.css';
 @import './pages/buttons.css';
 @import './pages/inputs.css';
+@import './pages/avatars.css';

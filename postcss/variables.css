@@ -130,3 +130,13 @@
 
   $input-label-font-size: $font-size-base;
   $input-label-font-family: $font-family-base;
+
+  /* Avatars */
+
+  $avatar-font-size--default: 24px;
+  $avatar-font-size--small: 12px;
+  $avatar-font-size--medium: 16px;
+  $avatar-font-weight: 700;
+  $avatar-font-color: #fff;
+
+  $avatar-bg-color: $color-blue-4;

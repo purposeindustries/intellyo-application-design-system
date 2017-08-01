@@ -1,0 +1,18 @@
+.user-avatar {
+
+  & .UserAvatar--inner {
+    font-size: $avatar-font-size--default;
+    background: $avatar-bg-color !important;
+    color: $avatar-font-color;
+    font-weight: $avatar-font-weight;
+  }
+
+  &--small .UserAvatar--inner {
+    font-size: $avatar-font-size--small;
+  }
+
+  &--medium .UserAvatar--inner {
+    font-size: $avatar-font-size--medium;
+  }
+
+}

@@ -33,6 +33,8 @@
   /* Input with an icon */
 
   /* Input label */
+
+  /* Avatars */
 *,
 *:before,
 *:after {
@@ -622,6 +624,24 @@ section ul{
   display: inline-block;
   margin: 0 5px 5px 0;
 }
+.user-avatar {
+
+  & .UserAvatar--inner {
+    font-size: 24px;
+    background: #4A90E2 !important;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  &--small .UserAvatar--inner {
+    font-size: 12px;
+  }
+
+  &--medium .UserAvatar--inner {
+    font-size: 16px;
+  }
+
+}
 
 .page-typography {
 
@@ -738,6 +758,20 @@ section ul{
 }
 .inputs-page {
   & .input {
+    margin-bottom: 15px;
+  }
+}
+.avatars-page {
+  & .avatar-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 15px;
   }
 }

@@ -15,7 +15,7 @@ export default class Avatars extends Component {
         <div className="avatars-page">
           <Card>
             <Row>
-              <Col span={ 3 }>
+              <Col span={ 6 }>
                 <div className="avatar-wrapper">
                   <Avatar
                     name="Donald Trump"
@@ -46,11 +46,16 @@ export default class Avatars extends Component {
                   />
                 </div>
               </Col>
-              <Col span={ 3 }>
-                there
-              </Col>
-              <Col span={ 3 }>
-                World!
+              <Col span={ 6 }>
+                <Avatar
+                  name="Donald Trump"
+                  jobPosition="President of the United States"
+                />
+                <Avatar
+                  name="Donald Trump"
+                  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  location="Washington DC"
+                />
               </Col>
             </Row>
           </Card>

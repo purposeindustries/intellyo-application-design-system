@@ -52,7 +52,7 @@ Avatar.propTypes = {
   name: PropTypes.string,
   jobPosition: PropTypes.string,
   location: PropTypes.string,
-  src: PropTypes.src
+  src: PropTypes.string
 };
 
 export default Avatar;

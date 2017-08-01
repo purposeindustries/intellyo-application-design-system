@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../components/icon';
-// import classNames from 'classnames';
 
 const Select = (props) => (
   <div className="select">
@@ -15,7 +14,9 @@ const Select = (props) => (
 Select.displayName = 'Select';
 
 Select.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.oneOfType(
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node)),
   className: PropTypes.string,
 };
 

@@ -63,5 +63,8 @@
   },
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
+  },
+  "dependencies": {
+    "react-user-avatar": "^1.9.0"
   }
 }

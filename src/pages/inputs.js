@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
 import Textarea from '../components/textarea';
+import CharLimit from '../components/char-limit';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -40,18 +41,32 @@ export default class Inputs extends Component {
                   type="email"
                   required
                 />
+                <div className="input-wrapper">
+                  <CharLimit limit={ 12 }>
+                    <Input
+                      placeholder="example@gmail.com"
+                      label="Email:"
+                      id="email"
+                      type="email"
+                      required
+                    />
+                  </CharLimit>
+                </div>
               </Col>
               <Col span={ 3 }>
                 there
               </Col>
               <Col span={ 3 }>
-                <Textarea
-                  charLimit={ 12 }
-                  placeholder="Text goes here..."
-                />
-                <Textarea
-                  placeholder="Text goes here..."
-                />
+                <div className="input-wrapper">
+                  <Textarea
+                    placeholder="Text goes here..."
+                  />
+                </div>
+                <CharLimit limit={ 12 }>
+                  <Textarea
+                    placeholder="Text goes here..."
+                  />
+                </CharLimit>
               </Col>
             </Row>
           </Card>

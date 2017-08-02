@@ -23,6 +23,7 @@ const Input = (props) => (
       required={ props.required }
       type={ props.type }
       id={ props.id }
+      onChange={ (e) => props.onChange(e) }
     />
     {
       props.icon && (
@@ -44,7 +45,8 @@ const Input = (props) => (
 Input.defaultProps = {
   type: 'text',
   required: false,
-  disabled: false
+  disabled: false,
+  onChange: () => {}
 };
 
 Input.propTypes = {
@@ -58,7 +60,8 @@ Input.propTypes = {
   icon: PropTypes.node,
   type: PropTypes.string,
   required: PropTypes.bool,
-  label: PropTypes.string
+  label: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 Input.displayName = 'Input';

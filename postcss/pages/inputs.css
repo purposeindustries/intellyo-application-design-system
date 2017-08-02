@@ -4,7 +4,12 @@
     margin-bottom: $gutter-base;
   }
 
-  & .textarea {
+  & .input-wrapper .input {
+    margin-bottom: 0;
+  }
+
+  & .input-wrapper,
+  & .char-limit {
     margin-bottom: $gutter-base;
   }
 

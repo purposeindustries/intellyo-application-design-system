@@ -27,7 +27,7 @@ class CharLimit extends Component {
   render() {
     const childrenWithProps = React.Children.map(this.props.children,
       (child) => React.cloneElement(child, {
-        onChange: (e) => this.handleChange(e)
+        onChange: this.handleChange
       }));
     return (
       <div className="char-limit">

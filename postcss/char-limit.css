@@ -1,0 +1,16 @@
+.char-limit {
+  display: inline-flex;
+  flex-direction: column;
+
+  & span.char-counter {
+    margin: $char-counter-margin;
+    font-size: $char-counter-font-size;
+    color: $char-counter-font-color;
+
+    &.over-limit {
+      color: $char-counter-color--over-limit;
+    }
+
+  }
+
+}

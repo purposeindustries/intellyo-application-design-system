@@ -2,13 +2,43 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
 import Textarea from '../components/textarea';
+import withLimit from '../components/with-limit';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
 
+const TextareaWithLimit = withLimit(Textarea);
+const InputWithLimit = withLimit(Input);
+
+const textareaValue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+const inputValue = 'Content that connects.';
+
 export default class Inputs extends Component {
   displayName = 'Inputs'
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      textareaValue: textareaValue,
+      inputValue: inputValue
+    };
+    this.handleTextareaChange = this.handleTextareaChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleTextareaChange(e) {
+    this.setState({
+      textareaValue: e.target.value
+    });
+  }
+
+  handleInputChange(e) {
+    this.setState({
+      inputValue: e.target.value
+    });
+  }
+
   render() {
     return (
       <div>
@@ -40,17 +70,35 @@ export default class Inputs extends Component {
                   type="email"
                   required
                 />
+                <div className="input-wrapper">
+                  <InputWithLimit
+                    placeholder="Basic with limit"
+                    limit={ 12 }
+                    value={ this.state.inputValue }
+                    onChange={ this.handleInputChange }
+                  />
+                </div>
               </Col>
               <Col span={ 3 }>
                 there
               </Col>
               <Col span={ 3 }>
-                <Textarea
-                  charLimit={ 12 }
-                  placeholder="Text goes here..."
-                />
-                <Textarea
-                  placeholder="Text goes here..."
+                <div className="input-wrapper">
+                  <Textarea
+                    placeholder="Text goes here..."
+                  />
+                </div>
+                <div className="input-wrapper">
+                  <Textarea
+                    placeholder="Disabled"
+                    disabled
+                  />
+                </div>
+                <TextareaWithLimit
+                  limit={ 140 }
+                  value={ this.state.textareaValue }
+                  placeholder="Text goes here"
+                  onChange={ this.handleTextareaChange }
                 />
               </Col>
             </Row>

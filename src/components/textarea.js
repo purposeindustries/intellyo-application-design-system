@@ -6,6 +6,7 @@ const Textarea = (props) => (
     className="textarea"
     onChange={ (e) => props.onChange(e) }
     placeholder={ props.placeholder }
+    disabled={ props.disabled }
   />
 );
 
@@ -17,6 +18,7 @@ Textarea.defaultProps = {
 
 Textarea.propTypes = {
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func
 };
 

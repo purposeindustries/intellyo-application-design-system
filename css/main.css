@@ -36,6 +36,8 @@
 
 /* Textarea */
 
+  /* disabled */
+
   /* charCounter */
 *,
 *:before,
@@ -649,6 +651,29 @@ textarea.textarea {
      -moz-appearance: none;
           appearance: none;
   resize: none;
+
+  &::-webkit-input-placeholder {
+    color: #BDBDBD;
+  }
+
+  &:-ms-input-placeholder {
+    color: #BDBDBD;
+  }
+
+  &::placeholder {
+    color: #BDBDBD;
+  }
+
+  &--disabled {
+    background: #DCDCDC;
+    pointer-events: none;
+    color: inherit;
+
+    &:hover {
+      border-color: inherit;
+    }
+
+  }
 
   &:hover,
   &:focus {

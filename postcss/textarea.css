@@ -15,6 +15,21 @@ textarea.textarea {
   appearance: none;
   resize: none;
 
+  &::placeholder {
+    color: $textarea-placeholder-color;
+  }
+
+  &--disabled {
+    background: $textarea-background-color--disabled;
+    pointer-events: none;
+    color: inherit;
+
+    &:hover {
+      border-color: inherit;
+    }
+
+  }
+
   &:hover,
   &:focus {
     border-color: $textarea-border-color--focus-and-hover;

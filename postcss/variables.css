@@ -145,7 +145,12 @@
 
   $textarea-font-family: $font-family-base;
   $textarea-font-color : $color-black-5;
+  $textarea-placeholder-color: $color-black-1;
   $textarea-font-size: $font-size-base;
+
+  /* disabled */
+
+  $textarea-background-color--disabled: $color-grey-3;
 
   /* charCounter */
 

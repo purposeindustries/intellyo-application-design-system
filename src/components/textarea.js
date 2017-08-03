@@ -12,10 +12,6 @@ const Textarea = (props) => (
 
 Textarea.displayName = 'Textarea';
 
-Textarea.defaultProps = {
-  onChange: () => {}
-};
-
 Textarea.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,

@@ -8,6 +8,12 @@ import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
 
+const TextareaWithLimit = withLimit(Textarea);
+const InputWithLimit = withLimit(Input);
+
+const textareaValue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+const inputValue = 'Content that connects.';
+
 export default class Inputs extends Component {
   displayName = 'Inputs'
 
@@ -65,15 +71,12 @@ export default class Inputs extends Component {
                   required
                 />
                 <div className="input-wrapper">
-                  <CharLimit limit={ 12 }>
-                    <Input
-                      placeholder="example@gmail.com"
-                      label="Email:"
-                      id="email"
-                      type="email"
-                      required
-                    />
-                  </CharLimit>
+                  <InputWithLimit
+                    placeholder="Basic with limit"
+                    limit={ 12 }
+                    value={ this.state.inputValue }
+                    onChange={ this.handleInputChange }
+                  />
                 </div>
               </Col>
               <Col span={ 3 }>
@@ -91,11 +94,12 @@ export default class Inputs extends Component {
                     disabled
                   />
                 </div>
-                <CharLimit limit={ 12 }>
-                  <Textarea
-                    placeholder="Text goes here..."
-                  />
-                </CharLimit>
+                <TextareaWithLimit
+                  limit={ 140 }
+                  value={ this.state.textareaValue }
+                  placeholder="Text goes here"
+                  onChange={ this.handleTextareaChange }
+                />
               </Col>
             </Row>
           </Card>

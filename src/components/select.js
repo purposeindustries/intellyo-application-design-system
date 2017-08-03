@@ -14,10 +14,11 @@ const Select = (props) => (
 Select.displayName = 'Select';
 
 Select.propTypes = {
-  children: PropTypes.oneOfType(
+  children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)),
-  className: PropTypes.string,
+    PropTypes.arrayOf(PropTypes.node)
+  ]),
+  className: PropTypes.string
 };
 
 export default Select;

@@ -10,6 +10,29 @@ import Icon from '../components/icon';
 
 export default class Inputs extends Component {
   displayName = 'Inputs'
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      textareaValue: textareaValue,
+      inputValue: inputValue
+    };
+    this.handleTextareaChange = this.handleTextareaChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleTextareaChange(e) {
+    this.setState({
+      textareaValue: e.target.value
+    });
+  }
+
+  handleInputChange(e) {
+    this.setState({
+      inputValue: e.target.value
+    });
+  }
+
   render() {
     return (
       <div>

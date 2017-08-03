@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Textarea = (props) => (
   <textarea
     className="textarea"
-    onChange={ (e) => props.onChange(e) }
+    onChange={ props.onChange }
     placeholder={ props.placeholder }
     disabled={ props.disabled }
   />

@@ -20,9 +20,7 @@ class CharLimit extends Component {
 
   handleChange(e) {
     this.setState({
-      charCount: e.target.value.length === 0 ?
-        this.props.limit
-        : this.props.limit - e.target.value.length
+      charCount: this.props.limit - e.target.value.length
     });
   }
 

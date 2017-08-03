@@ -8,8 +8,6 @@ export default function withLimit(Component) {
       <div className="char-limit">
         <Component
           { ...props }
-          value={ props.value }
-          onChange={ props.onChange }
         />
         <span
           className={ classNames('char-counter', {

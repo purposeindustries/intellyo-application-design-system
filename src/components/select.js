@@ -17,8 +17,7 @@ Select.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)
-  ]),
-  className: PropTypes.string
+  ])
 };
 
 export default Select;

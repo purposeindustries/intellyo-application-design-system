@@ -32,15 +32,13 @@ class CharLimit extends Component {
     return (
       <div className="char-limit">
         { childrenWithProps }
-        { this.props.limit && (
-          <span
-            className={ classNames('char-counter', {
-              'over-limit': this.state.charCount < 0
-            }) }
-          >
-            { this.state.charCount }
-          </span>
-        ) }
+        <span
+          className={ classNames('char-counter', {
+            'over-limit': this.state.charCount < 0
+          }) }
+        >
+          { this.state.charCount }
+        </span>
       </div>
     );
   }

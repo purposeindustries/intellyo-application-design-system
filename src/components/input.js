@@ -23,7 +23,7 @@ const Input = (props) => (
       required={ props.required }
       type={ props.type }
       id={ props.id }
-      onChange={ (e) => props.onChange(e) }
+      onChange={ props.onChange }
     />
     {
       props.icon && (

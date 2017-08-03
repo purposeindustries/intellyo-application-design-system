@@ -47,8 +47,7 @@ const Input = (props) => (
 Input.defaultProps = {
   type: 'text',
   required: false,
-  disabled: false,
-  onChange: () => {}
+  disabled: false
 };
 
 Input.propTypes = {

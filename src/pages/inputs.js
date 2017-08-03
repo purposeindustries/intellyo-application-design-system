@@ -62,6 +62,12 @@ export default class Inputs extends Component {
                     placeholder="Text goes here..."
                   />
                 </div>
+                <div className="input-wrapper">
+                  <Textarea
+                    placeholder="Disabled"
+                    disabled
+                  />
+                </div>
                 <CharLimit limit={ 12 }>
                   <Textarea
                     placeholder="Text goes here..."

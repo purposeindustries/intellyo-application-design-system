@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
 import Textarea from '../components/textarea';
-import CharLimit from '../components/char-limit';
+import withLimit from '../components/with-limit';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';

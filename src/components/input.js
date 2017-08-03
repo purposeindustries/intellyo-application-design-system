@@ -24,6 +24,8 @@ const Input = (props) => (
       type={ props.type }
       id={ props.id }
       onChange={ props.onChange }
+      value={ props.value }
+      defaultValue={ props.defaultValue }
     />
     {
       props.icon && (
@@ -61,7 +63,9 @@ Input.propTypes = {
   type: PropTypes.string,
   required: PropTypes.bool,
   label: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  defaultValue: PropTypes.string
 };
 
 Input.displayName = 'Input';

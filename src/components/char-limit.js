@@ -6,8 +6,8 @@ class CharLimit extends Component {
   static displayName = 'CharLimit'
 
   static propTypes = {
-    limit: PropTypes.number,
-    children: PropTypes.node
+    limit: PropTypes.number.isRequired,
+    children: PropTypes.element.isRequired
   }
 
   constructor(props) {

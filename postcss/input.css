@@ -5,7 +5,7 @@
     background: $input-background-color;
     border: 1px solid $input-border-color;
     min-width: $input-min-width;
-    min-height: $input-min-height;
+    height: $input-min-height;
     border-radius: $input-border-radius;
     padding: $input-padding;
     color: $input-color;

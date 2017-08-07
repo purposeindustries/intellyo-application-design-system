@@ -105,7 +105,7 @@
   $input-background-color: #fff;
 
   $input-min-width: 200px;
-  $input-min-height: 35px;
+  $input-height: 35px;
   $input-padding: 10px 8px;
   $input-font-family: $font-family-base;
   $input-font-size: $font-size-base;
@@ -166,3 +166,49 @@
   $stacked-avatar--additional-background-color: $color-primary-3;
   $stacked-avatar--additional-font-weight: $avatar-font-weight;
   $stacked-avatar--additional-border-raius: 100%;
+
+/* Select */
+
+$select-height: 35px;
+$select-padding: 7.5px 40px 7.5px 20px;
+$select-icon-dimension: 20px;
+
+$select-border-radius: $border-radius-base;
+$select-border-color: $color-black-2;
+
+$select-font-family: $font-family-base;
+$select-font-size: $font-size-base;
+
+$select-background-color: #fff;
+
+$select-border-color--hover: $color-primary-4;
+$select-font-color--hover: $color-primary-4;
+$select-svg-fill--hover: $color-primary-4;
+
+/* Textarea */
+
+  $textarea-width: 250px;
+  $textarea-height: 95px;
+  $textarea-padding: 10px;
+
+  $textarea-border-radius: $border-radius-base;
+  $textarea-border-color: $color-black-2;
+
+  $textarea-bg-color: #fff;
+  $textarea-border-color--focus-and-hover: $color-primary-3;
+
+  $textarea-font-family: $font-family-base;
+  $textarea-font-color : $color-black-5;
+  $textarea-placeholder-color: $color-black-1;
+  $textarea-font-size: $font-size-base;
+
+  /* disabled */
+
+  $textarea-background-color--disabled: $color-grey-3;
+
+  /* charCounter */
+
+  $char-counter-margin: 0 5px 0 auto;
+  $char-counter-font-size: 12px;
+  $char-counter-font-color: $color-black-2;
+  $char-counter-color--over-limit: $color-danger-3;

@@ -34,6 +34,7 @@ section {
 @import './button.css';
 @import './input.css';
 @import './tagsinput.css';
+@import './avatar.css';
 @import './select.css';
 @import './textarea.css';
 @import './char-limit.css';
@@ -44,3 +45,4 @@ section {
 @import './pages/icons.css';
 @import './pages/buttons.css';
 @import './pages/inputs.css';
+@import './pages/avatars.css';

@@ -1,0 +1,85 @@
+.user-avatar {
+
+  & .UserAvatar--inner {
+    font-size: $avatar-font-size--default;
+    background: $avatar-bg-color !important;
+    color: $avatar-font-color;
+    font-weight: $avatar-font-weight;
+  }
+
+  &--small .UserAvatar--inner {
+    font-size: $avatar-font-size--small;
+  }
+
+  &--medium .UserAvatar--inner {
+    font-size: $avatar-font-size--medium;
+  }
+
+  &--horizontal {
+    display: flex;
+    align-items: center;
+
+    & .avatar-caption-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 0 10px;
+
+      & .avatar-name {
+        font-size: $avatar-name-font-size;
+        line-height: $avatar-name-line-height;
+        font-weight: $avatar-name-font-weight;
+        color: $avatar-name-font-color;
+      }
+
+      & .avatar-caption {
+        font-size: $avatar-caption-font-size;
+        line-height: $avatar-caption-line-height;
+        color: $avatar-caption-font-color;
+      }
+
+    }
+
+    & .avatar-caption-wrapper .caption-wrap {
+      display: flex;
+      align-items: center;
+
+      & .icon {
+        height: 22px;
+
+        & svg {
+          fill: $color-black-2;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.stacked-avatar {
+  position: relative;
+  height: $stacked-avatar-height;
+  min-width: $stacked-avatar-min-width;
+
+  & .user-avatar {
+    position: absolute;
+  }
+
+  & .stacked-avatar--additional {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: $stacked-avatar--additional-left;
+    width: $stacked-avatar--additional-dimensions;
+    height: $stacked-avatar--additional-dimensions;
+    font-size: $stacked-avatar--additional-font-size;
+    background: $stacked-avatar--additional-background-color;
+    color: $stacked-avatar--additional-font-color;
+    font-weight: $stacked-avatar--additional-font-weight;
+    border-radius: $stacked-avatar--additional-border-raius;
+  }
+
+}

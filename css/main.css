@@ -34,6 +34,14 @@
 
   /* Input label */
 
+  /* Avatars */
+
+  /* Avatar name */
+
+  /* Avatar job & Avatar location */
+
+  /* Stacked avatar */
+
 /* Select */
 
 /* Textarea */
@@ -630,6 +638,114 @@ section ul{
   display: inline-block;
   margin: 0 5px 5px 0;
 }
+.user-avatar {
+
+  & .UserAvatar--inner {
+    font-size: 24px;
+    background: #4A90E2 !important;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  &--small .UserAvatar--inner {
+    font-size: 12px;
+  }
+
+  &--medium .UserAvatar--inner {
+    font-size: 16px;
+  }
+
+  &--horizontal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    & .avatar-caption-wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      -js-display: flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      margin: 0 0 0 10px;
+
+      & .avatar-name {
+        font-size: 17px;
+        line-height: calc(17px * 1.5);
+        font-weight: 600;
+        color: #373737;
+      }
+
+      & .avatar-caption {
+        font-size: 12px;
+        line-height: calc(12px * 1.5);
+        color: #989898;
+      }
+
+    }
+
+    & .avatar-caption-wrapper .caption-wrap {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      -js-display: flex;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+
+      & .icon {
+        height: 22px;
+
+        & svg {
+          fill: #989898;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.stacked-avatar {
+  position: relative;
+  height: 25px;
+  min-width: 100px;
+
+  & .user-avatar {
+    position: absolute;
+  }
+
+  & .stacked-avatar--additional {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    left: 45px;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    background: #0F65D9;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 100%;
+  }
+
+}
 .select {
   position: relative;
   width: auto;
@@ -873,6 +989,26 @@ textarea.textarea {
 
   & .input-wrapper,
   & .char-limit {
+    margin-bottom: 15px;
+  }
+
+}
+.avatars-page {
+
+  & .avatar-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 15px;
+  }
+
+  & .user-avatar--horizontal {
     margin-bottom: 15px;
   }
 

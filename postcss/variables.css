@@ -131,6 +131,42 @@
   $input-label-font-size: $font-size-base;
   $input-label-font-family: $font-family-base;
 
+  /* Avatars */
+
+  $avatar-font-size--default: 24px;
+  $avatar-font-size--small: 12px;
+  $avatar-font-size--medium: 16px;
+  $avatar-font-weight: 700;
+  $avatar-font-color: #fff;
+
+  $avatar-bg-color: $color-blue-4;
+
+  /* Avatar name */
+
+  $avatar-name-font-size: $heading-font-size;
+  $avatar-name-line-height: $heading-line-height;
+  $avatar-name-font-weight: $heading-font-weight;
+  $avatar-name-font-color: $color-black-5;
+
+  /* Avatar job & Avatar location */
+
+  $avatar-caption-font-size: $caption-font-size;
+  $avatar-caption-line-height: $caption-line-height;
+  $avatar-caption-font-color: $color-black-2;
+
+  /* Stacked avatar */
+
+  $stacked-avatar-height: 25px;
+  $stacked-avatar-min-width: 100px;
+
+  $stacked-avatar--additional-font-color: $avatar-font-color;
+  $stacked-avatar--additional-left: 45px;
+  $stacked-avatar--additional-dimensions: 25px;
+  $stacked-avatar--additional-font-size: $avatar-font-size--small;
+  $stacked-avatar--additional-background-color: $color-primary-3;
+  $stacked-avatar--additional-font-weight: $avatar-font-weight;
+  $stacked-avatar--additional-border-raius: 100%;
+
 /* Select */
 
 $select-height: 35px;

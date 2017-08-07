@@ -7,6 +7,7 @@ const Select = (props) => (
     <select
       name={ props.name }
       onChange={ props.onChange }
+      value={ props.value }
     >
       { props.children }
     </select>
@@ -17,6 +18,7 @@ const Select = (props) => (
 Select.displayName = 'Select';
 
 Select.propTypes = {
+  value: PropTypes.string,
   name: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,

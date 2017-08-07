@@ -18,6 +18,7 @@ const Input = (props) => (
       )
     }
     <input
+      name={ props.name }
       disabled={ props.disabled }
       placeholder={ props.placeholder }
       required={ props.required }
@@ -51,6 +52,7 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  name: PropTypes.string,
   className: PropTypes.string,
   id: PropTypes.string,
   error: PropTypes.shape({

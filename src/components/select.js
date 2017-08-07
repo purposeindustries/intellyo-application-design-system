@@ -4,7 +4,10 @@ import Icon from '../components/icon';
 
 const Select = (props) => (
   <div className="select">
-    <select onChange={ props.onChange }>
+    <select
+      name={ props.name }
+      onChange={ props.onChange }
+    >
       { props.children }
     </select>
     <Icon icon="ion-android-arrow-dropdown" />
@@ -14,6 +17,7 @@ const Select = (props) => (
 Select.displayName = 'Select';
 
 Select.propTypes = {
+  name: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node)

@@ -664,8 +664,7 @@ section ul{
         -ms-flex-align: center;
             align-items: center;
 
-    & .avatar-job-position-wrapper,
-    & .avatar-location-wrapper {
+    & .avatar-caption-wrapper {
       display: -webkit-box;
       display: -ms-flexbox;
       -js-display: flex;
@@ -683,8 +682,7 @@ section ul{
         color: #373737;
       }
 
-      & .avatar-job-position,
-      & .avatar-location {
+      & .avatar-caption {
         font-size: 12px;
         line-height: calc(12px * 1.5);
         color: #989898;
@@ -692,7 +690,7 @@ section ul{
 
     }
 
-    & .avatar-location-wrapper .location-wrap {
+    & .avatar-caption-wrapper .caption-wrap {
       display: -webkit-box;
       display: -ms-flexbox;
       -js-display: flex;

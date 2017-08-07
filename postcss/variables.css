@@ -150,9 +150,9 @@
 
   /* Avatar job & Avatar location */
 
-  $avatar-job-loc-font-size: $caption-font-size;
-  $avatar-job-loc-line-height: $caption-line-height;
-  $avatar-job-loc-font-color: $color-black-2;
+  $avatar-caption-font-size: $caption-font-size;
+  $avatar-caption-line-height: $caption-line-height;
+  $avatar-caption-font-color: $color-black-2;
 
   /* Stacked avatar */
 

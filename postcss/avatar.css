@@ -19,8 +19,7 @@
     display: flex;
     align-items: center;
 
-    & .avatar-job-position-wrapper,
-    & .avatar-location-wrapper {
+    & .avatar-caption-wrapper {
       display: flex;
       flex-direction: column;
       margin: 0 0 0 10px;
@@ -32,16 +31,15 @@
         color: $avatar-name-font-color;
       }
 
-      & .avatar-job-position,
-      & .avatar-location {
-        font-size: $avatar-job-loc-font-size;
-        line-height: $avatar-job-loc-line-height;
-        color: $avatar-job-loc-font-color;
+      & .avatar-caption {
+        font-size: $avatar-caption-font-size;
+        line-height: $avatar-caption-line-height;
+        color: $avatar-caption-font-color;
       }
 
     }
 
-    & .avatar-location-wrapper .location-wrap {
+    & .avatar-caption-wrapper .caption-wrap {
       display: flex;
       align-items: center;
 

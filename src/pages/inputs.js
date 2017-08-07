@@ -21,29 +21,19 @@ export default class Inputs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textareaValue: textareaValue,
-      inputValue: inputValue
+      bio: textareaValue,
+      name: inputValue
     };
-    this.handleTextareaChange = this.handleTextareaChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-  }
-
-  handleTextareaChange(e) {
-    this.setState({
-      textareaValue: e.target.value
-    });
   }
 
   handleInputChange(e) {
-    this.setState({
-      inputValue: e.target.value
-    });
-  }
+    const target = e.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  handleSelectChange(e) {
     this.setState({
-      selectValue: e.target.value
+      [name]: value
     });
   }
 
@@ -80,15 +70,19 @@ export default class Inputs extends Component {
                 />
                 <div className="input-wrapper">
                   <InputWithLimit
+                    name="name"
                     placeholder="Basic with limit"
                     limit={ 12 }
-                    value={ this.state.inputValue }
+                    value={ this.state.name }
                     onChange={ this.handleInputChange }
                   />
                 </div>
               </Col>
               <Col span={ 3 }>
-                <Select onChange={ this.handleSelectChange }>
+                <Select
+                  name="select"
+                  onChange={ this.handleInputChange }
+                >
                   <option value="volvo">Volvo</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>
@@ -108,10 +102,11 @@ export default class Inputs extends Component {
                   />
                 </div>
                 <TextareaWithLimit
+                  name="bio"
                   limit={ 140 }
-                  value={ this.state.textareaValue }
+                  value={ this.state.bio }
                   placeholder="Text goes here"
-                  onChange={ this.handleTextareaChange }
+                  onChange={ this.handleInputChange }
                 />
               </Col>
             </Row>

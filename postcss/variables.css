@@ -105,7 +105,7 @@
   $input-background-color: #fff;
 
   $input-min-width: 200px;
-  $input-min-height: 35px;
+  $input-height: 35px;
   $input-padding: 10px 8px;
   $input-font-family: $font-family-base;
   $input-font-size: $font-size-base;

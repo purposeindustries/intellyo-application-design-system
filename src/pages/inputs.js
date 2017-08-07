@@ -26,6 +26,7 @@ export default class Inputs extends Component {
     };
     this.handleTextareaChange = this.handleTextareaChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleTextareaChange(e) {
@@ -37,6 +38,12 @@ export default class Inputs extends Component {
   handleInputChange(e) {
     this.setState({
       inputValue: e.target.value
+    });
+  }
+
+  handleSelectChange(e) {
+    this.setState({
+      selectValue: e.target.value
     });
   }
 
@@ -81,7 +88,7 @@ export default class Inputs extends Component {
                 </div>
               </Col>
               <Col span={ 3 }>
-                <Select>
+                <Select onChange={ this.handleSelectChange }>
                   <option value="volvo">Volvo</option>
                   <option value="saab">Saab</option>
                   <option value="opel">Opel</option>

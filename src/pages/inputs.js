@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
+import Select from '../components/select';
 import Textarea from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card';
@@ -25,6 +26,7 @@ export default class Inputs extends Component {
     };
     this.handleTextareaChange = this.handleTextareaChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleTextareaChange(e) {
@@ -36,6 +38,12 @@ export default class Inputs extends Component {
   handleInputChange(e) {
     this.setState({
       inputValue: e.target.value
+    });
+  }
+
+  handleSelectChange(e) {
+    this.setState({
+      selectValue: e.target.value
     });
   }
 
@@ -80,7 +88,12 @@ export default class Inputs extends Component {
                 </div>
               </Col>
               <Col span={ 3 }>
-                there
+                <Select onChange={ this.handleSelectChange }>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </Select>
               </Col>
               <Col span={ 3 }>
                 <div className="input-wrapper">

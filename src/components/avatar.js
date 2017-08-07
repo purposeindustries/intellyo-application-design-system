@@ -5,6 +5,13 @@ import classNames from 'classnames';
 import Icon from './icon';
 
 const Avatar = (props) => {
+
+  const sizes = {
+    small: 25,
+    medium: 40
+  };
+  const defaultSize = 60;
+
   return (
     <div
       className={ classNames('user-avatar', {
@@ -15,13 +22,7 @@ const Avatar = (props) => {
       style={ props.style }
     >
       <UserAvatar
-        size={ (() => {
-          switch (props.size) {
-            case 'small': return 25;
-            case 'medium': return 40;
-            default: return 60;
-          }
-        })() }
+        size={ sizes[props.size] || defaultSize }
         src={ props.src }
         name={ props.name }
       />

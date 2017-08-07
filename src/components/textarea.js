@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 const Textarea = (props) => (
   <textarea
+    name={ props.name }
     className={ classNames('textarea', {
       'textarea--disabled': props.disabled
     }) }
@@ -18,6 +19,7 @@ const Textarea = (props) => (
 Textarea.displayName = 'Textarea';
 
 Textarea.propTypes = {
+  name: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   value: PropTypes.string,

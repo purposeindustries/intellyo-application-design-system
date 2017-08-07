@@ -5,6 +5,7 @@ import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
 import StackedAvatar from '../components/stacked-avatar';
+import Icon from '../components/icon';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
@@ -73,12 +74,15 @@ export default class Avatars extends Component {
               <Col span={ 6 }>
                 <Avatar
                   name="Donald Trump"
-                  jobPosition="President of the United States"
+                  caption="President of the United States"
                 />
                 <Avatar
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
-                  location="Washington DC"
+                  icon={ (
+                    <Icon icon="ion-ios-location" />
+                  ) }
+                  caption="Washington DC"
                 />
               </Col>
             </Row>

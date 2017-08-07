@@ -4,16 +4,14 @@ import Avatar from './avatar';
 
 const StackedAvatar = (props) => (
   <div className="stacked-avatar">
-    { props.avatars.map((avatar, i) => (
-      i <= 2 ?
-        <Avatar
-          key={ i }
-          name={ avatar.name }
-          src={ avatar.src }
-          size="small"
-          style={ {left: `${i * 15}px`} }
-        />
-      : null
+    { props.avatars.slice(0, 3).map((avatar, i) => (
+      <Avatar
+        key={ i }
+        name={ avatar.name }
+        src={ avatar.src }
+        size="small"
+        style={ {left: `${i * 15}px`} }
+      />
     )) }
     { props.avatars.length > 3 &&
       <div className="stacked-avatar--additional">

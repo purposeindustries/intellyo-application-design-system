@@ -1,0 +1,38 @@
+textarea.textarea {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: $textarea-width;
+  height: $textarea-height;
+  padding: $textarea-padding;
+  border-radius: $textarea-border-radius;
+  border: 1px solid $textarea-border-color;
+  background: $textarea-bg-color;
+  color: $textarea-font-color;
+  font-family: $textarea-font-family;
+  font-size: $textarea-font-size;
+  outline: none;
+  appearance: none;
+  resize: none;
+
+  &::placeholder {
+    color: $textarea-placeholder-color;
+  }
+
+  &--disabled {
+    background: $textarea-background-color--disabled;
+    pointer-events: none;
+    color: inherit;
+
+    &:hover {
+      border-color: inherit;
+    }
+
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $textarea-border-color--focus-and-hover;
+  }
+
+}

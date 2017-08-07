@@ -1,5 +1,16 @@
 .inputs-page {
+
   & .input {
     margin-bottom: $gutter-base;
   }
+
+  & .input-wrapper .input {
+    margin-bottom: 0;
+  }
+
+  & .input-wrapper,
+  & .char-limit {
+    margin-bottom: $gutter-base;
+  }
+
 }

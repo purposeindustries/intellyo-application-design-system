@@ -35,6 +35,8 @@ section {
 @import './input.css';
 @import './tagsinput.css';
 @import './select.css';
+@import './textarea.css';
+@import './char-limit.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

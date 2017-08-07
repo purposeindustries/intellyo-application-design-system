@@ -22,7 +22,8 @@ export default class Inputs extends Component {
     super(props);
     this.state = {
       bio: textareaValue,
-      name: inputValue
+      name: inputValue,
+      car: 'opel'
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -80,7 +81,8 @@ export default class Inputs extends Component {
               </Col>
               <Col span={ 3 }>
                 <Select
-                  name="select"
+                  name="car"
+                  value={ this.state.car }
                   onChange={ this.handleInputChange }
                 >
                   <option value="volvo">Volvo</option>

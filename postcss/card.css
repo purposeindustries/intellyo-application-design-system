@@ -12,8 +12,8 @@
     align-items: center;
 
     & .icon {
-      height: 22px;
-
+      height: $card-info-icon-height;
+      margin-left: $card-info-icon-margin;
       & svg {
         fill: $card-info-bg-color;
       }

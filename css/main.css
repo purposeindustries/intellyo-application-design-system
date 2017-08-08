@@ -271,7 +271,7 @@ section ul{
 
     & .icon {
       height: 22px;
-
+      margin-left: 5px;
       & svg {
         fill: #0053D2;
       }

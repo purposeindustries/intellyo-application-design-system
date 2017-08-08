@@ -216,3 +216,5 @@ $select-svg-fill--hover: $color-primary-4;
   /* Cards */
 
   $card-info-bg-color: #0053D2;
+  $card-info-icon-margin: 5px;
+  $card-info-icon-height: 22px;

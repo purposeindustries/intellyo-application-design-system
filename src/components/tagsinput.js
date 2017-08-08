@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTagsInput from 'react-tagsinput';
 import Button from './button';
+import Input from './input';
 import Icon from './icon';
 import classNames from 'classnames';
 
@@ -94,7 +95,7 @@ class TagsInput extends Component {
                 } }
                 className="tagsinput-add-tag"
               />
-              <input
+              <Input
                 type="text"
                 onChange={ onChange }
                 value={ value }
@@ -106,7 +107,7 @@ class TagsInput extends Component {
                   });
                   onBlur(e);
                 } }
-                ref={ (el) => {
+                inputRef={ (el) => {
                   this.input = el;
                   ref(el);
                 } }

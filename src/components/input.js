@@ -18,6 +18,7 @@ const Input = (props) => (
       )
     }
     <input
+      ref={ props.inputRef }
       name={ props.name }
       disabled={ props.disabled }
       placeholder={ props.placeholder }
@@ -25,6 +26,10 @@ const Input = (props) => (
       type={ props.type }
       id={ props.id }
       onChange={ props.onChange }
+      onPaste={ props.onPaste }
+      onFocus={ props.onFocus }
+      onBlur={ props.onBlur }
+      onKeyDown={ props.onKeyDown }
       value={ props.value }
       defaultValue={ props.defaultValue }
     />
@@ -63,8 +68,13 @@ Input.propTypes = {
   icon: PropTypes.node,
   type: PropTypes.string,
   required: PropTypes.bool,
+  inputRef: PropTypes.func,
   label: PropTypes.string,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onPaste: PropTypes.func,
+  onFocus: PropTypes.func,
   value: PropTypes.string,
   defaultValue: PropTypes.string
 };

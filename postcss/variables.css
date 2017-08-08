@@ -212,3 +212,7 @@ $select-svg-fill--hover: $color-primary-4;
   $char-counter-font-size: 12px;
   $char-counter-font-color: $color-black-2;
   $char-counter-color--over-limit: $color-danger-3;
+
+  /* Cards */
+
+  $card-info-bg-color: #0053D2;

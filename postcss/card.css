@@ -6,6 +6,22 @@
 
 .card-header {
   padding: 20px 20px 0;
+
+  & .card-header-wrap {
+    display: flex;
+    align-items: center;
+
+    & .icon {
+      height: $card-info-icon-height;
+      margin-left: $card-info-icon-margin;
+      & svg {
+        fill: $card-info-bg-color;
+      }
+
+    }
+
+  }
+
 }
 
 .card-header .caption {

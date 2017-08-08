@@ -8,9 +8,12 @@ const Card = (props) => (
     {
       props.title && (
         <div className="card-header">
-          <DisplayText>
-            { props.title }
-          </DisplayText>
+          <div className="card-header-wrap">
+            <DisplayText>
+              { props.title }
+            </DisplayText>
+            { props.icon }
+          </div>
           {
             props.titleCaption && (
               <Caption>{ props.titleCaption }</Caption>
@@ -38,7 +41,8 @@ Card.propTypes = {
   title: PropTypes.string,
   titleCaption: PropTypes.string,
   children: PropTypes.node,
-  footer: PropTypes.node
+  footer: PropTypes.node,
+  icon: PropTypes.node
 };
 
 export default Card;

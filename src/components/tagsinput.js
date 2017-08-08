@@ -72,7 +72,7 @@ class TagsInput extends Component {
           const {
             onChange = () => {},
             onBlur = () => {},
-            ref = () => {},
+            inputRef = () => {},
             value,
             // https://github.com/olahol/react-tagsinput#how-do-i-fix-warning-unknown-prop-addtag
             // eslint-disable-next-line no-unused-vars
@@ -109,7 +109,7 @@ class TagsInput extends Component {
                 } }
                 inputRef={ (el) => {
                   this.input = el;
-                  ref(el);
+                  inputRef(el);
                 } }
                 placeholder={ this.props.inputProps.placeholder }
               />

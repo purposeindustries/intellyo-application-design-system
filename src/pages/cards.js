@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import TagsInput from '../components/tagsinput';
-import Card from '../components/card';
+import Cards from '../components/cards';
 
-export default class Cards extends Component {
+export default class TagsInputPage extends Component {
 
   static displayName = 'Cards'
 
   render() {
     return (
-      <div>
-        <Card>
-          <TagsInput
-            onlyUnique
-            inputProps={ {
-              placeholder: 'Type your tag...'
-            } }
-          />
-        </Card>
+      <div className="cards-page">
       </div>
     );
   }

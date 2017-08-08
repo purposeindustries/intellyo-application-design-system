@@ -64,7 +64,6 @@
     "repository": "https://npm.registry.purposeindustries.co"
   },
   "dependencies": {
-    "gatsby": "^1.4.1",
     "react-user-avatar": "^1.9.0"
   }
 }

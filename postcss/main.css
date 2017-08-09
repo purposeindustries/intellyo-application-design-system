@@ -38,6 +38,7 @@ section {
 @import './select.css';
 @import './textarea.css';
 @import './char-limit.css';
+@import './autosuggest-tagsinput.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -47,3 +48,4 @@ section {
 @import './pages/inputs.css';
 @import './pages/avatars.css';
 @import './pages/cards.css';
+@import './pages/tagsinputs.css';

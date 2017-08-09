@@ -891,6 +891,77 @@ textarea.textarea {
   }
 
 }
+.autosuggest-tagsinput {
+
+  & .react-autosuggest__suggestions-container {
+    width: 200px;
+    padding: 0;
+    position: relative;
+
+    & .react-autosuggest__suggestions-list {
+      padding: 5px 0;
+      margin: 5px 0 0 0;
+      position: absolute;
+      height: auto;
+      width: 100%;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px 0 rgba(63,65,65,.15);
+
+      & .react-autosuggest__suggestion {
+        list-style: none;
+        height: 30px;
+        width: 100%;
+        overflow: hidden;
+        padding: 5px 15px;
+        cursor: pointer;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        -js-display: flex;
+        -js-display: flex;
+        -js-display: flex;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+
+        & .autosuggest-wrap {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          -js-display: flex;
+          -js-display: flex;
+          -js-display: flex;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+
+          & img.autosuggest-image {
+            border-radius: 100%;
+            margin-right: 10px;
+          }
+
+
+          & span.autosuggest-value {
+            font-size: 12px;
+            text-overflow: ellipsis;
+            line-height: 30px;
+            vertical-align: middle;
+          }
+
+        }
+
+        &--highlighted {
+          background: #efefef;
+        }
+
+      }
+
+    }
+
+  }
+
+}
 
 .page-typography {
 
@@ -1042,5 +1113,8 @@ textarea.textarea {
 
 }
 .page-cards .card {
+  margin-bottom: 15px;
+}
+.tagsinputs .tagsinput {
   margin-bottom: 15px;
 }

@@ -47,16 +47,28 @@ class AutoSuggestTagsInput extends Component {
           this.props.onChange(tags);
         } }
         renderTag={ (props) => {
-          const { tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other } = props;
+          const { tag, key, disabled, onRemove, classNameRemove, ...other } = props;
           return (
             <div
               { ...other }
               className={
-                classNames('tagsinput-tag', classNameRemove)
+                classNames('autosuggest-tagsinput-tag tagsinput-tag', classNameRemove)
               }
               key={ key }
             >
-              { getTagDisplayValue(tag) }
+              {
+                tag.photoSrc && (
+                  <img
+                    src={ tag.photoSrc }
+                    alt={ tag.name }
+                    className="autosuggest-tagsinput-tag-image"
+                  />
+                )
+              }
+              <div className="autosuggest-tagsinput-tag-details">
+                <span className="autosuggest-tagsinput-tag-name">{ tag.name }</span>
+                <span className="autosuggest-tagsinput-tag-username">{ tag.username }</span>
+              </div>
               {
                 !disabled && (
                   <Icon
@@ -146,7 +158,7 @@ class AutoSuggestTagsInput extends Component {
                 inputProps={ {...props, onChange: handleOnChange} }
                 renderInputComponent={ renderInputComponent }
                 onSuggestionSelected={ (e, {suggestion}) => {
-                  addTag(suggestion.name);
+                  addTag(suggestion);
                   this.setState({
                     isInputActive: true
                   });

@@ -1057,6 +1057,13 @@ textarea.textarea {
       fill: #fff;
     }
   }
+  &:active {
+    background: #0053D2;
+    color: #0053D2;
+    & .icon svg {
+      fill: #fff;
+    }
+  }
   & .icon {
     display: block;
     height: 15px;

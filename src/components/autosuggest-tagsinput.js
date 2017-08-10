@@ -101,6 +101,7 @@ class AutoSuggestTagsInput extends Component {
               inputRef={ (el) => {
                 this.input = el;
                 inputRef(el);
+                inputProps.ref(el);
               } }
             />
           );
@@ -148,6 +149,11 @@ class AutoSuggestTagsInput extends Component {
                   addTag(suggestion.name);
                   this.setState({
                     isInputActive: true
+                  });
+                  // focus() gets called before the render is over
+                  // so we have to wait for rendering to take place
+                  requestAnimationFrame(() => {
+                    this.input.focus();
                   });
                 } }
                 onSuggestionsClearRequested={ () => {} }

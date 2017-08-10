@@ -1,10 +1,11 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import Icon from './icon';
 
 const MultiActionButton = () => (
   <div className="button-wrapper">
     <button type="button" className="btn btn-default">Default</button>
-    <button type="button" className="btn btn-default-caret"><span className="caret">V</span></button>
+    <button type="button" className="btn btn-default-caret"><Icon icon="ion-android-arrow-dropdown" />
+    </button>
   </div>
 );
 

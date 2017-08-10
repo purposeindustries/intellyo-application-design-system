@@ -916,6 +916,15 @@ textarea.textarea {
       margin: 0 10px 0 0;
     }
 
+    &-wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      -js-display: flex;
+      -js-display: flex;
+      display: flex;
+    }
+
+    &-wrapper &-details,
     &-details {
 
       & .autosuggest-tagsinput-tag-name,

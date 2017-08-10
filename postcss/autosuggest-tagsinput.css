@@ -23,6 +23,11 @@
       margin: 0 10px 0 0;
     }
 
+    &-wrapper {
+      display: flex;
+    }
+
+    &-wrapper &-details,
     &-details {
 
       & .autosuggest-tagsinput-tag-name,

@@ -2,10 +2,9 @@ import React from 'react';
 import Icon from './icon';
 
 const MultiActionButton = () => (
-  <div className="button-wrapper">
-    <button type="button" className="btn btn-default">Default</button>
-    <button type="button" className="btn btn-default-caret"><Icon icon="ion-android-arrow-dropdown" />
-    </button>
+  <div className="multi-action-button-wrapper">
+    <button type="button" className="multi-action-button multi-action-button-default">Default action</button>
+    <button type="button" className="multi-action-button multi-action-button-default-caret"><Icon icon="ion-android-arrow-dropdown" /></button>
   </div>
 );
 

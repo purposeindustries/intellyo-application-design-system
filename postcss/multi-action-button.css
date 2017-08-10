@@ -1,21 +1,30 @@
-.button-wrapper {
+.multi-action-button-wrapper {
   display: flex;
 }
 
-.btn {
-  padding: 6px 12px;
+.multi-action-button {
+  padding: 8px 20px;
   background: #fff;
   border: 1px solid #6E6E6E;
   border-radius: 4px;
 }
 
-.btn-default {
+.multi-action-button-default {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   border-right-width: 0;
 }
 
-.btn-default-caret {
+.multi-action-button-default-caret {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+  padding: 15px 10px;
+  & .icon {
+    display: block;
+    height: 15px;
+    & svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
 }

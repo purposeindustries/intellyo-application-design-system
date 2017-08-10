@@ -1,0 +1,21 @@
+.button-wrapper {
+  display: flex;
+}
+
+.btn {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid #6E6E6E;
+  border-radius: 4px;
+}
+
+.btn-default {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right-width: 0;
+}
+
+.btn-default-caret {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

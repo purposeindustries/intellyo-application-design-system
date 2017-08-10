@@ -1044,6 +1044,12 @@ textarea.textarea {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   padding: 15px 10px;
+  &:hover {
+    background: #0F65D9;
+    & .icon svg {
+      fill: #fff;
+    }
+  }
   & .icon {
     display: block;
     height: 15px;
@@ -1054,9 +1060,9 @@ textarea.textarea {
   }
 }
 
-.multi-action-button-default-caret:hover {
+/*.multi-action-button-default-caret:hover {
   background: #0F65D9;
   & .icon svg {
     fill: #fff;
   }
-}
+}*/

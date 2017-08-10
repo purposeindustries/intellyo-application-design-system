@@ -1018,7 +1018,7 @@ textarea.textarea {
   display: -ms-flexbox;
   -js-display: flex;
   display: flex;
-  &:hover > .multi-action-button {
+  &:hover .multi-action-button {
     border-color: #0F65D9;
     color: #0F65D9;
   }

@@ -1,6 +1,6 @@
 .multi-action-button-wrapper {
   display: flex;
-  &:hover > .multi-action-button {
+  &:hover .multi-action-button {
     border-color: #0F65D9;
     color: #0F65D9;
   }

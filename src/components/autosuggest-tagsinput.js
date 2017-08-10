@@ -136,7 +136,7 @@ class AutoSuggestTagsInput extends Component {
                 className="tagsinput-add-tag"
               />
               <Autosuggest
-                tpye="text"
+                type="text"
                 ref={ props.ref }
                 suggestions={ suggestions }
                 shouldRenderSuggestions={ (value) => value && value.trim().length > 0 }

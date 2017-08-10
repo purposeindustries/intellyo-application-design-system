@@ -13,8 +13,11 @@ class AutoSuggestTagsInput extends Component {
     value: PropTypes.array,
     suggestions: PropTypes.array,
     onChange: PropTypes.func,
+    renderTag: PropTypes.func,
+    transformSuggestion: PropTypes.func,
     isInputActive: PropTypes.bool,
-    inputProps: PropTypes.object
+    inputProps: PropTypes.object,
+    allowCustomValues: PropTypes.bool
   }
   static defaultProps = {
     value: [],
@@ -56,19 +59,7 @@ class AutoSuggestTagsInput extends Component {
               }
               key={ key }
             >
-              {
-                tag.photoSrc && (
-                  <img
-                    src={ tag.photoSrc }
-                    alt={ tag.name }
-                    className="autosuggest-tagsinput-tag-image"
-                  />
-                )
-              }
-              <div className="autosuggest-tagsinput-tag-details">
-                <span className="autosuggest-tagsinput-tag-name">{ tag.name }</span>
-                <span className="autosuggest-tagsinput-tag-username">{ tag.username }</span>
-              </div>
+              { this.props.renderTag(tag) }
               {
                 !disabled && (
                   <Icon
@@ -103,6 +94,24 @@ class AutoSuggestTagsInput extends Component {
           const renderInputComponent = (inputProps) => (
             <Input
               { ...inputProps }
+              onKeyDown={ (e) => {
+                if (e.keyCode === 9 || e.keyCode === 13) {
+                  e.preventDefault();
+                  const suggestion = this._autoSuggest.getHighlightedSuggestion();
+                  if (!suggestion && this.props.allowCustomValues) {
+                    addTag(this.props.transformSuggestion(this.input.value));
+                  } else if (suggestion) {
+                    addTag(this.props.transformSuggestion(suggestion));
+                  }
+                  this.setState({
+                    isInputActive: true
+                  }, () => this.input.focus());
+                }
+                if (e.keyCode === 13) {
+                  return;
+                }
+                inputProps.onKeyDown(e);
+              } }
               className={ classNames(className, 'tagsinput-input') }
               onBlur={ (e) => {
                 this.setState({
@@ -150,7 +159,10 @@ class AutoSuggestTagsInput extends Component {
               />
               <Autosuggest
                 type="text"
-                ref={ props.ref }
+                ref={ (instance) => {
+                  this._autoSuggest = instance;
+                  props.ref(instance);
+                } }
                 suggestions={ suggestions }
                 shouldRenderSuggestions={ (value) => value && value.trim().length > 0 }
                 getSuggestionValue={ (suggestion) => suggestion.name }
@@ -158,15 +170,10 @@ class AutoSuggestTagsInput extends Component {
                 inputProps={ {...props, onChange: handleOnChange} }
                 renderInputComponent={ renderInputComponent }
                 onSuggestionSelected={ (e, {suggestion}) => {
-                  addTag(suggestion);
+                  addTag(this.props.transformSuggestion(suggestion));
                   this.setState({
                     isInputActive: true
-                  });
-                  // focus() gets called before the render is over
-                  // so we have to wait for rendering to take place
-                  requestAnimationFrame(() => {
-                    this.input.focus();
-                  });
+                  }, () => this.input.focus());
                 } }
                 onSuggestionsClearRequested={ () => {} }
                 onSuggestionsFetchRequested={ () => {} }

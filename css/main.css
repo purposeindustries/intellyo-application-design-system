@@ -1024,7 +1024,6 @@ textarea.textarea {
   }
   &:hover .icon svg {
     fill: #0F65D9;
-
   }
 }
 
@@ -1052,5 +1051,12 @@ textarea.textarea {
       height: 15px;
       width: 15px;
     }
+  }
+}
+
+.multi-action-button-default-caret:hover {
+  background: #0F65D9;
+  & .icon svg {
+    fill: #fff;
   }
 }

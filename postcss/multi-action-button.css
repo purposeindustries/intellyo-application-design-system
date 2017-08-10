@@ -9,10 +9,10 @@
   }
   &:active .multi-action-button {
     border-color: #0F65D9;
-    color: #0F65D9;
+    color: #0053D2;
   }
   &:active .icon svg {
-    fill: #0F65D9;
+    fill: #0053D2;
   }
 }
 

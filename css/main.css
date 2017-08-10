@@ -1018,12 +1018,20 @@ textarea.textarea {
   display: -ms-flexbox;
   -js-display: flex;
   display: flex;
+  &:hover > .multi-action-button {
+    border-color: #0F65D9;
+    color: #0F65D9;
+  }
+  &:hover .icon svg {
+    fill: #0F65D9;
+
+  }
 }
 
 .multi-action-button {
   padding: 8px 20px;
   background: #fff;
-  border: 1px solid #6E6E6E;
+  border: 1px solid #000;
   border-radius: 4px;
 }
 

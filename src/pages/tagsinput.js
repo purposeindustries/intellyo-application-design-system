@@ -43,10 +43,47 @@ export default class TagsInputPage extends Component {
             />
             <AutoSuggestTagsInput
               onlyUnique
+              transformSuggestion={ (suggestion) => suggestion }
               suggestions={ suggestions }
               inputProps={ {
                 placeholder: 'Search here for tags...'
               } }
+              renderTag={ (tag) => (
+                <div className="autosuggest-tagsinput-tag-wrapper">
+                  {
+                    tag.photoSrc && (
+                      <img
+                        src={ tag.photoSrc }
+                        alt={ tag.name }
+                        className="autosuggest-tagsinput-tag-image"
+                      />
+                    )
+                  }
+                  <div className="autosuggest-tagsinput-tag-details">
+                    <span className="autosuggest-tagsinput-tag-name">{ tag.name }</span>
+                    <span className="autosuggest-tagsinput-tag-username">{ tag.username }</span>
+                  </div>
+                </div>
+              ) }
+            />
+            <AutoSuggestTagsInput
+              allowCustomValues
+              transformSuggestion={ (suggestion) => {
+                if (typeof suggestion === 'string') {
+                  return suggestion;
+                }
+                return suggestion.name;
+              } }
+              onlyUnique
+              suggestions={ suggestions }
+              inputProps={ {
+                placeholder: 'Search here for tags...'
+              } }
+              renderTag={ (tag) => (
+                <div className="autosuggest-tagsinput-tag-details">
+                  <span className="autosuggest-tagsinput-tag-name">{ tag }</span>
+                </div>
+              ) }
             />
           </div>
         </Card>

@@ -1025,6 +1025,13 @@ textarea.textarea {
   &:hover .icon svg {
     fill: #0F65D9;
   }
+  &:active .multi-action-button {
+    border-color: #0F65D9;
+    color: #0F65D9;
+  }
+  &:active .icon svg {
+    fill: #0F65D9;
+  }
 }
 
 .multi-action-button {
@@ -1059,10 +1066,3 @@ textarea.textarea {
     }
   }
 }
-
-/*.multi-action-button-default-caret:hover {
-  background: #0F65D9;
-  & .icon svg {
-    fill: #fff;
-  }
-}*/

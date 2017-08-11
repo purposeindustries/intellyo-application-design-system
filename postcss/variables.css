@@ -218,3 +218,43 @@ $select-svg-fill--hover: $color-primary-4;
   $card-info-bg-color: #0053D2;
   $card-info-icon-margin: 5px;
   $card-info-icon-height: 22px;
+
+  /* Autosuggest-Tagsinput */
+
+  $autosuggest-tagsinput-tag-bg-color: $color-blue-4;
+  $autosuggest-tagsinput-tag-bg-color--2: #673AB7;
+  $autosuggest-tagsinput-tag-bg-color--3: #00BCD4;
+  $autosuggest-tagsinput-tag-bg-color--4: #4CAF50;
+
+  $autosuggest-tagsinput-tag-padding: 5px 10px;
+
+  $autosuggest-tagsinput-tag-image-width-and-height: 25px;
+  $autosuggest-tagsinput-tag-image-broder-radius: 100%;
+  $autosuggest-tagsinput-tag-image-margin: 0 10px 0 0;
+
+  $autosuggest-tagsinput-tag-name-and-username-lineheight: 12.5px;
+
+  $autosuggest-tagsinput-tag-name-font-size: $font-size-base;
+  $autosuggest-tagsinput-tag-username-font-size: 10px;
+
+  $react-autosuggest__suggestions-container-width: 200px;
+  $react-autosuggest__suggestions-container-padding: 0;
+
+  $react-autosuggest__suggestions-list-padding: 5px 0;
+  $react-autosuggest__suggestions-list-margin: 5px 0 0 0;
+  $react-autosuggest__suggestions-list-width: 100%;
+  $react-autosuggest__suggestions-list-background: #fff;
+  $react-autosuggest__suggestions-list-border-radius: 4px;
+  $react-autosuggest__suggestions-list-box-shadow: 0 1px 3px 0 rgba(63,65,65,.15);
+
+  $react-autosuggest__suggestion-height: 30px;
+  $react-autosuggest__suggestion-width: 100%;
+  $react-autosuggest__suggestion-padding: 5px 15px;
+  $react-autosuggest__suggestion-bg-color--highlighted: #efefef;
+
+  $autosuggest-image-border-radius: 100%;
+  $autosuggest-image-margin-right: 10px;
+  $autosuggest-image-margin-width-and-height: 20px;
+
+  $autosuggest-value-font-size: 12px;
+  $autosuggest-value-line-height: 30px;

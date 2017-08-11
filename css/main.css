@@ -51,6 +51,8 @@
   /* charCounter */
 
   /* Cards */
+
+  /* Autosuggest-Tagsinput */
 *,
 *:before,
 *:after {
@@ -954,7 +956,6 @@ textarea.textarea {
       padding: 5px 0;
       margin: 5px 0 0 0;
       position: absolute;
-      height: auto;
       width: 100%;
       background: #fff;
       border-radius: 4px;

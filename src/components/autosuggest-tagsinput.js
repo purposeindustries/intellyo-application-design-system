@@ -40,6 +40,9 @@ class AutoSuggestTagsInput extends Component {
   render() {
     return (
       <ReactTagsInput
+        ref={ (instance) => {
+          this._tagsInput = instance;
+        } }
         { ...this.props }
         className={ classNames('tagsinput autosuggest-tagsinput', {
           'tagsinput--input-visible': this.state.isInputActive
@@ -80,7 +83,7 @@ class AutoSuggestTagsInput extends Component {
         } }
         renderInput={ (props) => {
           const {
-            onBlur = () => {},
+            onBlur,
             inputRef = () => {},
             // https://github.com/olahol/react-tagsinput#how-do-i-fix-warning-unknown-prop-addtag
             // eslint-disable-next-line no-unused-vars
@@ -121,8 +124,13 @@ class AutoSuggestTagsInput extends Component {
               onBlur={ (e) => {
                 this.setState({
                   isInputActive: false
+                }, () => {
+                  onBlur(e);
+                  requestAnimationFrame(() => {
+                    this._autoSuggest.closeSuggestions();
+                    this._tagsInput.clearInput();
+                  });
                 });
-                onBlur(e);
               } }
               inputRef={ (el) => {
                 this.input = el;

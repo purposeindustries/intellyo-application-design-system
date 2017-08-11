@@ -59,6 +59,8 @@ class AutoSuggestTagsInput extends Component {
         } }
         renderTag={ (props) => {
           const { tag, key, disabled, onRemove, classNameRemove, ...other } = props;
+          // React warning: Remove getTagDisplayValue from <div> tag
+          delete props.getTagDisplayValue;
           return (
             <div
               { ...other }

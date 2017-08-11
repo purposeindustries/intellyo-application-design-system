@@ -75,6 +75,25 @@ export default class TagsInputPage extends Component {
                 return suggestion.name;
               } }
               onlyUnique
+              compare={ (a, b) => a.name !== b }
+              suggestions={ suggestions }
+              inputProps={ {
+                placeholder: 'Search here for tags...'
+              } }
+              renderTag={ (tag) => (
+                <div className="autosuggest-tagsinput-tag-details">
+                  <span className="autosuggest-tagsinput-tag-name">{ tag }</span>
+                </div>
+              ) }
+            />
+            <AutoSuggestTagsInput
+              allowCustomValues
+              transformSuggestion={ (suggestion) => {
+                if (typeof suggestion === 'string') {
+                  return suggestion;
+                }
+                return suggestion.name;
+              } }
               suggestions={ suggestions }
               inputProps={ {
                 placeholder: 'Search here for tags...'

@@ -14,16 +14,20 @@ class AutoSuggestTagsInput extends Component {
     suggestions: PropTypes.array,
     onChange: PropTypes.func,
     renderTag: PropTypes.func,
+    compare: PropTypes.func,
     transformSuggestion: PropTypes.func,
     isInputActive: PropTypes.bool,
+    onlyUnique: PropTypes.bool,
     inputProps: PropTypes.object,
+    ref: PropTypes.func,
     allowCustomValues: PropTypes.bool
   }
   static defaultProps = {
     value: [],
     onChange: () => {},
     isInputActive: false,
-    inputProps: {}
+    inputProps: {},
+    compare: (a, b) => a !== b
   }
   constructor(props) {
     super(props);
@@ -139,7 +143,21 @@ class AutoSuggestTagsInput extends Component {
           const inputValue = (props.value && props.value.trim().toLowerCase()) || '';
           const inputLength = inputValue.length;
 
-          const suggestions = this.props.suggestions.filter((state) => {
+          let suggestions = [];
+
+          if (this.props.onlyUnique) {
+            if (this.state.value.length === 0) {
+              suggestions = this.props.suggestions;
+            } else {
+              suggestions = this.props.suggestions.filter((n) => {
+                return this.state.value.every((j) => this.props.compare(n, j));
+              });
+            }
+          } else {
+            suggestions = this.props.suggestions;
+          }
+
+          const filteredSuggestions = suggestions.filter((state) => {
             return state.name.toLowerCase().slice(0, inputLength) === inputValue;
           });
           return (
@@ -163,7 +181,7 @@ class AutoSuggestTagsInput extends Component {
                   this._autoSuggest = instance;
                   props.ref(instance);
                 } }
-                suggestions={ suggestions }
+                suggestions={ filteredSuggestions }
                 shouldRenderSuggestions={ (value) => value && value.trim().length > 0 }
                 getSuggestionValue={ (suggestion) => suggestion.name }
                 renderSuggestion={ renderSuggestion }

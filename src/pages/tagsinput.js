@@ -43,6 +43,7 @@ export default class TagsInputPage extends Component {
             />
             <AutoSuggestTagsInput
               onlyUnique
+              highlightFirstSuggestion
               transformSuggestion={ (suggestion) => suggestion }
               suggestions={ suggestions }
               inputProps={ {

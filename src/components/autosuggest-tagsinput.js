@@ -17,6 +17,7 @@ class AutoSuggestTagsInput extends Component {
     compare: PropTypes.func,
     transformSuggestion: PropTypes.func,
     isInputActive: PropTypes.bool,
+    highlightFirstSuggestion: PropTypes.bool,
     onlyUnique: PropTypes.bool,
     inputProps: PropTypes.object,
     ref: PropTypes.func,
@@ -181,6 +182,7 @@ class AutoSuggestTagsInput extends Component {
                   this._autoSuggest = instance;
                   props.ref(instance);
                 } }
+                highlightFirstSuggestion={ this.props.highlightFirstSuggestion }
                 suggestions={ filteredSuggestions }
                 shouldRenderSuggestions={ (value) => value && value.trim().length > 0 }
                 getSuggestionValue={ (suggestion) => suggestion.name }

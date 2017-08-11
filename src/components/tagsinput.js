@@ -71,7 +71,7 @@ class TagsInput extends Component {
         renderInput={ (props) => {
           const {
             onChange = () => {},
-            onBlur = () => {},
+            onBlur,
             inputRef = () => {},
             value,
             // https://github.com/olahol/react-tagsinput#how-do-i-fix-warning-unknown-prop-addtag

@@ -1,0 +1,106 @@
+.autosuggest-tagsinput {
+
+  & .autosuggest-tagsinput-tag {
+    background: $autosuggest-tagsinput-tag-bg-color;
+    padding: $autosuggest-tagsinput-tag-padding;
+
+    &:nth-child(2) {
+      background: $autosuggest-tagsinput-tag-bg-color--2;
+    }
+
+    &:nth-child(3) {
+      background: $autosuggest-tagsinput-tag-bg-color--3;
+    }
+
+    &:nth-child(4) {
+      background: $autosuggest-tagsinput-tag-bg-color--4;
+    }
+
+    &-image {
+      width: $autosuggest-tagsinput-tag-image-width-and-height;
+      height: $autosuggest-tagsinput-tag-image-width-and-height;
+      border-radius: $autosuggest-tagsinput-tag-image-broder-radius;
+      margin: $autosuggest-tagsinput-tag-image-margin;
+    }
+
+    &-wrapper {
+      display: flex;
+    }
+
+    &-wrapper &-details,
+    &-details {
+
+      & .autosuggest-tagsinput-tag-name,
+      & .autosuggest-tagsinput-tag-username {
+        display: block;
+        line-height: $autosuggest-tagsinput-tag-name-and-username-lineheight;
+      }
+
+      & .autosuggest-tagsinput-tag-name {
+        font-size: $autosuggest-tagsinput-tag-name-font-size;
+      }
+
+      & .autosuggest-tagsinput-tag-username {
+        font-size: $autosuggest-tagsinput-tag-username-font-size;
+      }
+
+    }
+
+  }
+
+  & .react-autosuggest__suggestions-container {
+    width: $react-autosuggest__suggestions-container-width;
+    padding: $react-autosuggest__suggestions-container-padding;
+    position: relative;
+
+    & .react-autosuggest__suggestions-list {
+      padding: $react-autosuggest__suggestions-list-padding;
+      margin: $react-autosuggest__suggestions-list-margin;
+      position: absolute;
+      width: $react-autosuggest__suggestions-list-width;
+      background: $react-autosuggest__suggestions-list-background;
+      border-radius: $react-autosuggest__suggestions-list-border-radius;
+      box-shadow: $react-autosuggest__suggestions-list-box-shadow;
+
+      & .react-autosuggest__suggestion {
+        list-style: none;
+        height: $react-autosuggest__suggestion-height;
+        width: $react-autosuggest__suggestion-width;
+        overflow: hidden;
+        padding: $react-autosuggest__suggestion-padding;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        & .autosuggest-wrap {
+          display: flex;
+          align-items: center;
+
+          & img.autosuggest-image {
+            border-radius: $autosuggest-image-border-radius;
+            margin-right: $autosuggest-image-margin-right;
+            width: $autosuggest-image-margin-width-and-height;
+            height: $autosuggest-image-margin-width-and-height;
+          }
+
+
+          & span.autosuggest-value {
+            font-size: $autosuggest-value-font-size;
+            text-overflow: ellipsis;
+            line-height: $autosuggest-value-line-height;
+            vertical-align: middle;
+          }
+
+        }
+
+        &--highlighted {
+          background: $react-autosuggest__suggestion-bg-color--highlighted;
+        }
+
+      }
+
+    }
+
+  }
+
+}

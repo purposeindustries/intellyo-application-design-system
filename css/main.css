@@ -1104,6 +1104,26 @@ textarea.textarea {
     }
   }
 }
+
+.multi-action-button-dropdown-menu {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+  list-style: none;
+  font-family: "Open Sans";
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  color: #2A2A2A;
+  & li a {
+    display: block;
+    padding: 5px 40px 5px 20px;
+    &:hover {
+      background: #EFEFEF;
+    }
+  }
+
+}
 .page-cards .card {
   margin-bottom: 15px;
 }

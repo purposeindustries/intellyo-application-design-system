@@ -58,3 +58,23 @@
     }
   }
 }
+
+.multi-action-button-dropdown-menu {
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-base;
+  list-style: none;
+  font-family: "Open Sans";
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  color: #2A2A2A;
+  & li a {
+    display: block;
+    padding: 5px 40px 5px 20px;
+    &:hover {
+      background: #EFEFEF;
+    }
+  }
+
+}

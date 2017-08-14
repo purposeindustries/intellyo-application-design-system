@@ -184,7 +184,11 @@ export default class Buttons extends Component {
             </Row>
             <Row>
               <Col span={ 3 }>
-                <MultiActionButton />
+                <MultiActionButton>
+                  <li><a>csicska</a></li>
+                  <li><a>torpe</a></li>
+                  <li><a>geci</a></li>
+                </MultiActionButton>
               </Col>
             </Row>
           </Card>

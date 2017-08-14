@@ -1,0 +1,6 @@
+.tooltip {
+  background: #000;
+  color: #fff;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}

@@ -24,6 +24,8 @@
 
 /* Button */
 
+  /*Multi Action Button*/
+
 /* Input */
 
   /* Error */
@@ -1068,8 +1070,9 @@ textarea.textarea {
   border: 1px solid #000;
   border-radius: 4px;
   outline: none;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 12px;
+  cursor: pointer;
 }
 
 .multi-action-button-default {
@@ -1109,7 +1112,7 @@ textarea.textarea {
   border-radius: 4px;
   box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
   list-style: none;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-size: 12px;
   padding: 0;
   margin: 5px 0 0 0;

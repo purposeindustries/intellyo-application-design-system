@@ -1,29 +1,30 @@
 .multi-action-button-wrapper {
   display: flex;
   &:hover .multi-action-button {
-    border-color: #0F65D9;
-    color: #0F65D9;
+    border-color: $multi-action-button-border-color--hover;
+    color: $multi-action-button-border-color--hover;
   }
   &:hover .icon svg {
-    fill: #0F65D9;
+    fill: $multi-action-button-border-color--hover;
   }
   &:active .multi-action-button {
-    border-color: #0F65D9;
-    color: #0053D2;
+    border-color: $multi-action-button-border-color--hover;
+    color: $multi-action-button-color--active;
   }
   &:active .icon svg {
-    fill: #0053D2;
+    fill: $multi-action-button-color--active;
   }
 }
 
 .multi-action-button {
-  padding: 8px 20px;
+  padding: $multi-action-button-padding;
   background: #fff;
-  border: 1px solid #000;
-  border-radius: 4px;
+  border: $multi-action-button-border;
+  border-radius: $border-radius-base;
   outline: none;
-  font-family: "Open Sans";
-  font-size: 12px;
+  font-family: $font-family-base;
+  font-size: $button-font-size;
+  cursor: pointer;
 }
 
 .multi-action-button-default {
@@ -37,14 +38,14 @@
   border-top-left-radius: 0;
   padding: 15px 10px;
   &:hover {
-    background: #0F65D9;
+    background: $multi-action-button-border-color--hover;
     & .icon svg {
       fill: #fff;
     }
   }
   &:active {
-    background: #0053D2;
-    color: #0053D2;
+    background: $multi-action-button-color--active;
+    color: $multi-action-button-color--active;
     & .icon svg {
       fill: #fff;
     }
@@ -63,8 +64,8 @@
   border-radius: $border-radius-base;
   box-shadow: $box-shadow-base;
   list-style: none;
-  font-family: "Open Sans";
-  font-size: 12px;
+  font-family: $font-family-base;
+  font-size: $button-font-size;
   padding: 0;
   margin: 5px 0 0 0;
   display: inline-block;

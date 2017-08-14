@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from './icon';
 import DropdownButton from './dropdown-button';
 
 const MultiActionButton = () => (

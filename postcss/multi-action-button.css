@@ -1,3 +1,8 @@
+.multi-action-button-dropdown-component {
+  display: inline-block;
+  position: relative;
+}
+
 .multi-action-button-wrapper {
   display: flex;
   &:hover .multi-action-button {
@@ -67,6 +72,7 @@
   font-family: $font-family-base;
   font-size: $button-font-size;
   padding: 0;
+  position: absolute;
   margin: 5px 0 0 0;
   display: inline-block;
   color: #2A2A2A;

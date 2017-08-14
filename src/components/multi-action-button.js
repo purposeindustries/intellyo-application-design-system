@@ -17,7 +17,7 @@ export default class MultiActionButton extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="multi-action-button-dropdown-component">
         <div className="multi-action-button-wrapper">
           <button type="button" className="multi-action-button multi-action-button-default">Default action</button>
           <button type="button" className="multi-action-button multi-action-button-default-caret" onClick={ () => this.displayDropdown() }>

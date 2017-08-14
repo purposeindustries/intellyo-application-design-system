@@ -8,7 +8,9 @@ export default class TooltipPage extends React.Component {
     return (
       <div>
         <Card>
-          <Tooltip />
+          <Tooltip>
+            International University of Monaco
+          </Tooltip>
         </Card>
       </div>
     );

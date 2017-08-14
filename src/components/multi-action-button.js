@@ -10,7 +10,7 @@ export default class MultiActionButton extends React.Component {
   state = {
     displayDropdown: false,
   }
-  dropdownDisplay() {
+  displayDropdown() {
     this.setState({
       displayDropdown: !this.state.displayDropdown
     });
@@ -20,7 +20,7 @@ export default class MultiActionButton extends React.Component {
       <div>
         <div className="multi-action-button-wrapper">
           <button type="button" className="multi-action-button multi-action-button-default">Default action</button>
-          <button type="button" className="multi-action-button multi-action-button-default-caret" onClick={ () => this.dropdownDisplay() }>
+          <button type="button" className="multi-action-button multi-action-button-default-caret" onClick={ () => this.displayDropdown() }>
             <Icon icon="ion-android-arrow-dropdown" />
           </button>
         </div>

@@ -44,6 +44,9 @@ export default class Template extends React.Component {
               </SidebarItem>,
               <SidebarItem key="sidebar-item-avatars" href="/avatars">
                 Avatars
+              </SidebarItem>,
+              <SidebarItem key="sidebar-item-cards" href="/cards">
+                Cards
               </SidebarItem>
             ]) }
           >

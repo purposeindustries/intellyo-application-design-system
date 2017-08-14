@@ -49,6 +49,8 @@
   /* disabled */
 
   /* charCounter */
+
+  /* Cards */
 *,
 *:before,
 *:after {
@@ -257,6 +259,27 @@ section ul{
 
 .card-header {
   padding: 20px 20px 0;
+
+  & .card-header-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -js-display: flex;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    & .icon {
+      height: 22px;
+      margin-left: 5px;
+      & svg {
+        fill: #0053D2;
+      }
+
+    }
+
+  }
+
 }
 
 .card-header .caption {
@@ -584,6 +607,11 @@ section ul{
   display: none;
 }
 
+/* @TODO needs discussion whether this is right */
+.tagsinput-add-tag {
+  border: none;
+}
+
 .tagsinput--input-visible {
   & .tagsinput-input {
     display: block;
@@ -602,7 +630,7 @@ section ul{
   -js-display: flex;
   display: flex;
   float: left;
-  height: 30px;
+  height: 35px;
   line-height: 30px;
   white-space: nowrap;
   padding: 0 10px;
@@ -1072,4 +1100,6 @@ textarea.textarea {
       width: 15px;
     }
   }
+.page-cards .card {
+  margin-bottom: 15px;
 }

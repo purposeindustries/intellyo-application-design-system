@@ -15,6 +15,11 @@
   display: none;
 }
 
+/* @TODO needs discussion whether this is right */
+.tagsinput-add-tag {
+  border: none;
+}
+
 .tagsinput--input-visible {
   & .tagsinput-input {
     display: block;
@@ -30,7 +35,7 @@
   color: #fff;
   display: flex;
   float: left;
-  height: 30px;
+  height: 35px;
   line-height: 30px;
   white-space: nowrap;
   padding: 0 10px;

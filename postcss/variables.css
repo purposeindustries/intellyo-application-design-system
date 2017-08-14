@@ -95,6 +95,12 @@
   $button-icon-fill-neutral: $color-black-4;
   $button-icon-fill-neutral-hover: $color-primary-4;
 
+  /*Multi Action Button*/
+  $multi-action-button-border-color--hover: #0F65D9;
+  $multi-action-button-color--active: #0053D2;
+  $multi-action-button-padding: 8px 20px;
+  $multi-action-button-border: 1px solid #000;
+
 /* Input */
 
   $input-border-color: $color-black-2;

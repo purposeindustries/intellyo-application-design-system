@@ -5,6 +5,7 @@ import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
+import MultiActionButton from '../components/multi-action-button';
 
 export default class Buttons extends Component {
   displayName = 'ButtonsPage'
@@ -179,6 +180,15 @@ export default class Buttons extends Component {
                     <Icon icon="ion-happy" />
                   ) }
                 />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={ 3 }>
+                <MultiActionButton>
+                  <li><a>Action One</a></li>
+                  <li><a>Another Action</a></li>
+                  <li><a>Action Two</a></li>
+                </MultiActionButton>
               </Col>
             </Row>
           </Card>

@@ -24,6 +24,8 @@
 
 /* Button */
 
+  /*Multi Action Button*/
+
 /* Input */
 
   /* Error */
@@ -1038,6 +1040,96 @@ textarea.textarea {
 
   & .user-avatar--horizontal {
     margin-bottom: 15px;
+  }
+
+}
+.multi-action-button-dropdown-component {
+  display: inline-block;
+  position: relative;
+}
+
+.multi-action-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex;
+  &:hover .multi-action-button {
+    border-color: #0F65D9;
+    color: #0F65D9;
+  }
+  &:hover .icon svg {
+    fill: #0F65D9;
+  }
+  &:active .multi-action-button {
+    border-color: #0F65D9;
+    color: #0053D2;
+  }
+  &:active .icon svg {
+    fill: #0053D2;
+  }
+}
+
+.multi-action-button {
+  padding: 8px 20px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  outline: none;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.multi-action-button-default {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right-width: 0;
+}
+
+.multi-action-button-default-caret {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding: 15px 10px;
+  &:hover {
+    background: #0F65D9;
+    & .icon svg {
+      fill: #fff;
+    }
+  }
+  &:active {
+    background: #0053D2;
+    color: #0053D2;
+    & .icon svg {
+      fill: #fff;
+    }
+  }
+  & .icon {
+    display: block;
+    height: 15px;
+    & svg {
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+.multi-action-button-dropdown-menu {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+  list-style: none;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  padding: 0;
+  position: absolute;
+  margin: 5px 0 0 0;
+  display: inline-block;
+  color: #2A2A2A;
+  & li a {
+    display: block;
+    padding: 5px 50px 5px 20px;
+    &:hover {
+      background: #EFEFEF;
+    }
   }
 
 }

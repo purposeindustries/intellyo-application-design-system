@@ -21,6 +21,9 @@
   background: #fff;
   border: 1px solid #000;
   border-radius: 4px;
+  outline: none;
+  font-family: "Open Sans";
+  font-size: 12px;
 }
 
 .multi-action-button-default {

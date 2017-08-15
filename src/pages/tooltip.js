@@ -3,6 +3,7 @@ import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
 import Tooltip from '../components/tooltip';
+import OverlayTrigger from '../components/overlay-trigger';
 
 export default class TooltipPage extends React.Component {
   static displayName = 'Tooltip'
@@ -30,6 +31,17 @@ export default class TooltipPage extends React.Component {
               <Tooltip classname="tooltip-caret-left">
                 International University of Monaco
               </Tooltip>
+            </Col>
+          </Row>
+        </Card>
+        <Card>
+          <Row>
+            <Col span={ 3 }>
+              <OverlayTrigger>
+                <Tooltip classname="tooltip-caret-top">
+                  International University of Monaco
+                </Tooltip>
+              </OverlayTrigger>
             </Col>
           </Row>
         </Card>

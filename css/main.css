@@ -894,11 +894,22 @@ textarea.textarea {
 .tooltip {
   display: inline-block;
   border-radius: 4px;
+  position: relative;
   padding: 4px 13.44px 5px 13.44px;
   background: #000;
   color: #fff;
   font-family: 'Open Sans';
   font-size: 14px;
+  & .tooltip-caret {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5.04px 6.67px 5.04px;
+    border-color: transparent transparent #000000 transparent;
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+  }
 }
 
 .page-typography {

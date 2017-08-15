@@ -900,7 +900,7 @@ textarea.textarea {
   color: #fff;
   font-family: 'Open Sans';
   font-size: 14px;
-  & .tooltip-caret {
+  & .tooltip-caret-top {
     width: 0;
     height: 0;
     border-style: solid;
@@ -909,6 +909,36 @@ textarea.textarea {
     position: absolute;
     left: 50%;
     bottom: 28px;
+  }
+  & .tooltip-caret-right {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5.04px 0 5.04px 6.67px;
+    border-color: transparent transparent transparent #000000;
+    position: absolute;
+    right: -5px;
+    bottom: 11px;
+  }
+  & .tooltip-caret-bottom {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6.67px 5.04px 0 5.04px;
+    border-color: #000000 transparent transparent transparent;
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+  }
+  & .tooltip-caret-left {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5.04px 6.67px 5.04px 0;
+    border-color: transparent #000000 transparent transparent;
+    position: absolute;
+    left: -6px;
+    bottom: 11px;
   }
 }
 

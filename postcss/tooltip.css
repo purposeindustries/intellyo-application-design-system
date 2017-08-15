@@ -3,7 +3,7 @@
   border-radius: $border-radius-base;
   padding: 4px 13.44px 5px 13.44px;
   background: #000;
-  color: #fff;
+  color: $button-color-primary;
   font-family: $font-family-base;
   font-size: $font-size-base;
 }

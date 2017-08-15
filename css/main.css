@@ -892,6 +892,9 @@ textarea.textarea {
 
 }
 .tooltip {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 4px 13.44px 5px 13.44px;
   background: #000;
   color: #fff;
   font-family: 'Open Sans';

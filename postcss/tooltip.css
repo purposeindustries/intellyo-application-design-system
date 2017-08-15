@@ -1,4 +1,7 @@
 .tooltip {
+  display: inline-block;
+  border-radius: $border-radius-base;
+  padding: 4px 13.44px 5px 13.44px;
   background: #000;
   color: #fff;
   font-family: $font-family-base;

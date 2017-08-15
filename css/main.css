@@ -917,8 +917,8 @@ textarea.textarea {
     border-width: 5.04px 0 5.04px 6.67px;
     border-color: transparent transparent transparent #000000;
     position: absolute;
-    right: -5px;
-    bottom: 11px;
+    right: -6px;
+    bottom: 10px;
   }
   & .tooltip-caret-bottom {
     width: 0;
@@ -938,7 +938,7 @@ textarea.textarea {
     border-color: transparent #000000 transparent transparent;
     position: absolute;
     left: -6px;
-    bottom: 11px;
+    bottom: 10px;
   }
 }
 

@@ -17,6 +17,7 @@
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
+    "gatsby": "1.4.1",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
     "gh-pages": "^0.12.0",

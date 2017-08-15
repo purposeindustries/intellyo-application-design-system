@@ -4,6 +4,7 @@ import Row from '../components/row';
 import Col from '../components/col';
 import Tooltip from '../components/tooltip';
 import OverlayTrigger from '../components/overlay-trigger';
+import Avatar from '../components/avatar';
 
 export default class TooltipPage extends React.Component {
   static displayName = 'Tooltip'
@@ -38,9 +39,11 @@ export default class TooltipPage extends React.Component {
           <Row>
             <Col span={ 3 }>
               <OverlayTrigger>
-                <Tooltip classname="tooltip-caret-top">
-                  International University of Monaco
-                </Tooltip>
+                <Avatar
+                  name="Donald Trump"
+                  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  size="medium"
+                />
               </OverlayTrigger>
             </Col>
           </Row>

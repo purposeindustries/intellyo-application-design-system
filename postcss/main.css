@@ -39,6 +39,7 @@ section {
 @import './textarea.css';
 @import './char-limit.css';
 @import './tooltip.css';
+@import './overlay-trigger.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

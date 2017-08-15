@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tooltip from './tooltip';
+import classNames from 'classnames';
 
 export default class OverlayTrigger extends React.Component {
   static propTypes = {
@@ -11,18 +12,29 @@ export default class OverlayTrigger extends React.Component {
   state = {
     overlayStatus: false,
   }
-  overlayStatus = () => {
+  overlayStatus = (value) => {
     this.setState(
       {
-        overlayStatus: !this.state.overlayStatus
+        overlayStatus: value
       }
     );
   }
   render() {
     return (
-      <div className="overlay-trigger" onMouseOver={ () => this.overlayStatus() }>
+      <div
+        className={ classNames('overlay-trigger', {
+          'overlay-trigger-active': this.state.overlayStatus
+        }
+        ) }
+        onMouseEnter={ () => {
+          this.overlayStatus(true);
+        } }
+        onMouseLeave={ () => {
+          this.overlayStatus(false);
+        } }
+      >
         { this.props.children }
-        { this.state.overlayStatus ? <Tooltip /> : null }
+        <Tooltip classname="tooltip-caret-bottom">International University of Monaco</Tooltip>
       </div>
     );
   }

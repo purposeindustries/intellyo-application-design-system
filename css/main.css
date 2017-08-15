@@ -900,6 +900,7 @@ textarea.textarea {
   color: #fff;
   font-family: 'Open Sans';
   font-size: 14px;
+  white-space: nowrap;
   & .tooltip-caret-top {
     width: 0;
     height: 0;
@@ -908,6 +909,8 @@ textarea.textarea {
     border-color: transparent transparent #000000 transparent;
     position: absolute;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     bottom: 28px;
   }
   & .tooltip-caret-right {
@@ -918,7 +921,9 @@ textarea.textarea {
     border-color: transparent transparent transparent #000000;
     position: absolute;
     right: -6px;
-    bottom: 10px;
+    bottom: 50%;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
   & .tooltip-caret-bottom {
     width: 0;
@@ -928,6 +933,8 @@ textarea.textarea {
     border-color: #000000 transparent transparent transparent;
     position: absolute;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     bottom: -6px;
   }
   & .tooltip-caret-left {
@@ -938,7 +945,27 @@ textarea.textarea {
     border-color: transparent #000000 transparent transparent;
     position: absolute;
     left: -6px;
-    bottom: 10px;
+    bottom: 50%;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+.overlay-trigger {
+  display: inline-block;
+  position: relative;
+  & .tooltip {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.overlay-trigger-active {
+    & .tooltip {
+      opacity: 1;
+    }
   }
 }
 

@@ -7,6 +7,7 @@
   color: $button-color-primary;
   font-family: $font-family-base;
   font-size: $font-size-base;
+  white-space: nowrap;
   & .tooltip-caret-top {
     width: 0;
     height: 0;
@@ -15,6 +16,7 @@
     border-color: transparent transparent #000000 transparent;
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     bottom: 28px;
   }
   & .tooltip-caret-right {
@@ -25,7 +27,8 @@
     border-color: transparent transparent transparent #000000;
     position: absolute;
     right: -6px;
-    bottom: 10px;
+    bottom: 50%;
+    transform: translateY(50%);
   }
   & .tooltip-caret-bottom {
     width: 0;
@@ -35,6 +38,7 @@
     border-color: #000000 transparent transparent transparent;
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     bottom: -6px;
   }
   & .tooltip-caret-left {
@@ -45,6 +49,7 @@
     border-color: transparent #000000 transparent transparent;
     position: absolute;
     left: -6px;
-    bottom: 10px;
+    bottom: 50%;
+    transform: translateY(50%);
   }
 }

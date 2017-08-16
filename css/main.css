@@ -988,6 +988,44 @@ textarea.textarea {
   }
 }
 
+.overlay-trigger-right {
+  display: inline-block;
+  position: relative;
+  & .tooltip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.overlay-trigger-active {
+    & .tooltip {
+      opacity: 1;
+    }
+  }
+}
+
+.overlay-trigger-left {
+  display: inline-block;
+  position: relative;
+  & .tooltip {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 10px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.overlay-trigger-active {
+    & .tooltip {
+      opacity: 1;
+    }
+  }
+}
+
 .page-typography {
 
   & section > ul {

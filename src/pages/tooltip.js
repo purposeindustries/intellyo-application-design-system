@@ -14,22 +14,22 @@ export default class TooltipPage extends React.Component {
         <Card>
           <Row >
             <Col span={ 3 }>
-              <Tooltip classname="tooltip-caret-top">
+              <Tooltip placement="tooltip-caret-top">
                 International University of Monaco
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip classname="tooltip-caret-right">
+              <Tooltip placement="tooltip-caret-right">
                 International University of Monaco
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip classname="tooltip-caret-bottom">
+              <Tooltip>
                 International University of Monaco
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip classname="tooltip-caret-left">
+              <Tooltip placement="tooltip-caret-left">
                 International University of Monaco
               </Tooltip>
             </Col>

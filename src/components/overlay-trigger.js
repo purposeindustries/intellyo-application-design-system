@@ -34,7 +34,7 @@ export default class OverlayTrigger extends React.Component {
         } }
       >
         { this.props.children }
-        <Tooltip classname="tooltip-caret-bottom">International University of Monaco</Tooltip>
+        <Tooltip>International University of Monaco</Tooltip>
       </div>
     );
   }

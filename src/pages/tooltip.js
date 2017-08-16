@@ -38,7 +38,14 @@ export default class TooltipPage extends React.Component {
         <Card>
           <Row>
             <Col span={ 3 }>
-              <OverlayTrigger>
+              <OverlayTrigger
+                placement="overlay-trigger-top"
+                overlay={
+                  <Tooltip placement="tooltip-caret-bottom">
+                    International University of Monaco
+                  </Tooltip>
+                }
+              >
                 <Avatar
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
@@ -47,7 +54,14 @@ export default class TooltipPage extends React.Component {
               </OverlayTrigger>
             </Col>
             <Col span={ 3 }>
-              <OverlayTrigger>
+              <OverlayTrigger
+                placement="overlay-trigger-bottom"
+                overlay={
+                  <Tooltip placement="tooltip-caret-top">
+                    International University of Monaco
+                  </Tooltip>
+                }
+              >
                 <Avatar
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
@@ -56,7 +70,14 @@ export default class TooltipPage extends React.Component {
               </OverlayTrigger>
             </Col>
             <Col span={ 3 }>
-              <OverlayTrigger>
+              <OverlayTrigger
+                placement="overlay-trigger-bottom"
+                overlay={
+                  <Tooltip placement="tooltip-caret-top">
+                    International University of Monaco
+                  </Tooltip>
+                }
+              >
                 <Avatar
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
@@ -65,7 +86,14 @@ export default class TooltipPage extends React.Component {
               </OverlayTrigger>
             </Col>
             <Col span={ 3 }>
-              <OverlayTrigger>
+              <OverlayTrigger
+                placement="overlay-trigger-left"
+                overlay={
+                  <Tooltip placement="tooltip-caret-right">
+                    International University of Monaco
+                  </Tooltip>
+                }
+              >
                 <Avatar
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tooltip from './tooltip';
 import classNames from 'classnames';
 
 export default class OverlayTrigger extends React.Component {
   static propTypes = {
-    overlay: PropTypes.element,
-    children: PropTypes.element,
+    overlay: PropTypes.node,
+    children: PropTypes.node,
+    placement: PropTypes.string,
   }
   static displayName = 'Overlay Trigger'
   state = {
@@ -22,7 +22,7 @@ export default class OverlayTrigger extends React.Component {
   render() {
     return (
       <div
-        className={ classNames('overlay-trigger', {
+        className={ classNames(`${this.props.placement}`, {
           'overlay-trigger-active': this.state.overlayStatus
         }
         ) }
@@ -34,7 +34,7 @@ export default class OverlayTrigger extends React.Component {
         } }
       >
         { this.props.children }
-        <Tooltip>International University of Monaco</Tooltip>
+        { this.props.overlay }
       </div>
     );
   }

@@ -1,0 +1,175 @@
+/* Local variables */
+
+$dropdown-width: 150px;
+$dropdown-height: 35px;
+$dropdown-bg: #fff;
+
+
+
+/* Implementation */
+
+.dropdown {
+  width: 150px;
+  height: 35px;
+  background: #fff;
+  border-radius: $border-radius-base;
+  border: 1px solid #000;
+  outline: none;
+  display: inline-flex;
+  position: relative;
+
+  &:hover {
+    border-color: $color-primary-4;
+
+    & .dropdown-trigger-label {
+      color: $color-primary-4;
+    }
+
+    & .dropdown-trigger-arrow-wrap {
+      border-color: $color-primary-4;
+
+      & .icon svg {
+        fill: $color-primary-4;
+      }
+
+    }
+
+  }
+
+  &:active {
+    border-color: $color-primary-5;
+
+    & .dropdown-trigger-label {
+      color: $color-primary-5;
+    }
+
+    & .dropdown-trigger-arrow-wrap {
+      border-color: $color-primary-5;
+
+      & .icon svg {
+        fill: $color-primary-5;
+      }
+
+    }
+
+  }
+
+  &-trigger {
+    padding: 0 50px 0 20px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &-label {
+      font-size: 12px;
+      font-family: $font-family-base;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & .icon {
+      position: absolute;
+      height: 22px;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:hover .icon svg {
+      fill: $color-primary-4;
+    }
+
+    &:active .icon svg {
+      fill: $color-primary-5;
+    }
+
+  }
+
+  &-items {
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    left: 0px;
+    padding: 5px 0;
+    background: #fff;
+    border-radius: 4px;
+    visibility: hidden;
+    pointer-events: none;
+    box-shadow: $box-shadow-base;
+
+    & .dropdown-item {
+      font-size: 12px;
+      height: 30px;
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:hover {
+        background-color: #EFEFEF;
+      }
+
+    }
+
+    &--open {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+  }
+
+}
+
+.dropdown-inner-wrap {
+  width: 100%;
+  height: 100%;
+
+  &--split {
+    display: flex;
+    align-items: center;
+
+    & .dropdown-trigger {
+
+      &-arrow-wrap {
+        height: 100%;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        top: 0;
+        outline: none;
+        border-left: 1px solid #000;
+
+        & .icon {
+          position: static;
+          transform: none;
+          height: 22px;
+        }
+
+        &:hover {
+          background: $color-primary-4;
+          border-color: $color-primary-4;
+
+          & .icon svg {
+            fill: #fff;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

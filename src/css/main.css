@@ -68,9 +68,7 @@ textarea {
 }
 
 html {
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
 }
@@ -156,17 +154,10 @@ section ul{
   position: fixed;
   top: 0;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   -js-display: flex;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   padding: 15px 0;
 
   & nav {
@@ -195,8 +186,6 @@ section ul{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 600;
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
 
@@ -261,13 +250,9 @@ section ul{
   padding: 20px 20px 0;
 
   & .card-header-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
 
     & .icon {
       height: 22px;
@@ -361,9 +346,7 @@ section ul{
   width: 100%;
 }
 .button {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   cursor: pointer;
   white-space: nowrap;
   line-height: 35px;
@@ -378,13 +361,9 @@ section ul{
   background: #0F65D9;
   outline: none;
   border: 1px solid transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
   -js-display: flex;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   box-sizing: content-box;
 }
 
@@ -486,14 +465,6 @@ section ul{
     font-family: 'Open Sans';
     font-size: 14px;
 
-    &::-webkit-input-placeholder {
-      color: #BDBDBD;
-    }
-
-    &:-ms-input-placeholder {
-      color: #BDBDBD;
-    }
-
     &::placeholder {
       color: #BDBDBD;
     }
@@ -509,14 +480,6 @@ section ul{
     border-color: #EE0E3B;
     color: #EE0E3B;
 
-    &::-webkit-input-placeholder {
-      color: inherit;
-    }
-
-    &:-ms-input-placeholder {
-      color: inherit;
-    }
-
     &::placeholder {
       color: inherit;
     }
@@ -531,14 +494,6 @@ section ul{
   &--disabled input {
     background-color: #DCDCDC;
     pointer-events: none;
-
-    &::-webkit-input-placeholder {
-      border-color: inherit;
-    }
-
-    &:-ms-input-placeholder {
-      border-color: inherit;
-    }
 
     &::placeholder {
       border-color: inherit;
@@ -573,8 +528,7 @@ section ul{
     position: absolute;
     left: 7px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
 
     & svg {
       fill: #989898;
@@ -625,8 +579,6 @@ section ul{
   border-radius: 4px;
   background: #6E6E6E;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   -js-display: flex;
   display: flex;
   float: left;
@@ -635,11 +587,8 @@ section ul{
   white-space: nowrap;
   padding: 0 10px;
   margin: 0 5px 5px 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-grid-column-align: center;
-      justify-items: center;
+  align-items: center;
+  justify-items: center;
   font-size: 12px;
 
   & .icon {
@@ -684,23 +633,14 @@ section ul{
   }
 
   &--horizontal {
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
 
     & .avatar-caption-wrapper {
-      display: -webkit-box;
-      display: -ms-flexbox;
       -js-display: flex;
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      flex-direction: column;
       margin: 0 0 0 10px;
 
       & .avatar-name {
@@ -719,13 +659,9 @@ section ul{
     }
 
     & .avatar-caption-wrapper .caption-wrap {
-      display: -webkit-box;
-      display: -ms-flexbox;
       -js-display: flex;
       display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+      align-items: center;
 
       & .icon {
         height: 22px;
@@ -753,16 +689,10 @@ section ul{
 
   & .stacked-avatar--additional {
     position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
     left: 45px;
     width: 25px;
     height: 25px;
@@ -780,9 +710,7 @@ section ul{
   float: left;
 
   & select {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
+    appearance: none;
     outline: none;
     width: auto;
     height: 35px;
@@ -807,8 +735,7 @@ section ul{
     height: 20px;
     right: 20px;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
   & select:hover + .icon svg,
@@ -819,13 +746,8 @@ section ul{
 }
 textarea.textarea {
   position: relative;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 250px;
   height: 95px;
   padding: 10px;
@@ -836,18 +758,8 @@ textarea.textarea {
   font-family: 'Open Sans';
   font-size: 14px;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   resize: none;
-
-  &::-webkit-input-placeholder {
-    color: #BDBDBD;
-  }
-
-  &:-ms-input-placeholder {
-    color: #BDBDBD;
-  }
 
   &::placeholder {
     color: #BDBDBD;
@@ -871,13 +783,8 @@ textarea.textarea {
 
 }
 .char-limit {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 
   & span.char-counter {
     margin: 0 5px 0 auto;
@@ -923,13 +830,9 @@ textarea.textarea {
   }
 
   & .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 .page-grid {
@@ -965,16 +868,10 @@ textarea.textarea {
     width: 100%;
     height: 40px;
     color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 
     &:nth-child(1),
     &:nth-child(2) {
@@ -1024,15 +921,10 @@ textarea.textarea {
 .avatars-page {
 
   & .avatar-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     -js-display: flex;
     display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: space-around;
+    align-items: center;
     margin-bottom: 15px;
   }
 

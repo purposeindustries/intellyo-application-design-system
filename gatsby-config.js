@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Intellyo's Application Design System`,
+    title: `Gatsby Default Starter`,
   },
   plugins: [`gatsby-plugin-react-helmet`],
 }

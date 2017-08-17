@@ -195,15 +195,10 @@ export default class Buttons extends Component {
                   label="Foobar"
                   isActive={ false }
                 >
-                  <DropdownItem
-                    onClick={ () => alert('foo and bar') }
-                  >
+                  <DropdownItem>
                     Hello
                   </DropdownItem>
-                  <DropdownItem
-                    default
-                    onClick={ () => console.log('buzi') }
-                  >
+                  <DropdownItem default>
                     yeah
                   </DropdownItem>
                   <DropdownItem>

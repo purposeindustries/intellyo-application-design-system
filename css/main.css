@@ -969,15 +969,15 @@ textarea.textarea {
   }
 }
 
-.overlay-trigger-bottom {
+.overlay-trigger-right {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
-    bottom: -100%;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    top: 50%;
+    left: calc(100% + 10px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
   }
@@ -988,15 +988,15 @@ textarea.textarea {
   }
 }
 
-.overlay-trigger-right {
+.overlay-trigger-bottom {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    bottom: -100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
   }

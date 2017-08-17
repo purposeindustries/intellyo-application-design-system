@@ -11,7 +11,6 @@ export default class Dropdown extends React.Component {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     onChange: PropTypes.func,
     onClick: PropTypes.func,
-    ref: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
   };

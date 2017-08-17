@@ -14,12 +14,12 @@ export default class TooltipPage extends React.Component {
         <Card>
           <Row >
             <Col span={ 3 }>
-              <Tooltip placement="tooltip-caret-top">
+              <Tooltip placement="top">
                 International University of Monaco
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip placement="tooltip-caret-right">
+              <Tooltip placement="right">
                 International University of Monaco
               </Tooltip>
             </Col>
@@ -29,7 +29,7 @@ export default class TooltipPage extends React.Component {
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip placement="tooltip-caret-left">
+              <Tooltip placement="left">
                 International University of Monaco
               </Tooltip>
             </Col>
@@ -39,7 +39,7 @@ export default class TooltipPage extends React.Component {
           <Row>
             <Col span={ 3 }>
               <OverlayTrigger
-                placement="overlay-trigger-top"
+                placement="top"
                 overlay={
                   <Tooltip placement="bottom">
                     International University of Monaco

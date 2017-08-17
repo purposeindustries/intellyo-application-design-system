@@ -901,7 +901,64 @@ textarea.textarea {
   font-family: 'Open Sans';
   font-size: 14px;
   white-space: nowrap;
-  &-arrow--top {
+  &-placement--top {
+    & .tooltip-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5.04px 6.67px 5.04px;
+      border-color: transparent transparent #000000 transparent;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      bottom: 28px;
+    }
+  }
+  &-placement--right {
+    & .tooltip-arrow {
+      position: absolute;
+      right: -6px;
+      bottom: 50%;
+      -webkit-transform: translateY(50%);
+              transform: translateY(50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 3.335px 0 3.335px 5.8px;
+      border-color: transparent transparent transparent #000000;
+    }
+  }
+  &-placement--bottom {
+    & .tooltip-arrow {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      top: 28px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8.7px 5.04px 0 5.04px;
+      border-color: #000000 transparent transparent transparent;
+    }
+  }
+  &-placement--left {
+    & .tooltip-arrow {
+      position: absolute;
+      left: -6px;
+      bottom: 50%;
+      -webkit-transform: translateY(50%);
+              transform: translateY(50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 3.335px 5.8px 3.335px 0;
+      border-color: transparent #000000 transparent transparent;
+    }
+  }
+
+  /*&-arrow--top {
     width: 0;
     height: 0;
     border-style: solid;
@@ -909,8 +966,7 @@ textarea.textarea {
     border-color: transparent transparent #000000 transparent;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     bottom: 28px;
   }
   &-arrow--right {
@@ -922,8 +978,7 @@ textarea.textarea {
     position: absolute;
     right: -6px;
     bottom: 50%;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    transform: translateY(50%);
   }
   &-arrow--bottom {
     width: 0;
@@ -933,8 +988,7 @@ textarea.textarea {
     border-color: #000000 transparent transparent transparent;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     bottom: -6px;
   }
   &-arrow--left {
@@ -946,19 +1000,54 @@ textarea.textarea {
     position: absolute;
     left: -6px;
     bottom: 50%;
-    -webkit-transform: translateY(50%);
-            transform: translateY(50%);
+    transform: translateY(50%);
+  }*/
+}
+.overlay-trigger {
+  & .tooltip {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &--active {
+    & .tooltip {
+      opacity: 1;
+    }
+  }
+  &--top {
+    top: -100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  &--right {
+    top: 50%;
+    left: calc(100% + 10px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  &--bottom {
+    bottom: -100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  &--left {
+    top: 50%;
+    right: calc(100% + 10px);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 }
-.overlay-trigger-top {
+
+/*.overlay-trigger-top {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
     top: -100%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
   }
@@ -967,17 +1056,16 @@ textarea.textarea {
       opacity: 1;
     }
   }
-}
+}*/
 
-.overlay-trigger-right {
+/*.overlay-trigger-right {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
     top: 50%;
     left: calc(100% + 10px);
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
   }
@@ -986,17 +1074,16 @@ textarea.textarea {
       opacity: 1;
     }
   }
-}
+}*/
 
-.overlay-trigger-bottom {
+/*.overlay-trigger-bottom {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
     bottom: -100%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     opacity: 0;
     pointer-events: none;
   }
@@ -1005,17 +1092,16 @@ textarea.textarea {
       opacity: 1;
     }
   }
-}
+}*/
 
-.overlay-trigger-left {
+/*.overlay-trigger-left {
   display: inline-block;
   position: relative;
   & .tooltip {
     position: absolute;
     top: 50%;
     right: calc(100% + 10px);
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
     opacity: 0;
     pointer-events: none;
   }
@@ -1024,7 +1110,7 @@ textarea.textarea {
       opacity: 1;
     }
   }
-}
+}*/
 
 .page-typography {
 

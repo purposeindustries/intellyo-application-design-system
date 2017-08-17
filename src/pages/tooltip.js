@@ -41,7 +41,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="overlay-trigger-top"
                 overlay={
-                  <Tooltip placement="tooltip-caret-bottom">
+                  <Tooltip placement="bottom">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -57,7 +57,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="overlay-trigger-bottom"
                 overlay={
-                  <Tooltip placement="tooltip-caret-top">
+                  <Tooltip placement="top">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -73,7 +73,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="overlay-trigger-right"
                 overlay={
-                  <Tooltip placement="tooltip-caret-left">
+                  <Tooltip placement="left">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -89,7 +89,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="overlay-trigger-left"
                 overlay={
-                  <Tooltip placement="tooltip-caret-right">
+                  <Tooltip placement="right">
                     International University of Monaco
                   </Tooltip>
                 }

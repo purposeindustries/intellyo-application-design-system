@@ -901,7 +901,7 @@ textarea.textarea {
   font-family: 'Open Sans';
   font-size: 14px;
   white-space: nowrap;
-  & .tooltip-caret-top {
+  &--top {
     width: 0;
     height: 0;
     border-style: solid;
@@ -913,7 +913,7 @@ textarea.textarea {
             transform: translateX(-50%);
     bottom: 28px;
   }
-  & .tooltip-caret-right {
+  &--right {
     width: 0;
     height: 0;
     border-style: solid;
@@ -925,7 +925,7 @@ textarea.textarea {
     -webkit-transform: translateY(50%);
             transform: translateY(50%);
   }
-  & .tooltip-caret-bottom {
+  &--bottom {
     width: 0;
     height: 0;
     border-style: solid;
@@ -937,7 +937,7 @@ textarea.textarea {
             transform: translateX(-50%);
     bottom: -6px;
   }
-  & .tooltip-caret-left {
+  &--left {
     width: 0;
     height: 0;
     border-style: solid;

@@ -901,7 +901,7 @@ textarea.textarea {
   font-family: 'Open Sans';
   font-size: 14px;
   white-space: nowrap;
-  &--top {
+  &-arrow--top {
     width: 0;
     height: 0;
     border-style: solid;
@@ -913,7 +913,7 @@ textarea.textarea {
             transform: translateX(-50%);
     bottom: 28px;
   }
-  &--right {
+  &-arrow--right {
     width: 0;
     height: 0;
     border-style: solid;
@@ -925,7 +925,7 @@ textarea.textarea {
     -webkit-transform: translateY(50%);
             transform: translateY(50%);
   }
-  &--bottom {
+  &-arrow--bottom {
     width: 0;
     height: 0;
     border-style: solid;
@@ -937,7 +937,7 @@ textarea.textarea {
             transform: translateX(-50%);
     bottom: -6px;
   }
-  &--left {
+  &-arrow--left {
     width: 0;
     height: 0;
     border-style: solid;

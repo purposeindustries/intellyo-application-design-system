@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Tooltip = (props) => (
   <div className="tooltip">
     { props.children }
-    <div className={ `tooltip--${props.placement}` }></div>
+    <div className={ `tooltip-arrow--${props.placement}` }></div>
   </div>
 );
 

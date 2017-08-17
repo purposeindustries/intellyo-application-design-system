@@ -8,7 +8,7 @@
   font-family: $font-family-base;
   font-size: $font-size-base;
   white-space: nowrap;
-  &--top {
+  &-arrow--top {
     width: 0;
     height: 0;
     border-style: solid;
@@ -19,7 +19,7 @@
     transform: translateX(-50%);
     bottom: 28px;
   }
-  &--right {
+  &-arrow--right {
     width: 0;
     height: 0;
     border-style: solid;
@@ -30,7 +30,7 @@
     bottom: 50%;
     transform: translateY(50%);
   }
-  &--bottom {
+  &-arrow--bottom {
     width: 0;
     height: 0;
     border-style: solid;
@@ -41,7 +41,7 @@
     transform: translateX(-50%);
     bottom: -6px;
   }
-  &--left {
+  &-arrow--left {
     width: 0;
     height: 0;
     border-style: solid;

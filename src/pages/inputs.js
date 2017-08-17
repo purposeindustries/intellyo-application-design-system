@@ -38,6 +38,12 @@ export default class Inputs extends Component {
     });
   }
 
+  handleSelect(value, id) {
+    this.setState({
+      [id]: value
+    });
+  }
+
   render() {
     return (
       <div>

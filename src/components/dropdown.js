@@ -52,6 +52,19 @@ export default class Dropdown extends React.Component {
     const defaultItem = children.filter((child) => {
       return child.props.default;
     })[0];
+    const renderOtherChildren = () => {
+      const otherChildren = children.filter((child) => !child.props.default);
+      return React.Children.map(otherChildren, (c) => {
+        return React.cloneElement(c, {
+          onClick: () => {
+            if (c.props.onClick) {
+              c.props.onClick();
+            }
+            this.close();
+          }
+        });
+      });
+    };
     return (
       <div
         className="dropdown-inner-wrap dropdown-inner-wrap--split"
@@ -76,7 +89,7 @@ export default class Dropdown extends React.Component {
             'dropdown-items--open': this.state.isActive
           }) }
         >
-          { children.filter((child) => !child.props.default)}
+          { renderOtherChildren() }
         </div>
       </div>
     );

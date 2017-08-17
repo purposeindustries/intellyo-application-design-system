@@ -1,55 +1,99 @@
 /* Local variables */
 
-$dropdown-width: 150px;
+$hover-color: $color-primary-4;
+$active-color: $color-primary-5;
+
+/* Dropdown */
+
 $dropdown-height: 35px;
-$dropdown-bg: #fff;
+$dropdown-bg-color: #fff;
+$dropdown-border-radius: $border-radius-base;
+$dropdown-border-color: $color-black-3;
+$dropdown-border-color--hover: $hover-color;
+$dropdown-border-color--active: $active-color;
+$dropdown-border: 1px solid $dropdown-border-color;
 
+/* Trigger label */
 
+$dropdown-trigger-label-font-size: 12px;
+$dropdown-trigger-label-color--hover: $hover-color;
+$dropdown-trigger-label-color--active: $active-color;
+
+/* Trigger icon */
+
+$dropdown-trigger-icon-fill--hover: $hover-color;
+$dropdown-trigger-icon-fill--active: $active-color;
+
+/* Dropdown arrow wrap */
+
+$dropdown-arrow-wrap-border-color--hover: $hover-color;
+$dropdown-arrow-wrap-border-color--active: $active-color;
+$dropdown-arrow-wrap-icon-fill--hover: $hover-color;
+$dropdown-arrow-wrap-icon-fill--active: $active-color;
+
+/* Dropdown items */
+
+$dropdown-items-background: #fff;
+$dropdown-items-border-radius: $border-radius-base;
+$dropdown-items-box-shadow: $box-shadow-base;
+
+/* Dropdown item */
+
+$dropdown-item-font-size: 12px;
+$dropdown-item-bg-color--hover: $color-grey-1;
+$dropdown-item-bg-color--active: $color-grey-2;
 
 /* Implementation */
 
 .dropdown {
-  width: 150px;
-  height: 35px;
-  background: #fff;
-  border-radius: $border-radius-base;
-  border: 1px solid #000;
+  height: $dropdown-height;
+  background: $dropdown-bg-color;
+  border-radius: $dropdown-border-radius;
+  border: $dropdown-border;
   outline: none;
   display: inline-flex;
   position: relative;
 
   &:hover {
-    border-color: $color-primary-4;
+    border-color: $dropdown-border-color--hover;
 
     & .dropdown-trigger-label {
-      color: $color-primary-4;
+      color: $dropdown-trigger-label-color--hover;
     }
 
     & .dropdown-trigger-arrow-wrap {
-      border-color: $color-primary-4;
+      border-color: $dropdown-arrow-wrap-border-color--hover;
 
       & .icon svg {
-        fill: $color-primary-4;
+        fill: $dropdown-arrow-wrap-icon-fill--hover;
       }
 
+    }
+
+    & .dropdown-trigger .icon svg {
+      fill: $dropdown-arrow-wrap-icon-fill--hover;
     }
 
   }
 
   &:active {
-    border-color: $color-primary-5;
+    border-color: $dropdown-border-color--active;
 
     & .dropdown-trigger-label {
-      color: $color-primary-5;
+      color: $dropdown-trigger-label-color--active;
     }
 
     & .dropdown-trigger-arrow-wrap {
-      border-color: $color-primary-5;
+      border-color: $dropdown-arrow-wrap-border-color--active;
 
       & .icon svg {
-        fill: $color-primary-5;
+        fill: $dropdown-arrow-wrap-icon-fill--active;
       }
 
+    }
+
+    & .dropdown-trigger .icon svg {
+      fill: $dropdown-arrow-wrap-icon-fill--active;
     }
 
   }
@@ -65,8 +109,7 @@ $dropdown-bg: #fff;
     align-items: center;
 
     &-label {
-      font-size: 12px;
-      font-family: $font-family-base;
+      font-size: $dropdown-trigger-label-font-size;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -74,18 +117,11 @@ $dropdown-bg: #fff;
 
     & .icon {
       position: absolute;
+      width: 22px;
       height: 22px;
       right: 10px;
       top: 50%;
       transform: translateY(-50%);
-    }
-
-    &:hover .icon svg {
-      fill: $color-primary-4;
-    }
-
-    &:active .icon svg {
-      fill: $color-primary-5;
     }
 
   }
@@ -96,8 +132,8 @@ $dropdown-bg: #fff;
     top: 35px;
     left: 0px;
     padding: 5px 0;
-    background: #fff;
-    border-radius: 4px;
+    background: $dropdown-items-background;
+    border-radius: $dropdown-items-border-radius;
     visibility: hidden;
     pointer-events: none;
     box-shadow: $box-shadow-base;
@@ -113,7 +149,11 @@ $dropdown-bg: #fff;
       text-overflow: ellipsis;
 
       &:hover {
-        background-color: #EFEFEF;
+        background-color: $dropdown-item-bg-color--hover;
+      }
+
+      &:active {
+        background-color: $dropdown-item-bg-color--active;
       }
 
     }
@@ -164,22 +204,13 @@ $dropdown-bg: #fff;
         right: 0;
         top: 0;
         outline: none;
-        border-left: 1px solid #000;
+        border-left: $dropdown-border;
 
         & .icon {
           position: static;
           transform: none;
+          width: 22px;
           height: 22px;
-        }
-
-        &:hover {
-          background: $color-primary-4;
-          border-color: $color-primary-4;
-
-          & .icon svg {
-            fill: #fff;
-          }
-
         }
 
       }

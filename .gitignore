@@ -30,3 +30,4 @@ node_modules
 public/
 .cache/
 package-lock.json
+css/main.css

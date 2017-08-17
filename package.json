@@ -6,7 +6,7 @@
     "repository": "https://npm.registry.purposeindustries.co"
   },
   "scripts": {
-    "build": "$(npm bin)/gatsby build",
+    "build": "gatsby build",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",

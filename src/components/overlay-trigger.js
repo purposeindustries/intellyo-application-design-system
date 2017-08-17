@@ -22,8 +22,8 @@ export default class OverlayTrigger extends React.Component {
   render() {
     return (
       <div
-        className={ classNames('overlay-trigger', `--${this.props.placement}`, {
-          '--active': this.state.overlayStatus
+        className={ classNames('overlay-trigger', `overlay-trigger--${this.props.placement}`, {
+          'overlay-trigger--active': this.state.overlayStatus
         }
         ) }
         onMouseEnter={ () => {

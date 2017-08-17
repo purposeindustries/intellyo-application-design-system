@@ -1,4 +1,6 @@
 .overlay-trigger {
+  display: inline-block;
+  position: relative;
   & .tooltip {
     position: absolute;
     opacity: 0;
@@ -10,95 +12,31 @@
     }
   }
   &--top {
-    top: -100%;
-    left: 50%;
-    transform: translateX(-50%);
+    & .tooltip {
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   &--right {
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
+    & .tooltip {
+      top: 50%;
+      left: calc(100% + 10px);
+      transform: translateY(-50%);
+    }
   }
   &--bottom {
-    bottom: -100%;
-    left: 50%;
-    transform: translateX(-50%);
+    & .tooltip {
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   &--left {
-    top: 50%;
-    right: calc(100% + 10px);
-    transform: translateY(-50%);
+    & .tooltip {
+      top: 50%;
+      right: calc(100% + 10px);
+      transform: translateY(-50%);
+    }
   }
 }
-
-/*.overlay-trigger-top {
-  display: inline-block;
-  position: relative;
-  & .tooltip {
-    position: absolute;
-    top: -100%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    pointer-events: none;
-  }
-  &.overlay-trigger-active {
-    & .tooltip {
-      opacity: 1;
-    }
-  }
-}*/
-
-/*.overlay-trigger-right {
-  display: inline-block;
-  position: relative;
-  & .tooltip {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
-    opacity: 0;
-    pointer-events: none;
-  }
-  &.overlay-trigger-active {
-    & .tooltip {
-      opacity: 1;
-    }
-  }
-}*/
-
-/*.overlay-trigger-bottom {
-  display: inline-block;
-  position: relative;
-  & .tooltip {
-    position: absolute;
-    bottom: -100%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    pointer-events: none;
-  }
-  &.overlay-trigger-active {
-    & .tooltip {
-      opacity: 1;
-    }
-  }
-}*/
-
-/*.overlay-trigger-left {
-  display: inline-block;
-  position: relative;
-  & .tooltip {
-    position: absolute;
-    top: 50%;
-    right: calc(100% + 10px);
-    transform: translateY(-50%);
-    opacity: 0;
-    pointer-events: none;
-  }
-  &.overlay-trigger-active {
-    & .tooltip {
-      opacity: 1;
-    }
-  }
-}*/

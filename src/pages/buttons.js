@@ -3,7 +3,6 @@ import DisplayText from '../components/display-text';
 import Button from '../components/button';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';
-import SelectWithDropdown from '../components/select-with-dropdown';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -186,11 +185,11 @@ export default class Buttons extends Component {
             </Row>
           </Card>
         </div>
-        <DisplayText>Dropdowns</DisplayText>
+        <DisplayText>Dropdown</DisplayText>
         <div className="dropdown-page">
           <Card>
             <Row>
-              <Col span={ 6 }>
+              <Col span={ 12 }>
                 <Dropdown
                   label="Foobar"
                   isActive={ false }
@@ -205,22 +204,6 @@ export default class Buttons extends Component {
                     hi
                   </DropdownItem>
                 </Dropdown>
-              </Col>
-              <Col span={ 6 }>
-                <SelectWithDropdown
-                  label="Choose an option"
-                  isActive={ false }
-                >
-                  <DropdownItem>
-                    yeah
-                  </DropdownItem>
-                  <DropdownItem>
-                    hi
-                  </DropdownItem>
-                  <DropdownItem>
-                    adskdafefkads aerdhfbadskf akf
-                  </DropdownItem>
-                </SelectWithDropdown>
               </Col>
             </Row>
           </Card>

@@ -22,6 +22,9 @@ export default class Select extends React.Component {
       <Dropdown
         isSplit={ false }
         label={ this.state.label }
+        ref={ (instance) => {
+          this._dropdown = instance;
+        } }
       >
         {
           React.Children.map(this.props.children, (c) => {
@@ -37,6 +40,7 @@ export default class Select extends React.Component {
                   label: c.props.children,
                   value: c.props.value
                 });
+                this._dropdown.close();
               }
             });
           })

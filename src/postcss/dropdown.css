@@ -1,0 +1,222 @@
+/* Local variables */
+
+$hover-color: $color-primary-4;
+$active-color: $color-primary-5;
+
+/* Dropdown */
+
+$dropdown-height: 35px;
+$dropdown-bg-color: #fff;
+$dropdown-border-radius: $border-radius-base;
+$dropdown-border-color: $color-black-3;
+$dropdown-border-color--hover: $hover-color;
+$dropdown-border-color--active: $active-color;
+$dropdown-border: 1px solid $dropdown-border-color;
+
+/* Trigger label */
+
+$dropdown-trigger-label-font-size: 12px;
+$dropdown-trigger-label-color--hover: $hover-color;
+$dropdown-trigger-label-color--active: $active-color;
+
+/* Trigger icon */
+
+$dropdown-trigger-icon-fill--hover: $hover-color;
+$dropdown-trigger-icon-fill--active: $active-color;
+
+/* Dropdown arrow wrap */
+
+$dropdown-arrow-wrap-border-color--hover: $hover-color;
+$dropdown-arrow-wrap-border-color--active: $active-color;
+$dropdown-arrow-wrap-icon-fill--hover: $hover-color;
+$dropdown-arrow-wrap-icon-fill--active: $active-color;
+
+/* Dropdown items */
+
+$dropdown-items-background: #fff;
+$dropdown-items-border-radius: $border-radius-base;
+$dropdown-items-box-shadow: $box-shadow-base;
+
+/* Dropdown item */
+
+$dropdown-item-font-size: 12px;
+$dropdown-item-bg-color--hover: $color-grey-1;
+$dropdown-item-bg-color--active: $color-grey-2;
+
+/* Implementation */
+
+.dropdown {
+  height: $dropdown-height;
+  background: $dropdown-bg-color;
+  border-radius: $dropdown-border-radius;
+  border: $dropdown-border;
+  outline: none;
+  display: inline-flex;
+  position: relative;
+
+  &:hover {
+    border-color: $dropdown-border-color--hover;
+
+    & .dropdown-trigger-label {
+      color: $dropdown-trigger-label-color--hover;
+    }
+
+    & .dropdown-trigger-arrow-wrap {
+      border-color: $dropdown-arrow-wrap-border-color--hover;
+
+      & .icon svg {
+        fill: $dropdown-arrow-wrap-icon-fill--hover;
+      }
+
+    }
+
+    & .dropdown-trigger .icon svg {
+      fill: $dropdown-arrow-wrap-icon-fill--hover;
+    }
+
+  }
+
+  &:active {
+    border-color: $dropdown-border-color--active;
+
+    & .dropdown-trigger-label {
+      color: $dropdown-trigger-label-color--active;
+    }
+
+    & .dropdown-trigger-arrow-wrap {
+      border-color: $dropdown-arrow-wrap-border-color--active;
+
+      & .icon svg {
+        fill: $dropdown-arrow-wrap-icon-fill--active;
+      }
+
+    }
+
+    & .dropdown-trigger .icon svg {
+      fill: $dropdown-arrow-wrap-icon-fill--active;
+    }
+
+  }
+
+  &-trigger {
+    padding: 0 50px 0 20px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &-label {
+      font-size: $dropdown-trigger-label-font-size;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & .icon {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  &-items {
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    left: 0px;
+    padding: 5px 0;
+    background: $dropdown-items-background;
+    border-radius: $dropdown-items-border-radius;
+    visibility: hidden;
+    pointer-events: none;
+    box-shadow: $box-shadow-base;
+
+    & .dropdown-item {
+      font-size: 12px;
+      height: 30px;
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:hover {
+        background-color: $dropdown-item-bg-color--hover;
+      }
+
+      &:active {
+        background-color: $dropdown-item-bg-color--active;
+      }
+
+    }
+
+  }
+
+}
+
+.dropdown-overlay-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.dropdown--open {
+  & .dropdown-items {
+    visibility: visible;
+    pointer-events: auto;
+  }
+  & .dropdown-overlay-background {
+    display: block;
+  }
+}
+
+.dropdown-inner-wrap {
+  width: 100%;
+  height: 100%;
+
+  &--split {
+    display: flex;
+    align-items: center;
+
+    & .dropdown-trigger {
+
+      &-arrow-wrap {
+        height: 100%;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        top: 0;
+        outline: none;
+        border-left: $dropdown-border;
+
+        & .icon {
+          position: static;
+          transform: none;
+          width: 22px;
+          height: 22px;
+        }
+
+      }
+
+    }
+
+  }
+
+}

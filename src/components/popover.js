@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Popover = (props) => (
   <div className="popover">
     { props.children }
+    <div className="popover-arrow"></div>
   </div>
 );
 

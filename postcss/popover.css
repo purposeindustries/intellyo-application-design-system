@@ -8,10 +8,14 @@
   font-size: $font-size-base;
   max-width: 200px;
   & .popover-arrow {
-    display: inline-block;
-    position: absolute;
     width: 10px;
     height: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    top: 95%;
+    transform: translateX(-50%);
+    transform: rotate(45deg);
     box-shadow: 0 1px 3px 0 rgba(63, 63, 68, .15), 0 0 0 1px rgba(63, 63, 68, .15);
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-//import OverlayTrigger from '../components/overlay-trigger';
+import OverlayTrigger from '../components/overlay-trigger';
 import Popover from '../components/popover';
 
 export default class PopoverPage extends React.Component {
@@ -13,9 +13,14 @@ export default class PopoverPage extends React.Component {
         <Card>
           <Row >
             <Col span={ 3 }>
-              <Popover>
+              <OverlayTrigger
+                overlay={
+                  <Popover>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </Popover>
+                </Popover> }
+              >
+                Click me!
+              </OverlayTrigger>
             </Col>
           </Row>
         </Card>

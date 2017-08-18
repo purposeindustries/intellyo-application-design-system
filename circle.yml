@@ -25,11 +25,12 @@ deployment:
         if [ -n "$RELEASE_TYPE" ]; then
           git config --global user.email "dev@purposeindustries.co"
           git config --global user.name "purpose-bot"
-          npm version $RELEASE_TYPE;
+          npm version $RELEASE_TYPE --git-tag-version false
+          VERSION=$(node -pe 'require("./package.json").version')
+          git add package.json package-lock.json
+          git commit --no-verify -m "chore: $RELEASE_TYPE bump to v$VERSION"
+          git tag "v$VERSION"
           repo=https://$GITHUB_ACCESS_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git;
           git push $repo $CIRCLE_BRANCH &> /dev/null;
           git push --tags $repo &> /dev/null;
-        fi;
-        if [ -n "$DEPLOY" ]; then
-          npm run deploy:s3;
         fi

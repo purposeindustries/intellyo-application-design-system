@@ -1006,12 +1006,20 @@ textarea.textarea {
 }
 .popover {
   display: inline-block;
+  position: relative;
   padding: 20px 20px 22px 20px;
   border-radius: calc(2 * 4px);
   box-shadow: 0 1px 3px 0 rgba(63, 63, 68, .15), 0 0 0 1px rgba(63, 63, 68, .15);
   font-family: 'Open Sans';
   font-size: 14px;
   max-width: 200px;
+  & .popover-arrow {
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 1px 3px 0 rgba(63, 63, 68, .15), 0 0 0 1px rgba(63, 63, 68, .15);
+  }
 }
 
 .page-typography {

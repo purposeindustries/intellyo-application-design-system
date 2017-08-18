@@ -7,7 +7,7 @@ export default class OverlayTrigger extends React.Component {
     overlay: PropTypes.node,
     children: PropTypes.node,
     placement: PropTypes.string,
-    popover: PropTypes.string,
+    trigger: PropTypes.oneOf(['click', 'hover']),
   }
   static displayName = 'Overlay Trigger'
   state = {
@@ -27,22 +27,22 @@ export default class OverlayTrigger extends React.Component {
           'overlay-trigger--active': this.state.overlayStatus
         }
         ) }
-        onMouseEnter={ () => {
-          if (this.props.popover === 'active') {
-            this.overlayStatus(false);
-          } else {
-            this.overlayStatus(true);
+        onMouseEnter={
+          this.props.trigger === 'hover' && () => {
+            this.overlayStatus(true)
           }
         }
+        onMouseLeave={
+          this.props.trigger === 'hover' && () => {
+            this.overlayStatus(false)
+          }
         }
-        onMouseLeave={ () => {
-          this.overlayStatus(false);
-        } }
-        onClick={ () => {
-          this.setState({
-            overlayStatus: !this.state.overlayStatus
-          });
-        }
+        onClick={
+          this.props.trigger === 'click' && () => {
+            this.setState({
+              overlayStatus: !this.state.overlayStatus
+            })
+          }
         }
       >
         { this.props.children }

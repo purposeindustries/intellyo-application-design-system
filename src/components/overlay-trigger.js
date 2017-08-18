@@ -7,7 +7,7 @@ export default class OverlayTrigger extends React.Component {
     overlay: PropTypes.node,
     children: PropTypes.node,
     placement: PropTypes.string,
-    popoverActive: PropTypes.string,
+    popover: PropTypes.string,
   }
   static displayName = 'Overlay Trigger'
   state = {
@@ -28,10 +28,9 @@ export default class OverlayTrigger extends React.Component {
         }
         ) }
         onMouseEnter={ () => {
-          if (this.props.popoverActive === 'active') {
+          if (this.props.popover === 'active') {
             this.overlayStatus(false);
-          }
-          else {
+          } else {
             this.overlayStatus(true);
           }
         }

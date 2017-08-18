@@ -26,6 +26,7 @@ export default class PopoverPage extends React.Component {
             <Col span={ 3 }>
               <OverlayTrigger
                 placement="top"
+                popoverActive="active"
                 overlay={
                   <Popover>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

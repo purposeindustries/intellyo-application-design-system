@@ -40,6 +40,7 @@ section {
 @import './char-limit.css';
 @import './tooltip.css';
 @import './overlay-trigger.css';
+@import './popover.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

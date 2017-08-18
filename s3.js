@@ -11,6 +11,7 @@ const PATH_PREFIX = 'application-design-system';
 const HOSTNAME = 'ux.intellyo.com';
 const REDIRECTS = [];
 const S3 = new AWS.S3({
+  region: 'eu-central-1',
   signatureVersion: 'v4'
 });
 

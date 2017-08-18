@@ -1,6 +1,7 @@
 .inputs-page {
 
-  & .input {
+  & .input,
+  & .select {
     margin-bottom: $gutter-base;
   }
 

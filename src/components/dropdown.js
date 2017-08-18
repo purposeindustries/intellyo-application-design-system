@@ -12,7 +12,8 @@ export default class Dropdown extends React.Component {
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    className: PropTypes.string
   };
   constructor(props) {
     super(props);
@@ -100,7 +101,7 @@ export default class Dropdown extends React.Component {
     const isSplit = children.filter((child) => child.props.default).length > 0;
     return (
       <div
-        className={ cx('dropdown', {
+        className={ cx('dropdown', this.props.className, {
           'dropdown--open': this.state.isActive
         }) }
       >

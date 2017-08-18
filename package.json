@@ -18,7 +18,7 @@
     "lint": "eslint src",
     "lint:watch": "esw src -w",
     "watch": "npm run watch:css & npm run develop & wait",
-    "watch:css": "chokidar 'postcss/**/*.css' -c 'npm run build:css' --initial -p"
+    "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p"
   },
   "devDependencies": {
     "aws-sdk-then": "^1.1.0",
@@ -55,5 +55,8 @@
     "react-ionicons": "^1.5.7",
     "react-tagsinput": "^3.17.0",
     "react-user-avatar": "^1.9.0"
+  },
+  "dependencies": {
+    "react-autosuggest": "^9.3.2"
   }
 }

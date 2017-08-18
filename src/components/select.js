@@ -26,6 +26,7 @@ export default class Select extends React.Component {
         isSplit={ false }
         label={ this.state.label }
         isActive={ this.state.isActive }
+        className="select"
       >
         {
           React.Children.map(this.props.children, (c) => {

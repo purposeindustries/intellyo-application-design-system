@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
-import Input from '../components/input';
+import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import Select from '../components/select';
 import DropdownItem from '../components/dropdown-item';
 import Textarea from '../components/textarea';
@@ -24,7 +24,15 @@ export default class Inputs extends Component {
     this.state = {
       bio: textareaValue,
       name: inputValue,
-      car: 'opel'
+      car: 'opel',
+      autosuggest: {
+        suggestions: [],
+        value: ''
+      },
+      autosuggestImage: {
+        suggestions: [],
+        value: ''
+      }
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -114,6 +122,95 @@ export default class Inputs extends Component {
                     where
                   </DropdownItem>
                 </Select>
+                <Input
+                  suggestions={ this.state.autosuggest.suggestions }
+                  onFetchRequested={ () => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggest: {
+                          ...state.autosuggest,
+                          suggestions: ['Volvo']
+                        }
+                      };
+                    });
+                  } }
+                  onClearRequested={ () => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggest: {
+                          ...state.autosuggest,
+                          suggestions: []
+                        }
+                      };
+                    });
+                  } }
+                  renderSuggestion={ Suggestion }
+                  getSuggestionValue={ (suggestion) => suggestion }
+                  value={ this.state.autosuggest.value }
+                  onChange={ (e, { newValue }) => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggest: {
+                          ...state.autosuggest,
+                          value: newValue
+                        }
+                      };
+                    });
+                  } }
+                />
+                <Input
+                  suggestions={ this.state.autosuggestImage.suggestions }
+                  onFetchRequested={ () => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggestImage: {
+                          ...state.autosuggestImage,
+                          suggestions: [{
+                            title: 'Volvo',
+                            image: 'https://i.guim.co.uk/img/static/sys-images/Film/Pix/pictures/2003/06/12/hulk276d26.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=049472654061ed562dabba3d15278b20'
+                          }, {
+                            title: 'Volvo Evil Company',
+                            image: 'https://i.guim.co.uk/img/static/sys-images/Film/Pix/pictures/2003/06/12/hulk276d26.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=049472654061ed562dabba3d15278b20'
+                          }, {
+                            title: 'Volvo Very long Evil Company',
+                            image: 'https://i.guim.co.uk/img/static/sys-images/Film/Pix/pictures/2003/06/12/hulk276d26.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=049472654061ed562dabba3d15278b20'
+                          }]
+                        }
+                      };
+                    });
+                  } }
+                  onClearRequested={ () => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggestImage: {
+                          ...state.autosuggestImage,
+                          suggestions: []
+                        }
+                      };
+                    });
+                  } }
+                  renderSuggestion={ SuggestionWithImage }
+                  getSuggestionValue={ ({ title }) => {
+                    return title;
+                  } }
+                  value={ this.state.autosuggestImage.value }
+                  onChange={ (e, { newValue }) => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        autosuggestImage: {
+                          ...state.autosuggestImage,
+                          value: newValue
+                        }
+                      };
+                    });
+                  } }
+                />
               </Col>
               <Col span={ 3 }>
                 <div className="input-wrapper">

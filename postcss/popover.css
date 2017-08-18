@@ -1,5 +1,8 @@
 .popover {
   display: inline-block;
+  padding: 20px 20px 29px 20px;
   border-radius: 8px;
   box-shadow: 0 1px 3px 0 #3F3F44, 0 0 0 1px;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
 }

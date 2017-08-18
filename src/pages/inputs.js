@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input from '../components/input';
 import Select from '../components/select';
+import DropdownItem from '../components/dropdown-item';
 import Textarea from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card';
@@ -26,6 +27,7 @@ export default class Inputs extends Component {
       car: 'opel'
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleInputChange(e) {
@@ -35,6 +37,12 @@ export default class Inputs extends Component {
 
     this.setState({
       [name]: value
+    });
+  }
+
+  handleSelect(value, id) {
+    this.setState({
+      [id]: value
     });
   }
 
@@ -81,14 +89,30 @@ export default class Inputs extends Component {
               </Col>
               <Col span={ 3 }>
                 <Select
-                  name="car"
-                  value={ this.state.car }
-                  onChange={ this.handleInputChange }
+                  id="car"
+                  label="Choose"
+                  onChange={ this.handleSelect }
                 >
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
+                  <DropdownItem
+                    value="hello"
+                  >
+                    Hello
+                  </DropdownItem>
+                  <DropdownItem
+                    value="yeah"
+                  >
+                    yeah dafdsfa
+                  </DropdownItem>
+                  <DropdownItem
+                    value="what"
+                  >
+                    what
+                  </DropdownItem>
+                  <DropdownItem
+                    value="where"
+                  >
+                    where
+                  </DropdownItem>
                 </Select>
               </Col>
               <Col span={ 3 }>

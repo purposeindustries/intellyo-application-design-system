@@ -7,16 +7,12 @@ export default class Dropdown extends React.Component {
   static displayName = 'Dropdown';
   static propTypes = {
     isActive: PropTypes.bool,
-    isSplit: PropTypes.bool,
     label: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func
-  };
-  static defaultProps = {
-    isSplit: true
   };
   constructor(props) {
     super(props);
@@ -55,24 +51,36 @@ export default class Dropdown extends React.Component {
     const children = React.Children.toArray(this.props.children);
     const defaultItem = children.filter((child) => {
       return child.props.default;
-    });
+    })[0];
+    const renderOtherChildren = () => {
+      const otherChildren = children.filter((child) => !child.props.default);
+      return React.Children.map(otherChildren, (c) => {
+        return React.cloneElement(c, {
+          onClick: () => {
+            if (c.props.onClick) {
+              c.props.onClick();
+            }
+            this.close();
+          }
+        });
+      });
+    };
     return (
       <div
         className="dropdown-inner-wrap dropdown-inner-wrap--split"
       >
         <div
           className="dropdown-trigger"
-          onClick={ () => defaultItem[0].props.onClick() }
+          onClick={ defaultItem.props.onClick }
         >
           <span className="dropdown-trigger-label">
-            { defaultItem[0].props.children }
+            { defaultItem.props.children }
           </span>
         </div>
         <div
           className="dropdown-trigger-arrow-wrap"
           tabIndex="1"
           onClick={ () => this.toggle() }
-          onBlur={ () => setTimeout(() => this.close(), 25) }
         >
           <Icon icon="ion-android-arrow-dropdown" />
         </div>
@@ -81,35 +89,38 @@ export default class Dropdown extends React.Component {
             'dropdown-items--open': this.state.isActive
           }) }
         >
-          { children.filter((child) => !child.props.default)}
+          { renderOtherChildren() }
         </div>
       </div>
     );
   }
 
   render() {
+    const children = React.Children.toArray(this.props.children);
+    const isSplit = children.filter((child) => child.props.default).length > 0;
     return (
-      <div className="dropdown">
-        { this.props.isSplit && (
-          // <div className="dropdown-inner-wrap">
-          //   { this.renderSplitTrigger() }
-          // </div>
-          <div style={ {width: '100%'} }>
+      <div
+        className={ cx('dropdown', {
+          'dropdown--open': this.state.isActive
+        }) }
+      >
+        <div
+          className="dropdown-overlay-background"
+          onClick={ () => {
+            this.close();
+          } }
+        />
+        { isSplit && (
+          <div>
             { this.renderSplitTrigger() }
           </div>
         ) }
-        { !this.props.isSplit && (
+        { !isSplit && (
           <div className="dropdown-inner-wrap">
             <div
               className="dropdown-trigger"
               tabIndex="1"
               onClick={ () => this.toggle() }
-              onBlur={ () => {
-                // @TODO temporary solution
-                setTimeout(() => {
-                  this.close();
-                }, 25);
-              } }
             >
               <span className="dropdown-trigger-label">
                 { this.props.label }
@@ -117,9 +128,7 @@ export default class Dropdown extends React.Component {
               <Icon icon="ion-android-arrow-dropdown" />
             </div>
             <div
-              className={ cx('dropdown-items', {
-                'dropdown-items--open': this.state.isActive
-              }) }
+              className="dropdown-items"
             >
               { this.props.children }
             </div>

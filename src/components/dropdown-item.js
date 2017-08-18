@@ -7,6 +7,7 @@ export default function DropdownItem(props) {
       className="dropdown-item"
       onClick={ props.onClick }
       onMouseDown={ props.onMouseDown }
+      id={ props.id }
     >
       { props.children }
     </div>
@@ -19,5 +20,6 @@ DropdownItem.propTypes = {
   children: PropTypes.string,
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
-  default: PropTypes.bool
+  default: PropTypes.bool,
+  id: PropTypes.string
 };

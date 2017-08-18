@@ -6,8 +6,16 @@
     opacity: 0;
     pointer-events: none;
   }
+  & .popover {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
   &--active {
     & .tooltip {
+      opacity: 1;
+    }
+    & .popover {
       opacity: 1;
     }
   }

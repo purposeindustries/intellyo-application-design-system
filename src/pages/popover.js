@@ -14,13 +14,24 @@ export default class PopoverPage extends React.Component {
           <Row >
             <Col span={ 3 }>
               <OverlayTrigger
+                placement="top"
                 overlay={
                   <Popover>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </Popover> }
-                placement="top"
               >
                 Hover me!
+              </OverlayTrigger>
+            </Col>
+            <Col span={ 3 }>
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Popover>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Popover> }
+              >
+                Click me!
               </OverlayTrigger>
             </Col>
           </Row>

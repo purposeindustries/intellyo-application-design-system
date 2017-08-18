@@ -50,6 +50,9 @@ export default class Template extends React.Component {
               </SidebarItem>,
               <SidebarItem key="sidebar-item-tooltip" href="/tooltip">
                 Tooltip
+              </SidebarItem>,
+              <SidebarItem key="sidebar-item-popover" href="/popover">
+                Popover
               </SidebarItem>
             ]) }
           >

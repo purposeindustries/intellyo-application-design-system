@@ -18,8 +18,9 @@ export default class PopoverPage extends React.Component {
                   <Popover>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </Popover> }
+                placement="top"
               >
-                Click me!
+                Hover me!
               </OverlayTrigger>
             </Col>
           </Row>

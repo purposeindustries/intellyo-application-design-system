@@ -1,0 +1,150 @@
+/* Variables */
+
+$prefixed-input-bg-color: $color-grey-4;
+$prefixed-input-bg-color--hover-and-active: $color-grey-5;
+
+/* Implementation */
+
+.prefixed-input {
+  display: flex;
+
+  & .input input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  & .dropdown.select {
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: $prefixed-input-bg-color;
+
+    &:hover,
+    &:active {
+      background: $prefixed-input-bg-color--hover-and-active;
+
+      & .dropdown-inner-wrap .dropdown-trigger {
+
+        &-label {
+          color: inherit;
+        }
+
+        & .icon svg {
+          fill: #000;
+        }
+
+      }
+
+    }
+
+  }
+
+  &.social-prefixed-input .dropdown {
+
+    & .dropdown-trigger {
+
+      &-label {
+       color: #fff;
+      }
+
+      & .icon svg {
+       fill: #fff;
+      }
+
+    }
+
+    &:hover .dropdown-trigger,
+    &:active .dropdown-trigger {
+
+      &-label {
+       color: #fff !important;
+      }
+
+      & .icon svg {
+       fill: #fff !important;
+      }
+
+    }
+
+  }
+
+  &.prefixed-input-facebook {
+
+    & .dropdown.select {
+      background: $facebook-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $facebook-color;
+    }
+
+  }
+
+  &.prefixed-input-twitter {
+
+    & .dropdown.select {
+      background: $twitter-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $twitter-color;
+    }
+
+  }
+
+  &.prefixed-input-instagram {
+
+    & .dropdown.select {
+      background: $instagram-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $instagram-color;
+    }
+
+  }
+
+  &.prefixed-input-pinterest {
+
+    & .dropdown.select {
+      background: $pinterest-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $pinterest-color;
+    }
+
+  }
+
+  &.prefixed-input-tumblr {
+
+    & .dropdown.select {
+      background: $tumblr-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $tumblr-color;
+    }
+
+  }
+
+  &.prefixed-input-youtube {
+
+    & .dropdown.select {
+      background: $youtube-color;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: $youtube-color;
+    }
+
+  }
+
+}

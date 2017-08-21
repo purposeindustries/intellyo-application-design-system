@@ -66,9 +66,8 @@ export default class Select extends React.Component {
                   c.props.onClick(e);
                 }
                 if (this.state.value !== c.props.value) {
-                  this.props.onChange(c.props.value, this.props.id);
+                  this.props.onChange(c.props.value, this.props.id, c.props.children);
                 }
-                console.log('yeah: ', c.props.value);
                 this.setState({
                   label: c.props.children,
                   value: c.props.value,

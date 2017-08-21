@@ -38,10 +38,12 @@ export default class Inputs extends Component {
       prefixInput: {
         suggestions: [],
         value: ''
-      }
+      },
+      prefixValue: 'https://facebook.com/'
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleSocialPrefixedInput = this.handleSocialPrefixedInput.bind(this);
   }
 
   handleInputChange(e) {
@@ -52,6 +54,10 @@ export default class Inputs extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  handleSocialPrefixedInput() {
+    return this.state.prefixValue + this.state.prefixInputValue;
   }
 
   handleSelect(value, id) {
@@ -252,7 +258,18 @@ export default class Inputs extends Component {
                     mailto:
                   </PrefixedItem>
                 </PrefixedInput>
-                <SocialPrefixedInput>
+                <SocialPrefixedInput
+                  onSelectChange={ (prefixChildrenValue) => {
+                    this.setState({
+                      prefixValue: prefixChildrenValue
+                    }, () => this.handleSocialPrefixedInput());
+                  } }
+                  onInputChange={ (e) => {
+                    this.setState({
+                      prefixInputValue: e.target.value
+                    }, () => this.handleSocialPrefixedInput());
+                  } }
+                >
                   <PrefixedItem
                     value="facebook"
                   >

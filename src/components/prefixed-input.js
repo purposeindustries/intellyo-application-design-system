@@ -41,7 +41,9 @@ class PrefixedInput extends React.Component {
     prefixValue: PropTypes.string,
     onChange: PropTypes.func,
     color: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    onSelectChange: PropTypes.func,
+    onInputChange: PropTypes.func
   }
   constructor(props) {
     super(props);
@@ -66,10 +68,11 @@ class PrefixedInput extends React.Component {
       >
         <Select
           value={ this.state.prefixValue }
-          onChange={ (value) => {
+          onChange={ (value, id, childrenValue) => {
             this.setState({
               prefixValue: value
             });
+            this.props.onSelectChange(childrenValue);
           } }
         >
           { this.props.children }
@@ -81,7 +84,7 @@ class PrefixedInput extends React.Component {
           renderSuggestion={ this.props.renderSuggestion }
           getSuggestionValue={ this.props.getSuggestionValue }
           value={ this.props.value }
-          onChange={ this.props.onChange }
+          onChange={ this.props.onInputChange }
         />
       </div>
     );

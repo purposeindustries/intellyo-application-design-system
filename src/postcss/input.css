@@ -91,4 +91,55 @@
     font-family: $input-label-font-family;
   }
 
+  & .react-autosuggest__suggestions-container--open {
+    background: #fff;
+    border-radius: $border-radius-base;
+    box-shadow: $box-shadow-base;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+
+    & ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
+      width: 100%;
+
+      &> li {
+        font-size: 12px;
+        font-weight: 400;
+        height: 39px;
+        line-height: 39px;
+        overflow: hidden;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0 15px;
+
+        &:hover {
+          background: $color-grey-1;
+        }
+      }
+    }
+  }
+
+}
+
+.input-suggestion-with-image {
+  display: flex;
+  align-items: center;
+
+  & .input-suggestion-image {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 10px;
+
+    & img {
+      width: 100%;
+      display: block;
+    }
+  }
 }

@@ -28,17 +28,17 @@ export default class OverlayTrigger extends React.Component {
         }
         ) }
         onMouseEnter={
-          this.props.trigger === 'hover' && () => {
+          () => {
             this.overlayStatus(true)
           }
         }
         onMouseLeave={
-          this.props.trigger === 'hover' && () => {
+          () => {
             this.overlayStatus(false)
           }
         }
         onClick={
-          this.props.trigger === 'click' && () => {
+          () => {
             this.setState({
               overlayStatus: !this.state.overlayStatus
             })

@@ -1,11 +1,27 @@
 {
   "name": "@pi/intellyo-components",
-  "description": "",
-  "version": "2.3.0",
+  "description": "Intellyo Application Design System",
+  "version": "2.4.0",
+  "publishConfig": {
+    "repository": "https://npm.registry.purposeindustries.co"
+  },
+  "scripts": {
+    "build": "npm run build:css && gatsby build",
+    "build:css": "postcss src/postcss/main.css -o src/css/main.css",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "test": "npm run lint",
+    "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
+    "deploy:s3": "cd public; babel-node ../s3",
+    "deploy:tar": "cd public; tar -czvf ../${npm_package_version}.tgz .",
+    "deploy:release": "mk-release --gh-user=$CIRCLE_PROJECT_USERNAME --gh-repo=$CIRCLE_PROJECT_REPONAME --version=$npm_package_version --asset-folder=.",
+    "lint": "eslint src",
+    "lint:watch": "esw src -w",
+    "watch": "npm run watch:css & npm run develop & wait",
+    "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p"
+  },
   "devDependencies": {
-    "aws-sdk": "^2.85.0",
     "aws-sdk-then": "^1.1.0",
-    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-preset-es2015-node": "^6.1.1",
     "babel-preset-react": "^6.24.1",
@@ -17,16 +33,14 @@
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
-    "gatsby-link": "^1.0.1",
+    "gatsby": "^1.8.10",
+    "gatsby-cli": "^1.0.12",
+    "gatsby-link": "^1.6.5",
     "gatsby-plugin-react-helmet": "^1.0.1",
-    "gh-pages": "^0.12.0",
-    "globby": "^6.1.0",
-    "mime": "^1.3.6",
     "mk-release": "^1.0.1",
-    "path": "^0.12.7",
     "postcss-at2x": "^3.2.0",
     "postcss-cli": "^4.1.0",
-    "postcss-cssnext": "^2.9.0",
+    "postcss-cssnext": "^2.11.0",
     "postcss-custom-properties": "^5.0.2",
     "postcss-flexibility": "^1.1.0",
     "postcss-font-smoothing": "^0.1.0",
@@ -34,36 +48,15 @@
     "postcss-import": "^7.1.3",
     "postcss-media-minmax": "^2.1.2",
     "postcss-mixins": "^5.4.1",
-    "postcss-nesting": "^2.3.1",
     "postcss-reporter": "^3.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-utilities": "^0.6.1",
-    "prop-types": "^15.5.10",
+    "prettier": "^1.5.2",
     "react-ionicons": "^1.5.7",
-    "react-tagsinput": "^3.17.0"
-  },
-  "keywords": [],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "build": "gatsby build",
-    "build:css": "postcss postcss/main.css -o css/main.css",
-    "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
-    "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"pages/*.js\" \"utils/*.js\" \"wrappers/*.js\" \"html.js\"",
-    "test": "npm run lint",
-    "watch": "npm run watch:css & npm run develop & wait",
-    "watch:css": "chokidar 'postcss/**/*.css' -c 'npm run build:css' --initial -p",
-    "deploy:s3": "cd public; babel-node ../s3",
-    "deploy:tar": "cd public; tar -czvf ../${npm_package_version}.tgz .",
-    "deploy:release": "mk-release --gh-user=$CIRCLE_PROJECT_USERNAME --gh-repo=$CIRCLE_PROJECT_REPONAME --version=$npm_package_version --asset-folder=.",
-    "lint": "eslint src",
-    "lint:watch": "esw src -w"
-  },
-  "publishConfig": {
-    "repository": "https://npm.registry.purposeindustries.co"
+    "react-tagsinput": "^3.17.0",
+    "react-user-avatar": "^1.9.0"
   },
   "dependencies": {
-    "react-user-avatar": "^1.9.0"
+    "react-autosuggest": "^9.3.2"
   }
 }

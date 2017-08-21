@@ -29,4 +29,5 @@ node_modules
 .sass-cache/
 public/
 .cache/
-package-lock.json
+src/css/main.css
+*.tgz

@@ -1,30 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../components/icon';
+import Dropdown from '../components/dropdown';
 
-const Select = (props) => (
-  <div className="select">
-    <select
-      name={ props.name }
-      onChange={ props.onChange }
-      value={ props.value }
-    >
-      { props.children }
-    </select>
-    <Icon icon="ion-android-arrow-dropdown" />
-  </div>
-);
-
-Select.displayName = 'Select';
-
-Select.propTypes = {
-  value: PropTypes.string,
-  name: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ]),
-  onChange: PropTypes.func
-};
-
-export default Select;
+export default class Select extends React.Component {
+  static propTypes = {
+    label: PropTypes.string,
+    value: PropTypes.string,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+    onChange: PropTypes.func,
+    id: PropTypes.string,
+    isActive: PropTypes.bool
+  }
+  static displayName = 'Select';
+  constructor(props) {
+    super(props);
+    this.state = {
+      label: props.label,
+      value: props.value,
+      isActive: props.isActive
+    };
+  }
+  render() {
+    return (
+      <Dropdown
+        isSplit={ false }
+        label={ this.state.label }
+        isActive={ this.state.isActive }
+        className="select"
+      >
+        {
+          React.Children.map(this.props.children, (c) => {
+            return React.cloneElement(c, {
+              onClick: (e) => {
+                if (c.props.onClick) {
+                  c.props.onClick(e);
+                }
+                if (this.state.value !== c.props.value) {
+                  this.props.onChange(c.props.value, this.props.id);
+                }
+                this.setState({
+                  label: c.props.children,
+                  value: c.props.value,
+                  isActive: false
+                });
+              }
+            });
+          })
+        }
+      </Dropdown>
+    );
+  }
+}

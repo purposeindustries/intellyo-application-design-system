@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Button from '../components/button';
+import Dropdown from '../components/dropdown';
+import DropdownItem from '../components/dropdown-item';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -179,6 +181,29 @@ export default class Buttons extends Component {
                     <Icon icon="ion-happy" />
                   ) }
                 />
+              </Col>
+            </Row>
+          </Card>
+        </div>
+        <DisplayText>Dropdown</DisplayText>
+        <div className="dropdown-page">
+          <Card>
+            <Row>
+              <Col span={ 12 }>
+                <Dropdown
+                  label="Foobar"
+                  isActive={ false }
+                >
+                  <DropdownItem>
+                    Hello
+                  </DropdownItem>
+                  <DropdownItem default>
+                    yeah
+                  </DropdownItem>
+                  <DropdownItem>
+                    hi
+                  </DropdownItem>
+                </Dropdown>
               </Col>
             </Row>
           </Card>

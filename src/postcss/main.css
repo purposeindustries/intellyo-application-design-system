@@ -41,6 +41,7 @@ section {
 @import './tooltip.css';
 @import './overlay-trigger.css';
 @import './popover.css';
+@import './dropdown.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

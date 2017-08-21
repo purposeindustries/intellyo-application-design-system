@@ -1,0 +1,143 @@
+.prefixed-input {
+  display: flex;
+
+  & .input input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  & .dropdown.select {
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: $color-grey-4;
+
+    &:hover,
+    &:active {
+      background: $color-grey-5;
+
+      & .dropdown-inner-wrap .dropdown-trigger {
+
+        &-label {
+          color: inherit;
+        }
+
+        & .icon svg {
+          fill: #000;
+        }
+
+      }
+
+    }
+
+  }
+
+  &.social-prefixed-input .dropdown {
+
+    & .dropdown-trigger {
+
+      &-label {
+       color: #fff;
+      }
+
+      & .icon svg {
+       fill: #fff;
+      }
+
+    }
+
+    &:hover .dropdown-trigger,
+    &:active .dropdown-trigger {
+
+      &-label {
+       color: #fff !important;
+      }
+
+      & .icon svg {
+       fill: #fff !important;
+      }
+
+    }
+
+  }
+
+  &.prefixed-input-facebook {
+
+    & .dropdown.select {
+      background: #3B5998;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #3B5998;
+    }
+
+  }
+
+  &.prefixed-input-twitter {
+
+    & .dropdown.select {
+      background: #1da1f2;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #1da1f2;
+    }
+
+  }
+
+  &.prefixed-input-instagram {
+
+    & .dropdown.select {
+      background: #125688;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #125688;
+    }
+
+  }
+
+  &.prefixed-input-pinterest {
+
+    & .dropdown.select {
+      background: #cb2027;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #cb2027;
+    }
+
+  }
+
+  &.prefixed-input-tumblr {
+
+    & .dropdown.select {
+      background: #32506d;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #32506d;
+    }
+
+  }
+
+  &.prefixed-input-youtube {
+
+    & .dropdown.select {
+      background: #bb0000;
+    }
+
+    & .input input:hover,
+    & .input input:focus {
+      border-color: #bb0000;
+    }
+
+  }
+
+}

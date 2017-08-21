@@ -3,6 +3,8 @@ import DisplayText from '../components/display-text';
 import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import Select from '../components/select';
 import DropdownItem from '../components/dropdown-item';
+import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
+import SocialPrefixedInput from '../components/social-prefixed-input';
 import Textarea from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card';
@@ -30,6 +32,10 @@ export default class Inputs extends Component {
         value: ''
       },
       autosuggestImage: {
+        suggestions: [],
+        value: ''
+      },
+      prefixInput: {
         suggestions: [],
         value: ''
       }
@@ -95,10 +101,9 @@ export default class Inputs extends Component {
                   />
                 </div>
               </Col>
-              <Col span={ 3 }>
+              <Col span={ 6 }>
                 <Select
                   id="car"
-                  label="Choose"
                   onChange={ this.handleSelect }
                 >
                   <DropdownItem
@@ -211,6 +216,74 @@ export default class Inputs extends Component {
                     });
                   } }
                 />
+                <PrefixedInput
+                  prefixValue="http"
+                  value={ this.state.prefixInput.value }
+                  onChange={ (e, { newValue }) => {
+                    this.setState((state) => {
+                      return {
+                        ...state,
+                        prefixInput: {
+                          ...state.prefixInput,
+                          value: newValue
+                        }
+                      };
+                    });
+                  } }
+                >
+                  <PrefixedItem
+                    value="http"
+                  >
+                    http://
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="https"
+                  >
+                    https://
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="ftp"
+                  >
+                    ftp://
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="mailto"
+                  >
+                    mailto:
+                  </PrefixedItem>
+                </PrefixedInput>
+                <SocialPrefixedInput>
+                  <PrefixedItem
+                    value="facebook"
+                  >
+                    https://facebook.com/
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="twitter"
+                  >
+                    https://twitter.com/
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="instagram"
+                  >
+                    https://instagram.com/
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="pinterest"
+                  >
+                    https://pinterest.com/
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="tumblr"
+                  >
+                    https://tumblr.com/
+                  </PrefixedItem>
+                  <PrefixedItem
+                    value="youtube"
+                  >
+                    https://youtube.com/
+                  </PrefixedItem>
+                </SocialPrefixedInput>
               </Col>
               <Col span={ 3 }>
                 <div className="input-wrapper">

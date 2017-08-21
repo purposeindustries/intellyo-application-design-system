@@ -2,13 +2,17 @@
   display: inline-block;
   border-radius: $border-radius-base;
   position: relative;
-  padding: 4px 13.44px 5px 13.44px;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 0 15px;
   background: #000;
   color: #fff;
   font-family: $font-family-base;
   font-size: $font-size-base;
-  white-space: nowrap;
-  &-placement--top {
+
+  &-placement--bottom {
     & .tooltip-arrow {
       position: absolute;
       width: 0;
@@ -21,7 +25,7 @@
       bottom: 28px;
     }
   }
-  &-placement--right {
+  &-placement--left {
     & .tooltip-arrow {
       position: absolute;
       right: -6px;
@@ -34,7 +38,7 @@
       border-color: transparent transparent transparent #000000;
     }
   }
-  &-placement--bottom {
+  &-placement--top {
     & .tooltip-arrow {
       position: absolute;
       left: 50%;
@@ -47,7 +51,7 @@
       border-color: #000000 transparent transparent transparent;
     }
   }
-  &-placement--left {
+  &-placement--right {
     & .tooltip-arrow {
       position: absolute;
       left: -6px;

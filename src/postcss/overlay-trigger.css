@@ -1,46 +1,41 @@
 .overlay-trigger {
   display: inline-block;
   position: relative;
-  & .tooltip {
+
+  & .overlay {
     position: absolute;
     opacity: 0;
     pointer-events: none;
   }
-  & .popover {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
+
   &--active {
-    & .tooltip {
-      opacity: 1;
-    }
-    & .popover {
+    & .overlay {
       opacity: 1;
     }
   }
-  &--top {
+
+  &--placement-top {
     & .tooltip {
       top: -100%;
       left: 50%;
       transform: translateX(-50%);
     }
   }
-  &--right {
+  &--placement-right {
     & .tooltip {
       top: 50%;
       left: calc(100% + 10px);
       transform: translateY(-50%);
     }
   }
-  &--bottom {
+  &--placement-bottom {
     & .tooltip {
       bottom: -100%;
       left: 50%;
       transform: translateX(-50%);
     }
   }
-  &--left {
+  &--placement-left {
     & .tooltip {
       top: 50%;
       right: calc(100% + 10px);

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const Popover = (props) => (
   <div className={ classNames('popover', `popover-placement--${props.placement}`) }>
     { props.children }
-    <div className="popover-arrow"></div>
+    <div className="popover-arrow" />
   </div>
 );
 

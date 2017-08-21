@@ -3,21 +3,26 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Tooltip = (props) => (
-  <div className={ classNames('tooltip', `tooltip-placement--${props.placement}`) }>
+  <div
+    className={
+      classNames(props.className, 'tooltip', `tooltip-placement--${props.placement}`)
+    }
+  >
     { props.children }
-    <div className="tooltip-arrow"></div>
+    <div className="tooltip-arrow" />
   </div>
 );
 
 Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
-  placement: 'bottom'
+  placement: 'top',
 };
 
 Tooltip.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.string.isRequired,
   placement: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default Tooltip;

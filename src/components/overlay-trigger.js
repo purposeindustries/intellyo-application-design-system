@@ -3,50 +3,63 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class OverlayTrigger extends React.Component {
+
+  static displayName = 'Overlay Trigger'
+
   static propTypes = {
-    overlay: PropTypes.node,
-    children: PropTypes.node,
+    overlay: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
     placement: PropTypes.string,
     trigger: PropTypes.oneOf(['click', 'hover']),
   }
-  static displayName = 'Overlay Trigger'
+
+  static defaultProps = {
+    placement: 'top',
+    trigger: 'hover'
+  }
+
   state = {
-    overlayStatus: false,
+    isActive: false,
   }
-  overlayStatus = (value) => {
-    this.setState(
-      {
-        overlayStatus: value
-      }
-    );
-  }
+
   render() {
+
+    const triggers = {};
+    if (this.props.trigger === 'click') {
+      triggers.onClick = () => {
+        this.setState((state) => ({
+          ...state,
+          isActive: !state.isActive
+        }));
+      };
+    }
+    if (this.props.trigger === 'hover') {
+      triggers.onMouseEnter = () => {
+        this.setState({
+          isActive: true
+        });
+      };
+      triggers.onMouseLeave = () => {
+        this.setState({
+          isActive: false
+        });
+      };
+    }
+
     return (
       <div
-        className={ classNames('overlay-trigger', `overlay-trigger--${this.props.placement}`, {
-          'overlay-trigger--active': this.state.overlayStatus
+        className={ classNames('overlay-trigger', `overlay-trigger--placement-${this.props.placement}`, {
+          'overlay-trigger--active': this.state.isActive
         }
         ) }
-        onMouseEnter={
-          () => {
-            this.overlayStatus(true)
-          }
-        }
-        onMouseLeave={
-          () => {
-            this.overlayStatus(false)
-          }
-        }
-        onClick={
-          () => {
-            this.setState({
-              overlayStatus: !this.state.overlayStatus
-            })
-          }
-        }
+        { ...triggers }
       >
         { this.props.children }
-        { this.props.overlay }
+        { React.cloneElement(this.props.overlay, {
+          ...this.props.overlay.props,
+          placement: this.props.placement,
+          className: classNames(this.props.overlay.props.className, 'overlay')
+        }) }
       </div>
     );
   }

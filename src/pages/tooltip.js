@@ -24,7 +24,7 @@ export default class TooltipPage extends React.Component {
               </Tooltip>
             </Col>
             <Col span={ 3 }>
-              <Tooltip>
+              <Tooltip placement="bottom">
                 International University of Monaco
               </Tooltip>
             </Col>
@@ -41,7 +41,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="top"
                 overlay={
-                  <Tooltip placement="bottom">
+                  <Tooltip>
                     International University of Monaco
                   </Tooltip>
                 }
@@ -57,23 +57,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="bottom"
                 overlay={
-                  <Tooltip placement="top">
-                    International University of Monaco
-                  </Tooltip>
-                }
-              >
-                <Avatar
-                  name="Donald Trump"
-                  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
-                  size="medium"
-                />
-              </OverlayTrigger>
-            </Col>
-            <Col span={ 3 }>
-              <OverlayTrigger
-                placement="right"
-                overlay={
-                  <Tooltip placement="left">
+                  <Tooltip>
                     International University of Monaco
                   </Tooltip>
                 }
@@ -89,7 +73,23 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip placement="right">
+                  <Tooltip>
+                    International University of Monaco
+                  </Tooltip>
+                }
+              >
+                <Avatar
+                  name="Donald Trump"
+                  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  size="medium"
+                />
+              </OverlayTrigger>
+            </Col>
+            <Col span={ 3 }>
+              <OverlayTrigger
+                placement="right"
+                overlay={
+                  <Tooltip>
                     International University of Monaco
                   </Tooltip>
                 }

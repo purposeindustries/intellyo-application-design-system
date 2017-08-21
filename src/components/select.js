@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from '../components/dropdown';
+import classNames from 'classnames';
 
 export default class Select extends React.Component {
   static propTypes = {
@@ -9,7 +10,11 @@ export default class Select extends React.Component {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     onChange: PropTypes.func,
     id: PropTypes.string,
-    isActive: PropTypes.bool
+    isActive: PropTypes.bool,
+    style: PropTypes.obj
+  }
+  static defaultProps = {
+    onChange: () => {}
   }
   static displayName = 'Select';
   constructor(props) {
@@ -20,13 +25,38 @@ export default class Select extends React.Component {
       isActive: props.isActive
     };
   }
+  getLabel() {
+    if (typeof this.state.value !== 'undefined') {
+      const children = React.Children.toArray(this.props.children);
+      const selected = children.find((child) => {
+        return child.props.value === this.state.value;
+      });
+      if (selected) {
+        return selected.props.children;
+      }
+    }
+  }
+  componentWillMount() {
+    if (!this.state.value) {
+      this.setState({
+        value: this.props.children[0].props.value
+      });
+    }
+  }
+  componentWillReceiveProps(props) {
+    if (typeof props.value !== 'undefined' && props.value !== this.state.value) {
+      this.setState({
+        value: props.value
+      });
+    }
+  }
   render() {
     return (
       <Dropdown
-        isSplit={ false }
-        label={ this.state.label }
+        label={ this.getLabel() }
         isActive={ this.state.isActive }
-        className="select"
+        className={ classNames('select') }
+        style={ this.props.style }
       >
         {
           React.Children.map(this.props.children, (c) => {
@@ -36,7 +66,7 @@ export default class Select extends React.Component {
                   c.props.onClick(e);
                 }
                 if (this.state.value !== c.props.value) {
-                  this.props.onChange(c.props.value, this.props.id);
+                  this.props.onChange(c.props.value, this.props.id, c.props.children);
                 }
                 this.setState({
                   label: c.props.children,

@@ -13,7 +13,8 @@ export default class Dropdown extends React.Component {
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    className: PropTypes.string
+    className: PropTypes.string,
+    style: PropTypes.object
   };
   constructor(props) {
     super(props);
@@ -69,6 +70,7 @@ export default class Dropdown extends React.Component {
     return (
       <div
         className="dropdown-inner-wrap dropdown-inner-wrap--split"
+        style={ this.props.style }
       >
         <div
           className="dropdown-trigger"
@@ -104,6 +106,7 @@ export default class Dropdown extends React.Component {
         className={ cx('dropdown', this.props.className, {
           'dropdown--open': this.state.isActive
         }) }
+        style={ this.props.style }
       >
         <div
           className="dropdown-overlay-background"

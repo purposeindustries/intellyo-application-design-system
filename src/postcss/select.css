@@ -1,7 +1,6 @@
 .select {
   position: relative;
   width: auto;
-  float: left;
 
   & select {
     appearance: none;

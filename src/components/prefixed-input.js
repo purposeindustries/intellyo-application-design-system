@@ -72,7 +72,9 @@ class PrefixedInput extends React.Component {
             this.setState({
               prefixValue: value
             });
-            this.props.onSelectChange(childrenValue);
+            if (this.props.onSelectChange) {
+              this.props.onSelectChange(childrenValue);
+            }
           } }
         >
           { this.props.children }

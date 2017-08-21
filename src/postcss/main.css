@@ -39,6 +39,7 @@ section {
 @import './textarea.css';
 @import './char-limit.css';
 @import './dropdown.css';
+@import './prefixed-input.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

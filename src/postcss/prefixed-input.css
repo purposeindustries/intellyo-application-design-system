@@ -1,3 +1,10 @@
+/* Variables */
+
+$prefixed-input-bg-color: $color-grey-4;
+$prefixed-input-bg-color--hover-and-active: $color-grey-5;
+
+/* Implementation */
+
 .prefixed-input {
   display: flex;
 
@@ -11,11 +18,11 @@
     border: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background: $color-grey-4;
+    background: $prefixed-input-bg-color;
 
     &:hover,
     &:active {
-      background: $color-grey-5;
+      background: $prefixed-input-bg-color--hover-and-active;
 
       & .dropdown-inner-wrap .dropdown-trigger {
 
@@ -65,12 +72,12 @@
   &.prefixed-input-facebook {
 
     & .dropdown.select {
-      background: #3B5998;
+      background: $facebook-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #3B5998;
+      border-color: $facebook-color;
     }
 
   }
@@ -78,12 +85,12 @@
   &.prefixed-input-twitter {
 
     & .dropdown.select {
-      background: #1da1f2;
+      background: $twitter-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #1da1f2;
+      border-color: $twitter-color;
     }
 
   }
@@ -91,12 +98,12 @@
   &.prefixed-input-instagram {
 
     & .dropdown.select {
-      background: #125688;
+      background: $instagram-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #125688;
+      border-color: $instagram-color;
     }
 
   }
@@ -104,12 +111,12 @@
   &.prefixed-input-pinterest {
 
     & .dropdown.select {
-      background: #cb2027;
+      background: $pinterest-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #cb2027;
+      border-color: $pinterest-color;
     }
 
   }
@@ -117,12 +124,12 @@
   &.prefixed-input-tumblr {
 
     & .dropdown.select {
-      background: #32506d;
+      background: $tumblr-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #32506d;
+      border-color: $tumblr-color;
     }
 
   }
@@ -130,12 +137,12 @@
   &.prefixed-input-youtube {
 
     & .dropdown.select {
-      background: #bb0000;
+      background: $youtube-color;
     }
 
     & .input input:hover,
     & .input input:focus {
-      border-color: #bb0000;
+      border-color: $youtube-color;
     }
 
   }

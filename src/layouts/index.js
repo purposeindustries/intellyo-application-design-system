@@ -37,7 +37,13 @@ const TemplateWrapper = ({ children }) => (
             </SidebarItem>,
             <SidebarItem key="sidebar-item-cards" href="/cards">
               Cards
-            </SidebarItem>
+            </SidebarItem>,
+            <SidebarItem key="sidebar-item-tooltips" href="/tooltip">
+              Tooltips
+            </SidebarItem>,
+            <SidebarItem key="sidebar-item-popovers" href="/popover">
+              Popovers
+            </SidebarItem>,
           ]) }
         >
           Components

@@ -1,0 +1,45 @@
+.overlay-trigger {
+  display: inline-block;
+  position: relative;
+
+  & .overlay {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &--active {
+    & .overlay {
+      opacity: 1;
+    }
+  }
+
+  &--placement-top {
+    & .tooltip {
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &--placement-right {
+    & .tooltip {
+      top: 50%;
+      left: calc(100% + 10px);
+      transform: translateY(-50%);
+    }
+  }
+  &--placement-bottom {
+    & .tooltip {
+      bottom: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &--placement-left {
+    & .tooltip {
+      top: 50%;
+      right: calc(100% + 10px);
+      transform: translateY(-50%);
+    }
+  }
+}

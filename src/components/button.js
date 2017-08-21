@@ -25,11 +25,11 @@ const Button = (props) => (
             fontSize: (() => {
               switch (props.size) {
                 case 'small':
-                  return 12;
+                  return '12px';
                 case 'large':
-                  return 20;
+                  return '20px';
                 default:
-                  return 15;
+                  return '15px';
               }
             })()
           }) }

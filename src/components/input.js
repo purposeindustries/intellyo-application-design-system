@@ -28,7 +28,7 @@ Field.displayName = 'Field';
 Field.propTypes = {
   ref: PropTypes.func,
   name: PropTypes.string,
-  disabled: PropTypes.boolean,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   defaultValue: PropTypes.string,
   onKeyDown: PropTypes.func,
@@ -39,7 +39,7 @@ Field.propTypes = {
   onFocus: PropTypes.func,
   id: PropTypes.string,
   type: PropTypes.string,
-  required: PropTypes.boolean,
+  required: PropTypes.bool,
   inputRef: PropTypes.func,
   placeholder: PropTypes.string
 };
@@ -83,24 +83,40 @@ class Input extends React.Component {
       onClearRequested,
       getSuggestionValue,
       renderSuggestion,
+      inputRef,
+      onSuggestionSelected,
       ...inputProps
     } = props;
-    const autosuggestField = (
-      <Autosuggest
-        suggestions={ suggestions }
-        onSuggestionsFetchRequested={ onFetchRequested }
-        onSuggestionsClearRequested={ onClearRequested }
-        getSuggestionValue={ getSuggestionValue }
-        renderSuggestion={ renderSuggestion }
-        inputProps={ {
-          ...inputProps,
-          className: classNames(inputProps.className,
-            'input-autosuggest'
-          )
-        } }
+    let autosuggestField;
+    if (suggestions) {
+      autosuggestField = (
+        <Autosuggest
+          ref={ (autosuggest) => {
+            if (autosuggest && typeof inputRef === 'function') {
+              inputRef(autosuggest.input);
+            }
+          } }
+          suggestions={ suggestions }
+          onSuggestionsFetchRequested={ onFetchRequested }
+          onSuggestionsClearRequested={ onClearRequested }
+          getSuggestionValue={ getSuggestionValue }
+          renderSuggestion={ renderSuggestion }
+          onSuggestionSelected={ onSuggestionSelected }
+          inputProps={ {
+            ...inputProps,
+            className: classNames(inputProps.className,
+              'input-autosuggest'
+            )
+          } }
+        />
+      );
+    }
+    const field = (
+      <Field
+        inputRef={ inputRef }
+        { ...inputProps }
       />
     );
-    const field = <Field { ...inputProps } />;
     return (
       <div
         className={
@@ -116,7 +132,7 @@ class Input extends React.Component {
             <label className="input-label">{ props.label }</label>
           )
         }
-        { props.suggestions ? autosuggestField : field }
+        { autosuggestField || field }
         {
           props.icon && (
             <span className="input-icon-wrapper">

@@ -68,3 +68,47 @@
   display: inline-block;
   margin: 0 5px 5px 0;
 }
+
+.tagsinput--detailed {
+  & .tagsinput-tag {
+    height: 40px;
+    display: flex;
+  }
+
+  & .tagsinput-input {
+    height: 40px;
+  }
+}
+
+.tagsinput-tag-image {
+  border-radius: 100%;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  & img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.tagsinput-tag-info-title {
+  line-height: $line-height-base;
+}
+
+.tagsinput-tag-info-caption {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.tagsinput-tag-remove {
+  opacity: 0;
+}
+
+.tagsinput-tag {
+  &:hover {
+    & .tagsinput-tag-remove {
+      opacity: 1;
+    }
+  }
+}

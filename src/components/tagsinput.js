@@ -2,90 +2,40 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTagsInput from 'react-tagsinput';
 import Button from './button';
-import Input, { SuggestionWithImage } from './input';
+import Input from './input';
 import Icon from './icon';
 import classNames from 'classnames';
-
-export const Tag = (props) => {
-  const { tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other } = props;
-  const remove = (
-    <Icon
-      fontSize="15px"
-      className="tagsinput-remove"
-      onClick={ () => onRemove(key) }
-      icon="ion-android-close"
-    />
-  );
-
-  if (typeof tag === 'string') {
-    return (
-      <div
-        { ...other }
-        className={
-          classNames('tagsinput-tag', classNameRemove)
-        }
-        key={ key }
-      >
-        { getTagDisplayValue(tag) }
-        { !disabled && remove }
-      </div>
-    );
-  }
-  return (
-    <div
-      { ...other }
-      className={
-        classNames('tagsinput-tag', 'tagsinput-tag-with-image', classNameRemove)
-      }
-      key={ key }
-    >
-      <img src={ tag.image } alt={ tag.title } />
-      <div className="tagsinput-tag-info-box">
-        <div className="tagsinput-tag-info-title">
-          { getTagDisplayValue(tag.title) }
-        </div>
-        { tag.caption && (
-          <div className="tagsinput-tag-info-caption">
-            { tag.caption }
-          </div>
-        ) }
-      </div>
-      { !disabled && remove }
-    </div>
-  );
-};
-
-Tag.displayName = 'Tag';
-
-Tag.propTypes = {
-  tag: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      title: PropTypes.string,
-      image: PropTypes.string,
-      caption: PropTypes.string,
-    })
-  ]),
-  key: PropTypes.func,
-  disabled: PropTypes.bool,
-  onRemove: PropTypes.func,
-  classNameRemove: PropTypes.string,
-  getTagDisplayValue: PropTypes.func
-};
 
 class TagsInput extends Component {
   static displayName = 'TagsInput'
   static propTypes = {
+    className: PropTypes.string,
     value: PropTypes.array,
     onChange: PropTypes.func,
     isInputActive: PropTypes.bool,
-    inputProps: PropTypes.object
+    inputProps: PropTypes.object,
+    detailed: PropTypes.bool,
+    onSuggestionSelected: PropTypes.func,
+    colors: PropTypes.arrayOf(PropTypes.string),
+    addKeys: PropTypes.arrayOf(PropTypes.number),
+    suggestions: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        title: PropTypes.string,
+        image: PropTypes.string,
+        caption: PropTypes.string
+      })
+    ]),
+    getSuggestionValue: PropTypes.func,
+    renderSuggestion: PropTypes.func
   }
   static defaultProps = {
     value: [],
     onChange: () => {},
     isInputActive: false,
-    inputProps: {}
+    inputProps: {},
+    onSuggestionSelected: () => {},
+    colors: []
   }
   constructor(props) {
     super(props);
@@ -98,8 +48,9 @@ class TagsInput extends Component {
     return (
       <ReactTagsInput
         { ...this.props }
-        className={ classNames('tagsinput', {
-          'tagsinput--input-visible': this.state.isInputActive
+        className={ classNames('tagsinput', this.props.className, {
+          'tagsinput--input-visible': this.state.isInputActive,
+          'tagsinput--detailed': !!this.props.detailed
         }) }
         value={ this.state.value }
         onChange={ (tags) => {
@@ -111,7 +62,64 @@ class TagsInput extends Component {
           });
           this.props.onChange(tags);
         } }
-        renderTag={ Tag }
+        addKeys={ this.props.addKeys }
+        renderTag={ (props) => {
+          const { tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other } = props;
+          const remove = (
+            <Icon
+              fontSize="15px"
+              className="tagsinput-tag-remove"
+              onClick={ () => onRemove(key) }
+              icon="ion-android-close"
+            />
+          );
+          const style = {
+            backgroundColor: this.props.colors.length
+              ? this.props.colors[key % this.props.colors.length]
+              : undefined
+          };
+
+          if (typeof tag === 'string') {
+            return (
+              <div
+                { ...other }
+                className={
+                  classNames('tagsinput-tag', classNameRemove)
+                }
+                key={ key }
+                style={ style }
+              >
+                { getTagDisplayValue(tag) }
+                { !disabled && remove }
+              </div>
+            );
+          }
+          return (
+            <div
+              { ...other }
+              className={
+                classNames('tagsinput-tag', classNameRemove)
+              }
+              key={ key }
+              style={ style }
+            >
+              <div className="tagsinput-tag-image">
+                <img src={ tag.image } alt={ tag.title } />
+              </div>
+              <div className="tagsinput-tag-info-box">
+                <div className="tagsinput-tag-info-title">
+                  { getTagDisplayValue(tag.title) }
+                </div>
+                { tag.caption && (
+                  <div className="tagsinput-tag-info-caption">
+                    { tag.caption }
+                  </div>
+                ) }
+              </div>
+              { !disabled && remove }
+            </div>
+          );
+        } }
         renderInput={ (props) => {
           const {
             onChange = () => {},
@@ -127,8 +135,11 @@ class TagsInput extends Component {
           return (
             <div className="tagsinput-input-controls">
               <Button
+                size={ this.props.detailed ? 'large' : 'normal' }
                 icon={ (
-                  <Icon icon="ion-android-add" />
+                  <Icon
+                    icon="ion-android-add"
+                  />
                 ) }
                 onClick={ () => {
                   this.setState({
@@ -140,16 +151,14 @@ class TagsInput extends Component {
                 className="tagsinput-add-tag"
               />
               <Input
-                suggestions={ [{
-                  image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
-                  title: 'Volvo'
-                }] }
-                getSuggestionValue={ (suggestion) => {
-                  return suggestion;
-                } }
-                renderSuggestion={ SuggestionWithImage }
+                suggestions={ this.props.suggestions }
+                getSuggestionValue={ this.props.getSuggestionValue }
+                renderSuggestion={ this.props.renderSuggestion }
                 onSuggestionSelected={ (e, { suggestion }) => {
-                  addTag(suggestion);
+                  this.props.onSuggestionSelected(e, {
+                    suggestion,
+                    addTag
+                  });
                 } }
 
                 type="text"

@@ -117,7 +117,8 @@
         cursor: pointer;
         padding: 0 15px;
 
-        &:hover {
+        &:hover,
+        &.react-autosuggest__suggestion--highlighted {
           background: $color-grey-1;
         }
       }

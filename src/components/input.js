@@ -106,7 +106,12 @@ class Input extends React.Component {
             ...inputProps,
             className: classNames(inputProps.className,
               'input-autosuggest'
-            )
+            ),
+            onChange: (e, { newValue, method }) => {
+              if (typeof inputProps.onChange === 'function') {
+                inputProps.onChange(e, { newValue, method });
+              }
+            }
           } }
         />
       );

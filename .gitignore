@@ -31,3 +31,4 @@ public/
 .cache/
 src/css/main.css
 *.tgz
+dist

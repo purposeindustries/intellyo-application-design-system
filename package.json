@@ -2,11 +2,13 @@
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
   "version": "2.7.0",
+  "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
   },
   "scripts": {
     "build": "npm run build:css && gatsby build",
+    "build:components": "mkdir -p dist && babel src/components -d dist",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
@@ -18,16 +20,17 @@
     "lint": "eslint src",
     "lint:watch": "esw src -w",
     "watch": "npm run watch:css & npm run develop & wait",
-    "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p"
+    "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p",
+    "prepublish": "npm t && npm run build:css && npm run build:components"
   },
   "devDependencies": {
     "aws-sdk-then": "^1.1.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-preset-es2015-node": "^6.1.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chokidar-cli": "^1.2.0",
-    "classnames": "^2.2.5",
     "eslint": "^3.19.0",
     "eslint-config-pi": "^10.0.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -51,12 +54,13 @@
     "postcss-reporter": "^3.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-utilities": "^0.6.1",
-    "prettier": "^1.5.2",
-    "react-ionicons": "^1.5.7",
-    "react-tagsinput": "^3.17.0",
-    "react-user-avatar": "^1.9.0"
+    "prettier": "^1.5.2"
   },
   "dependencies": {
-    "react-autosuggest": "^9.3.2"
+    "react-autosuggest": "^9.3.2",
+    "react-user-avatar": "^1.9.0",
+    "react-ionicons": "^1.5.7",
+    "react-tagsinput": "^3.17.0",
+    "classnames": "^2.2.5"
   }
 }

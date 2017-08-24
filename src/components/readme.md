@@ -71,7 +71,7 @@ Use to highlight the most important actions in any experience. Don’t use more 
 
 Placing the Icon `component` inside the `icon` prop will give rise to the Icon inside the `button`.
 
-```
+```jsx
 <Button
   neutral
   size="small"
@@ -116,7 +116,7 @@ Use to present an avatar for a user.
 
 Use to display the `image` inside your `src` prop's url.
 
-```
+```jsx
 <Avatar
   name="Donald Trump"
   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
@@ -156,7 +156,7 @@ Use when you have a `simple` message to communicate.
 
 Use when you have to emphasize the `importance` of your message and want to have a further explanation.
 
-```
+```jsx
 <Card title="Title goes here" titleCaption="And you can add caption too" icon={ (<Icon icon="ion-information-circled" />) }>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
@@ -174,3 +174,23 @@ Popovers are small overlays that open on demand, usually when the user clicks a 
 | ---- | ---- | ----------- |
 | children | node | The content to display inside the popover |
 | placement | string | The preferred direction to open the popover |
+
+## Examples
+
+###  Popover with action list
+
+Use when presenting a set of actions in a disclosable menu.
+
+```jsx
+<Popover
+  active
+  activator={<Button>More actions</Button>}
+>
+  <ActionList
+    items={[
+      {content: 'Import'},
+      {content: 'Export'},
+    ]}
+  />
+</Popover>
+```

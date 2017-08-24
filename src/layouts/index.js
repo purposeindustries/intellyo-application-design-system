@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Sidebar, { SidebarItem } from '../components/sidebar';
-import Icon from '../components/icon';
 
 import '../css/main.css';
 

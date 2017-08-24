@@ -2,6 +2,8 @@
 
 Tooltips are floating labels that briefly explain the function of a user interface element. They can be triggered when merchants hover, focus, tap, or click.
 
+---
+
 ## Props
 
 | Prop | Type | Description |
@@ -22,10 +24,14 @@ International University of Monaco
 </Tooltip>
 ```
 
+---
+
 # Button
 
 Buttons make common actions immediately visible and easy to perform with one
 click or tap. They can be used for any type of action, including navigation.
+
+---
 
 ## Props
 
@@ -74,3 +80,21 @@ Placing the Icon `component` inside the `icon` prop will give rise to the Icon i
   ) }
 />
 ```
+
+---
+
+# Avatar
+
+Avatars are used to show a thumbnail representation of an individual or
+business in the interface.
+
+---
+
+## Props
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| danger | boolean | Set the background color to red |
+| neutral | boolean | Set the background color to white |
+| disabled | boolean | Set the button status to disabled |
+| size | oneOf | You can adjust the size of the button |

@@ -38,6 +38,13 @@
     font-weight: 600;
     display: flex;
 
+    &> .icon {
+      margin-right: 10px;
+      & svg {
+        fill: #fff;
+      }
+    }
+
     &:hover {
       color: $color-primary-3;
     }
@@ -61,7 +68,7 @@
     max-height: 0;
 
     &> .sidebar-item {
-      padding: 7px 20px;
+      padding: 7px 20px 7px 30px;
       border: 0;
 
       &:last-child {

@@ -14,7 +14,7 @@ Tooltips are floating labels that briefly explain the function of a user interfa
 
 ## Examples
 
-### Default tooltip
+### Default Tooltip
 
 Use when necessary to provide an explanation for an interface element. Default placement is top if `placement` is omitted. Place your `content` inside the component to display within.
 
@@ -48,7 +48,7 @@ click or tap. They can be used for any type of action, including navigation.
 
 ## Examples
 
-### Default button
+### Default Button
 
 Used most in the interface. Only use another style if a button requires more or less visual weight. By default `size` is set to normal, and `onClick` returns an `{}`.
 
@@ -94,9 +94,33 @@ business in the interface.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| size | string | Set the background color to red |
-| style | object | Set the background color to white |
-| name | string | Set the button status to disabled |
-| caption | string | You can adjust the size of the button |
-| icon | node | You can adjust the size of the button |
-| src | string | You can adjust the size of the button |
+| size | string | Size of the avatar |
+| style | object | Set the style of the avatar |
+| name | string | The name of the person the avatar displays |
+| caption | string | Short description next to the avatar |
+| icon | node | Icon to appear before the caption |
+| src | string | URL of the avatar image |
+
+## Examples
+
+### Default Avatar
+
+Use to present an avatar for a customer, or business.
+
+```jsx
+<Avatar
+  name="Donald Trump"
+  size="small"
+/>
+```
+
+Use to display the `image` inside your `src` prop.
+
+```
+<Avatar
+  name="Donald Trump"
+  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+  size="medium"
+/>
+```
+---

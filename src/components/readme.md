@@ -161,3 +161,9 @@ Use when you have to emphasize the `importance` of your message and want to have
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
 ```
+
+# Popover
+
+Popovers are small overlays that open on demand, usually when the user clicks a button. They let users access supplementary content and actions without cluttering the page.
+
+---

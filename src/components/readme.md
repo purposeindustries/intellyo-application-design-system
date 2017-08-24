@@ -124,3 +124,32 @@ Use to display the `image` inside your `src` prop's url.
 />
 ```
 ---
+
+# Card
+
+Cards are used to group similar concepts and tasks together to make Shopify
+easier for merchants to scan, read, and get things done.
+
+---
+
+## Props
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| title | string | Title content for the card |
+| titleCaption | string | Caption which appears under the title |
+| children | node | Inner content of the card |
+| icon | node | Use to display an arbitrary icon next to the title |
+| footer | node | A footer for the card
+
+## Examples
+
+### Default card
+
+Use when you have a simple message to communicate to merchants that doesn’t require any secondary steps.
+
+```jsx
+<Card title="Online store dashboard" sectioned>
+  <p>View a summary of your online store’s performance.</p>
+</Card>
+``` |

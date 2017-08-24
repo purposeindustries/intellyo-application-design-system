@@ -16,15 +16,7 @@ Popovers are small overlays that open on demand, usually when the user clicks a 
 Use when presenting a set of actions in a disclosable menu.
 
 ```jsx
-<Popover
-  active
-  activator={<Button>More actions</Button>}
->
-  <ActionList
-    items={[
-      {content: 'Import'},
-      {content: 'Export'},
-    ]}
-  />
+<Popover>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </Popover>
 ```

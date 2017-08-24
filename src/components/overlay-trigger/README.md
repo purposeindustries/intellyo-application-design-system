@@ -8,7 +8,7 @@
 | ---- | ---- | ----------- |
 | children | node | The components to apply the overlay on |
 | overlay | node | Supply the preferred component to appear as a Popover |
-| placement | string | The preferred direction of the Overlay Trigger |
+| placement | string | The preferred direction of the Overlay to appear |
 | trigger | oneOf | You can choose between `hover` and `click` |
 
 ## Examples

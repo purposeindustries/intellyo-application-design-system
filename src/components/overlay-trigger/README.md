@@ -1,6 +1,6 @@
 # Overlay Trigger
 
-`Overlay Triggers` are used to aid the proper functionality of [`Popovers`](../popover/README) and `Tooltips`. You can pass `components` into the `overlay` property to invoke them as a `Popover`.
+`Overlay Triggers` are used to aid the proper functionality of [`Popovers`](../popover/README) and [`Tooltips`](../tooltip/README). You can pass `components` into the `overlay` property to invoke them.
 
 ## Props
 

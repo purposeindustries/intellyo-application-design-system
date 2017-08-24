@@ -105,7 +105,7 @@ business in the interface.
 
 ### Default Avatar
 
-Use to present an avatar for a customer, or business.
+Use to present an avatar for a user.
 
 ```jsx
 <Avatar
@@ -127,8 +127,8 @@ Use to display the `image` inside your `src` prop's url.
 
 # Card
 
-Cards are used to group similar concepts and tasks together to make Shopify
-easier for merchants to scan, read, and get things done.
+Cards are used to group similar concepts and tasks together to make your content
+easier for users to scan, read, and get things done.
 
 ---
 
@@ -146,7 +146,7 @@ easier for merchants to scan, read, and get things done.
 
 ### Default card
 
-Use when you have a simple message to communicate.
+Use when you have a `simple` message to communicate.
 
 ```jsx
 <Card title="Title goes here">
@@ -154,7 +154,7 @@ Use when you have a simple message to communicate.
 </Card>
 ```
 
-Use when you have to emphasize the importance of your message and want to have a further explanation.
+Use when you have to emphasize the `importance` of your message and want to have a further explanation.
 
 ```
 <Card title="Title goes here" titleCaption="And you can add caption too" icon={ (<Icon icon="ion-information-circled" />) }>

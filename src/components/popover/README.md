@@ -2,8 +2,6 @@
 
 Popovers are small overlays that open on demand, usually when the user clicks a button. They let users access supplementary content and actions without cluttering the page.
 
----
-
 ## Props
 
 | Prop | Type | Description |

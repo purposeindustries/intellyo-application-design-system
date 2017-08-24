@@ -21,5 +21,3 @@ Use when necessary to provide an explanation for an interface element. Default p
 International University of Monaco
 </Tooltip>
 ```
-
----

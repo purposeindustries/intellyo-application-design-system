@@ -146,10 +146,18 @@ easier for merchants to scan, read, and get things done.
 
 ### Default card
 
-Use when you have a simple message to communicate to merchants that doesn’t require any secondary steps.
+Use when you have a simple message to communicate.
 
 ```jsx
-<Card title="Online store dashboard" sectioned>
-  <p>View a summary of your online store’s performance.</p>
+<Card title="Title goes here">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
-``` |
+```
+
+Use when you have to emphasize the importance of your message and want to have a further explanation.
+
+```
+<Card title="Title goes here" titleCaption="And you can add caption too" icon={ (<Icon icon="ion-information-circled" />) }>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
+</Card>
+```

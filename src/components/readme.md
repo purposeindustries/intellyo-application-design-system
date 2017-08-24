@@ -114,7 +114,7 @@ Use to present an avatar for a customer, or business.
 />
 ```
 
-Use to display the `image` inside your `src` prop.
+Use to display the `image` inside your `src` prop's url.
 
 ```
 <Avatar

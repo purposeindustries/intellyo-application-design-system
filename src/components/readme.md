@@ -167,3 +167,10 @@ Use when you have to emphasize the `importance` of your message and want to have
 Popovers are small overlays that open on demand, usually when the user clicks a button. They let users access supplementary content and actions without cluttering the page.
 
 ---
+
+## Props
+
+| Prop | Type | Description |
+| ---- | ---- | ----------- |
+| children | node | The content to display inside the popover |
+| placement | string | The preferred direction to open the popover |

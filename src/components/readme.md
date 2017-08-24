@@ -21,3 +21,8 @@ Use when necessary to provide an explanation for an interface element. Default p
 International University of Monaco
 </Tooltip>
 ```
+
+# Button
+
+Buttons make common actions immediately visible and easy to perform with one
+click or tap. They can be used for any type of action, including navigation.

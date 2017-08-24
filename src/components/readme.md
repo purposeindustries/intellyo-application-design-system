@@ -94,7 +94,9 @@ business in the interface.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| danger | boolean | Set the background color to red |
-| neutral | boolean | Set the background color to white |
-| disabled | boolean | Set the button status to disabled |
-| size | oneOf | You can adjust the size of the button |
+| size | string | Set the background color to red |
+| style | object | Set the background color to white |
+| name | string | Set the button status to disabled |
+| caption | string | You can adjust the size of the button |
+| icon | node | You can adjust the size of the button |
+| src | string | You can adjust the size of the button |

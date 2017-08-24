@@ -2,10 +2,11 @@
   background: #fff;
   box-shadow: $box-shadow-base;
   display: block;
+  border-radius: 4px;
 }
 
 .card-header {
-  padding: 20px 20px 0;
+  padding: $gutter-base $gutter-base 0;
 
   & .card-header-wrap {
     display: flex;
@@ -30,12 +31,12 @@
 
 .card-body {
   font-size: 1rem;
-  padding: 20px;
+  padding: $gutter-base;
 }
 
 .card-footer {
   font-size: 14px;
   line-height: 21px;
-  padding: 20px;
+  padding: $gutter-base;
   border-top: 1px solid #dfe3e8;
 }

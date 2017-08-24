@@ -140,7 +140,7 @@ easier for merchants to scan, read, and get things done.
 | titleCaption | string | Caption which appears under the title |
 | children | node | Inner content of the card |
 | icon | node | Use to display an arbitrary icon next to the title |
-| footer | node | A footer for the card
+| footer | node | A footer for the card |
 
 ## Examples
 

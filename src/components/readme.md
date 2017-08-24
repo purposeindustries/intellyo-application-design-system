@@ -157,7 +157,10 @@ Use when you have a `simple` message to communicate.
 Use when you have to emphasize the `importance` of your message and want to have a further explanation.
 
 ```jsx
-<Card title="Title goes here" titleCaption="And you can add caption too" icon={ (<Icon icon="ion-information-circled" />) }>
+<Card
+  title="Title goes here"
+  titleCaption="And you can add caption too"
+  icon={ (<Icon icon="ion-information-circled" />) }>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
 ```

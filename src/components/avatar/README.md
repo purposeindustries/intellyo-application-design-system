@@ -36,3 +36,14 @@ Use to display the `image` inside your `src` prop's url.
   size="medium"
 />
 ```
+
+Use to display an `icon` below the `name` prop, next to the `caption`.
+
+```jsx
+<Avatar
+  name="Donald Trump"
+  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+  size="medium"
+  icon={ (<Icon icon="ion-ios-location" />) }
+/>
+```

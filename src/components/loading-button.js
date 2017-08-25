@@ -8,7 +8,7 @@ export default class LoadingButton extends React.Component {
     onError: PropTypes.func,
   }
   state = {
-    loading: false,
+    loading: true,
   }
   render() {
     return (

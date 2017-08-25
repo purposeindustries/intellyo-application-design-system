@@ -18,7 +18,7 @@ export default class OverlayTrigger extends React.Component {
   static defaultProps = {
     placement: 'top',
     trigger: 'hover',
-    delay: 8000
+    delay: 800
   }
 
   state = {

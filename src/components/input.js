@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
+import throttle from 'lodash.throttle';
+import OverlayTrigger from './overlay-trigger';
+import Tooltip from './tooltip';
 
 const Field = (props) => (
   <input
@@ -48,7 +51,14 @@ export const Suggestion = (suggestion) => (
   <div
     className="input-suggestion"
   >
-    { suggestion }
+    <OverlayTrigger
+      overlay={ <Tooltip>{ suggestion }</Tooltip> }
+      className="input-suggestion-title-wrapper"
+    >
+      <div className="input-suggestion-title">
+        { suggestion }
+      </div>
+    </OverlayTrigger>
   </div>
 );
 
@@ -61,9 +71,14 @@ export const SuggestionWithImage = ({ image, title }) => (
     <div className="input-suggestion-image">
       <img src={ image } alt={ title } />
     </div>
-    <div className="input-suggestion-title">
-      { title }
-    </div>
+    <OverlayTrigger
+      overlay={ <Tooltip>{ title }</Tooltip> }
+      className="input-suggestion-title-wrapper"
+    >
+      <div className="input-suggestion-title">
+        { title }
+      </div>
+    </OverlayTrigger>
   </div>
 );
 
@@ -75,11 +90,19 @@ SuggestionWithImage.propTypes = {
 };
 
 class Input extends React.Component {
+  constructor(props) {
+    super(props);
+    this.throttledHandleOnFetchRequested = throttle(this.handleOnFetchRequested, 400, {
+      leading: false
+    }).bind(this);
+  }
+  handleOnFetchRequested(...args) {
+    this.props.onFetchRequested(...args);
+  }
   render() {
     const props = this.props;
     const {
       suggestions,
-      onFetchRequested,
       onClearRequested,
       getSuggestionValue,
       renderSuggestion,
@@ -97,7 +120,7 @@ class Input extends React.Component {
             }
           } }
           suggestions={ suggestions }
-          onSuggestionsFetchRequested={ onFetchRequested }
+          onSuggestionsFetchRequested={ this.throttledHandleOnFetchRequested }
           onSuggestionsClearRequested={ onClearRequested }
           getSuggestionValue={ getSuggestionValue }
           renderSuggestion={ renderSuggestion }

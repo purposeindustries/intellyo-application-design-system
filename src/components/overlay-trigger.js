@@ -11,6 +11,7 @@ export default class OverlayTrigger extends React.Component {
     children: PropTypes.node.isRequired,
     placement: PropTypes.string,
     trigger: PropTypes.oneOf(['click', 'hover']),
+    className: PropTypes.string,
   }
 
   static defaultProps = {
@@ -48,10 +49,11 @@ export default class OverlayTrigger extends React.Component {
 
     return (
       <div
-        className={ classNames('overlay-trigger', `overlay-trigger--placement-${this.props.placement}`, {
-          'overlay-trigger--active': this.state.isActive
+        className={
+          classNames('overlay-trigger', `overlay-trigger--placement-${this.props.placement}`, {
+            'overlay-trigger--active': this.state.isActive
+          }, this.props.className)
         }
-        ) }
         { ...triggers }
       >
         { this.props.children }

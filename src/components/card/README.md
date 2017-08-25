@@ -37,7 +37,7 @@ Use when you have to emphasize the `importance` of your message and want to have
 </Card>
 ```
 
-Use when you have to link in `information`.
+Use when you have to link in `information`. It can be a React Component as well, not just a string. Check out the example below.
 
 ```jsx
 <Card

@@ -10,7 +10,7 @@ click or tap. They can be used for any type of action, including navigation.
 | danger | boolean | Set the background color to red |
 | neutral | boolean | Set the background color to white |
 | disabled | boolean | Set the button status to disabled |
-| size | oneOf | You can adjust the size of the button |
+| size | oneOf(['small', 'normal', 'large']) | You can adjust the size of the button |
 | children | node | Module aiding multiple class activation |
 | icon | node | Set the icon, displayed within the button |
 | onClick | function | Invokes the default click action |

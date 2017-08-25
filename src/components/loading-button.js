@@ -16,7 +16,7 @@ export default class LoadingButton extends React.Component {
         className="button loading-button"
         onClick={ this.props.checkRequest }
       >
-        Test me!
+        { this.state.loading ? <Loading /> : {} }
       </button>
     );
   }

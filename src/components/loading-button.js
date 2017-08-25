@@ -5,9 +5,11 @@ export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
   static propTypes = {
     checkRequest: PropTypes.func,
+    onError: PropTypes.func,
   }
-  state = {}
-
+  state = {
+    loading: false,
+  }
   render() {
     return (
       <button

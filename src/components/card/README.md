@@ -36,3 +36,14 @@ Use when you have to emphasize the `importance` of your message and want to have
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
 ```
+
+Use when you have to link in `information`.
+
+```jsx
+<Card
+  title="Title goes here"
+  titleCaption="And you can add caption too"
+  footer={ (<Icon icon="ion-information-circled" />) }>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</Card>
+```

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Button from '../components/button';
+import LoadingButton from '../components/loading-button';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';
 import Card from '../components/card';
@@ -208,6 +209,14 @@ export default class Buttons extends Component {
             </Row>
           </Card>
         </div>
+        <DisplayText>Loading Button</DisplayText>
+        <Card>
+          <Row>
+            <Col span={ 12 }>
+              <LoadingButton></LoadingButton>
+            </Col>
+          </Row>
+        </Card>
       </div>
     );
   }

@@ -1,8 +1,24 @@
 import React from 'react';
 
 const LoadingIcon = () => (
-  <div>
-    Hello World!
+  <div className="loading-icon">
+    <div className="demo">
+      <div className="circle">
+        <div className="inner"></div>
+      </div>
+      <div className="circle">
+        <div className="inner"></div>
+      </div>
+      <div className="circle">
+        <div className="inner"></div>
+      </div>
+      <div className="circle">
+        <div className="inner"></div>
+      </div>
+      <div className="circle">
+        <div className="inner"></div>
+      </div>
+    </div>
   </div>
 );
 

@@ -7,7 +7,7 @@ Tooltips are floating labels that briefly explain the function of a user interfa
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | children | string | The children to display within the tooltip |
-| placement | string | Set the placement of the arrow pointing at |
+| placement | string | Set the placement of the arrow pointing at. Possible values: 'top','right','bottom','left' |
 | className | string | Module aiding multiple class activation |
 
 ## Examples

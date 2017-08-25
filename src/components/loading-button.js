@@ -4,20 +4,20 @@ import LoadingIcon from './loading-icon';
 export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
   state = {
-    loading: 'true',
+    loading: false,
   }
-  checkRequest() {
+  checkRequest = () => (
     this.setState({
       loading: !this.state.loading
-    });
-  }
+    })
+  );
   render() {
     return (
       <button
         className="button loading-button"
         onClick={ this.checkRequest }
       >
-        { this.state.loading ? <LoadingIcon /> : {} }
+        { this.state.loading ? <LoadingIcon /> : '' }
       </button>
     );
   }

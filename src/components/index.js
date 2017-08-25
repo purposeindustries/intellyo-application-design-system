@@ -9,7 +9,7 @@ export { default as DropdownItem } from './dropdown-item';
 export { default as Dropdown } from './dropdown';
 export { default as Heading } from './heading';
 export { default as Icon } from './icon';
-export { default as Input } from './input';
+export { default as Input, SuggestionWithImage, Suggestion } from './input';
 export { default as Select } from './select';
 export { default as Sidebar, SidebarItem } from './sidebar';
 export { default as Logo } from './logo';

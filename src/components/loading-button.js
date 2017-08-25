@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class LoadingButton extends React.component {
+export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
   static propTypes = {
-
+    checkRequest: PropTypes.func,
   }
   state = {}
-  checkRequest() {
-    return
-  }
 
   render() {
     return (
-      <button className="loading-button">
-
+      <button
+        className="button loading-button"
+        onClick={ this.props.checkRequest }
+      >
+        Test me!
       </button>
     );
   }

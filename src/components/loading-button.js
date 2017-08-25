@@ -1,22 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
-  static propTypes = {
-    checkRequest: PropTypes.func,
-    onError: PropTypes.func,
-  }
   state = {
-    loading: true,
+    loading: 'true',
+  }
+  checkRequest() {
+    this.setState({
+      loading: !this.state.loading
+    });
   }
   render() {
     return (
       <button
         className="button loading-button"
-        onClick={ this.props.checkRequest }
+        onClick={ this.checkRequest }
       >
-        { this.state.loading ? <Loading /> : {} }
+        { this.state.loading ? this.state.loading : {} }
       </button>
     );
   }

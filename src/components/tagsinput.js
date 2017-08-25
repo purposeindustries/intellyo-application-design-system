@@ -18,16 +18,20 @@ class TagsInput extends Component {
     onSuggestionSelected: PropTypes.func,
     colors: PropTypes.arrayOf(PropTypes.string),
     addKeys: PropTypes.arrayOf(PropTypes.number),
-    suggestions: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        title: PropTypes.string,
-        image: PropTypes.string,
-        caption: PropTypes.string
-      })
-    ]),
+    suggestions: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          image: PropTypes.string,
+          title: PropTypes.string,
+          caption: PropTypes.string,
+        })
+      ])
+    ),
     getSuggestionValue: PropTypes.func,
-    renderSuggestion: PropTypes.func
+    renderSuggestion: PropTypes.func,
+    onFetchRequested: PropTypes.func,
+    onClearRequested: PropTypes.func,
   }
   static defaultProps = {
     value: [],
@@ -152,6 +156,8 @@ class TagsInput extends Component {
               />
               <Input
                 suggestions={ this.props.suggestions }
+                onFetchRequested={ this.props.onFetchRequested }
+                onClearRequested={ this.props.onClearRequested }
                 getSuggestionValue={ this.props.getSuggestionValue }
                 renderSuggestion={ this.props.renderSuggestion }
                 onSuggestionSelected={ (e, { suggestion }) => {

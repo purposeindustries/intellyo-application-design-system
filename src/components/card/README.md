@@ -12,6 +12,7 @@ easier for users to scan, read, and get things done.
 | children | node | Inner content of the card |
 | icon | node | Use to display an arbitrary icon next to the title |
 | footer | node | A footer for the card |
+| className | string | Set the label of the button |
 
 ## Examples
 

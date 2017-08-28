@@ -7,10 +7,21 @@ export default class LoadingButton extends React.Component {
     loading: false,
   }
   checkRequest = () => (
-    this.setState({
-      loading: !this.state.loading
-    })
-  );
+    async () => {
+      this.setState({
+        loading: !this.state.loading
+      });
+      await sleep(3000);
+      this.setState({
+        loading: !this.state.loading
+      });
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(
+          resolve, ms
+        ));
+      }
+    }
+  )
   render() {
     return (
       <button

@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "lodash.throttle": "^4.1.1",
     "react-autosuggest": "^9.3.2",
     "react-ionicons": "^1.5.7",
     "react-tagsinput": "^3.17.0",

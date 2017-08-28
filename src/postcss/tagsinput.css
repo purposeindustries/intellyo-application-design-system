@@ -13,6 +13,7 @@
 
 .tagsinput-input {
   display: none;
+  width: 200px;
 }
 
 /* @TODO needs discussion whether this is right */
@@ -43,6 +44,7 @@
   align-items: center;
   justify-items: center;
   font-size: 12px;
+  max-width: 200px;
 
   & .icon {
     display: block;
@@ -92,13 +94,21 @@
   }
 }
 
+.tagsinput-tag-info-box {
+  max-width: 120px;
+}
+
 .tagsinput-tag-info-title {
   line-height: $line-height-base;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tagsinput-tag-info-caption {
   font-size: 10px;
   line-height: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tagsinput-tag-remove {

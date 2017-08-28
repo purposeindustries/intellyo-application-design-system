@@ -7,7 +7,7 @@ Popovers are small overlays that open on demand, usually when the user clicks a 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | children | node | The content to display inside the popover |
-| placement | oneOf | The preferred direction to open the popover. Possible values: 'top','right','bottom','left' |
+| placement | oneOf(['top', 'right', 'bottom', 'left']) | The preferred direction to open the popover. |
 
 ## Examples
 

@@ -10,6 +10,7 @@
 | overlay | node | Supply the preferred component to appear as a Popover |
 | placement | string | The preferred direction of the Overlay to appear |
 | trigger | oneOf | You can choose between `hover` and `click` |
+| delay | number | You can choose to apply a delay on the Popover. The default is 800ms. |
 
 ## Examples
 

@@ -88,7 +88,11 @@
 }
 
 .button--disabled {
-  background: $button-background-color-danger;
+  background: $button-background-color-disabled;
+}
+
+.button--disabled:hover {
+  background: $button-background-color-disabled;
 }
 
 .button--small {

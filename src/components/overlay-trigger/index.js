@@ -9,7 +9,7 @@ export default class OverlayTrigger extends React.Component {
   static propTypes = {
     overlay: PropTypes.node.isRequired,
     children: PropTypes.node.isRequired,
-    placement: PropTypes.string,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     trigger: PropTypes.oneOf(['click', 'hover']),
     className: PropTypes.string,
     delay: PropTypes.number

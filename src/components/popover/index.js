@@ -13,7 +13,7 @@ Popover.displayName = 'Popover';
 
 Popover.propTypes = {
   children: PropTypes.node,
-  placement: PropTypes.string,
+  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
 };
 
 export default Popover;

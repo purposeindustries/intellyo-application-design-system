@@ -4,7 +4,7 @@
   & input {
     background: $input-background-color;
     border: 1px solid $input-border-color;
-    min-width: $input-min-width;
+    min-width: $input-width;
     height: $input-height;
     border-radius: $input-border-radius;
     padding: $input-padding;
@@ -112,7 +112,6 @@
         font-weight: 400;
         height: 39px;
         line-height: 39px;
-        overflow: hidden;
         vertical-align: middle;
         cursor: pointer;
         padding: 0 15px;
@@ -125,6 +124,16 @@
     }
   }
 
+}
+
+.input-suggestion-title-wrapper {
+  max-width: 140px;
+}
+
+.input-suggestion-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .input-suggestion-with-image {

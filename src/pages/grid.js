@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Row from '../components/row';
 import Col from '../components/col';
-import Card from '../components/card';
+import Card from '../components/card/';
 
 export default class Grid extends Component {
   static displayName = 'GridPage'

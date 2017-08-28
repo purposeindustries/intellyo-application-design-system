@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '../components/card';
+import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col';
-import Tooltip from '../components/tooltip';
-import OverlayTrigger from '../components/overlay-trigger';
-import Avatar from '../components/avatar';
+import Tooltip from '../components/tooltip/';
+import OverlayTrigger from '../components/overlay-trigger/';
+import Avatar from '../components/avatar/';
 
 export default class TooltipPage extends React.Component {
   static displayName = 'Tooltip'

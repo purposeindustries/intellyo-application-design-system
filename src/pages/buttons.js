@@ -4,7 +4,7 @@ import Button from '../components/button';
 import LoadingButton from '../components/loading-button';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';
-import Card from '../components/card';
+import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';

@@ -43,11 +43,11 @@ Use when you have to link in `information`. It can be a React Component as well,
 <Card
   title="Title goes here"
   titleCaption="And you can add caption too"
-  footer={ <Button size="large">
-    Click me!
+  footer={ <Button size="small">
+    Okay
   </Button>
-  <Button danger size="large">
-    Warning!
+  <Button danger size="small">
+    Hello!
   </Button> }>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </Card>

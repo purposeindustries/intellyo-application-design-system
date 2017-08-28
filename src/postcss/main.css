@@ -22,6 +22,7 @@
 @import './popover.css';
 @import './dropdown.css';
 @import './prefixed-input.css';
+@import './chart.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -32,6 +33,7 @@
 @import './pages/avatars.css';
 @import './pages/cards.css';
 @import './pages/tagsinput.css';
+@import './pages/charts.css';
 
 body {
   margin: 0;

@@ -1,0 +1,84 @@
+.chart-preloader {
+  animation-name: thumbAnime;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.chart-preloader-title {
+  background: #D8D8D8;
+  border-radius: 4px;
+  width: 37%;
+  height: 12px;
+  margin-bottom: 10px;
+}
+
+.chart-preloader-caption {
+  background: #F1F1F1;
+  border-radius: 4px;
+  width: 75%;
+  height: 10px;
+  margin-bottom: 39px;
+}
+
+.chart-preloader-bar-body {
+  background: #F1F1F1;
+  height: 213px;
+}
+
+.chart-preloader-bar-items {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 213px;
+  width: 97%;
+  margin: 0 auto;
+}
+
+.chart-preloader-bar-items-bar {
+  background: #DFDFDF;
+  border-radius: 2px;
+  width: 16px;
+  height: 100px;
+}
+
+.item {
+  width: 320px;
+  height: 112px;
+  background: transparent;
+  border-bottom: 1px solid lightGray;
+  padding: 0 16px;
+  animation-name: thumbAnime;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+.line {
+  height: 8px;
+  background: rgba(178, 181, 186, .5);
+  border-radius: 5px;
+}
+
+.photo {
+  width: 80px;
+  height: 80px;
+  background: rgba(178, 181, 186, .5);
+  margin-left: 208px;
+  border-radius: 5px;
+  margin-top: -60px;
+}
+
+@keyframes thumbAnime {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

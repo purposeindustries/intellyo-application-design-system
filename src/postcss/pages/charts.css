@@ -1,0 +1,10 @@
+.charts-page {
+  & .card,
+  & .display-text {
+    margin-bottom: $gutter-base;
+  }
+
+  & .chart {
+    max-width: 500px;
+  }
+}

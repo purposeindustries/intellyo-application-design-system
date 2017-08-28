@@ -33,6 +33,7 @@
   height: 213px;
   width: 97%;
   margin: 0 auto;
+  padding: 0 0 $gutter-base;
 }
 
 .chart-preloader-bar-items-bar {

@@ -17,7 +17,7 @@ export default class LoadingButton extends React.Component {
         className="button loading-button"
         onClick={ this.checkRequest }
       >
-        { this.state.loading ? <LoadingIcon /> : 'Click me' }
+        { this.state.loading ? <LoadingIcon /> : 'Save' }
       </button>
     );
   }

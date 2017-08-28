@@ -7,7 +7,7 @@ Tooltips are floating labels that briefly explain the function of a user interfa
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | children | string | The children to display within the tooltip |
-| placement | string | Set the placement of the arrow pointing at. Possible values: 'top','right','bottom','left' |
+| placement | oneOf(['top', 'right', 'bottom', 'left']) | Set the placement of the arrow pointing at. |
 | className | string | Set the label of the button |
 
 ## Examples

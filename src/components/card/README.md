@@ -32,7 +32,10 @@ Use when you have to emphasize the `importance` of your message and want to have
 <Card
   title="Title goes here"
   titleCaption="And you can add caption too"
-  icon={ (<Icon icon="ion-information-circled" />) }>
+  icon={ (
+    <Icon icon="ion-information-circled" />
+  ) }
+>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit orci vitae sem vestibulum sagittis.
 </Card>
 ```
@@ -43,12 +46,15 @@ Use when you have to link in `information`. It can be a React Component as well,
 <Card
   title="Title goes here"
   titleCaption="And you can add caption too"
-  footer={ <Button size="small">
-    Okay
-  </Button>
-  <Button danger size="small">
-    Hello!
-  </Button> }>
+  footer={ (
+    <Button size="small">
+      Okay
+    </Button>
+    <Button danger size="small">
+      Hello!
+    </Button>
+  ) }
+>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 </Card>
 ```

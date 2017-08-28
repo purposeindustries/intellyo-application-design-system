@@ -20,7 +20,8 @@ export default class LoadingButton extends React.Component {
   render() {
     return (
       <button
-        className="button loading-button"
+        disabled={ this.state.loading }
+        className="button"
         onClick={ this.checkRequest }
       >
         { this.state.loading ? <LoadingIcon /> : 'Save' }

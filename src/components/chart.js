@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './card';
+import PropTypes from 'prop-types';
 
 const PreloaderBar = () => (
   <div className="chart-preloader-bar">
@@ -35,6 +36,8 @@ const PreloaderBar = () => (
   </div>
 );
 
+PreloaderBar.displayName = 'ChartPreloaderBar';
+
 const Preloader = (props) => (
   <div className="chart-preloader">
     <div className="chart-preloader-title" />
@@ -43,7 +46,7 @@ const Preloader = (props) => (
       (() => {
         switch (props.type) {
           case 'bar':
-            return <PreloaderBar />
+            return <PreloaderBar />;
         }
       })()
     }
@@ -52,16 +55,26 @@ const Preloader = (props) => (
 
 Preloader.displayName = 'ChartPreloader';
 
+Preloader.propTypes = {
+  type: PropTypes.string
+};
+
 export { Preloader };
 
 class Chart extends React.Component {
-  displayName = 'Chart';
+  static displayName = 'Chart'
+
+  static propTypes = {
+    loading: PropTypes.bool,
+    type: PropTypes.string
+  }
+
   render() {
     return (
       <div className="chart">
         <Card>
           {
-            this.props.loading ? <Preloader type={ this.props.type} /> : 'Hello, Chart!'
+            this.props.loading ? <Preloader type={ this.props.type } /> : 'Hello, Chart!'
           }
         </Card>
       </div>

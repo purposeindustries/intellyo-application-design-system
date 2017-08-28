@@ -1,6 +1,6 @@
 import React from 'react';
 import DisplayText from '../components/display-text';
-import Chart, { Preloader as ChartPreloader } from '../components/chart';
+import Chart from '../components/chart';
 
 class ChartsPage extends React.Component {
   displayName = 'ChartsPage'

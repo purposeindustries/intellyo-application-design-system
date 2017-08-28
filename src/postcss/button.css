@@ -87,6 +87,10 @@
   color: $button-color-neutral-active;
 }
 
+.button--disabled {
+  background: $button-background-color-danger;
+}
+
 .button--small {
   height: $button-height-small;
   line-height: $button-line-height-small;

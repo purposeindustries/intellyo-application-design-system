@@ -1,5 +1,6 @@
 import React from 'react';
 import LoadingIcon from './loading-icon';
+import Button from './button/';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -19,13 +20,12 @@ export default class LoadingButton extends React.Component {
   }
   render() {
     return (
-      <button
+      <Button
         disabled={ this.state.loading }
-        className="button"
         onClick={ this.checkRequest }
       >
         { this.state.loading ? <LoadingIcon /> : 'Save' }
-      </button>
+      </Button>
     );
   }
 }

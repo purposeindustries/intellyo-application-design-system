@@ -12,15 +12,48 @@ export default class OverlayTrigger extends React.Component {
     placement: PropTypes.string,
     trigger: PropTypes.oneOf(['click', 'hover']),
     className: PropTypes.string,
+    delay: PropTypes.number
   }
 
   static defaultProps = {
     placement: 'top',
-    trigger: 'hover'
+    trigger: 'hover',
+    delay: 800
   }
 
   state = {
     isActive: false,
+  }
+
+  toggle = () => {
+    if (this.state.isActive) {
+      this.deactivate();
+    } else {
+      this.activate();
+    }
+  }
+
+  activate = (force) => {
+    if (this.props.delay && !force) {
+      this.timeoutId = setTimeout(() => {
+        this.activate(true);
+      }, this.props.delay);
+    } else {
+      this.setState({
+        isActive: true
+      });
+    }
+  }
+
+  deactivate = () => {
+
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+
+    this.setState({
+      isActive: false
+    });
   }
 
   render() {
@@ -28,22 +61,15 @@ export default class OverlayTrigger extends React.Component {
     const triggers = {};
     if (this.props.trigger === 'click') {
       triggers.onClick = () => {
-        this.setState((state) => ({
-          ...state,
-          isActive: !state.isActive
-        }));
+        this.toggle();
       };
     }
     if (this.props.trigger === 'hover') {
       triggers.onMouseEnter = () => {
-        this.setState({
-          isActive: true
-        });
+        this.activate();
       };
       triggers.onMouseLeave = () => {
-        this.setState({
-          isActive: false
-        });
+        this.deactivate();
       };
     }
 

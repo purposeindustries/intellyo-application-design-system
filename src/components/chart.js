@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './card';
 import PropTypes from 'prop-types';
-import Plotly from 'plotly.js';
 
 const PreloaderBar = () => (
   <div className="chart-preloader-bar">
@@ -75,6 +74,13 @@ class Chart extends React.Component {
   }
 
   componentDidMount() {
+
+    this.Plotly = require('plotly.js/lib/core');
+
+    this.Plotly.register([
+      require('plotly.js/lib/scatter')
+    ]);
+
     if (this.props.data) {
       this.initChart();
     }
@@ -87,8 +93,9 @@ class Chart extends React.Component {
   }
 
   initChart() {
+
     const el = document.getElementById('chart-container');
-    Plotly.newPlot(el, this.props.data, Object.assign({}, (this.props.layout || {}), {
+    this.Plotly.newPlot(el, this.props.data, Object.assign({}, (this.props.layout || {}), {
       displaylogo: false,
     }), {
       displayModeBar: false,

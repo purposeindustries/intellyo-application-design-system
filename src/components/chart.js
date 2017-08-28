@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './card';
 import PropTypes from 'prop-types';
+import Plotly from 'plotly.js';
 
 const PreloaderBar = () => (
   <div className="chart-preloader-bar">
@@ -66,15 +67,75 @@ class Chart extends React.Component {
 
   static propTypes = {
     loading: PropTypes.bool,
-    type: PropTypes.string
+    type: PropTypes.string,
+    data: PropTypes.arrayOf(PropTypes.object),
+    layout: PropTypes.object,
+    title: PropTypes.string,
+    titleCaption: PropTypes.string
+  }
+
+  componentDidMount() {
+    if (this.props.data) {
+      this.initChart();
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.data !== this.props.data) {
+      this.initChart();
+    }
+  }
+
+  initChart() {
+    const el = document.getElementById('chart-container');
+    Plotly.newPlot(el, this.props.data, Object.assign({}, (this.props.layout || {}), {
+      displaylogo: false,
+    }), {
+      displayModeBar: false,
+      modeBarButtonsToRemove: [
+        'toImage',
+        'sendDataToCloud',
+        'zoom2d',
+        'pan2d',
+        'select2d',
+        'lasso2d',
+        'zoomIn2d',
+        'zoomOut2d',
+        'autoScale2d',
+        'resetScale2d',
+        'hoverClosestCartesian',
+        'hoverCompareCartesian',
+        'zoom3d',
+        'pan3d',
+        'orbitRotation',
+        'tableRotation',
+        'resetCameraDefault3d',
+        'resetCameraLastSave3d',
+        'hoverClosest3d',
+        'zoomInGeo',
+        'zoomOutGeo',
+        'resetGeo',
+        'hoverClosestGeo',
+        'hoverClosestGl2d',
+        'hoverClosestPie',
+        'toggleHover',
+        'resetViews',
+        'toggleSpikelines'
+      ]
+    });
   }
 
   render() {
     return (
       <div className="chart">
-        <Card>
+        <Card
+          title={ this.props.title }
+          titleCaption={ this.props.titleCaption }
+        >
           {
-            this.props.loading ? <Preloader type={ this.props.type } /> : 'Hello, Chart!'
+            this.props.loading ? <Preloader type={ this.props.type } /> : (
+              <div id="chart-container" />
+            )
           }
         </Card>
       </div>

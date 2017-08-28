@@ -7,7 +7,7 @@ const DisplayText = (props) => {
   return (
     <Tag
       className={
-        classNames('display-text', {
+        classNames('display-text', props.className, {
           'display-text--small': props.size === 'small',
           'display-text--regular': props.size === 'regular',
           'display-text--large': props.size === 'large',
@@ -25,7 +25,8 @@ DisplayText.displayName = 'DisplayText';
 DisplayText.propTypes = {
   tagName: PropTypes.string,
   size: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 DisplayText.defaultProps = {

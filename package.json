@@ -59,6 +59,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash.throttle": "^4.1.1",
+    "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
     "react-ionicons": "^1.5.7",
     "react-tagsinput": "^3.17.0",

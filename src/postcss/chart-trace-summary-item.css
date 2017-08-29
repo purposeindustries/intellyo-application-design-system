@@ -4,11 +4,7 @@
   font-size: $font-size-base;
   color: $color-black-5;
 
-  & .kpi-number {
-    font-size: $display-text-font-size-large;
-  }
-
-  & .kpi-analytics {
+  & .kpi-data {
     color: #07BA52;
     font-weight: $display-text-font-weight-regular;
   }

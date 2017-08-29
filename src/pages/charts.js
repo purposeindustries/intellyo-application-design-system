@@ -4,7 +4,7 @@ import Chart from '../components/chart';
 import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col';
-import ChartTraceSummaryItem from '../components/chart-trace-summary-item';
+import ChartTraceSummaryItem from '../components/chart-trace-summary-item/';
 
 class ChartsPage extends React.Component {
   displayName = 'ChartsPage'
@@ -21,16 +21,16 @@ class ChartsPage extends React.Component {
                   <ChartTraceSummaryItem
                     color="#FFB946"
                     title="Intel"
-                    number="273"
-                    analytics="+ 23% (avg.)"
+                    value="273"
+                    data="+ 23% (avg.)"
                   />
                 </Col>
                 <Col span={ 4 }>
                   <ChartTraceSummaryItem
                     color="#00BEA9"
                     title="Intellyo"
-                    number="1.7k"
-                    analytics="+ 423% (avg.)"
+                    value="1.7k"
+                    data="+ 423% (avg.)"
                   />
                 </Col>
                 <Col span={ 4 }>

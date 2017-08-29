@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import DisplayText from './display-text';
+import DisplayText from '../display-text';
 
 const ChartTraceSummaryItem = (props) => (
   <div className="chart-trace-summary-item" style={ {borderColor: props.color} }>
     <div>{ props.title }</div>
-    <DisplayText size="large">{ props.number }</DisplayText>
-    <div className={ classNames({'kpi-analytics': props.analytics}) }>{ props.analytics || 'no data yet' }</div>
+    <DisplayText size="large">{ props.value }</DisplayText>
+    <div className={ classNames({'kpi-data': props.data}) }>{ props.data || 'no data yet' }</div>
   </div>
 );
 
@@ -15,15 +15,15 @@ ChartTraceSummaryItem.displayName = 'Chart Trace Summary Item';
 
 ChartTraceSummaryItem.propTypes = {
   color: PropTypes.string,
-  number: PropTypes.string,
+  value: PropTypes.string,
   title: PropTypes.string,
-  analytics: PropTypes.string,
+  data: PropTypes.string,
 };
 
 ChartTraceSummaryItem.defaultProps = {
   color: '#DF54D9',
   title: 'Add a competitor',
-  number: 'n/a',
+  value: 'n/a',
 };
 
 export default ChartTraceSummaryItem;

@@ -71,6 +71,10 @@ class Chart extends React.Component {
     titleCaption: PropTypes.string
   }
 
+  handleResize = () => {
+    this.Plotly.Plots.resize(document.getElementById('chart-container'));
+  }
+
   componentDidMount() {
 
     this.Plotly = require('plotly.js/lib/core');
@@ -82,12 +86,18 @@ class Chart extends React.Component {
     if (this.props.data) {
       this.initChart();
     }
+
+    this.Plotly.Plots.resize(document.getElementById('chart-container'));
   }
 
   componentWillReceiveProps(props) {
     if (props.data !== this.props.data) {
       this.initChart();
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
   }
 
   initChart() {
@@ -128,6 +138,8 @@ class Chart extends React.Component {
         'toggleSpikelines'
       ]
     });
+
+    window.addEventListener('resize', this.handleResize);
   }
 
   render() {

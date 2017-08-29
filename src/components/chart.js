@@ -59,8 +59,6 @@ Preloader.propTypes = {
   type: PropTypes.string
 };
 
-export { Preloader };
-
 class Chart extends React.Component {
   static displayName = 'Chart'
 

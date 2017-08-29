@@ -9,6 +9,7 @@ const Button = (props) => (
         'button--danger': props.danger,
         'button--neutral': props.neutral,
         'button--disabled': props.disabled,
+        'button--active': props.active,
         [`button--${props.size}`]: true
       })
     }
@@ -54,7 +55,8 @@ Button.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.node,
   onClick: PropTypes.func,
-  className: PropTypes.string
+  className: PropTypes.string,
+  active: PropTypes.bool,
 };
 
 Button.defaultProps = {

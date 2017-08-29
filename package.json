@@ -6,6 +6,9 @@
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
   },
+  "pre-commit": [
+    "test"
+  ],
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "mkdir -p dist && babel src/components -d dist",
@@ -54,6 +57,7 @@
     "postcss-reporter": "^3.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-utilities": "^0.6.1",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.5.2"
   },
   "dependencies": {

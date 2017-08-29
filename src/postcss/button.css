@@ -132,9 +132,9 @@
     &:focus {
       background: $color-grey-1;
       color: #767676;
-    }
-    &:focus, &:active {
-      color: $color-primary-2;
+      &:hover {
+        color: $color-primary-2;
+      }
     }
   }
 }

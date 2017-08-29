@@ -109,22 +109,23 @@
   & .button {
     border: 1px solid #C3C3C3;
     border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: none;
+    border-right: none;
 
-    &:nth-child(1) {
+    &:first-child {
+      border: 1px solid #C3C3C3;
+      border-radius: 4px;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
 
-    &:nth-child(2) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-left: none;
-      border-right: none;
-    }
-
-    &:nth-child(3) {
+    &:last-child {
+      border-radius: 4px;
+      border: 1px solid #C3C3C3;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }

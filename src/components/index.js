@@ -23,3 +23,4 @@ export { default as Tagsinput } from './tagsinput';
 export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
+export { default as Chart } from './chart';

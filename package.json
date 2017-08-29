@@ -1,11 +1,14 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "2.7.6",
+  "version": "2.8.3",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
   },
+  "pre-commit": [
+    "test"
+  ],
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "mkdir -p dist && babel src/components -d dist",
@@ -54,15 +57,18 @@
     "postcss-reporter": "^3.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-utilities": "^0.6.1",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.5.2",
     "window-or-global": "^1.0.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash.throttle": "^4.1.1",
+    "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
     "react-ionicons": "^1.5.7",
     "react-tagsinput": "^3.17.0",
-    "react-user-avatar": "^1.9.0"
+    "react-user-avatar": "^1.9.0",
+    "window-or-global": "^1.0.1"
   }
 }

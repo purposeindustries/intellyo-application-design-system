@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
-import ButtonGroup from '../components/button-group';
+import ButtonGroup from '../components/button-group/';
 import Button from '../components/button/';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';

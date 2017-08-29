@@ -128,5 +128,13 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
+
+    &:focus {
+      background: $color-grey-1;
+      color: #767676;
+    }
+    &:focus, &:active {
+      color: $color-primary-2;
+    }
   }
 }

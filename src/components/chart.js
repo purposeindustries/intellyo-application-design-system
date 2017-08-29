@@ -77,20 +77,12 @@ class Chart extends React.Component {
 
   componentDidMount() {
 
-    this.Plotly = require('plotly.js/lib/core');
-
-    this.Plotly.register([
-      require('plotly.js/lib/scatter')
-    ]);
-
     if (this.props.data) {
       this.initChart();
     }
-
-    this.Plotly.Plots.resize(document.getElementById('chart-container'));
   }
 
-  componentWillReceiveProps(props) {
+  componentDidUpdate(props) {
     if (props.data !== this.props.data) {
       this.initChart();
     }
@@ -103,6 +95,20 @@ class Chart extends React.Component {
   initChart() {
 
     const el = document.getElementById('chart-container');
+
+    if (!el) {
+      return;
+    }
+
+    if (!this.Plotly) {
+      this.Plotly = require('plotly.js/lib/core');
+      this.Plotly.register([
+        require('plotly.js/lib/scatter')
+      ]);
+    } else {
+      this.Plotly.purge(document.getElementById('chart-container'));
+    }
+
     this.Plotly.newPlot(el, this.props.data, Object.assign({}, (this.props.layout || {}), {
       displaylogo: false,
     }), {
@@ -140,6 +146,7 @@ class Chart extends React.Component {
     });
 
     window.addEventListener('resize', this.handleResize);
+    this.Plotly.Plots.resize(document.getElementById('chart-container'));
   }
 
   render() {

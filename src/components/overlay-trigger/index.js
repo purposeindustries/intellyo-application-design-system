@@ -49,11 +49,19 @@ export default class OverlayTrigger extends React.Component {
 
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
+      this.timeoutId = null;
     }
 
     this.setState({
       isActive: false
     });
+  }
+
+  componentWillUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
   }
 
   render() {

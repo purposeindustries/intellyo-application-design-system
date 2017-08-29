@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Button from '../components/button/';
+import LoadingButton from '../components/loading-button';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';
 import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
+import root from 'window-or-global';
 
 export default class Buttons extends Component {
   displayName = 'ButtonsPage'
@@ -208,6 +210,18 @@ export default class Buttons extends Component {
             </Row>
           </Card>
         </div>
+        <DisplayText>Loading Button</DisplayText>
+        <Card>
+          <Row>
+            <Col span={ 12 }>
+              <LoadingButton
+                onClick={ () => new root.Promise((resolve) => {
+                  setTimeout(resolve, 3000);
+                }) }
+              />
+            </Col>
+          </Row>
+        </Card>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+//import LoadingIcon from './loading-icon';
 import Button from './button/';
 import Icon from './icon';
 
@@ -24,7 +25,7 @@ export default class LoadingButton extends React.Component {
         disabled={ this.state.loading }
         onClick={ this.checkRequest }
       >
-        { this.state.loading ? <Icon icon="ion-load-d" color="#fff" /> : 'Save' }
+        { this.state.loading ? <Icon icon="ion-load-d" color="#fff" rotate={ true } /> : 'Save' }
       </Button>
     );
   }

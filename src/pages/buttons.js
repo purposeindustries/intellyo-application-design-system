@@ -215,9 +215,9 @@ export default class Buttons extends Component {
             <Row>
               <Col span={ 12 }>
                 <ButtonGroup>
-                  <Button>Hello</Button>
-                  <Button>Bello</Button>
-                  <Button>Fuck</Button>
+                  <Button>7-DAY</Button>
+                  <Button>30-DAY</Button>
+                  <Button>90-DAY</Button>
                 </ButtonGroup>
               </Col>
             </Row>

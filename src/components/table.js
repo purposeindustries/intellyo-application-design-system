@@ -1,14 +1,16 @@
 import React from 'react';
 import c from 'classnames';
+import sticky from '../utils/sticky';
 
 const type = Component => descriptor => descriptor.type.displayName === Component.displayName;
 
 const Table = props => {
   const columns = React.Children.toArray(props.children).filter(type(Column));
+  const s = props.sticky ? sticky() : null;
 
   return (
-    <div className='table'>
-      <div className='table--header'>
+    <div className='table' ref={ s && s.container }>
+      <div className='table--header' ref={ s && s.target }>
         <div className='table--row table--row--header'>
           {
             columns.map(column => {

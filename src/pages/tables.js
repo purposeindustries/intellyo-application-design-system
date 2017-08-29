@@ -32,6 +32,14 @@ export default class Tables extends React.Component {
           <Card>
             <Row>
               <Col span={ 12 }>
+                <Table data={data} sticky>
+                  <Column name='expander' label='' renderCell={toggleExpander} />
+                  <Column name='id' label='ID'/>
+                  <Column name='title' label='Title' />
+                  <Expander render={renderExpander} />
+                </Table>
+              </Col>
+              <Col span={ 12 }>
                 <Table data={data}>
                   <Column name='expander' label='' renderCell={toggleExpander} />
                   <Column name='id' label='ID'/>

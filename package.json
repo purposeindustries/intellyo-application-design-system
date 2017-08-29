@@ -54,7 +54,8 @@
     "postcss-reporter": "^3.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-utilities": "^0.6.1",
-    "prettier": "^1.5.2"
+    "prettier": "^1.5.2",
+    "window-or-global": "^1.0.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",

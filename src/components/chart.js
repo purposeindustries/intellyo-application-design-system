@@ -2,69 +2,21 @@ import React from 'react';
 import Card from './card';
 import PropTypes from 'prop-types';
 
-const PreloaderBar = () => (
-  <div className="chart-preloader-bar">
-    <div className="chart-preloader-bar-body">
-      <div className="chart-preloader-bar-items">
-        {
-          [
-            58,
-            66,
-            58,
-            72,
-            40,
-            83,
-            105,
-            141,
-            72,
-            83,
-            58,
-            37,
-            50
-          ].map((size, i) => (
-            <div
-              className="chart-preloader-bar-items-bar"
-              key={ `chart-preloader-bar-items-bar-${i}` }
-              style={ {
-                height: `${size}px`
-              } }
-            />
-          ))
-        }
-      </div>
-    </div>
-  </div>
-);
-
-PreloaderBar.displayName = 'ChartPreloaderBar';
-
-const Preloader = (props) => (
+const Preloader = () => (
   <div className="chart-preloader">
     <div className="chart-preloader-title" />
     <div className="chart-preloader-caption" />
-    {
-      (() => {
-        switch (props.type) {
-          case 'bar':
-            return <PreloaderBar />;
-        }
-      })()
-    }
+    <div className="chart-preloader-body" />
   </div>
 );
 
 Preloader.displayName = 'ChartPreloader';
-
-Preloader.propTypes = {
-  type: PropTypes.string
-};
 
 class Chart extends React.Component {
   static displayName = 'Chart'
 
   static propTypes = {
     loading: PropTypes.bool,
-    type: PropTypes.string,
     data: PropTypes.arrayOf(PropTypes.object),
     layout: PropTypes.object,
     title: PropTypes.string,
@@ -157,7 +109,7 @@ class Chart extends React.Component {
           titleCaption={ this.props.titleCaption }
         >
           {
-            this.props.loading ? <Preloader type={ this.props.type } /> : (
+            this.props.loading ? <Preloader /> : (
               <div id="chart-container" />
             )
           }

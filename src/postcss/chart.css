@@ -21,26 +21,9 @@
   margin-bottom: 39px;
 }
 
-.chart-preloader-bar-body {
+.chart-preloader-body {
   background: #F1F1F1;
   height: 213px;
-}
-
-.chart-preloader-bar-items {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 213px;
-  width: 97%;
-  margin: 0 auto;
-  padding: 0 0 $gutter-base;
-}
-
-.chart-preloader-bar-items-bar {
-  background: #DFDFDF;
-  border-radius: 2px;
-  width: 16px;
-  height: 100px;
 }
 
 .item {

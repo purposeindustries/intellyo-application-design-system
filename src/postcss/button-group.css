@@ -7,6 +7,8 @@
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    background: $color-grey-1;
+    border-color: $color-grey-5;
 
       &:first-child {
         border-radius: 4px;
@@ -23,7 +25,8 @@
       }
 
       &:hover {
-        border-color: $button-border-color-neutral;
+        border-color: $color-grey-5;
+        background: $color-grey-4;
       }
     }
 }

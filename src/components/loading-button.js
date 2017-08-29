@@ -1,5 +1,4 @@
 import React from 'react';
-//import LoadingIcon from './loading-icon';
 import Button from './button/';
 import Icon from './icon';
 

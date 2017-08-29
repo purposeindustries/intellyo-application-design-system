@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
+import ButtonGroup from '../components/button-group';
 import Button from '../components/button/';
 import Dropdown from '../components/dropdown';
 import DropdownItem from '../components/dropdown-item';
@@ -204,6 +205,20 @@ export default class Buttons extends Component {
                     hi
                   </DropdownItem>
                 </Dropdown>
+              </Col>
+            </Row>
+          </Card>
+        </div>
+        <div className="button-group-page">
+          <DisplayText>Button Group</DisplayText>
+          <Card>
+            <Row>
+              <Col span={ 12 }>
+                <ButtonGroup>
+                  <Button>Hello</Button>
+                  <Button>Bello</Button>
+                  <Button>Fuck</Button>
+                </ButtonGroup>
               </Col>
             </Row>
           </Card>

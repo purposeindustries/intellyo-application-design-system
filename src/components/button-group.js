@@ -14,3 +14,5 @@ ButtonGroup.displayName = 'Button Group';
 ButtonGroup.propTypes = {
   children: PropTypes.node,
 };
+
+export default ButtonGroup;

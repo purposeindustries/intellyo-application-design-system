@@ -20,8 +20,7 @@ class ChartsPage extends React.Component {
                 title="Intel"
                 number="273"
                 analytics="+23% (avg)"
-              >
-              </ChartTraceSummaryItem>
+              />
             </Col>
           </Row>
         </Card>

@@ -8,6 +8,7 @@ import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col';
 import Icon from '../components/icon';
+import root from 'window-or-global';
 
 export default class Buttons extends Component {
   displayName = 'ButtonsPage'
@@ -213,7 +214,11 @@ export default class Buttons extends Component {
         <Card>
           <Row>
             <Col span={ 12 }>
-              <LoadingButton></LoadingButton>
+              <LoadingButton
+                onClick={ () => new root.Promise((resolve) => {
+                  setTimeout(resolve, 3000);
+                }) }
+              />
             </Col>
           </Row>
         </Card>

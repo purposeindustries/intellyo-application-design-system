@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from './button/';
 import Icon from './icon';
+import PropTypes from 'prop-types';
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const isPromise = (obj) => obj && typeof obj.then === 'function';
 
 const LoadingIcon = () => {
   return (
@@ -16,23 +17,34 @@ LoadingIcon.displayName = 'Loading Icon';
 
 export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
+  static propTypes = {
+    onClick: PropTypes.func,
+  }
+  static defaultProps = {
+    onClick: () => {}
+  }
   state = {
     loading: false,
   }
-  checkRequest = async () => {
+  handleClick = () => {
     this.setState({
-      loading: !this.state.loading
+      loading: true
     });
-    await sleep(3000);
-    this.setState({
-      loading: !this.state.loading
+    const promise = this.props.onClick();
+    if (!isPromise(promise)) {
+      return;
+    }
+    promise.then(() => {
+      this.setState({
+        loading: false
+      });
     });
   }
   render() {
     return (
       <Button
         disabled={ this.state.loading }
-        onClick={ this.checkRequest }
+        onClick={ this.handleClick }
         icon={ this.state.loading ? <LoadingIcon /> : null }
       >
         { this.state.loading ? 'Loading...' : 'Save' }

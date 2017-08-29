@@ -130,11 +130,8 @@
       border-bottom-left-radius: 0;
     }
 
-    &:focus {
-      background: $color-grey-1;
-      color: #767676;
-      &:hover {
-        color: $color-primary-2;
+    &:hover {
+      color: $color-primary-2;
       }
     }
   }

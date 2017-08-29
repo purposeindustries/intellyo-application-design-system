@@ -89,15 +89,12 @@
   padding-left: 10px;
   font-family: $font-family-base;
   font-size: $font-size-base;
-
-  & p {
-    margin: 0;
-  }
-
+  color: $color-black-5;
+  
   & .kpi-number {
     font-size: $display-text-font-size-large;
   }
-  
+
   & .kpi-analytics {
     color: #07BA52;
     font-weight: $display-text-font-weight-regular;

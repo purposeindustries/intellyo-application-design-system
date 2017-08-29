@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import DisplayText from '../display-text';
 
 const ChartTraceSummaryItem = (props) => (
-  <div className="chart-trace-summary-item" style={ {borderColor: props.color} }>
+  <div className="chart-trace-summary-item" style={ {borderColor: props.color} } onClick={ props.onClick }>
     <div>{ props.title }</div>
     <DisplayText size="large">{ props.value }</DisplayText>
     <div className={ classNames({'kpi-data': props.data}) }>{ props.data || 'no data yet' }</div>

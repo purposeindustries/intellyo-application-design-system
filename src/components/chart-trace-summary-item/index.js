@@ -18,6 +18,7 @@ ChartTraceSummaryItem.propTypes = {
   value: PropTypes.string,
   title: PropTypes.string,
   data: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 ChartTraceSummaryItem.defaultProps = {

@@ -1,6 +1,10 @@
 import React from 'react';
 import DisplayText from '../components/display-text';
 import Chart from '../components/chart';
+import Card from '../components/card/';
+import Row from '../components/row';
+import Col from '../components/col';
+import ChartTraceSummaryItem from '../components/chart-trace-summary-item';
 
 class ChartsPage extends React.Component {
   displayName = 'ChartsPage'
@@ -9,6 +13,18 @@ class ChartsPage extends React.Component {
       <div className="charts-page">
         <DisplayText className="header">Charts</DisplayText>
         <Chart type="bar" loading={ true } />
+        <Card>
+          <Row>
+            <Col span={ 2 }>
+              <ChartTraceSummaryItem
+                title="Intel"
+                number="273"
+                analytics="+23% (avg)"
+              >
+              </ChartTraceSummaryItem>
+            </Col>
+          </Row>
+        </Card>
         <Chart
           title="Audience Growth"
           titleCaption="Likes gained by week"

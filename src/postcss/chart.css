@@ -83,3 +83,23 @@
     opacity: 1;
   }
 }
+
+.chart-trace-summary-item {
+  border-left: 4px solid;
+  padding-left: 10px;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+
+  & p {
+    margin: 0;
+  }
+
+  & .kpi-number {
+    font-size: $display-text-font-size-large;
+  }
+  
+  & .kpi-analytics {
+    color: #07BA52;
+    font-weight: $display-text-font-weight-regular;
+  }
+}

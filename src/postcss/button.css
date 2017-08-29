@@ -107,7 +107,6 @@
   display: flex;
 
   & .button {
-    border: 1px solid #C3C3C3;
     border-radius: 4px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

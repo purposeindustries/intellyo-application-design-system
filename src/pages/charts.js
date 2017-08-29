@@ -17,10 +17,22 @@ class ChartsPage extends React.Component {
           <Row>
             <Col span={ 2 }>
               <ChartTraceSummaryItem
+                color="#FFB946"
                 title="Intel"
                 number="273"
-                analytics="+23% (avg)"
+                analytics="+ 23% (avg.)"
               />
+            </Col>
+            <Col span={ 2 }>
+              <ChartTraceSummaryItem
+                color="#00BEA9"
+                title="Intellyo"
+                number="1.7k"
+                analytics="+ 423% (avg.)"
+              />
+            </Col>
+            <Col span={ 2 }>
+              <ChartTraceSummaryItem />
             </Col>
           </Row>
         </Card>

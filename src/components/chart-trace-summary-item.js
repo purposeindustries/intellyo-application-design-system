@@ -19,7 +19,10 @@ ChartTraceSummaryItem.propTypes = {
 };
 
 ChartTraceSummaryItem.defaultProps = {
-  color: '#FFB946',
+  color: '#DF54D9',
+  title: 'Add a competitor',
+  number: 'n/a',
+  analytics: 'no data yet',
 };
 
 export default ChartTraceSummaryItem;

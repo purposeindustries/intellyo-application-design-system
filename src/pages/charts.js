@@ -8,17 +8,16 @@ class ChartsPage extends React.Component {
     return (
       <div className="charts-page">
         <DisplayText className="header">Charts</DisplayText>
-        <Chart type="bar" loading={ true } />
+        <Chart loading={ true } />
         <Chart
           title="Audience Growth"
           titleCaption="Likes gained by week"
-          type="bar"
           layout={ {
             'margin': {
-              'l': 50,
+              'l': 15,
               'r': 15,
               't': 15,
-              'b': 50
+              'b': 15
             },
             'hovermode': 'closest',
             'autosize': true,
@@ -28,7 +27,6 @@ class ChartsPage extends React.Component {
                 '2017-07-01',
                 '2017-08-02'
               ],
-              'title': 'Date',
               'type': 'date',
               'autorange': true,
               'showgrid': false
@@ -40,7 +38,6 @@ class ChartsPage extends React.Component {
               ],
               'type': 'linear',
               'autorange': true,
-              'title': 'Likes'
             }
           } }
           data={ [

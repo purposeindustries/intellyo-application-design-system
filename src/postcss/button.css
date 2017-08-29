@@ -87,6 +87,14 @@
   color: $button-color-neutral-active;
 }
 
+.button--disabled {
+  background: $button-background-color-disabled;
+}
+
+.button--disabled:hover {
+  background: $button-background-color-disabled;
+}
+
 .button--small {
   height: $button-height-small;
   line-height: $button-line-height-small;

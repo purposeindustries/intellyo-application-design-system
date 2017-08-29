@@ -95,6 +95,8 @@
   $button-icon-fill-neutral: $color-black-4;
   $button-icon-fill-neutral-hover: $color-primary-4;
 
+  $button-background-color-disabled: $color-black-3;
+
 /* Input */
 
   $input-border-color: $color-black-2;

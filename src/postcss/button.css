@@ -107,17 +107,15 @@
   display: flex;
 
   & .button {
-    background: red;
-    color: $color-black-5;
     border: 1px solid #C3C3C3;
     border-radius: 4px;
+
     &:nth-child(1) {
-      background: green;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
+
     &:nth-child(2) {
-      background: green;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-top-right-radius: 0;
@@ -125,6 +123,7 @@
       border-left: none;
       border-right: none;
     }
+
     &:nth-child(3) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

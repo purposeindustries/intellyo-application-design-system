@@ -4,6 +4,16 @@ import Icon from './icon';
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const LoadingIcon = () => {
+  return (
+    <span className="button-icon-wrapper">
+      <Icon icon="ion-load-d" color="#fff" rotate={ true } />
+    </span>
+  );
+};
+
+LoadingIcon.displayName = 'Loading Icon';
+
 export default class LoadingButton extends React.Component {
   static displayName = 'Loading Button'
   state = {
@@ -23,8 +33,9 @@ export default class LoadingButton extends React.Component {
       <Button
         disabled={ this.state.loading }
         onClick={ this.checkRequest }
+        icon={ this.state.loading ? <LoadingIcon /> : null }
       >
-        { this.state.loading ? <Icon icon="ion-load-d" color="#fff" rotate={ true } /> : 'Save' }
+        { this.state.loading ? 'Loading...' : 'Save' }
       </Button>
     );
   }

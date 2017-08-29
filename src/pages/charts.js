@@ -8,11 +8,10 @@ class ChartsPage extends React.Component {
     return (
       <div className="charts-page">
         <DisplayText className="header">Charts</DisplayText>
-        <Chart type="bar" loading={ true } />
+        <Chart loading={ true } />
         <Chart
           title="Audience Growth"
           titleCaption="Likes gained by week"
-          type="bar"
           layout={ {
             'margin': {
               'l': 15,

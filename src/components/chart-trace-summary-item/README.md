@@ -11,3 +11,14 @@ Chart Trace Summary Item is used to show a brief overview about your data.
 | value | string | Numerical representation of your progress |
 | data | string | Data derived from the value |
 | onClick | func | You can set up a callback function |
+
+## Example
+
+```
+<ChartTraceSummaryItem
+  color="#00BEA9"
+  title="Intellyo"
+  value="1.7k"
+  data="+ 423% (avg.)"
+/>
+```

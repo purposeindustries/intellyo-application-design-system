@@ -19,7 +19,7 @@ export { default as PrefixedInput } from './prefixed-input';
 export { default as SocialPrefixedInput } from './social-prefixed-input';
 export { default as StackedAvatar } from './stacked-avatar';
 export { default as Subheading } from './subheading';
-export { default as Tagsinput } from './tagsinput';
+export { default as Tagsinput, StandAloneInput, DefaultInput } from './tagsinput';
 export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';

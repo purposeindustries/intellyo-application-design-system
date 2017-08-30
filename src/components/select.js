@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dropdown from './dropdown';
+import Dropdown from './dropdown/';
 import classNames from 'classnames';
 
 export default class Select extends React.Component {

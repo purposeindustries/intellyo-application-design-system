@@ -3,7 +3,7 @@ import DisplayText from '../components/display-text/';
 import ButtonGroup from '../components/button-group/';
 import Button from '../components/button/';
 import LoadingButton from '../components/loading-button';
-import Dropdown from '../components/dropdown';
+import Dropdown from '../components/dropdown/';
 import DropdownItem from '../components/dropdown-item';
 import Card from '../components/card/';
 import Row from '../components/row';

@@ -70,7 +70,7 @@ function del(options = {}) {
           Key: key
         }))
       }
-    })
+    });
   };
 }
 

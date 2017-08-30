@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Sidebar, { SidebarItem } from '../components/sidebar';
+import Sidebar, { SidebarItem } from '../components/sidebar/';
 
 import '../css/main.css';
 

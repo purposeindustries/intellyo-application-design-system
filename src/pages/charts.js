@@ -3,7 +3,7 @@ import DisplayText from '../components/display-text';
 import Chart from '../components/chart';
 import Card from '../components/card/';
 import Row from '../components/row';
-import Col from '../components/col';
+import Col from '../components/col/';
 import ChartTraceSummaryItem from '../components/chart-trace-summary-item/';
 
 class ChartsPage extends React.Component {

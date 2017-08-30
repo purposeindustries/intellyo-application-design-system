@@ -9,7 +9,7 @@ import Textarea from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card/';
 import Row from '../components/row';
-import Col from '../components/col';
+import Col from '../components/col/';
 import Icon from '../components/icon';
 
 const TextareaWithLimit = withLimit(Textarea);

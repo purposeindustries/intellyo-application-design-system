@@ -3,7 +3,7 @@ import DisplayText from '../components/display-text';
 import Avatar from '../components/avatar/';
 import Card from '../components/card/';
 import Row from '../components/row';
-import Col from '../components/col';
+import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar';
 import Icon from '../components/icon';
 

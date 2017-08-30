@@ -4,7 +4,7 @@ import Heading from '../components/heading';
 import Subheading from '../components/subheading';
 import Caption from '../components/caption/';
 import Row from '../components/row';
-import Col from '../components/col';
+import Col from '../components/col/';
 
 export default class Typography extends Component {
   static displayName = 'TypographyPage'

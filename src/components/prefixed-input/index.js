@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../input/';
-import Select from '../select/';
+import Input from '../input';
+import Select from '../select';
 import classNames from 'classnames';
 
 export const PrefixedItem = (props) => (

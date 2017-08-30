@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import DisplayText from '../display-text/';
+import DisplayText from '../display-text';
 
 const ChartTraceSummaryItem = (props) => (
   <div className="chart-trace-summary-item" style={ {borderColor: props.color} } onClick={ props.onClick }>

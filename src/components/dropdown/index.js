@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Icon from '../icon/';
+import Icon from '../icon';
 
 export default class Dropdown extends React.Component {
   static displayName = 'Dropdown';

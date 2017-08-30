@@ -1,6 +1,6 @@
 import React from 'react';
-import DisplayText from '../display-text/';
-import Caption from '../caption/';
+import DisplayText from '../display-text';
+import Caption from '../caption';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 

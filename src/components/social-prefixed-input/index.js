@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PrefixedInput from '../prefixed-input/';
+import PrefixedInput from '../prefixed-input';
 import classNames from 'classnames';
 
 const SocialPrefixedInput = (props) => (

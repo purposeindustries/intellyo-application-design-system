@@ -76,8 +76,6 @@ export class DefaultInput extends React.Component {
   }
 }
 
-DefaultInput.displayName = 'DefaultInput';
-
 class TagsInput extends Component {
   static displayName = 'TagsInput'
   static propTypes = {

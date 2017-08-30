@@ -6,17 +6,77 @@ import Input from './input';
 import Icon from './icon';
 import classNames from 'classnames';
 
-export const MobileCompetitorInput = (props) => {
+export const StandAloneInput = (props) => {
   return (
-    <Input
-      placeholder="Add more competitors"
-      icon={ (<Icon icon="ion-android-add" />) }
-      { ...props }
-    />
+    <div className="tagsinput-input-controls">
+      <Input
+        { ...props }
+        type="text"
+      />
+    </div>
   );
 };
 
-MobileCompetitorInput.displayName = 'MobileCompetitorInput';
+StandAloneInput.displayName = 'StandAloneInput';
+
+export class DefaultInput extends React.Component {
+  static displayName = 'DefaultInput';
+  static propTypes = {
+    detailed: PropTypes.bool,
+    inputRef: PropTypes.func,
+    onBlur: PropTypes.func
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActive: false
+    };
+  }
+  render() {
+    return (
+      <div
+        className={ classNames('tagsinput-input-controls tagsinput-default-input', {
+          'tagsinput-default-input--active': this.state.isActive
+        }) }
+      >
+        <Button
+          size={ this.props.detailed ? 'large' : 'normal' }
+          icon={ (
+            <Icon
+              icon="ion-android-add"
+            />
+          ) }
+          onClick={ () => {
+            this.setState({
+              isActive: true
+            }, () => this.input.focus());
+          } }
+          className="tagsinput-add-tag"
+        />
+        <Input
+          { ...this.props }
+          type="text"
+          inputRef={ (el) => {
+            this.input = el;
+            if (typeof this.props.inputRef === 'function') {
+              this.props.inputRef(el);
+            }
+          } }
+          onBlur={ () => {
+            this.setState({
+              isActive: false
+            });
+            if (typeof this.props.onBlur === 'function') {
+              this.props.onBlur();
+            }
+          } }
+        />
+      </div>
+    );
+  }
+}
+
+DefaultInput.displayName = 'DefaultInput';
 
 class TagsInput extends Component {
   static displayName = 'TagsInput'
@@ -24,7 +84,7 @@ class TagsInput extends Component {
     className: PropTypes.string,
     value: PropTypes.array,
     onChange: PropTypes.func,
-    isInputActive: PropTypes.bool,
+    size: PropTypes.string,
     inputProps: PropTypes.object,
     detailed: PropTypes.bool,
     renderInput: PropTypes.func.isRequired,
@@ -48,8 +108,8 @@ class TagsInput extends Component {
   }
   static defaultProps = {
     value: [],
+    size: 'normal',
     onChange: () => {},
-    isInputActive: false,
     inputProps: {},
     onSuggestionSelected: () => {},
     colors: []
@@ -58,7 +118,6 @@ class TagsInput extends Component {
     super(props);
     this.state = {
       value: props.value,
-      isInputActive: props.isInputActive
     };
   }
   render() {
@@ -66,8 +125,8 @@ class TagsInput extends Component {
       <ReactTagsInput
         { ...this.props }
         className={ classNames('tagsinput', this.props.className, {
-          'tagsinput--input-visible': this.state.isInputActive,
-          'tagsinput--detailed': !!this.props.detailed
+          'tagsinput--detailed': !!this.props.detailed,
+          [`tagsinput--size-${this.props.size}`]: true
         }) }
         value={ this.state.value }
         onChange={ (tags) => {
@@ -145,47 +204,18 @@ class TagsInput extends Component {
             onChange = () => {},
             value = ''
           } = props;
-          const input = this.props.renderInput();
+          const input = this.props.renderInput(props);
           return (
-            <div className="tagsinput-input-controls">
-              <Button
-                size={ this.props.detailed ? 'large' : 'normal' }
-                icon={ (
-                  <Icon
-                    icon="ion-android-add"
-                  />
-                ) }
-                onClick={ () => {
-                  this.setState({
-                    isInputActive: true
-                  }, () => {
-                    this.input.focus();
-                  });
-                } }
-                className="tagsinput-add-tag"
-              />
+            <div className="tagsinput-input-controls-wrapper">
               { input && React.cloneElement(input, {
                 onSuggestionSelected: (e, { suggestion }) => {
                   if (typeof input.props.onSuggestionSelected === 'function') {
                     input.props.onSuggestionSelected(e, { suggestion, addTag });
                   }
                 },
-                onBlur: (e) => {
-                  this.setState({
-                    isInputActive: false
-                  });
-                  if (typeof input.props.onBlur === 'function') {
-                    input.props.onBlur(e);
-                  }
-                },
+                detailed: this.props.detailed,
                 onChange: onChange,
                 value: value,
-                inputRef: (el) => {
-                  this.input = el;
-                  if (typeof input.props.inputRef === 'function') {
-                    input.props.inputRef(el);
-                  }
-                },
                 className: classNames(input.props.className, 'tagsinput-input')
               }) }
             </div>

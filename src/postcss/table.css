@@ -19,6 +19,17 @@
     }
   }
 
+  &--expander-button {
+    fill: $color-primary-1;
+    width: 16px;
+    height: 16px;
+    transition: transform .5s;
+
+    &--expanded {
+      transform: rotate(90deg);
+    }
+  }
+
   &--cell {
     flex: 1;
 

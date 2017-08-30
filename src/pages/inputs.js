@@ -4,7 +4,7 @@ import Input, { Suggestion, SuggestionWithImage } from '../components/input/';
 import Select from '../components/select/';
 import DropdownItem from '../components/dropdown-item/';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input/';
-import SocialPrefixedInput from '../components/social-prefixed-input';
+import SocialPrefixedInput from '../components/social-prefixed-input/';
 import Textarea from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card/';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './input';
+import Input from './input/';
 import Select from './select';
 import classNames from 'classnames';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import DisplayText from '../components/display-text';
+import Button from '../components/button';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -15,6 +16,7 @@ for (i = 0; i < 30; i++) {
     id: i + 1,
     title: lipsum({count: 1, units: 'sentences'}),
     description: lipsum({count: 2, units: 'paragraphs'}),
+    tags: Array(Math.floor(Math.random() * 5)).join(0).split(0).map(() => lipsum({count: 1, units: 'words'})),
   });
 }
 
@@ -30,29 +32,17 @@ export default class Tables extends React.Component {
   static displayName = 'TablesPage'
 
   state = {
-    data: data.slice(),
+    loading: false,
   };
 
-  componentDidMount() {
-    setInterval(() => {
-      if (Math.random() > 0.5) {
-        const index = Math.floor(Math.random() * this.state.data.length);
-        this.setState({
-          data: this.state.data.filter((_, i) => i != index),
-        });
-      } else {
-        this.setState({
-          data: [...this.state.data, {
-            id: ++i,
-            title: lipsum({count: 1, units: 'sentences'}),
-            description: lipsum({count: 2, units: 'paragraphs'}),
-          }],
-        });
-      }
-    }, 1000);
-  }
-
   render() {
+    const reload = () => {
+      this.setState({loading: true});
+      setTimeout(() => {
+        this.setState({loading: false});
+      }, 2000);
+    };
+
     return (
       <div>
         <DisplayText>Buttons</DisplayText>
@@ -60,28 +50,31 @@ export default class Tables extends React.Component {
           <Card>
             <Row>
               <Col span={ 12 }>
+                <DisplayText>Regular table</DisplayText>
+                <Table data={data.slice(0, 10)}>
+                  <Column name='id' label='ID'/>
+                  <Column name='title' label='Title' />
+                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
+                </Table>
+              </Col>
+              <Col span={ 12 }>
+                <DisplayText>Table with sticky header &amp; expander</DisplayText>
                 <Table data={data.slice()} sticky>
                   <Column name='expander' label='' renderCell={toggleExpander} />
                   <Column name='id' label='ID'/>
                   <Column name='title' label='Title' />
+                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
                   <Expander render={renderExpander} />
                 </Table>
               </Col>
               <Col span={ 12 }>
-                <Table data={data.slice(0, 10)}>
-                  <Column name='expander' label='' renderCell={toggleExpander} />
+                <DisplayText>Table with loader</DisplayText>
+                <Table data={data.slice(0, 10)} loading={this.state.loading}>
                   <Column name='id' label='ID'/>
-                  <Column name='title' label='Title' />
-                  <Expander render={renderExpander} />
+                  <Column name='title' label='Title' complex />
+                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
                 </Table>
-              </Col>
-              <Col span={ 12 }>
-                <Table data={this.state.data}>
-                  <Column name='expander' label='' renderCell={toggleExpander} />
-                  <Column name='id' label='ID'/>
-                  <Column name='title' label='Title' />
-                  <Expander render={renderExpander} />
-                </Table>
+                <Button onClick={reload}>Reload</Button>
               </Col>
             </Row>
           </Card>

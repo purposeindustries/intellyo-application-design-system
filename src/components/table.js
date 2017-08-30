@@ -23,11 +23,39 @@ const Table = props => {
       </div>
       <div className='table--rows'>
         {
-          props.data.map((row, index) => <Row key={index} item={row} columns={props.children} />)
+          props.loading
+            ? [
+              <Placeholder key='1' columns={columns} />,
+              <Placeholder key='2' columns={columns} />,
+              <Placeholder key='3' columns={columns} />,
+              <Placeholder key='4' columns={columns} />,
+            ]
+            : props.data.map((row, index) => <Row key={index} item={row} columns={props.children} />)
         }
       </div>
     </div>
   );
+};
+
+const Placeholder = (props) => (
+  <div className='table--row-placeholder'>
+    {
+      props.columns.map(column => (
+        <div className={c('table--row-placeholder-cell', column.props.name)} key={column.props.name}>
+          <div className='table--row-placeholder-blob' />
+          {
+            column.props.complex
+              ? <div className='table--row-placeholder-blob-secondary' />
+              : null
+          }
+        </div>
+      ))
+    }
+  </div>
+);
+
+const ref = (target, prop) => el => {
+  target[prop] = el;
 };
 
 class Row extends React.Component {
@@ -36,7 +64,15 @@ class Row extends React.Component {
   };
 
   toggleExpand() {
-    this.setState({expanded: !this.state.expanded});
+    this.setState({
+      expanded: !this.state.expanded,
+    }, () => {
+      if (this.state.expanded) {
+        this._expanderContainer.style.height = this._expanderContent.clientHeight + 'px';
+      } else {
+        this._expanderContainer.style.removeProperty('height');
+      }
+    });
   }
 
   render() {
@@ -52,11 +88,13 @@ class Row extends React.Component {
             <div key={column.props.name} className={c('table--cell', column.props.name)}>{column.props.renderCell(row[column.props.name], row, column, this)}</div>
           ))
         }
-        {
-          this.state.expanded
-            ? <div className='table--expander'>{expander.props.render(row, this)}</div>
-            : null
-        }
+        <div className='table--expander' ref={ref(this, '_expanderContainer')}>
+          {
+            this.state.expanded
+              ? <div className='table--expander-content' ref={ref(this, '_expanderContent')}>{expander.props.render(row, this)}</div>
+              : null
+          }
+        </div>
       </div>
     )
   }

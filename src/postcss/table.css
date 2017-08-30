@@ -36,15 +36,89 @@
     &--header {
       font-weight: bold;
     }
+  }
 
-    &.expander {
-      width: 32px;
-      flex: initial;
+  &--expander {
+    height: 0px;
+    transition: height .35s;
+    overflow: hidden;
+  }
+
+  & .expander {
+    width: 32px;
+    flex: initial;
+  }
+
+  & .id {
+    width: 32px;
+    flex: initial;
+  }
+
+  & .title {
+    flex: 2;
+  }
+
+  &--row-placeholder {
+    padding: 10px 0;
+    display: flex;
+    animation: pulse 2s infinite;
+
+    &-cell {
+      padding-right: 15px;
+      flex: 1;
     }
 
-    &.id {
-      width: 32px;
-      flex: initial;
+    &-blob {
+      border-radius: 4px;
+      background: #ddd;
+      height: 15px;
+
     }
+
+    &-blob-secondary {
+      border-radius: 4px;
+      background: #eee;
+      height: 15px;
+      margin-top: 10px;
+      width: 70%;
+    }
+
+    &:nth-child(4n + 0) &-blob {
+      width: 96%
+    }
+    &:nth-child(4n + 1) &-blob {
+      width: 85%
+    }
+    &:nth-child(4n + 2) &-blob {
+      width: 92%
+    }
+    &:nth-child(4n + 3) &-blob {
+      width: 87%
+    }
+
+    &:nth-child(4n + 0) &-blob-secondary {
+      width: 78%
+    }
+    &:nth-child(4n + 1) &-blob-secondary {
+      width: 65%
+    }
+    &:nth-child(4n + 2) &-blob-secondary {
+      width: 80%
+    }
+    &:nth-child(4n + 3) &-blob-secondary {
+      width: 70%
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .2
+  }
+  100% {
+    opacity: 1;
   }
 }

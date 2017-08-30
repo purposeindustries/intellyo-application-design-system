@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from './logo';
+import Logo from './logo/';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from './icon/';

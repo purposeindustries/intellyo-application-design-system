@@ -48,7 +48,7 @@ function uploader(options = {}) {
 }
 
 async function redirect([from, to]) {
-  console.log('Creating redirect from %s to %s (s3://%s/%s%s)', from, to , BUCKET, PATH_PREFIX, from);
+  console.log('Creating redirect from %s to %s (s3://%s/%s%s)', from, to, BUCKET, PATH_PREFIX, from);
   return S3.putObject({
     Body: '',
     ACL: 'public-read',

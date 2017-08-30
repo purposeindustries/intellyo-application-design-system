@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TagsInput from '../components/tagsinput';
+import TagsInput from '../components/tagsinput/';
 import Card from '../components/card/';
 import { SuggestionWithImage } from '../components/input/';
 

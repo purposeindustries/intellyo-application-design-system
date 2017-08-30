@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Icon, { icons } from '../components/icon';
-import DisplayText from '../components/display-text';
+import Icon, { icons } from '../components/icon/';
+import DisplayText from '../components/display-text/';
 import Card from '../components/card/';
 
 export default class Icons extends Component {

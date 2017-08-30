@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
-import Input, { Suggestion, SuggestionWithImage } from '../components/input';
-import Select from '../components/select';
-import DropdownItem from '../components/dropdown-item';
-import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
-import SocialPrefixedInput from '../components/social-prefixed-input';
-import Textarea from '../components/textarea';
-import withLimit from '../components/with-limit';
+import DisplayText from '../components/display-text/';
+import Input, { Suggestion, SuggestionWithImage } from '../components/input/';
+import Select from '../components/select/';
+import DropdownItem from '../components/dropdown-item/';
+import PrefixedInput, { PrefixedItem } from '../components/prefixed-input/';
+import SocialPrefixedInput from '../components/social-prefixed-input/';
+import Textarea from '../components/textarea/';
+import withLimit from '../components/with-limit/';
 import Card from '../components/card/';
-import Row from '../components/row';
-import Col from '../components/col';
-import Icon from '../components/icon';
+import Row from '../components/row/';
+import Col from '../components/col/';
+import Icon from '../components/icon/';
 
 const TextareaWithLimit = withLimit(Textarea);
 const InputWithLimit = withLimit(Input);

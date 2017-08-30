@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
 import throttle from 'lodash.throttle';
-import OverlayTrigger from './overlay-trigger';
-import Tooltip from './tooltip';
+import OverlayTrigger from '../overlay-trigger';
+import Tooltip from '../tooltip';
 
 const Field = (props) => (
   <input

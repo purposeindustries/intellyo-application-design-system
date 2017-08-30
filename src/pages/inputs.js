@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
+import DisplayText from '../components/display-text/';
 import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import Select from '../components/select';
 import DropdownItem from '../components/dropdown-item';

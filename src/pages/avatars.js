@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
+import DisplayText from '../components/display-text/';
 import Avatar from '../components/avatar/';
 import Card from '../components/card/';
 import Row from '../components/row';

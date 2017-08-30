@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
+import DisplayText from '../components/display-text/';
 import ButtonGroup from '../components/button-group/';
 import Button from '../components/button/';
 import LoadingButton from '../components/loading-button';

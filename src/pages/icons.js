@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon, { icons } from '../components/icon';
+import Icon, { icons } from '../components/icon/';
 import DisplayText from '../components/display-text/';
 import Card from '../components/card/';
 

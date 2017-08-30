@@ -5,7 +5,7 @@ import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar';
-import Icon from '../components/icon';
+import Icon from '../components/icon/';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'

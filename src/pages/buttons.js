@@ -8,7 +8,7 @@ import DropdownItem from '../components/dropdown-item';
 import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col/';
-import Icon from '../components/icon';
+import Icon from '../components/icon/';
 import root from 'window-or-global';
 
 export default class Buttons extends Component {

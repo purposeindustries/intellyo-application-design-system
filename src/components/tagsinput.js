@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactTagsInput from 'react-tagsinput';
 import Button from './button/';
 import Input from './input';
-import Icon from './icon';
+import Icon from './icon/';
 import classNames from 'classnames';
 
 class TagsInput extends Component {

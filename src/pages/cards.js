@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from '../components/card/';
 import Row from '../components/row';
 import Col from '../components/col/';
-import Icon from '../components/icon';
+import Icon from '../components/icon/';
 
 export default class CardsPage extends Component {
   static displayName = 'CardsPage'

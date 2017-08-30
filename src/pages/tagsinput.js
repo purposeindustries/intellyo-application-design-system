@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TagsInput from '../components/tagsinput';
 import Card from '../components/card/';
-import { SuggestionWithImage } from '../components/input';
+import Input, { SuggestionWithImage } from '../components/input';
 
 export default class TagsInputPage extends Component {
 
@@ -13,6 +13,12 @@ export default class TagsInputPage extends Component {
         <Card>
           <TagsInput
             onlyUnique={ true }
+            renderInput={ (props) =>
+              <Input
+                { ...props }
+                placeholder="hey ya"
+              />
+            }
           />
           <TagsInput
             onlyUnique={ true }
@@ -26,22 +32,29 @@ export default class TagsInputPage extends Component {
             inputProps={ {
               placeholder: 'Type your tag...'
             } }
-            suggestions={ [{
-              image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
-              title: 'Volvo',
-              caption: '@intellyo',
-            }, {
-              image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
-              title: 'Volvo sooo Loong!',
-              caption: '@intellyo',
-            }] }
-            getSuggestionValue={ (suggestion) => {
-              return suggestion;
-            } }
-            renderSuggestion={ SuggestionWithImage }
-            onSuggestionSelected={ (e, { suggestion, addTag }) => {
-              addTag(suggestion);
-            } }
+            renderInput={ (props) => (
+              <Input
+                { ...props }
+                suggestions={ [{
+                  image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
+                  title: 'Volvo',
+                  caption: '@intellyo',
+                }, {
+                  image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
+                  title: 'Volvo sooo Loong!',
+                  caption: '@intellyo',
+                }] }
+                getSuggestionValue={ (suggestion) => {
+                  return suggestion;
+                } }
+                renderSuggestion={ SuggestionWithImage }
+                onSuggestionSelected={ (e, { suggestion, addTag }) => {
+                  addTag(suggestion);
+                } }
+                type="text"
+                placeholder="Type your tag..."
+              />
+            ) }
           />
         </Card>
       </div>

@@ -6,6 +6,18 @@ import Input from './input';
 import Icon from './icon';
 import classNames from 'classnames';
 
+export const MobileCompetitorInput = (props) => {
+  return (
+    <Input
+      placeholder="Add more competitors"
+      icon={ (<Icon icon="ion-android-add" />) }
+      { ...props }
+    />
+  );
+};
+
+MobileCompetitorInput.displayName = 'MobileCompetitorInput';
+
 class TagsInput extends Component {
   static displayName = 'TagsInput'
   static propTypes = {
@@ -15,6 +27,7 @@ class TagsInput extends Component {
     isInputActive: PropTypes.bool,
     inputProps: PropTypes.object,
     detailed: PropTypes.bool,
+    renderInput: PropTypes.func.isRequired,
     onSuggestionSelected: PropTypes.func,
     colors: PropTypes.arrayOf(PropTypes.string),
     addKeys: PropTypes.arrayOf(PropTypes.number),
@@ -126,16 +139,13 @@ class TagsInput extends Component {
         } }
         renderInput={ (props) => {
           const {
-            onChange = () => {},
-            onBlur = () => {},
-            inputRef = () => {},
-            value = '',
             // https://github.com/olahol/react-tagsinput#how-do-i-fix-warning-unknown-prop-addtag
             // eslint-disable-next-line no-unused-vars
             addTag,
-            className,
-            ...other
+            onChange = () => {},
+            value = ''
           } = props;
+          const input = this.props.renderInput();
           return (
             <div className="tagsinput-input-controls">
               <Button
@@ -154,36 +164,30 @@ class TagsInput extends Component {
                 } }
                 className="tagsinput-add-tag"
               />
-              <Input
-                suggestions={ this.props.suggestions }
-                onFetchRequested={ this.props.onFetchRequested }
-                onClearRequested={ this.props.onClearRequested }
-                getSuggestionValue={ this.props.getSuggestionValue }
-                renderSuggestion={ this.props.renderSuggestion }
-                onSuggestionSelected={ (e, { suggestion }) => {
-                  this.props.onSuggestionSelected(e, {
-                    suggestion,
-                    addTag
-                  });
-                } }
-
-                type="text"
-                onChange={ onChange }
-                value={ value }
-                { ...other }
-                className={ classNames(className, 'tagsinput-input') }
-                onBlur={ (e) => {
+              { input && React.cloneElement(input, {
+                onSuggestionSelected: (e, { suggestion }) => {
+                  if (typeof input.props.onSuggestionSelected === 'function') {
+                    input.props.onSuggestionSelected(e, { suggestion, addTag });
+                  }
+                },
+                onBlur: (e) => {
                   this.setState({
                     isInputActive: false
                   });
-                  onBlur(e);
-                } }
-                inputRef={ (el) => {
+                  if (typeof input.props.onBlur === 'function') {
+                    input.props.onBlur(e);
+                  }
+                },
+                onChange: onChange,
+                value: value,
+                inputRef: (el) => {
                   this.input = el;
-                  inputRef(el);
-                } }
-                placeholder={ this.props.inputProps.placeholder }
-              />
+                  if (typeof input.props.inputRef === 'function') {
+                    input.props.inputRef(el);
+                  }
+                },
+                className: classNames(input.props.className, 'tagsinput-input')
+              }) }
             </div>
           );
         } }

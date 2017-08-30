@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text/';
-import Heading from '../components/heading';
+import Heading from '../components/heading/';
 import Subheading from '../components/subheading';
 import Caption from '../components/caption/';
 import Row from '../components/row';

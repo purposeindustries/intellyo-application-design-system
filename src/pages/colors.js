@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text/';
 import Card from '../components/card/';
-import Row from '../components/row';
+import Row from '../components/row/';
 import Col from '../components/col/';
 
 export default class Colors extends Component {

@@ -66,3 +66,27 @@
     opacity: 1;
   }
 }
+
+.chart-date-range-selector {
+  border: 1px solid $color-grey-3;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 28px;
+  margin: 0 -$gutter-base $gutter-base;
+  display: flex;
+  align-items: center;
+
+  & .icon {
+    margin-right: $gutter-base;
+  }
+}
+
+.chart-trace-summary-items {
+  border-bottom: 1px solid $color-grey-3;
+  margin: 0 -$gutter-base $gutter-base;
+  padding: 0 $gutter-base 10px;
+
+  & .chart-trace-summary-item {
+    white-space: nowrap;
+  }
+}

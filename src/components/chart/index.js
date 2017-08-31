@@ -20,11 +20,12 @@ class Chart extends React.Component {
     data: PropTypes.arrayOf(PropTypes.object),
     layout: PropTypes.object,
     title: PropTypes.string,
-    titleCaption: PropTypes.string
+    titleCaption: PropTypes.string,
+    children: PropTypes.node
   }
 
   handleResize = () => {
-    this.Plotly.Plots.resize(document.getElementById('chart-container'));
+    this.Plotly.Plots.resize(this.chartEl);
   }
 
   componentDidMount() {
@@ -46,7 +47,7 @@ class Chart extends React.Component {
 
   initChart() {
 
-    const el = document.getElementById('chart-container');
+    const el = this.chartEl;
 
     if (!el) {
       return;
@@ -58,7 +59,7 @@ class Chart extends React.Component {
         require('plotly.js/lib/scatter')
       ]);
     } else {
-      this.Plotly.purge(document.getElementById('chart-container'));
+      this.Plotly.purge(this.chartEl);
     }
 
     this.Plotly.newPlot(el, this.props.data, Object.assign({}, (this.props.layout || {}), {
@@ -98,7 +99,7 @@ class Chart extends React.Component {
     });
 
     window.addEventListener('resize', this.handleResize);
-    this.Plotly.Plots.resize(document.getElementById('chart-container'));
+    this.Plotly.Plots.resize(this.chartEl);
   }
 
   render() {
@@ -110,7 +111,15 @@ class Chart extends React.Component {
         >
           {
             this.props.loading ? <Preloader /> : (
-              <div id="chart-container" />
+              <div>
+                { this.props.children }
+                <div
+                  className="chart-container"
+                  ref={ el => {
+                    this.chartEl = el;
+                  } }
+                />
+              </div>
             )
           }
         </Card>

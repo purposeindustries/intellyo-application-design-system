@@ -13,7 +13,7 @@ clutter up the interface.
 | value | string | Value for form input |
 | children | oneOfType([element, arrayOf(element)]) | Pass styles to the component Expected value: `{}` |
 | onChange | func | Callback when selection is changed |
-| isActive | bool | Pass styles to the component Expected value: `{}` |
+| isActive | bool | Use to active or disable the component |
 | style | obj | Pass styles to the component Expected value: `{}` |
 
 ## Example

@@ -232,8 +232,6 @@ export const ResponsiveTagsInput = (props) => (
         { ...props }
         renderInput={ props.renderDefaultInput }
         size="normal"
-        onChange={ (tags) => props.onChange(tags) }
-        value={ props.value }
       />
     </HideAt>
     <ShowAt
@@ -243,8 +241,7 @@ export const ResponsiveTagsInput = (props) => (
       <TagsInput
         { ...props }
         renderInput={ props.renderStandAloneInput }
-        onChange={ (tags) => props.onChange(tags) }
-        value={ props.value }
+        size="small"
       />
     </ShowAt>
   </div>

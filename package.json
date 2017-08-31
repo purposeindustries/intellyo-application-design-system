@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "npm run build:css && gatsby build",
-    "build:components": "mkdir -p dist && babel src/components -d dist",
+    "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",

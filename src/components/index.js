@@ -1,5 +1,6 @@
 export { default as Avatar } from './avatar';
 export { default as Button } from './button';
+export { default as ButtonGroup } from './button-group';
 export { default as Caption } from './caption';
 export { default as Card } from './card';
 export { default as Col } from './col';
@@ -24,3 +25,4 @@ export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
 export { default as Chart } from './chart';
+export { default as ChartTraceSummaryItem } from './chart-trace-summary-item';

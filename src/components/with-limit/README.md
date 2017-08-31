@@ -18,7 +18,13 @@ With Limit is responsible for setting the maximum character limit on an arbitrar
 Use when necessary to provide an explanation for an interface element. Default placement is top if `placement` is omitted. Place your `content` inside the component to display within.
 
 ```jsx
-<Tooltip placement="right">
-International University of Monaco
-</Tooltip>
+const TextareaWithLimit = withLimit(Textarea);
+
+<TextareaWithLimit
+  name="bio"
+  limit={ 140 }
+  value={ this.state.bio }
+  placeholder="Text goes here"
+  onChange={ this.handleInputChange }
+/>
 ```

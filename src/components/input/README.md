@@ -9,7 +9,7 @@
 | name | string | Use to set the name of the component. |
 | disabled | bool | Use to disable the status of the component. |
 | className | string | Use to specify arbitrary classnames to the component. |
-| defaultValue | string | You can set a default value for the input. |
+| defaultValue | string | You can set up a default value for the input. |
 | icon | node | Use to set up an icon for the component. |
 | onKeyDown | func | A callback function which fires when a key is pressed-down. |
 | onBlur | func | A callback function which fires when there there is a blur taking place. |

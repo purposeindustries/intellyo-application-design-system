@@ -66,7 +66,9 @@
     "lodash.throttle": "^4.1.1",
     "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
+    "react-hide-at": "^1.0.4",
     "react-ionicons": "^1.5.7",
+    "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.17.0",
     "react-user-avatar": "^1.9.0"
   }

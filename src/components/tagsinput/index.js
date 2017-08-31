@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTagsInput from 'react-tagsinput';
+import HideAt from 'react-hide-at';
+import ShowAt from 'react-show-at';
 import Button from '../button';
 import Input from '../input';
 import Icon from '../icon';
@@ -126,14 +128,8 @@ class TagsInput extends Component {
           'tagsinput--detailed': !!this.props.detailed,
           [`tagsinput--size-${this.props.size}`]: true
         }) }
-        value={ this.state.value }
+        value={ this.props.value }
         onChange={ (tags) => {
-          this.setState((state) => {
-            return {
-              ...state,
-              value: [...tags]
-            };
-          });
           this.props.onChange(tags);
         } }
         addKeys={ this.props.addKeys }
@@ -225,3 +221,42 @@ class TagsInput extends Component {
 }
 
 export default TagsInput;
+
+export const ResponsiveTagsInput = (props) => (
+  <div className="responsive-tagsinput">
+    <HideAt
+      breakpoint="small"
+      breakpoints={ props.breakpoints }
+    >
+      <TagsInput
+        { ...props }
+        renderInput={ props.renderDefaultInput }
+        size="normal"
+        onChange={ (tags) => props.onChange(tags) }
+        value={ props.value }
+      />
+    </HideAt>
+    <ShowAt
+      breakpoint="small"
+      breakpoints={ props.breakpoints }
+    >
+      <TagsInput
+        { ...props }
+        renderInput={ props.renderStandAloneInput }
+        onChange={ (tags) => props.onChange(tags) }
+        value={ props.value }
+      />
+    </ShowAt>
+  </div>
+);
+
+ResponsiveTagsInput.propTypes = {
+  breakpoints: PropTypes.object,
+  renderStandAloneInput: PropTypes.func,
+  renderDefaultInput: PropTypes.func,
+  size: PropTypes.string,
+  value: PropTypes.array,
+  onChange: PropTypes.func
+};
+
+ResponsiveTagsInput.displayName = 'ResponsiveTagsInput';

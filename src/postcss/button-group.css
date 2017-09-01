@@ -8,6 +8,7 @@
     border-bottom-left-radius: 0;
     background: $color-grey-1;
     border-color: $color-grey-5;
+    margin: 0;
 
       &:first-child {
         border-radius: 4px;

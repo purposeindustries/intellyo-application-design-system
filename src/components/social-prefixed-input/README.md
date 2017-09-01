@@ -6,17 +6,43 @@ With Limit is responsible for setting the maximum character limit on an arbitrar
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| limit | number | The children to display within the tooltip |
-| value | string | The input the user enters |
-| onChange | func | Callback function to run when changes take place |
-
+| className | string | Use to specify custom classnames to your component. |
+| children | oneOfType([element, arrayOf(element)]) | Children to render out inside the component. |
 
 ## Examples
 
-### Default Tooltip
-
-Use when necessary to provide an explanation for an interface element. Default placement is top if `placement` is omitted. Place your `content` inside the component to display within.
-
 ```jsx
-
+<SocialPrefixedInput
+  onSelectChange={ (prefixChildrenValue) => {
+    this.setState({
+      prefixValue: prefixChildrenValue
+    }, () => this.handleSocialPrefixedInput());
+  } }
+  onInputChange={ (e) => {
+    this.setState({
+      prefixInputValue: e.target.value
+    }, () => this.handleSocialPrefixedInput());
+  } }
+>
+  <PrefixedItem
+    value="facebook"
+  >
+    https://facebook.com/
+  </PrefixedItem>
+  <PrefixedItem
+    value="twitter"
+  >
+    https://twitter.com/
+  </PrefixedItem>
+  <PrefixedItem
+    value="instagram"
+  >
+    https://instagram.com/
+  </PrefixedItem>
+  <PrefixedItem
+    value="pinterest"
+  >
+    https://pinterest.com/
+  </PrefixedItem>
+</SocialPrefixedInput>
 ```

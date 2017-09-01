@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import DisplayText from '../display-text';
 
 class ChartTraceSummaryItem extends React.Component {
-  static displayName = 'Chart Trace Summary Item';
+  static displayName = 'ChartTraceSummaryItem';
 
   static propTypes = {
     color: PropTypes.string,

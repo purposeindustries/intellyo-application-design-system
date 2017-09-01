@@ -11,6 +11,14 @@ The `Row` component is used to horizontally separate the elements.
 ## Examples
 
 ```jsx
-<row>
-</row>
+<Row>
+  <Col span={ 6 }>
+    <div className="avatar-wrapper">
+      <Avatar
+        name="Donald Trump"
+        size="small"
+      />
+    </div>
+  </Col>
+</Row>
 ```

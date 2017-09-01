@@ -12,6 +12,7 @@ export { default as DropdownItem } from './dropdown-item';
 export { default as Heading } from './heading';
 export { default as Icon } from './icon';
 export { default as Input, SuggestionWithImage, Suggestion } from './input';
+export { default as LoadingButton } from './loading-button';
 export { default as Logo } from './logo';
 export { default as OverlayTrigger } from './overlay-trigger';
 export { default as Popover } from './popover';

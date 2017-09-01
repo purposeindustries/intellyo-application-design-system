@@ -16,8 +16,6 @@ easier for users to scan, read, and get things done.
 
 ## Examples
 
-### Default card
-
 Use when you have a `simple` message to communicate.
 
 ```jsx

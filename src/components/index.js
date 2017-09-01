@@ -26,3 +26,4 @@ export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
 export { default as Chart } from './chart';
 export { default as ChartTraceSummaryItem } from './chart-trace-summary-item';
+export { default as HorizontallyScrollableRow } from './horizontally-scrollable-row';

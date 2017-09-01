@@ -12,7 +12,7 @@ The `Chart` component is used to render out a custom chart based on the data you
 | title | string | Use to set the title of your chart. |
 | titleCaption | string | Use to set the caption for your title. |
 
-## Example
+## Examples
 
 ```
 <Chart

@@ -14,6 +14,7 @@ export const StandAloneInput = (props) => {
       <Input
         { ...props }
         type="text"
+        icon={ <Icon icon="ion-android-add" /> }
       />
     </div>
   );

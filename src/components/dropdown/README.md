@@ -12,7 +12,7 @@ A `Dropdown` component is used to define a list from where a user can choose a v
 | className | string | Use to specify any additional classes to the component. |
 | style | object | Use to define unique styles for the Dropdown. |
 
-## Example
+## Examples
 
 ```
 <Dropdown

@@ -7,7 +7,7 @@ The usage of sidebars varies and depends on the choices of yours.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| children | node | Use to render-out the components inside Sidebar |
+| children | node | Use to render the components inside Sidebar |
 
 ## Examples
 

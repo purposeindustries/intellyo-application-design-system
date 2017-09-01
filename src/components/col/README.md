@@ -10,7 +10,7 @@ Chart Trace Summary Item is used to show a brief overview about your data.
 | children | node | The content to display within the columns |
 | style | object | Pass styles to the component Expected value: `{}` |
 
-## Example
+## Examples
 
 ```
 <Col span={ 3 }>

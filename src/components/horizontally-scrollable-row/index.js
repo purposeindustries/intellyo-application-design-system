@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 
 class HorizontallyScrollableRow extends React.Component {
   static displayName = 'HorizontallyScrollableRow';
@@ -12,11 +13,12 @@ class HorizontallyScrollableRow extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    const { clientHeight } = ReactDOM.findDOMNode(this.firstElement);
-    // eslint-disable-next-line
-    this.setState({
-      elementHeight: clientHeight
-    });
+    if (this.props.children) {
+      const { clientHeight } = ReactDOM.findDOMNode(this.firstElement);
+      root.setTimeout(() => this.setState({
+        elementHeight: clientHeight
+      }));
+    }
   }
   render() {
     const children = React.Children.toArray(this.props.children);

@@ -1,6 +1,6 @@
 # Text Area
 
-Text Areas are used to store text inputs.
+Text Areas are used to display text inputs.
 
 ## Props
 

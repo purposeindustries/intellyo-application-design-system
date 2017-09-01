@@ -16,7 +16,7 @@ clutter up the interface.
 | isActive | bool | Use to active or disable the component |
 | style | obj | Pass styles to the component Expected value: `{}` |
 
-## Example
+## Examples
 
 ```
 <Select

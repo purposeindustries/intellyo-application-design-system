@@ -13,8 +13,6 @@ With Limit is responsible for setting the maximum character limit on an arbitrar
 
 ## Examples
 
-### Default Tooltip
-
 Use when necessary to provide an explanation for an interface element. Default placement is top if `placement` is omitted. Place your `content` inside the component to display within.
 
 ```jsx

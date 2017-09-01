@@ -1,6 +1,6 @@
 # Tags input
 
-A `Tags input` component let's you create induvidually labeled tags.
+A `Tags input` component let's you create individually labeled tags.
 
 ## Props
 
@@ -9,7 +9,7 @@ A `Tags input` component let's you create induvidually labeled tags.
 | className | string | Use to specify a unique class to your component. |
 | value | array | Use to change the residing value inside your tag / tags. |
 | onChange | func | Callback function which fires on every time there is a change taking place. |
-| isInputActive | bool | Used to perceive wheter the input is in an active state or not. |
+| isInputActive | bool | Used to perceive whether the input is in an active state or not. |
 | inputProps | object | You can specify individual inputs. |
 | detailed | bool | Lets you create more verbose explanation for your tags. |
 | suggestions | arrayOf(oneOfType([string, shape({ image: string, title: string, caption: string })])) | Used to specify the desired suggestions. |

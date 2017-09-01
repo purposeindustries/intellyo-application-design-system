@@ -8,7 +8,7 @@ Headings are used as the titles of each major section of a page in the interface
 | ---- | ---- | ----------- |
 | children | node | The content to display inside your Heading |
 
-## Example
+## Examples
 
 ```
 <Heading>

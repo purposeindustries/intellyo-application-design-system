@@ -8,7 +8,7 @@ Stacked Avatar lets you place Avatars on top of each other.
 | ---- | ---- | ----------- |
 | avatars | array | Place the desired avatars to be displayed in an array |
 
-## Example
+## Examples
 
 ```
 <StackedAvatar

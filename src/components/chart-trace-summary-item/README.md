@@ -12,7 +12,7 @@ Chart Trace Summary Item is used to show a brief overview about your data.
 | data | string | Data derived from the value |
 | onClick | func | You can set up a callback function |
 
-## Example
+## Examples
 
 ```
 <ChartTraceSummaryItem

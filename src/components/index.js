@@ -27,3 +27,6 @@ export { default as Tagsinput, ResponsiveTagsInput, StandAloneInput, DefaultInpu
 export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
+export { default as Chart } from './chart';
+export { default as ChartTraceSummaryItem } from './chart-trace-summary-item';
+export { default as HorizontallyScrollableRow } from './horizontally-scrollable-row';

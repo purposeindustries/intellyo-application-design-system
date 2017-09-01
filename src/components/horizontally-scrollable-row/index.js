@@ -21,13 +21,16 @@ class HorizontallyScrollableRow extends React.Component {
     }
   }
   render() {
-    const children = React.Children.toArray(this.props.children);
-    const firstChild = React.cloneElement(children[0], {
-      ref: (el) => {
-        this.firstElement = el;
-      }
-    });
-    const restChildren = children.slice(1);
+    let children, firstChild, restChildren;
+    if (this.props.children) {
+      children = React.Children.toArray(this.props.children);
+      firstChild = React.cloneElement(children[0], {
+        ref: (el) => {
+          this.firstElement = el;
+        }
+      });
+      restChildren = children.slice(1);
+    }
     return (
       <div
         className="horizontally-scrollable-row"

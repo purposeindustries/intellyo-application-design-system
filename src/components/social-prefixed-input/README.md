@@ -1,6 +1,6 @@
 # Social Prefixed Input
 
-With Limit is responsible for setting the maximum character limit on an arbitrary component. E.g.: [Text Area](/src/components/textarea)
+The `Social Prefixed Input` component is used to prefix inputs in connection with different social-media sites and applying their styles to the prefix. E.g.: facebook, twitter, pinterest.
 
 ## Props
 

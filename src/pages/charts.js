@@ -3,6 +3,7 @@ import DisplayText from '../components/display-text/';
 import Chart from '../components/chart/';
 import Card from '../components/card/';
 import Row from '../components/row/';
+import HorizontallyScrollableRow from '../components/horizontally-scrollable-row/';
 import Col from '../components/col/';
 import ChartTraceSummaryItem from '../components/chart-trace-summary-item/';
 
@@ -16,27 +17,21 @@ class ChartsPage extends React.Component {
           <Col span={ 4 }>
             <Chart type="bar" loading={ true } />
             <Card>
-              <Row>
-                <Col span={ 4 }>
-                  <ChartTraceSummaryItem
-                    color="#FFB946"
-                    title="Intel"
-                    value="273"
-                    data="+ 23% (avg.)"
-                  />
-                </Col>
-                <Col span={ 4 }>
-                  <ChartTraceSummaryItem
-                    color="#00BEA9"
-                    title="Intellyo"
-                    value="1.7k"
-                    data="+ 423% (avg.)"
-                  />
-                </Col>
-                <Col span={ 4 }>
-                  <ChartTraceSummaryItem />
-                </Col>
-              </Row>
+              <HorizontallyScrollableRow>
+                <ChartTraceSummaryItem
+                  color="#FFB946"
+                  title="Intel"
+                  value="273"
+                  data="+ 23% (avg.)"
+                />
+                <ChartTraceSummaryItem
+                  color="#00BEA9"
+                  title="Intellyo"
+                  value="1.7k"
+                  data="+ 423% (avg.)"
+                />
+                <ChartTraceSummaryItem />
+              </HorizontallyScrollableRow>
             </Card>
           </Col>
           <Col span={ 8 }>

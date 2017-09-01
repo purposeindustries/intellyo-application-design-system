@@ -3,6 +3,7 @@
   padding-left: 10px;
   font-size: $font-size-base;
   color: $color-black-5;
+  margin-right: 40px;
 
   & .kpi-data {
     color: #07BA52;

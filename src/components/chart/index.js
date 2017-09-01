@@ -21,7 +21,14 @@ class Chart extends React.Component {
     layout: PropTypes.object,
     title: PropTypes.string,
     titleCaption: PropTypes.string,
-    children: PropTypes.node
+    children: PropTypes.node,
+    onPointHover: PropTypes.func,
+    onPointUnhover: PropTypes.func
+  }
+
+  static defaultProps = {
+    onPointHover: () => {},
+    onPointUnhover: () => {}
   }
 
   handleResize = () => {
@@ -43,6 +50,9 @@ class Chart extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
+    if (this.Plotly && this.chartEl) {
+      this.Plotly.purge(this.chartEl);
+    }
   }
 
   initChart() {
@@ -100,6 +110,19 @@ class Chart extends React.Component {
 
     window.addEventListener('resize', this.handleResize);
     this.Plotly.Plots.resize(this.chartEl);
+
+    this.chartEl.on('plotly_hover', (data) => {
+      if (data.points && data.points.length) {
+        const point = data.points[0];
+        const y = point.y;
+        const x = point.x;
+        this.props.onPointHover({ x, y, point });
+      }
+    });
+
+    this.chartEl.on('plotly_unhover', () => {
+      this.props.onPointUnhover();
+    });
   }
 
   render() {

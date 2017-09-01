@@ -13,7 +13,7 @@ reassure a merchant such as in marketing content or to capture attention during 
 | children | node | The content to display |
 | className | string | Pass styles to the component Expected value: `{}` |
 
-## Example
+## Examples
 
 ```
 <DisplayText size="large">

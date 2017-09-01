@@ -17,17 +17,16 @@ A `Prefixed Input` component is used to prefix inputs with an arbitrary value.
 | onInputChange | func | The content to display inside the popover |
 | prefixValue | string | The content to display inside the popover |
 | color | string | The content to display inside the popover |
-| className | string | The content to display inside the popover |
+| className | string | Use to set custom classes for your component. |
 | value | string | The content to display inside the popover |
 
 ## Examples
 
-###  Default Popover
-
-Use when presenting a set of actions in a disclosable menu.
-
 ```jsx
-<Popover>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-</Popover>
+<PrefixedInput
+  { ...props }
+  className={ classNames(props.className, 'social-prefixed-input') }
+>
+  { props.children }
+</PrefixedInput>
 ```

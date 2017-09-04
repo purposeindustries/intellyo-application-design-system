@@ -11,8 +11,6 @@ Popovers are small overlays that open on demand, usually when the user clicks a 
 
 ## Examples
 
-###  Default Popover
-
 Use when presenting a set of actions in a disclosable menu.
 
 ```jsx

@@ -16,8 +16,6 @@ business in the interface.
 
 ## Examples
 
-### Default Avatar
-
 Use to present an avatar for a user.
 
 ```jsx

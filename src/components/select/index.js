@@ -11,7 +11,8 @@ export default class Select extends React.Component {
     onChange: PropTypes.func,
     id: PropTypes.string,
     isActive: PropTypes.bool,
-    style: PropTypes.obj
+    style: PropTypes.obj,
+    icon: PropTypes.element
   }
   static defaultProps = {
     onChange: () => {}
@@ -57,6 +58,7 @@ export default class Select extends React.Component {
         isActive={ this.state.isActive }
         className={ classNames('select') }
         style={ this.props.style }
+        icon={ this.props.icon }
       >
         {
           React.Children.map(this.props.children, (c) => {

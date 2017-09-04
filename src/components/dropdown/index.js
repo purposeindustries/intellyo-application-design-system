@@ -14,7 +14,8 @@ export default class Dropdown extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     className: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    icon: PropTypes.element
   };
   constructor(props) {
     super(props);

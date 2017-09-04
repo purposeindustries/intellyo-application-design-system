@@ -1,6 +1,6 @@
 # Col
 
-Chart Trace Summary Item is used to show a brief overview about your data.
+The `Col` component is used to separate the elements vertically.
 
 ## Props
 
@@ -17,5 +17,5 @@ Chart Trace Summary Item is used to show a brief overview about your data.
   <Button size="large">
     Click me!
   </Button>
-</Col>  
+</Col>
 ```

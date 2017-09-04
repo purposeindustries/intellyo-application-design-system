@@ -31,7 +31,9 @@ PrefixedItem.propTypes = {
 class PrefixedInput extends React.Component {
   static displayName = 'PrefixedInput';
   static propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.oneOfType(
+      [PropTypes.element, PropTypes.arrayOf(PropTypes.element)]
+    ),
     suggestions: PropTypes.array,
     onFetchRequested: PropTypes.func,
     onClearRequested: PropTypes.func,

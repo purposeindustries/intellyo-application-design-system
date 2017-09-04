@@ -86,7 +86,11 @@ export default class Dropdown extends React.Component {
           tabIndex="1"
           onClick={ () => this.toggle() }
         >
-          <Icon icon="ion-android-arrow-dropdown" />
+          {
+            this.props.icon ?
+              this.props.icon :
+              (<Icon icon="ion-android-arrow-dropdown" />)
+          }
         </div>
         <div
           className={ cx('dropdown-items', {

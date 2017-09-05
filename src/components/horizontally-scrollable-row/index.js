@@ -13,7 +13,7 @@ class HorizontallyScrollableRow extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    if (this.props.children) {
+    if (React.Children.count(this.props.children)) {
       const { clientHeight } = ReactDOM.findDOMNode(this.firstElement);
       root.setTimeout(() => this.setState({
         elementHeight: clientHeight
@@ -22,7 +22,7 @@ class HorizontallyScrollableRow extends React.Component {
   }
   render() {
     let children, firstChild, restChildren;
-    if (this.props.children) {
+    if (React.Children.count(this.props.children)) {
       children = React.Children.toArray(this.props.children);
       firstChild = React.cloneElement(children[0], {
         ref: (el) => {

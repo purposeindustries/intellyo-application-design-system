@@ -9,10 +9,15 @@ import Card from '../components/card/';
 import Row from '../components/row/';
 import Col from '../components/col/';
 import Icon from '../components/icon/';
-import root from 'window-or-global';
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export default class Buttons extends Component {
   displayName = 'ButtonsPage'
+  state = {
+    loading: false,
+  };
+
   render() {
     return (
       <div>
@@ -230,9 +235,12 @@ export default class Buttons extends Component {
           <Row>
             <Col span={ 12 }>
               <LoadingButton
-                onClick={ () => new root.Promise((resolve) => {
-                  setTimeout(resolve, 3000);
-                }) }
+                loading={ this.state.loading }
+                onClick={ async () => {
+                  this.setState({loading: true});
+                  await sleep(2000);
+                  this.setState({loading: false});
+                } }
               />
             </Col>
           </Row>

@@ -9,6 +9,7 @@ clutter up the interface.
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | id | string | ID for form input |
+| icon | element | Use it to change the icon |
 | label | string | Label for the checkbox |
 | value | string | Value for form input |
 | children | oneOfType([element, arrayOf(element)]) | The items will appear on your list |

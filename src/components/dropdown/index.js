@@ -14,7 +14,8 @@ export default class Dropdown extends React.Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     className: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    icon: PropTypes.element
   };
   constructor(props) {
     super(props);
@@ -85,7 +86,11 @@ export default class Dropdown extends React.Component {
           tabIndex="1"
           onClick={ () => this.toggle() }
         >
-          <Icon icon="ion-android-arrow-dropdown" />
+          {
+            this.props.icon ?
+              this.props.icon :
+              (<Icon icon="ion-android-arrow-dropdown" />)
+          }
         </div>
         <div
           className={ cx('dropdown-items', {
@@ -129,7 +134,11 @@ export default class Dropdown extends React.Component {
               <span className="dropdown-trigger-label">
                 { this.props.label }
               </span>
-              <Icon icon="ion-android-arrow-dropdown" />
+              {
+                this.props.icon ?
+                  this.props.icon :
+                  (<Icon icon="ion-android-arrow-dropdown" />)
+              }
             </div>
             <div
               className="dropdown-items"

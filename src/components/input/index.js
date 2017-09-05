@@ -6,23 +6,12 @@ import throttle from 'lodash.throttle';
 import OverlayTrigger from '../overlay-trigger';
 import Tooltip from '../tooltip';
 
-const Field = (props) => (
+const Field = ({ inputRef, className, defaultValue, ...rest }) => (
   <input
-    ref={ props.inputRef }
-    name={ props.name }
-    disabled={ props.disabled }
-    placeholder={ props.placeholder }
-    required={ props.required }
-    type={ props.type }
-    id={ props.id }
-    onChange={ props.onChange }
-    onPaste={ props.onPaste }
-    onFocus={ props.onFocus }
-    onBlur={ props.onBlur }
-    onKeyDown={ props.onKeyDown }
-    value={ props.value }
-    defaultValue={ props.defaultValue }
-    className={ props.className }
+    { ...rest }
+    ref={ inputRef }
+    defaultValue={ defaultValue }
+    className={ className }
   />
 );
 

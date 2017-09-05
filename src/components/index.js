@@ -16,7 +16,7 @@ export { default as LoadingButton } from './loading-button';
 export { default as Logo } from './logo';
 export { default as OverlayTrigger } from './overlay-trigger';
 export { default as Popover } from './popover';
-export { default as PrefixedInput } from './prefixed-input';
+export { default as PrefixedInput, PrefixedItem } from './prefixed-input';
 export { default as Row } from './row';
 export { default as Select } from './select';
 export { default as Sidebar, SidebarItem } from './sidebar';

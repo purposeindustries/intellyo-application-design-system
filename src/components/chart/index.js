@@ -12,6 +12,14 @@ const Preloader = () => (
 
 Preloader.displayName = 'ChartPreloader';
 
+const Reloader = () => (
+  <div className="chart-preloader">
+    <div className="chart-preloader-body" />
+  </div>
+);
+
+Reloader.displayName = 'ChartReloader';
+
 const EmptyChart = () => (
   <div className="chart--empty">
     <p className="chart--empty-figure">¯\_(ツ)_/¯</p>
@@ -23,11 +31,13 @@ const EmptyChart = () => (
 );
 
 EmptyChart.displayName = 'EmptyChart';
+
 class Chart extends React.Component {
   static displayName = 'Chart'
 
   static propTypes = {
     loading: PropTypes.bool,
+    reloading: PropTypes.bool,
     data: PropTypes.arrayOf(PropTypes.object),
     layout: PropTypes.object,
     title: PropTypes.string,

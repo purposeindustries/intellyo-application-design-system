@@ -3,6 +3,8 @@ import DisplayText from '../components/display-text/';
 import Chart from '../components/chart/';
 import Card from '../components/card/';
 import Row from '../components/row/';
+import ButtonGroup from '../components/button-group/';
+import Button from '../components/button/';
 import HorizontallyScrollableRow from '../components/horizontally-scrollable-row/';
 import Col from '../components/col/';
 import ChartTraceSummaryItem from '../components/chart-trace-summary-item/';
@@ -33,6 +35,12 @@ class ChartsPage extends React.Component {
                 <ChartTraceSummaryItem />
               </HorizontallyScrollableRow>
             </Card>
+            <Chart
+              type="bar"
+              title="Audience Growth"
+              titleCaption="Likes gained by week"
+              isEmpty={ true }
+            />
           </Col>
           <Col span={ 8 }>
             <Chart
@@ -239,9 +247,29 @@ class ChartsPage extends React.Component {
               ] }
             />
             <Chart
+              reloading={ true }
               title="Audience Growth"
               titleCaption="Likes gained by week"
               type="bar"
+              header={
+                <ButtonGroup>
+                  <Button
+                    neutral={ true }
+                  >
+                    7-DAY
+                  </Button>
+                  <Button
+                    neutral={ true }
+                  >
+                    30-DAY
+                  </Button>
+                  <Button
+                    neutral={ true }
+                  >
+                    90-DAY
+                  </Button>
+                </ButtonGroup>
+              }
               layout={ {
                 'margin': {
                   'l': 50,
@@ -440,7 +468,23 @@ class ChartsPage extends React.Component {
                   'name': 'C'
                 }
               ] }
-            />
+            >
+              <HorizontallyScrollableRow>
+                <ChartTraceSummaryItem
+                  color="#FFB946"
+                  title="Intel"
+                  value="273"
+                  data="+ 23% (avg.)"
+                />
+                <ChartTraceSummaryItem
+                  color="#00BEA9"
+                  title="Intellyo"
+                  value="1.7k"
+                  data="+ 423% (avg.)"
+                />
+                <ChartTraceSummaryItem />
+              </HorizontallyScrollableRow>
+            </Chart>
           </Col>
         </Row>
       </div>

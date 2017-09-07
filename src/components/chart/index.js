@@ -47,12 +47,8 @@ class Chart extends React.Component {
     renderBodyPreloader: PropTypes.func,
     onPointHover: PropTypes.func,
     onPointUnhover: PropTypes.func,
-    header: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.arrayOf(PropTypes.element)]),
-    body: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.arrayOf(PropTypes.element)])
+    header: PropTypes.node,
+    body: PropTypes.node
   }
 
   static defaultProps = {

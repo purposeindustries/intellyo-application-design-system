@@ -3,7 +3,7 @@ import Card from '../card';
 import Caption from '../caption';
 import PropTypes from 'prop-types';
 
-const Preloader = () => (
+export const Preloader = () => (
   <div className="chart-preloader">
     <div className="chart-preloader-title" />
     <div className="chart-preloader-caption" />
@@ -13,7 +13,7 @@ const Preloader = () => (
 
 Preloader.displayName = 'ChartPreloader';
 
-const BodyPreloader = () => (
+export const BodyPreloader = () => (
   <div className="chart-preloader">
     <div className="chart-preloader-body" />
   </div>

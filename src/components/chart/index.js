@@ -48,7 +48,6 @@ class Chart extends React.Component {
     renderBodyPreloader: PropTypes.func,
     onPointHover: PropTypes.func,
     onPointUnhover: PropTypes.func,
-    isEmpty: PropTypes.bool,
     header: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.arrayOf(PropTypes.element)]),

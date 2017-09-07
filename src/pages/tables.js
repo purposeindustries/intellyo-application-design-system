@@ -20,16 +20,19 @@ for (i = 0; i < 30; i++) {
   });
 }
 
+// eslint-disable-next-line react/display-name
 const toggleExpander = (prop, item, column, instance) => (
-  <Icon icon='ion-arrow-right-b' className={c('table--expander-button', {
-    'table--expander-button--expanded': instance.state.expanded,
-  })} onClick={() => instance.toggleExpand()} />
+  <Icon
+    icon="ion-arrow-right-b" className={ c('table--expander-button', {
+      'table--expander-button--expanded': instance.state.expanded,
+    }) } onClick={ () => instance.toggleExpand() }
+  />
 );
 
 const renderExpander = item => item.description;
 
 export default class Tables extends React.Component {
-  static displayName = 'TablesPage'
+  static displayName = 'TablesPage';
 
   state = {
     loading: false,
@@ -51,30 +54,30 @@ export default class Tables extends React.Component {
             <Row>
               <Col span={ 12 }>
                 <DisplayText>Regular table</DisplayText>
-                <Table data={data.slice(0, 10)}>
-                  <Column name='id' label='ID'/>
-                  <Column name='title' label='Title' />
-                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
+                <Table data={ data.slice(0, 10) }>
+                  <Column name="id" label="ID" />
+                  <Column name="title" label="Title" />
+                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
               </Col>
               <Col span={ 12 }>
                 <DisplayText>Table with sticky header &amp; expander</DisplayText>
-                <Table data={data.slice()} sticky>
-                  <Column name='expander' label='' renderCell={toggleExpander} />
-                  <Column name='id' label='ID'/>
-                  <Column name='title' label='Title' />
-                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
-                  <Expander render={renderExpander} />
+                <Table data={ data.slice() } sticky>
+                  <Column name="expander" label="" renderCell={ toggleExpander } />
+                  <Column name="id" label="ID" />
+                  <Column name="title" label="Title" />
+                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
+                  <Expander render={ renderExpander } />
                 </Table>
               </Col>
               <Col span={ 12 }>
                 <DisplayText>Table with loader</DisplayText>
-                <Table data={data.slice(0, 10)} loading={this.state.loading}>
-                  <Column name='id' label='ID'/>
-                  <Column name='title' label='Title' complex />
-                  <Column name='tags' label='Tags' renderCell={tags => tags.join(', ')}/>
+                <Table data={ data.slice(0, 10) } loading={ this.state.loading }>
+                  <Column name="id" label="ID" />
+                  <Column name="title" label="Title" complex />
+                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
-                <Button onClick={reload}>Reload</Button>
+                <Button onClick={ reload }>Reload</Button>
               </Col>
             </Row>
           </Card>

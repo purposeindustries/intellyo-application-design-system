@@ -39,7 +39,7 @@ export default () => {
       el.style.removeProperty('left');
       el.style.removeProperty('width');
     }
-  }
+  };
 
   const onScroll = () => {
     const containerRect = container.getBoundingClientRect();

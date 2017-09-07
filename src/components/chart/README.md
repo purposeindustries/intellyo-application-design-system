@@ -6,7 +6,6 @@ The `Chart` component is used to render out a custom chart based on the data you
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| isEmpty | `bool` | Whether the component has data to show or not. |
 | loading | `bool` | Whether the component is in its loading state or not. |
 | bodyLoading | `bool` | Whether the component is in its reloading state or not. |
 | header | `element` or `arrayOf(element)` | `this.props.header` will be rendered here. Use header if you don't want your element to disappear during reload. |

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../card';
+import Caption from '../caption';
 import PropTypes from 'prop-types';
 
 const Preloader = () => (
@@ -44,8 +45,17 @@ class Chart extends React.Component {
     titleCaption: PropTypes.string,
     children: PropTypes.node,
     onPointHover: PropTypes.func,
-    onPointUnhover: PropTypes.func
+    onPointUnhover: PropTypes.func,
     isEmpty: PropTypes.bool,
+    header: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element)]),
+    body: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element)]),
+    tail: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element)])
   }
 
   static defaultProps = {
@@ -147,6 +157,47 @@ class Chart extends React.Component {
     });
   }
 
+  renderChildren() {
+    if (this.props.isEmpty) {
+      return (
+        <EmptyChart />
+      );
+    }
+    return (
+      <div>
+        {
+          this.props.loading && !this.props.reloading ?
+            <Preloader /> : (
+              <div className="chart-wrapper">
+                <div className="chart-header">
+                  { this.props.header }
+                </div>
+                {
+                  !this.props.loading && this.props.reloading ?
+                    <Reloader /> : (
+                      <div className="chart-inner-wrap">
+                        <div className="chart-body">
+                          { this.props.children }
+                          <div
+                            className="chart-container"
+                            ref={ el => {
+                              this.chartEl = el;
+                            } }
+                          />
+                        </div>
+                        <div className="chart-tail">
+                          { this.props.tail }
+                        </div>
+                      </div>
+                    )
+                }
+              </div>
+            )
+        }
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="chart">
@@ -154,19 +205,7 @@ class Chart extends React.Component {
           title={ this.props.title }
           titleCaption={ this.props.titleCaption }
         >
-          {
-            this.props.loading ? <Preloader /> : (
-              <div>
-                { this.props.children }
-                <div
-                  className="chart-container"
-                  ref={ el => {
-                    this.chartEl = el;
-                  } }
-                />
-              </div>
-            )
-          }
+          { this.renderChildren() }
         </Card>
       </div>
     );

@@ -25,8 +25,7 @@ const EmptyChart = () => (
   <div className="chart--empty">
     <p className="chart--empty-figure">¯\_(ツ)_/¯</p>
     <Caption>
-      There is nothing to show.<br />
-      Please select a competitor!
+      There is nothing to show.
     </Caption>
   </div>
 );

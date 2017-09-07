@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayText from '../components/display-text';
+import DisplayText from '../components/display-text/';
 
 export default class Index extends React.Component {
   static displayName = 'IndexPage'

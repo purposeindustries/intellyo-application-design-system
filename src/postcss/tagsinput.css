@@ -11,11 +11,6 @@
   }
 }
 
-.tagsinput-input {
-  display: none;
-  width: 200px;
-}
-
 /* @TODO needs discussion whether this is right */
 .tagsinput-add-tag {
   border: none;
@@ -69,6 +64,24 @@
 .tagsinput-input-controls {
   display: inline-block;
   margin: 0 5px 5px 0;
+
+  &.tagsinput-default-input {
+
+    & .tagsinput-input {
+      width: 200px;
+      display: none;
+    }
+
+    &--active .tagsinput-input {
+      display: block;
+    }
+
+    &--active .tagsinput-add-tag {
+      display: none;
+    }
+
+  }
+
 }
 
 .tagsinput--detailed {
@@ -120,5 +133,39 @@
     & .tagsinput-tag-remove {
       opacity: 1;
     }
+  }
+}
+
+/* Mobile */
+
+.tagsinput--size-small > span {
+  display: flex;
+  flex-wrap: wrap;
+
+  & .tagsinput-tag {
+    max-width: none;
+    float: none;
+    width: calc(50% - 5px);
+
+    & .tagsinput-tag-info-box {
+      overflow: hidden;
+    }
+
+  }
+
+  & .tagsinput-input-controls-wrapper {
+    order: -1;
+    width: 100%;
+
+    & .tagsinput-input-controls {
+      display: block;
+
+      & .tagsinput-input {
+        width: 100%;
+        min-width: 0;
+      }
+
+    }
+
   }
 }

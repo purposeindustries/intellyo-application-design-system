@@ -1,5 +1,10 @@
 .tagsinputs-page {
   & .tagsinput {
     margin-bottom: $gutter-base;
+
+    &--size-small {
+      max-width: 500px;
+    }
+
   }
 }

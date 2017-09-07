@@ -14,8 +14,6 @@
 
 ## Examples
 
-###  Default Overlay Trigger
-
 Use to give rise to your `Popover` passed as `prop` to `overlay`.
 
 ```jsx

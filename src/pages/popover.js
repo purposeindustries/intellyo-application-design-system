@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/card/';
-import Row from '../components/row';
-import Col from '../components/col';
+import Row from '../components/row/';
+import Col from '../components/col/';
 import OverlayTrigger from '../components/overlay-trigger/';
 import Popover from '../components/popover/';
 

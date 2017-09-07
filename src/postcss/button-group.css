@@ -1,0 +1,38 @@
+.button-group {
+  display: flex;
+
+  & .button {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: $color-grey-1;
+    border-color: $color-grey-5;
+    margin: 0;
+
+      &:first-child {
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+      }
+
+      &:last-child {
+        border-radius: 4px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+      }
+
+      &:hover:not(.button--active) {
+        border-color: $color-grey-5;
+        background: $color-grey-4;
+      }
+
+      &--active {
+        background: #fff;
+        color: $color-black-4;
+        cursor: default;
+      }
+    }
+}

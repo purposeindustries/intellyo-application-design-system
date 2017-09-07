@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
+import DisplayText from '../components/display-text/';
+import ButtonGroup from '../components/button-group/';
 import Button from '../components/button/';
-import Dropdown from '../components/dropdown';
-import DropdownItem from '../components/dropdown-item';
+import LoadingButton from '../components/loading-button/';
+import Dropdown from '../components/dropdown/';
+import DropdownItem from '../components/dropdown-item/';
 import Card from '../components/card/';
-import Row from '../components/row';
-import Col from '../components/col';
-import Icon from '../components/icon';
+import Row from '../components/row/';
+import Col from '../components/col/';
+import Icon from '../components/icon/';
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export default class Buttons extends Component {
   displayName = 'ButtonsPage'
+  state = {
+    loading: false,
+  };
+
   render() {
     return (
       <div>
@@ -208,6 +216,35 @@ export default class Buttons extends Component {
             </Row>
           </Card>
         </div>
+        <div className="button-group-page">
+          <DisplayText>Button Group</DisplayText>
+          <Card>
+            <Row>
+              <Col span={ 12 }>
+                <ButtonGroup>
+                  <Button neutral>7-DAY</Button>
+                  <Button neutral active>30-DAY</Button>
+                  <Button neutral>90-DAY</Button>
+                </ButtonGroup>
+              </Col>
+            </Row>
+          </Card>
+        </div>
+        <DisplayText>Loading Button</DisplayText>
+        <Card>
+          <Row>
+            <Col span={ 12 }>
+              <LoadingButton
+                loading={ this.state.loading }
+                onClick={ async () => {
+                  this.setState({loading: true});
+                  await sleep(2000);
+                  this.setState({loading: false});
+                } }
+              />
+            </Col>
+          </Row>
+        </Card>
       </div>
     );
   }

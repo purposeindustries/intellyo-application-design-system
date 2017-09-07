@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from './avatar/';
+import Avatar from '../avatar';
 
 const StackedAvatar = (props) => (
   <div className="stacked-avatar">

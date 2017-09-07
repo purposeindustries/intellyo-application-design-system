@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './input';
-import Select from './select';
+import Input from '../input';
+import Select from '../select';
 import classNames from 'classnames';
 
 export const PrefixedItem = (props) => (
@@ -31,9 +31,13 @@ PrefixedItem.propTypes = {
 class PrefixedInput extends React.Component {
   static displayName = 'PrefixedInput';
   static propTypes = {
-    children: PropTypes.element,
+    inputProps: PropTypes.object,
+    children: PropTypes.oneOfType(
+      [PropTypes.element, PropTypes.arrayOf(PropTypes.element)]
+    ),
     suggestions: PropTypes.array,
     onFetchRequested: PropTypes.func,
+    onSuggestionSelected: PropTypes.func,
     onClearRequested: PropTypes.func,
     renderSuggestion: PropTypes.func,
     getSuggestionValue: PropTypes.func,
@@ -80,6 +84,8 @@ class PrefixedInput extends React.Component {
           { this.props.children }
         </Select>
         <Input
+          { ...this.props.inputProps }
+          onSuggestionSelected={ this.props.onSuggestionSelected }
           suggestions={ this.props.suggestions }
           onFetchRequested={ this.props.onFetchRequested }
           onClearRequested={ this.props.onClearRequested }

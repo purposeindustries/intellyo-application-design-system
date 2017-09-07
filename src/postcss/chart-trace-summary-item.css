@@ -1,0 +1,16 @@
+.chart-trace-summary-item {
+  border-left: 4px solid;
+  padding-left: 10px;
+  font-size: $font-size-base;
+  color: $color-black-5;
+  margin-right: 40px;
+  font-weight: $display-text-font-weight-regular;
+
+  & .kpi-data--increase {
+    color: $color-success-5;
+  }
+
+  & .kpi-data--decrease {
+    color: $color-danger-4;
+  }
+}

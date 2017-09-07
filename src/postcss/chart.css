@@ -1,3 +1,6 @@
+/* Variables */
+$caption-color: #7d7d7d;
+
 .chart-preloader {
   animation-name: thumbAnime;
   animation-duration: 2s;
@@ -88,5 +91,29 @@
 
   & .chart-trace-summary-item {
     white-space: nowrap;
+  }
+}
+
+.chart {
+
+  &-wrapper {
+
+    & .chart-header,
+    & .chart-body {
+      padding: 0 0 15px 0;
+    }
+  }
+
+  &--empty {
+    text-align: center;
+
+    &-figure {
+      font-size: 48px;
+      color: $caption-color;
+    }
+
+    & .caption {
+      color: $caption-color;
+    }
   }
 }

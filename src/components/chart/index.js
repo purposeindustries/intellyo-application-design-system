@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from '../card';
+import Caption from '../caption';
 import PropTypes from 'prop-types';
 
-const Preloader = () => (
+export const Preloader = () => (
   <div className="chart-preloader">
     <div className="chart-preloader-title" />
     <div className="chart-preloader-caption" />
@@ -12,18 +13,42 @@ const Preloader = () => (
 
 Preloader.displayName = 'ChartPreloader';
 
+export const BodyPreloader = () => (
+  <div className="chart-preloader">
+    <div className="chart-preloader-body" />
+  </div>
+);
+
+BodyPreloader.displayName = 'ChartReloader';
+
+const EmptyChart = () => (
+  <div className="chart--empty">
+    <p className="chart--empty-figure">¯\_(ツ)_/¯</p>
+    <Caption>
+      There is nothing to show.
+    </Caption>
+  </div>
+);
+
+EmptyChart.displayName = 'EmptyChart';
+
 class Chart extends React.Component {
   static displayName = 'Chart'
 
   static propTypes = {
     loading: PropTypes.bool,
+    bodyLoading: PropTypes.bool,
     data: PropTypes.arrayOf(PropTypes.object),
     layout: PropTypes.object,
     title: PropTypes.string,
     titleCaption: PropTypes.string,
     children: PropTypes.node,
+    renderPreloader: PropTypes.func,
+    renderBodyPreloader: PropTypes.func,
     onPointHover: PropTypes.func,
-    onPointUnhover: PropTypes.func
+    onPointUnhover: PropTypes.func,
+    header: PropTypes.node,
+    body: PropTypes.node
   }
 
   static defaultProps = {
@@ -125,28 +150,70 @@ class Chart extends React.Component {
     });
   }
 
-  render() {
+  renderChildren() {
+    let body;
+    if (this.props.bodyLoading) {
+      if (typeof this.props.renderBodyPreloader === 'function') {
+        body = this.props.renderBodyPreloader();
+      } else {
+        body = <BodyPreloader />;
+      }
+    } else if (!this.props.bodyLoading &&
+       (!this.props.data || this.props.data.length === 0)) {
+      body = <EmptyChart />;
+    } else {
+      body = (
+        <div className="chart-body">
+          { this.props.children }
+          <div
+            className="chart-container"
+            ref={ el => {
+              this.chartEl = el;
+            } }
+          />
+        </div>
+      );
+    }
     return (
-      <div className="chart">
+      <div className="chart-wrapper">
+        { this.props.header && (
+          <div className="chart-header">
+            { this.props.header }
+          </div>
+        ) }
+        { body }
+      </div>
+    );
+  }
+
+  render() {
+    let body;
+    if (this.props.loading) {
+      if (typeof this.props.renderPreloader === 'function') {
+        body = (
+          <Card>
+            { this.props.renderPreloader() }
+          </Card>
+        );
+      } else {
+        body = (
+          <Card>
+            <Preloader />
+          </Card>
+        );
+      }
+    } else {
+      body = (
         <Card
           title={ this.props.title }
           titleCaption={ this.props.titleCaption }
         >
-          {
-            this.props.loading ? <Preloader /> : (
-              <div>
-                { this.props.children }
-                <div
-                  className="chart-container"
-                  ref={ el => {
-                    this.chartEl = el;
-                  } }
-                />
-              </div>
-            )
-          }
+          { this.renderChildren() }
         </Card>
-      </div>
+      );
+    }
+    return (
+      <div className="chart">{ body }</div>
     );
   }
 }

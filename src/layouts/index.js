@@ -45,6 +45,9 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-popovers" href="/popover">
               Popovers
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-tables" href="/tables">
+              Tables
+            </SidebarItem>,
             <SidebarItem key="sidebar-item-charts" href="/charts">
               Charts
             </SidebarItem>,

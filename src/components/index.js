@@ -27,4 +27,5 @@ export { default as Tagsinput, ResponsiveTagsInput, StandAloneInput, DefaultInpu
 export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
+export { Table, Column, Expander } from './table';
 export { default as HorizontallyScrollableRow } from './horizontally-scrollable-row';

@@ -196,7 +196,11 @@ class Chart extends React.Component {
     let body;
     if (this.props.loading) {
       if (typeof this.props.renderPreloader === 'function') {
-        body = this.props.renderPreloader();
+        body = (
+          <Card>
+            { this.props.renderPreloader() }
+          </Card>
+        );
       } else {
         body = (
           <Card>

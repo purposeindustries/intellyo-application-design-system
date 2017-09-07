@@ -1,7 +1,7 @@
 import React from 'react';
 import p from 'prop-types';
 import c from 'classnames';
-import sticky from '../utils/sticky';
+import sticky from './utils/sticky';
 
 const type = Component => descriptor => descriptor.type.displayName === Component.displayName;
 

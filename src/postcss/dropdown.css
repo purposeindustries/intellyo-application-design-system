@@ -125,6 +125,10 @@ $dropdown-item-bg-color--active: $color-grey-2;
       transform: translateY(-50%);
     }
 
+    &--only-child {
+      padding-right: 20px;
+    }
+
   }
 
   &-items {

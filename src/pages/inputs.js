@@ -133,15 +133,6 @@ export default class Inputs extends Component {
                     where
                   </DropdownItem>
                 </Select>
-                <Select
-                  id="telephone"
-                >
-                  <DropdownItem
-                    value="apple"
-                  >
-                    Apple
-                  </DropdownItem>
-                </Select>
                 <Input
                   suggestions={ this.state.autosuggest.suggestions }
                   onFetchRequested={ () => {

@@ -133,6 +133,15 @@ export default class Inputs extends Component {
                     where
                   </DropdownItem>
                 </Select>
+                <Select
+                  id="telephone"
+                >
+                  <DropdownItem
+                    value="apple"
+                  >
+                    Apple
+                  </DropdownItem>
+                </Select>
                 <Input
                   suggestions={ this.state.autosuggest.suggestions }
                   onFetchRequested={ () => {
@@ -299,6 +308,13 @@ export default class Inputs extends Component {
                     value="youtube"
                   >
                     https://youtube.com/
+                  </PrefixedItem>
+                </SocialPrefixedInput>
+                <SocialPrefixedInput>
+                  <PrefixedItem
+                    value="facebook"
+                  >
+                    facebook.com/
                   </PrefixedItem>
                 </SocialPrefixedInput>
               </Col>

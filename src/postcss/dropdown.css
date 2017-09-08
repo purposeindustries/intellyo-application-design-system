@@ -186,9 +186,14 @@ $dropdown-item-bg-color--active: $color-grey-2;
   }
 }
 
-.dropdown-inner-wrap {
+.dropdown-wrap {
   width: 100%;
   height: 100%;
+
+  & .dropdown-inner-wrap {
+    width: 100%;
+    height: 100%;
+  }
 
   &--split {
     display: flex;

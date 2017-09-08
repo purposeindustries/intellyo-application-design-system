@@ -103,6 +103,48 @@ export default class Dropdown extends React.Component {
     );
   }
 
+  checkChildrenCount(isSplit) {
+    if (isSplit) {
+      console.log('yay isSplit');
+    }
+
+    if (React.Children.count(this.props.children) === 1) {
+      return (
+        <div
+          className="dropdown-trigger"
+          tabIndex="1"
+        >
+          <span className="dropdown-trigger-label">
+            { this.props.label }
+          </span>
+        </div>
+      );
+    }
+    return (
+      <div className="dropdown-inner-wrap">
+        <div
+          className="dropdown-trigger"
+          tabIndex="1"
+          onClick={ () => this.toggle() }
+        >
+          <span className="dropdown-trigger-label">
+            { this.props.label }
+          </span>
+          {
+            this.props.icon ?
+              this.props.icon :
+              (<Icon icon="ion-android-arrow-dropdown" />)
+          }
+        </div>
+        <div
+          className="dropdown-items"
+        >
+          { this.props.children }
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const children = React.Children.toArray(this.props.children);
     const isSplit = children.filter((child) => child.props.default).length > 0;
@@ -125,26 +167,8 @@ export default class Dropdown extends React.Component {
           </div>
         ) }
         { !isSplit && (
-          <div className="dropdown-inner-wrap">
-            <div
-              className="dropdown-trigger"
-              tabIndex="1"
-              onClick={ () => this.toggle() }
-            >
-              <span className="dropdown-trigger-label">
-                { this.props.label }
-              </span>
-              {
-                this.props.icon ?
-                  this.props.icon :
-                  (<Icon icon="ion-android-arrow-dropdown" />)
-              }
-            </div>
-            <div
-              className="dropdown-items"
-            >
-              { this.props.children }
-            </div>
+          <div className="dropdown-wrap">
+            { this.checkChildrenCount(isSplit) }
           </div>
         ) }
       </div>

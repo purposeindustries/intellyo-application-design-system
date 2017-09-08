@@ -39,8 +39,15 @@ export default class Select extends React.Component {
   }
   componentWillMount() {
     if (!this.state.value) {
-      this.setState({
-        value: this.props.children[0].props.value
+      this.setState(() => {
+        if (typeof this.props.children.length === 'undefined') {
+          return {
+            value: this.props.children.props.value
+          };
+        }
+        return {
+          value: this.props.children[0].props.value
+        };
       });
     }
   }

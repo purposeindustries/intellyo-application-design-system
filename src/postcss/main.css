@@ -38,6 +38,7 @@
 @import './pages/cards.css';
 @import './pages/tagsinput.css';
 @import './pages/charts.css';
+@import './pages/tables.css';
 
 body {
   margin: 0;

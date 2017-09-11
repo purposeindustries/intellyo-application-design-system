@@ -1,0 +1,6 @@
+.page-tables {
+  & .display-text,
+  & .table {
+    margin-bottom: $gutter-base;
+  }
+}

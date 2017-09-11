@@ -1,0 +1,91 @@
+/* Local variables */
+
+$hover-and-active-color: $color-primary-3;
+$active-background: #f0f0f0;
+$feature-icon-fill: #767676;
+$title-color: $color-black-5;
+$open-and-close-button: $color-black-4;
+
+.accordion {
+
+  & .accordion-item {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-triggers {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 15px 30px 15px 25px;
+
+      & span.icon {
+        height: 22px;
+      }
+
+      & span.icon:first-child {
+        margin-right: 25px;
+
+        & svg {
+          fill: $feature-icon-fill;
+
+          &:hover {
+            fill: $hover-and-active-color;
+          }
+
+        }
+
+      }
+
+      &-title {
+        color: $title-color;
+      }
+
+      & span.icon:last-child {
+        margin-left: auto;
+
+        & svg {
+          width: 18px;
+          fill: $open-and-close-button;
+
+          &:hover {
+            fill: $hover-and-active-color;
+          }
+
+        }
+
+      }
+
+    }
+
+    &-children {
+      padding: 0 15px 15px;
+    }
+
+    &--open {
+      background: $active-background;
+
+      & .accordion-item-triggers {
+
+        &-title {
+          color: $hover-and-active-color;
+        }
+
+        & span.icon svg {
+          fill: $hover-and-active-color;
+        }
+
+        & span.icon:last-child:hover svg {
+          fill: $color-danger-4;
+        }
+
+      }
+
+    }
+
+  }
+
+}

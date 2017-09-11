@@ -27,6 +27,7 @@
 @import './chart.css';
 @import './chart-trace-summary-item.css';
 @import './horizontally-scrollable-row.css';
+@import './accordion.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

@@ -1,0 +1,5 @@
+.accordions-page {
+  & .card {
+    margin-bottom: $gutter-base;
+  }
+}

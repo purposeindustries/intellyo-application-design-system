@@ -39,6 +39,7 @@
 @import './pages/cards.css';
 @import './pages/tagsinput.css';
 @import './pages/charts.css';
+@import './pages/accordions.css';
 
 body {
   margin: 0;

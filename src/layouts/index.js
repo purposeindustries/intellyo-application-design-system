@@ -52,6 +52,9 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-charts" href="/charts">
               Charts
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-accordions" href="/accordions">
+              Accordions
+            </SidebarItem>,
           ]) }
         >
           Components

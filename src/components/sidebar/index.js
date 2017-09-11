@@ -13,6 +13,7 @@ class SidebarItem extends Component {
     open: PropTypes.bool,
     expandable: PropTypes.bool,
     items: PropTypes.arrayOf(PropTypes.node),
+    className: PropTypes.string,
   }
 
   constructor(props) {
@@ -26,7 +27,7 @@ class SidebarItem extends Component {
     return (
       <li
         className={
-          classNames('sidebar-item', {
+          classNames('sidebar-item', this.props.className, {
             'sidebar-item--expanded': this.props.expandable && this.state.open
           })
         }
@@ -64,7 +65,9 @@ class SidebarItem extends Component {
 }
 
 const Sidebar = (props) => (
-  <aside className="sidebar">
+  <aside
+    className="sidebar"
+  >
     <div className="logo">
       { props.head || <Logo /> }
     </div>
@@ -80,7 +83,7 @@ Sidebar.displayName = 'Sidebar';
 
 Sidebar.propTypes = {
   children: PropTypes.node,
-  head: PropTypes.node
+  head: PropTypes.node,
 };
 
 export { SidebarItem };

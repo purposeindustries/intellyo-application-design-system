@@ -66,9 +66,7 @@ class SidebarItem extends Component {
 
 const Sidebar = (props) => (
   <aside
-    className={
-      classNames('sidebar', props.className)
-    }
+    className="sidebar"
   >
     <div className="logo">
       { props.head || <Logo /> }
@@ -85,7 +83,6 @@ Sidebar.displayName = 'Sidebar';
 
 Sidebar.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
   head: PropTypes.node,
 };
 

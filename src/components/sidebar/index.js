@@ -67,7 +67,7 @@ class SidebarItem extends Component {
 const Sidebar = (props) => (
   <aside
     className={
-      classNames('sidebar', this.props.className)
+      classNames('sidebar', props.className)
     }
   >
     <div className="logo">

@@ -1,16 +1,17 @@
 /* Local variables */
 
 $hover-and-active-color: $color-primary-3;
-$active-background: #f0f0f0;
-$feature-icon-fill: #767676;
+$active-background: $color-grey-1;
+$feature-icon-fill: $color-black-3;
 $title-color: $color-black-5;
 $open-and-close-button: $color-black-4;
+$accordion-item-border: $color-grey-3;
 
 .accordion {
 
   & .accordion-item {
     background: #fff;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $accordion-item-border;
 
     &:last-child {
       border-bottom: none;

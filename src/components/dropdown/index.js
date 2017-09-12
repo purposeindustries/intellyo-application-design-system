@@ -33,21 +33,34 @@ export default class Dropdown extends React.Component {
   }
 
   open() {
-    this.setState({
-      isActive: true
-    });
+    if (React.Children.count(this.props.children) > 1) {
+      this.setState({
+        isActive: true
+      });
+    }
   }
 
   toggle() {
-    this.setState({
-      isActive: !this.state.isActive
-    });
+    if (this.state.isActive) {
+      this.close();
+    } else {
+      this.open();
+    }
   }
 
   close() {
     this.setState({
       isActive: false
     });
+  }
+
+  renderIcon() {
+    if (React.Children.count(this.props.children) <= 1) {
+      return;
+    }
+    return this.props.icon ? this.props.icon : (
+      <Icon icon="ion-android-arrow-dropdown" />
+    );
   }
 
   renderSplitTrigger() {
@@ -68,6 +81,7 @@ export default class Dropdown extends React.Component {
         });
       });
     };
+
     return (
       <div
         className="dropdown-inner-wrap dropdown-inner-wrap--split"
@@ -86,11 +100,7 @@ export default class Dropdown extends React.Component {
           tabIndex="1"
           onClick={ () => this.toggle() }
         >
-          {
-            this.props.icon ?
-              this.props.icon :
-              (<Icon icon="ion-android-arrow-dropdown" />)
-          }
+          { this.renderIcon() }
         </div>
         <div
           className={ cx('dropdown-items', {
@@ -109,7 +119,8 @@ export default class Dropdown extends React.Component {
     return (
       <div
         className={ cx('dropdown', this.props.className, {
-          'dropdown--open': this.state.isActive
+          'dropdown--open': this.state.isActive,
+          'dropdown--only-child': React.Children.count(this.props.children) === 1
         }) }
         style={ this.props.style }
       >
@@ -134,11 +145,7 @@ export default class Dropdown extends React.Component {
               <span className="dropdown-trigger-label">
                 { this.props.label }
               </span>
-              {
-                this.props.icon ?
-                  this.props.icon :
-                  (<Icon icon="ion-android-arrow-dropdown" />)
-              }
+              { this.renderIcon() }
             </div>
             <div
               className="dropdown-items"

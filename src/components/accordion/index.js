@@ -11,7 +11,7 @@ export const AccordionItem = (props) => (
   >
     <div
       className="accordion-item-triggers"
-      onClick={ props.onClick }
+      onClick={ () => props.onClick(props.id) }
     >
       { props.icon }
       <span className="accordion-item-triggers-title">{ props.title }</span>
@@ -35,60 +35,99 @@ AccordionItem.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node,
   isOpen: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  id: PropTypes.string
 };
 
-export default class Accordion extends React.Component {
-  displayName = 'Accordion';
+AccordionItem.defaultProps = {
+  onClick: () => {}
+};
+
+export const Accordion = (props) => (
+  <div className="accordion">
+    { props.children }
+  </div>
+);
+
+Accordion.displayName = 'Accordion';
+
+Accordion.propTypes = {
+  children: PropTypes.node
+};
+
+export class AccordionSingle extends React.Component {
+  displayName = 'AccordionSingle';
   static propTypes = {
     children: PropTypes.node,
-    openMultiple: PropTypes.bool
   }
 
-  static defaultProps = {
-    openMultiple: true
-  }
+  state = {
+    items: {}
+  };
 
-  state = {}
-
-  componentDidMount() {
-    React.Children.map(this.props.children, (c, i) => {
-      this.setState({
-        [`child-${i}-isOpen`]: false
-      });
-    });
-  }
-
-  renderChildren() {
-    return React.Children.map(this.props.children, (c, i) => {
-      return React.cloneElement(c, {
-        isOpen: this.state[`child-${i}-isOpen`],
-        onClick: () => {
-          if (!this.props.openMultiple) {
-            this.setState((prevState) => {
-              for (const prevStateProp in prevState) {
-                if (prevState.hasOwnProperty(prevStateProp)) {
-                  if (prevStateProp.includes(`${i}`)) {
-                    prevState[prevStateProp] = true;
-                  } else {
-                    prevState[prevStateProp] = false;
-                  }
-                }
-              }
-            });
-          }
-          this.setState({
-            [`child-${i}-isOpen`]: !this.state[`child-${i}-isOpen`]
-          });
-        }
-      });
+  toggle = (id) => {
+    this.setState((state) => {
+      const isOpened = Boolean(state.items[id]);
+      let items = state.items;
+      if (!isOpened) {
+        items = {
+          [id]: true
+        };
+      }
+      return {
+        items
+      };
     });
   }
 
   render() {
     return (
       <div className="accordion">
-        { this.renderChildren() }
+        {
+          React.Children.map(this.props.children, ((child, i) => {
+            return React.cloneElement(child, {
+              ...child.props,
+              onClick: () => this.toggle(`item-${i}`),
+              isOpen: this.state.items[`item-${i}`]
+            });
+          }))
+        }
+      </div>
+    );
+  }
+}
+
+export class AccordionMulti extends React.Component {
+  displayName = 'AccordionMulti';
+  static propTypes = {
+    children: PropTypes.node,
+  }
+
+  state = {
+    items: {}
+  };
+
+  toggle = (id) => {
+    this.setState((state) => ({
+      items: {
+        ...state.items,
+        [id]: !state.items[id]
+      }
+    }));
+  }
+
+  render() {
+    return (
+      <div className="accordion">
+        {
+          React.Children.map(this.props.children, ((child, i) => {
+            return React.cloneElement(child, {
+              ...child.props,
+              onClick: () => this.toggle(`item-${i}`),
+              isOpen: this.state.items[`item-${i}`]
+            });
+          }))
+        }
       </div>
     );
   }

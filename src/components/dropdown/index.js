@@ -50,7 +50,7 @@ export default class Dropdown extends React.Component {
     });
   }
 
-  renderSplitTrigger() {
+  renderSplitTrigger(isSplit) {
     const children = React.Children.toArray(this.props.children);
     const defaultItem = children.filter((child) => {
       return child.props.default;
@@ -68,24 +68,85 @@ export default class Dropdown extends React.Component {
         });
       });
     };
-    return (
-      <div
-        className="dropdown-inner-wrap dropdown-inner-wrap--split"
-        style={ this.props.style }
-      >
+    return this.checkChildrenCount(isSplit, defaultItem, renderOtherChildren);
+  }
+
+  checkChildrenCount(isSplit, defaultItem, renderOtherChildren) {
+    if (isSplit) {
+      if (React.Children.count(this.props.children) === 1) {
+        return (
+          <div
+            className="dropdown-wrap dropdown-wrap--split"
+            style={ this.props.style }
+          >
+            <div
+              className="dropdown-trigger dropdown-trigger--only-child"
+              onClick={ defaultItem.props.onClick }
+            >
+              <span className="dropdown-trigger-label">
+                { defaultItem.props.children }
+              </span>
+            </div>
+          </div>
+        );
+      }
+      return (
         <div
-          className="dropdown-trigger"
-          onClick={ defaultItem.props.onClick }
+          className="dropdown-wrap dropdown-wrap--split"
+          style={ this.props.style }
+        >
+          <div
+            className="dropdown-trigger"
+            onClick={ defaultItem.props.onClick }
+          >
+            <span className="dropdown-trigger-label">
+              { defaultItem.props.children }
+            </span>
+          </div>
+          <div
+            className="dropdown-trigger-arrow-wrap"
+            tabIndex="1"
+            onClick={ () => this.toggle() }
+          >
+            {
+              this.props.icon ?
+                this.props.icon :
+                (<Icon icon="ion-android-arrow-dropdown" />)
+            }
+          </div>
+          <div
+            className={ cx('dropdown-items', {
+              'dropdown-items--open': this.state.isActive
+            }) }
+          >
+            { renderOtherChildren() }
+          </div>
+        </div>
+      );
+    }
+
+    if (React.Children.count(this.props.children) === 1) {
+      return (
+        <div
+          className="dropdown-trigger dropdown-trigger--only-child"
+          tabIndex="1"
         >
           <span className="dropdown-trigger-label">
-            { defaultItem.props.children }
+            { this.props.label }
           </span>
         </div>
+      );
+    }
+    return (
+      <div className="dropdown-inner-wrap">
         <div
-          className="dropdown-trigger-arrow-wrap"
+          className="dropdown-trigger"
           tabIndex="1"
           onClick={ () => this.toggle() }
         >
+          <span className="dropdown-trigger-label">
+            { this.props.label }
+          </span>
           {
             this.props.icon ?
               this.props.icon :
@@ -93,11 +154,9 @@ export default class Dropdown extends React.Component {
           }
         </div>
         <div
-          className={ cx('dropdown-items', {
-            'dropdown-items--open': this.state.isActive
-          }) }
+          className="dropdown-items"
         >
-          { renderOtherChildren() }
+          { this.props.children }
         </div>
       </div>
     );
@@ -121,30 +180,12 @@ export default class Dropdown extends React.Component {
         />
         { isSplit && (
           <div>
-            { this.renderSplitTrigger() }
+            { this.renderSplitTrigger(isSplit) }
           </div>
         ) }
         { !isSplit && (
-          <div className="dropdown-inner-wrap">
-            <div
-              className="dropdown-trigger"
-              tabIndex="1"
-              onClick={ () => this.toggle() }
-            >
-              <span className="dropdown-trigger-label">
-                { this.props.label }
-              </span>
-              {
-                this.props.icon ?
-                  this.props.icon :
-                  (<Icon icon="ion-android-arrow-dropdown" />)
-              }
-            </div>
-            <div
-              className="dropdown-items"
-            >
-              { this.props.children }
-            </div>
+          <div className="dropdown-wrap">
+            { this.checkChildrenCount(isSplit) }
           </div>
         ) }
       </div>

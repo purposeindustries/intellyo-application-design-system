@@ -55,50 +55,8 @@ Accordion.propTypes = {
   children: PropTypes.node
 };
 
-export class AccordionSingle extends React.Component {
-  displayName = 'AccordionSingle';
-  static propTypes = {
-    children: PropTypes.node,
-  }
-
-  state = {
-    items: {}
-  };
-
-  toggle = (id) => {
-    this.setState((state) => {
-      const isOpened = Boolean(state.items[id]);
-      let items = state.items;
-      if (!isOpened) {
-        items = {
-          [id]: true
-        };
-      }
-      return {
-        items
-      };
-    });
-  }
-
-  render() {
-    return (
-      <div className="accordion">
-        {
-          React.Children.map(this.props.children, ((child, i) => {
-            return React.cloneElement(child, {
-              ...child.props,
-              onClick: () => this.toggle(`item-${i}`),
-              isOpen: this.state.items[`item-${i}`]
-            });
-          }))
-        }
-      </div>
-    );
-  }
-}
-
-export class AccordionMulti extends React.Component {
-  displayName = 'AccordionMulti';
+export class MultiAccordion extends React.Component {
+  displayName = 'MultiAccordion';
   static propTypes = {
     children: PropTypes.node,
   }
@@ -122,7 +80,6 @@ export class AccordionMulti extends React.Component {
         {
           React.Children.map(this.props.children, ((child, i) => {
             return React.cloneElement(child, {
-              ...child.props,
               onClick: () => this.toggle(`item-${i}`),
               isOpen: this.state.items[`item-${i}`]
             });
@@ -132,3 +89,22 @@ export class AccordionMulti extends React.Component {
     );
   }
 }
+
+export class SingleAccordion extends MultiAccordion {
+  displayName = 'SingleAccordion';
+  toggle = (id) => {
+    this.setState((state) => {
+      const isOpened = Boolean(state.items[id]);
+      let items = state.items;
+      if (!isOpened) {
+        items = {
+          [id]: true
+        };
+      }
+      return {
+        items
+      };
+    });
+  }
+}
+

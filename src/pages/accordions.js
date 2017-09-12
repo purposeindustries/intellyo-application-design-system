@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-import { AccordionItem, Accordion, AccordionMulti, AccordionSingle } from '../components/accordion';
+import {
+  AccordionItem,
+  Accordion,
+  MultiAccordion,
+  SingleAccordion
+} from '../components/accordion';
 import Icon from '../components/icon';
 
 export default class Accordions extends Component {
@@ -25,12 +30,12 @@ export default class Accordions extends Component {
       <div>
         <div className="accordions-page">
           <Card
-            title="AccordionMulti"
+            title="MultiAccordion"
             titleCaption="where every children can be opened"
           >
             <Row>
               <Col span={ 12 }>
-                <AccordionMulti>
+                <MultiAccordion>
                   <AccordionItem
                     title="Basic information"
                     id="basic"
@@ -56,17 +61,17 @@ export default class Accordions extends Component {
                   >
                     Accordion de Sur Mer
                   </AccordionItem>
-                </AccordionMulti>
+                </MultiAccordion>
               </Col>
             </Row>
           </Card>
           <Card
-            title="AccordionSingle"
+            title="SingleAccordion"
             titleCaption="where only one child can be opened"
           >
             <Row>
               <Col span={ 12 }>
-                <AccordionSingle>
+                <SingleAccordion>
                   <AccordionItem
                     title="Basic information"
                     icon={ (<Icon icon="ion-information-circled" />) }
@@ -91,7 +96,7 @@ export default class Accordions extends Component {
                   >
                     Accordion de Sur Mer
                   </AccordionItem>
-                </AccordionSingle>
+                </SingleAccordion>
               </Col>
             </Row>
           </Card>

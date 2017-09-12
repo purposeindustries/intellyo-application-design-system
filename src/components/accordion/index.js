@@ -96,15 +96,10 @@ export class SingleAccordion extends MultiAccordion {
     this.setState((state) => {
       const isOpened = Boolean(state.items[id]);
       let items = state.items;
-      if (!isOpened) {
-        items = {
-          [id]: true
-        };
-      }
-      return {
-        items
+      items = {
+        [id]: !isOpened
       };
+      return items;
     });
   }
 }
-

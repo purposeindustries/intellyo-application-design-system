@@ -99,7 +99,7 @@ export class SingleAccordion extends MultiAccordion {
       items = {
         [id]: !isOpened
       };
-      return items;
+      return { items };
     });
   }
 }

@@ -16,17 +16,17 @@ $open-and-close-button: $color-black-4;
       border-bottom: none;
     }
 
-    &-triggers {
+    &-header {
       display: flex;
       align-items: center;
       cursor: pointer;
       padding: 15px 30px 15px 25px;
 
-      & span.icon {
+      & .icon {
         height: 22px;
       }
 
-      & span.icon:first-child {
+      & .icon:first-child {
         margin-right: 25px;
 
         & svg {
@@ -40,11 +40,11 @@ $open-and-close-button: $color-black-4;
 
       }
 
-      &-title {
+      & .accordion-item-title {
         color: $title-color;
       }
 
-      & span.icon:last-child {
+      & .icon:last-child {
         margin-left: auto;
 
         & svg {
@@ -68,17 +68,17 @@ $open-and-close-button: $color-black-4;
     &--open {
       background: $active-background;
 
-      & .accordion-item-triggers {
+      & .accordion-item-header {
 
-        &-title {
+        & .accordion-item-title {
           color: $hover-and-active-color;
         }
 
-        & span.icon svg {
+        & .icon svg {
           fill: $hover-and-active-color;
         }
 
-        & span.icon:last-child:hover svg {
+        & .icon:last-child:hover svg {
           fill: $color-danger-4;
         }
 

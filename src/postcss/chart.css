@@ -103,17 +103,4 @@ $caption-color: #7d7d7d;
       padding: 0 0 15px 0;
     }
   }
-
-  &--empty {
-    text-align: center;
-
-    &-figure {
-      font-size: 48px;
-      color: $caption-color;
-    }
-
-    & .caption {
-      color: $caption-color;
-    }
-  }
 }

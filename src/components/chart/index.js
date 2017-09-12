@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card';
-import Caption from '../caption';
 import PropTypes from 'prop-types';
+import EmptyView from '../empty-view';
 
 export const Preloader = () => (
   <div className="chart-preloader">
@@ -20,17 +20,6 @@ export const BodyPreloader = () => (
 );
 
 BodyPreloader.displayName = 'ChartReloader';
-
-const EmptyChart = () => (
-  <div className="chart--empty">
-    <p className="chart--empty-figure">¯\_(ツ)_/¯</p>
-    <Caption>
-      There is nothing to show.
-    </Caption>
-  </div>
-);
-
-EmptyChart.displayName = 'EmptyChart';
 
 class Chart extends React.Component {
   static displayName = 'Chart'
@@ -160,7 +149,7 @@ class Chart extends React.Component {
       }
     } else if (!this.props.bodyLoading &&
        (!this.props.data || this.props.data.length === 0)) {
-      body = <EmptyChart />;
+      body = <EmptyView />;
     } else {
       body = (
         <div className="chart-body">

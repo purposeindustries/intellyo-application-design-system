@@ -31,7 +31,7 @@ export class AccordionItem extends React.Component {
 
   handleResize = () => {
     if (React.Children.count(this.props.children)) {
-      const { clientHeight } = ReactDOM.findDOMNode(this.childrenWrapper);
+      const { clientHeight } = ReactDOM.findDOMNode(this._childrenWrapper);
       root.setTimeout(() => this.setState({
         elementHeight: clientHeight
       }));
@@ -68,7 +68,7 @@ export class AccordionItem extends React.Component {
               <div
                 className="accordion-item-children-inner-wrapper"
                 ref={ (el) => {
-                  this.childrenWrapper = el;
+                  this._childrenWrapper = el;
                 } }
               >
                 { this.props.children }

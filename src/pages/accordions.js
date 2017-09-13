@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
+import Avatar from '../components/avatar';
+import Caption from '../components/caption';
 import {
   AccordionItem,
   Accordion,
@@ -41,13 +43,66 @@ export default class Accordions extends Component {
                     id="basic"
                     icon={ (<Icon icon="ion-information-circled" />) }
                   >
-                    Not much.
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Donald Trump"
+                        src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Donald Trump Assigned the project to Norbi Gaal for copy editing</p>
+                        <Caption>22 hrs ago</Caption>
+                      </div>
+                    </div>
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Norbert Gaal"
+                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Norbi Gaal Assigned the project to Bence Danyi for copy editing</p>
+                        <Caption>11 hrs ago</Caption>
+                      </div>
+                    </div>
                   </AccordionItem>
                   <AccordionItem
                     title="History"
                     icon={ (<Icon icon="ion-ios-clock" />) }
                   >
-                    Idk.
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Norbert Gaal"
+                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Norbi Gaal Assigned the project to Bence Danyi for copy editing</p>
+                        <Caption>11 hrs ago</Caption>
+                      </div>
+                    </div>
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Donald Trump"
+                        src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Donald Trump Assigned the project to Norbi Gaal for copy editing</p>
+                        <Caption>22 hrs ago</Caption>
+                      </div>
+                    </div>
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Norbert Gaal"
+                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Norbi Gaal Assigned the project to Bence Danyi for copy editing</p>
+                        <Caption>11 hrs ago</Caption>
+                      </div>
+                    </div>
                   </AccordionItem>
                   <AccordionItem
                     title="Notes"

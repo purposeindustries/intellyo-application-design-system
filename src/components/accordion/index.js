@@ -5,6 +5,7 @@ import root from 'window-or-global';
 import Icon from '../icon/';
 import cx from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
+import throttle from 'lodash.throttle';
 
 export class AccordionItem extends React.Component {
   static displayName = 'AccordionItem';
@@ -20,6 +21,15 @@ export class AccordionItem extends React.Component {
   state = {}
 
   componentDidMount() {
+    root.addEventListener('resize', throttle(this.handleResize));
+    this.handleResize();
+  }
+
+  componentWillUnmount() {
+    root.removeEventListener('resize', throttle(this.handleResize));
+  }
+
+  handleResize = () => {
     if (React.Children.count(this.props.children)) {
       const { clientHeight } = ReactDOM.findDOMNode(this.childrenWrapper);
       root.setTimeout(() => this.setState({

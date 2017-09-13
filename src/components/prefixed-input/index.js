@@ -56,9 +56,11 @@ class PrefixedInput extends React.Component {
     };
   }
   componentWillMount() {
-    if (!this.state.prefixValue) {
+    const count = React.Children.count(this.props.children);
+    if (!this.state.prefixValue && count) {
+      const children = count === 1 ? [this.props.children] : this.props.children;
       this.setState({
-        prefixValue: this.props.children[0].props.value
+        prefixValue: children[0].props.value
       });
     }
   }

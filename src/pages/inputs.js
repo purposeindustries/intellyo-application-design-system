@@ -301,6 +301,9 @@ export default class Inputs extends Component {
                     https://youtube.com/
                   </PrefixedItem>
                 </SocialPrefixedInput>
+                <SocialPrefixedInput>
+                  <PrefixedItem value="facebook">facebook.com/</PrefixedItem>
+                </SocialPrefixedInput>
               </Col>
               <Col span={ 3 }>
                 <div className="input-wrapper">

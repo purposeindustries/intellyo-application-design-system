@@ -127,6 +127,10 @@ $dropdown-item-bg-color--active: $color-grey-2;
 
   }
 
+  &--only-child .dropdown-trigger {
+    padding-right: 20px;
+  }
+
   &-items {
     position: absolute;
     width: 100%;

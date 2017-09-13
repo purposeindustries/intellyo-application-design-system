@@ -47,7 +47,7 @@ export default class Tables extends React.Component {
     };
 
     return (
-      <div>
+      <div className="page-tables">
         <DisplayText>Buttons</DisplayText>
         <div className="buttons-page">
           <Card>

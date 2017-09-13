@@ -30,3 +30,4 @@ export { default as withLimit } from './with-limit';
 export { Table, Column, Expander } from './table';
 export { default as HorizontallyScrollableRow } from './horizontally-scrollable-row';
 export { default as Accordion, AccordionItem, SingleAccordion, MultiAccordion } from './accordion';
+export { default as EmptyView } from './empty-view';

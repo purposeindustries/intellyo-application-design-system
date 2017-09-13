@@ -1,57 +1,77 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import Icon from '../icon/';
 import cx from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
 
-export const AccordionItem = (props) => (
-  <div
-    className={ cx('accordion-item', {
-      'accordion-item--open': props.isOpen
-    }) }
-  >
-    <div
-      className="accordion-item-header"
-      onClick={ props.onClick }
-    >
-      { props.icon }
-      <span className="accordion-item-title">{ props.title }</span>
-      { props.isOpen ? (
-        <Icon icon="ion-android-close" />
-      ) : (
-        <Icon icon="ion-arrow-down-b" />) }
-    </div>
-    <Motion
-      defaultStyles={ {
-        height: 0,
-        opacity: 0,
-        pointerEvents: 'none'
-      } }
-      style={ {
-        height: props.isOpen ? spring(55, presets.stiff) : spring(0, presets.stiff),
-        opacity: props.isOpen ? spring(1, presets.stiff) : spring(0, presets.stiff),
-        pointerEvents: 'auto'
-      } }
-    >
-      { interpolatingStyles =>
-        <div className="accordion-item-children" style={ interpolatingStyles }>
-          <div className="accordion-item-children-inner-wrapper">
-            { props.children }
-          </div>
-        </div> }
-    </Motion>
-  </div>
-);
+export class AccordionItem extends React.Component {
+  static displayName = 'AccordionItem';
 
-AccordionItem.displayName = 'AccordionItem';
+  static propTypes = {
+    icon: PropTypes.element,
+    title: PropTypes.string,
+    children: PropTypes.node,
+    isOpen: PropTypes.bool,
+    onClick: PropTypes.func,
+  }
 
-AccordionItem.propTypes = {
-  icon: PropTypes.element,
-  title: PropTypes.string,
-  children: PropTypes.node,
-  isOpen: PropTypes.bool,
-  onClick: PropTypes.func,
-};
+  state = {}
+
+  componentDidMount() {
+    if (React.Children.count(this.props.children)) {
+      const { clientHeight } = ReactDOM.findDOMNode(this.childrenWrapper);
+      root.setTimeout(() => this.setState({
+        elementHeight: clientHeight
+      }));
+    }
+  }
+
+  render() {
+    return (
+      <div
+        className={ cx('accordion-item', {
+          'accordion-item--open': this.props.isOpen
+        }) }
+      >
+        <div
+          className="accordion-item-header"
+          onClick={ this.props.onClick }
+        >
+          { this.props.icon }
+          <span className="accordion-item-title">{ this.props.title }</span>
+          { this.props.isOpen ? (
+            <Icon icon="ion-android-close" />
+          ) : (
+            <Icon icon="ion-arrow-down-b" />) }
+        </div>
+        <Motion
+          defaultStyles={ {
+            height: 0,
+            opacity: 0
+          } }
+          style={ {
+            height: this.props.isOpen ? spring(this.state.elementHeight, presets.stiff, 1) : spring(0, presets.stiff, 0.01),
+            opacity: this.props.isOpen ? spring(1, presets.stiff) : spring(0, presets.stiff)
+          } }
+        >
+          { interpolatingStyles =>
+            <div className="accordion-item-children" style={ interpolatingStyles }>
+              <div
+                className="accordion-item-children-inner-wrapper"
+                ref={ (el) => {
+                  this.childrenWrapper = el;
+                } }
+              >
+                { this.props.children }
+              </div>
+            </div> }
+        </Motion>
+      </div>
+    );
+  }
+}
 
 AccordionItem.defaultProps = {
   onClick: () => {}

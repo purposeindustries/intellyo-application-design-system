@@ -1,4 +1,4 @@
-textarea.textarea {
+.textarea {
   position: relative;
   display: inline-flex;
   flex-direction: column;
@@ -35,4 +35,22 @@ textarea.textarea {
     border-color: $textarea-border-color--focus-and-hover;
   }
 
+  &--invisible {
+    color: inherit;
+    font: inherit;
+    border: 0;
+    padding: 0;
+  }
+
+  &.autogrow {
+    height: 100%;
+  }
+}
+
+.autogrow .textarea {
+  overflow: hidden;
+}
+
+.autogrow--measurer-container {
+  height: 0;
 }

@@ -5,7 +5,7 @@ import Select from '../components/select';
 import DropdownItem from '../components/dropdown-item';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
-import Textarea from '../components/textarea';
+import Textarea, {InvisibleTextarea, autogrow} from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card';
 import Row from '../components/row';
@@ -14,6 +14,9 @@ import Icon from '../components/icon';
 
 const TextareaWithLimit = withLimit(Textarea);
 const InputWithLimit = withLimit(Input);
+const InvisibleAutgrowTextarea = autogrow(InvisibleTextarea);
+const AutogrowTextarea = autogrow(Textarea);
+const AutogrowTextareaWithLimit = withLimit(AutogrowTextarea);
 
 const textareaValue = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 const inputValue = 'Content that connects.';
@@ -39,7 +42,7 @@ export default class Inputs extends Component {
         suggestions: [],
         value: ''
       },
-      prefixValue: 'https://facebook.com/'
+      prefixValue: 'https://facebook.com/',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -323,6 +326,37 @@ export default class Inputs extends Component {
                   value={ this.state.bio }
                   placeholder="Text goes here"
                   onChange={ this.handleInputChange }
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={ 3 }>
+                <InvisibleTextarea
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
+                />
+              </Col>
+              <Col span={ 3 }>
+                <InvisibleAutgrowTextarea
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
+                />
+              </Col>
+              <Col span={ 3 }>
+                <AutogrowTextarea
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
+                />
+              </Col>
+              <Col span={ 3 }>
+                <AutogrowTextareaWithLimit
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
+                  limit={ 140 }
                 />
               </Col>
             </Row>

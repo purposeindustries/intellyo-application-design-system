@@ -9,6 +9,13 @@
     align-items: flex-start;
     border-bottom: 1px solid $color-grey-3;
     padding: 0 0 10px 0;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
 
     & .user-avatar {
       margin-right: 15px;

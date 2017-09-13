@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon/';
 import cx from 'classnames';
+import { Motion, spring, presets } from 'react-motion';
 
 export const AccordionItem = (props) => (
   <div
@@ -20,11 +21,25 @@ export const AccordionItem = (props) => (
       ) : (
         <Icon icon="ion-arrow-down-b" />) }
     </div>
-    { props.isOpen && (
-      <div className="accordion-item-children">
-        { props.children }
-      </div>
-    ) }
+    <Motion
+      defaultStyles={ {
+        height: 0,
+        opacity: 0,
+        pointerEvents: 'none'
+      } }
+      style={ {
+        height: props.isOpen ? spring(55, presets.stiff) : spring(0, presets.stiff),
+        opacity: props.isOpen ? spring(1, presets.stiff) : spring(0, presets.stiff),
+        pointerEvents: 'auto'
+      } }
+    >
+      { interpolatingStyles =>
+        <div className="accordion-item-children" style={ interpolatingStyles }>
+          <div className="accordion-item-children-inner-wrapper">
+            { props.children }
+          </div>
+        </div> }
+    </Motion>
   </div>
 );
 

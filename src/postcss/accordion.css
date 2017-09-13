@@ -63,7 +63,11 @@ $accordion-item-border: $color-grey-3;
     }
 
     &-children {
-      padding: 0 15px 15px;
+      visibility: hidden;
+
+      &-inner-wrapper {
+        padding: 0 15px 15px;
+      }
     }
 
     &--open {
@@ -83,6 +87,10 @@ $accordion-item-border: $color-grey-3;
           fill: $color-danger-4;
         }
 
+      }
+
+      & .accordion-item-children {
+        visibility: visible;
       }
 
     }

@@ -12,6 +12,7 @@ $accordion-item-border: $color-grey-3;
   & .accordion-item {
     background: #fff;
     border-bottom: 1px solid $accordion-item-border;
+    transition: background .2s ease-in;
 
     &:last-child {
       border-bottom: none;

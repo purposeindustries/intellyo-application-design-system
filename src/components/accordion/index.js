@@ -14,7 +14,7 @@ export const AccordionItem = (props) => (
       onClick={ props.onClick }
     >
       { props.icon }
-      <span className="accordion-item-triggers-title">{ props.title }</span>
+      <span className="accordion-item-title">{ props.title }</span>
       { props.isOpen ? (
         <Icon icon="ion-android-close" />
       ) : (
@@ -94,16 +94,10 @@ export class SingleAccordion extends MultiAccordion {
   toggle = (id) => {
     this.setState((state) => {
       const isOpened = Boolean(state.items[id]);
-      let items = state.items;
-      if (!isOpened) {
-        items = {
-          [id]: true
-        };
-      }
-      return {
-        items
+      const items = {
+        [id]: !isOpened
       };
+      return { items };
     });
   }
 }
-

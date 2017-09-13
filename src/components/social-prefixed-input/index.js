@@ -6,7 +6,9 @@ import classNames from 'classnames';
 const SocialPrefixedInput = (props) => (
   <PrefixedInput
     { ...props }
-    className={ classNames(props.className, 'social-prefixed-input') }
+    className={
+      classNames(props.className, 'social-prefixed-input')
+    }
   >
     { props.children }
   </PrefixedInput>

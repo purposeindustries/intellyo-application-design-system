@@ -1,0 +1,12 @@
+.empty-view {
+  text-align: center;
+
+  &-figure {
+    font-size: 48px;
+    color: $caption-color;
+  }
+
+  & .caption {
+    color: $caption-color;
+  }
+}

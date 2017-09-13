@@ -114,7 +114,17 @@ export default class Accordions extends Component {
                     title="Content Quality Analyser"
                     icon={ (<Icon icon="ion-connection-bars" />) }
                   >
-                    Accordion de Sur Mer
+                    <div className="accordion-example">
+                      <Avatar
+                        name="Donald Trump"
+                        src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                        size="medium"
+                      />
+                      <div className="accordion-example-inner-wrapper">
+                        <p className="accordion-example-action">Donald Trump Assigned the project to Norbi Gaal for copy editing</p>
+                        <Caption>22 hrs ago</Caption>
+                      </div>
+                    </div>
                   </AccordionItem>
                 </MultiAccordion>
               </Col>

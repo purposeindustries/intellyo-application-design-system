@@ -110,36 +110,32 @@ export default class Accordions extends Component {
                   <AccordionItem
                     title="Basic information"
                     icon={ (<Icon icon="ion-information-circled" />) }
-                    id="basic"
                     isOpen={ this.state.accordion.basic }
-                    onClick={ this.toggle }
+                    onClick={ () => this.toggle('basic') }
                   >
                     Not much.
                   </AccordionItem>
                   <AccordionItem
                     title="History"
                     icon={ (<Icon icon="ion-ios-clock" />) }
-                    id="history"
                     isOpen={ this.state.accordion.history }
-                    onClick={ this.toggle }
+                    onClick={ () => this.toggle('history') }
                   >
                     Idk.
                   </AccordionItem>
                   <AccordionItem
                     title="Notes"
                     icon={ (<Icon icon="ion-ios-list" />) }
-                    id="notes"
                     isOpen={ this.state.accordion.notes }
-                    onClick={ this.toggle }
+                    onClick={ () => this.toggle('notes') }
                   >
                     Accordion de Sur Mer
                   </AccordionItem>
                   <AccordionItem
                     title="Content Quality Analyser"
                     icon={ (<Icon icon="ion-connection-bars" />) }
-                    id="cqa"
                     isOpen={ this.state.accordion.cqa }
-                    onClick={ this.toggle }
+                    onClick={ () => this.toggle('cqa') }
                   >
                     Accordion de Sur Mer
                   </AccordionItem>

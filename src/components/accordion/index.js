@@ -11,7 +11,7 @@ export const AccordionItem = (props) => (
   >
     <div
       className="accordion-item-triggers"
-      onClick={ () => props.onClick(props.id) }
+      onClick={ props.onClick }
     >
       { props.icon }
       <span className="accordion-item-triggers-title">{ props.title }</span>
@@ -36,7 +36,6 @@ AccordionItem.propTypes = {
   children: PropTypes.node,
   isOpen: PropTypes.bool,
   onClick: PropTypes.func,
-  id: PropTypes.string
 };
 
 AccordionItem.defaultProps = {

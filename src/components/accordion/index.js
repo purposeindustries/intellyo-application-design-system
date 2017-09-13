@@ -14,7 +14,7 @@ export const AccordionItem = (props) => (
       onClick={ () => props.onClick(props.id) }
     >
       { props.icon }
-      <span className="accordion-item-triggers-title">{ props.title }</span>
+      <span className="accordion-item-title">{ props.title }</span>
       { props.isOpen ? (
         <Icon icon="ion-android-close" />
       ) : (

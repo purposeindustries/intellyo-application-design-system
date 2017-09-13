@@ -52,6 +52,7 @@ $accordion-item-border: $color-grey-3;
         & svg {
           width: 18px;
           fill: $open-and-close-button;
+          transition: transform 0.2s ease-in;
 
           &:hover {
             fill: $hover-and-active-color;
@@ -84,8 +85,8 @@ $accordion-item-border: $color-grey-3;
           fill: $hover-and-active-color;
         }
 
-        & .icon:last-child:hover svg {
-          fill: $color-danger-4;
+        & .icon:last-child svg {
+          transform: rotate(-180deg);
         }
 
       }

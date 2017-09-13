@@ -51,10 +51,7 @@ export class AccordionItem extends React.Component {
         >
           { this.props.icon }
           <span className="accordion-item-title">{ this.props.title }</span>
-          { this.props.isOpen ? (
-            <Icon icon="ion-android-close" />
-          ) : (
-            <Icon icon="ion-arrow-down-b" />) }
+          <Icon icon="ion-arrow-down-b" />
         </div>
         <Motion
           defaultStyles={ {

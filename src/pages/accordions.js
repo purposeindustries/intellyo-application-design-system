@@ -2,18 +2,107 @@ import React, { Component } from 'react';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
-import Accordion, { AccordionItem } from '../components/accordion';
+import {
+  AccordionItem,
+  Accordion,
+  MultiAccordion,
+  SingleAccordion
+} from '../components/accordion';
 import Icon from '../components/icon';
 
 export default class Accordions extends Component {
   displayName = 'Accordions'
+  state = {
+    accordion: {}
+  }
+  toggle = (id) => {
+    this.setState((state) => {
+      return {
+        accordion: {
+          ...state.accordion,
+          [id]: !state.accordion[id]
+        }
+      };
+    });
+  }
   render() {
     return (
       <div>
         <div className="accordions-page">
           <Card
-            title="Accordion"
+            title="MultiAccordion"
             titleCaption="where every children can be opened"
+          >
+            <Row>
+              <Col span={ 12 }>
+                <MultiAccordion>
+                  <AccordionItem
+                    title="Basic information"
+                    id="basic"
+                    icon={ (<Icon icon="ion-information-circled" />) }
+                  >
+                    Not much.
+                  </AccordionItem>
+                  <AccordionItem
+                    title="History"
+                    icon={ (<Icon icon="ion-ios-clock" />) }
+                  >
+                    Idk.
+                  </AccordionItem>
+                  <AccordionItem
+                    title="Notes"
+                    icon={ (<Icon icon="ion-ios-list" />) }
+                  >
+                    Accordion de Sur Mer
+                  </AccordionItem>
+                  <AccordionItem
+                    title="Content Quality Analyser"
+                    icon={ (<Icon icon="ion-connection-bars" />) }
+                  >
+                    Accordion de Sur Mer
+                  </AccordionItem>
+                </MultiAccordion>
+              </Col>
+            </Row>
+          </Card>
+          <Card
+            title="SingleAccordion"
+            titleCaption="where only one child can be opened"
+          >
+            <Row>
+              <Col span={ 12 }>
+                <SingleAccordion>
+                  <AccordionItem
+                    title="Basic information"
+                    icon={ (<Icon icon="ion-information-circled" />) }
+                  >
+                    Not much.
+                  </AccordionItem>
+                  <AccordionItem
+                    title="History"
+                    icon={ (<Icon icon="ion-ios-clock" />) }
+                  >
+                    Idk.
+                  </AccordionItem>
+                  <AccordionItem
+                    title="Notes"
+                    icon={ (<Icon icon="ion-ios-list" />) }
+                  >
+                    Accordion de Sur Mer
+                  </AccordionItem>
+                  <AccordionItem
+                    title="Content Quality Analyser"
+                    icon={ (<Icon icon="ion-connection-bars" />) }
+                  >
+                    Accordion de Sur Mer
+                  </AccordionItem>
+                </SingleAccordion>
+              </Col>
+            </Row>
+          </Card>
+          <Card
+            title="Accordion"
+            titleCaption="Simple stateless accordion. You're the boss!"
           >
             <Row>
               <Col span={ 12 }>
@@ -21,59 +110,32 @@ export default class Accordions extends Component {
                   <AccordionItem
                     title="Basic information"
                     icon={ (<Icon icon="ion-information-circled" />) }
+                    isOpen={ this.state.accordion.basic }
+                    onClick={ () => this.toggle('basic') }
                   >
                     Not much.
                   </AccordionItem>
                   <AccordionItem
                     title="History"
                     icon={ (<Icon icon="ion-ios-clock" />) }
+                    isOpen={ this.state.accordion.history }
+                    onClick={ () => this.toggle('history') }
                   >
                     Idk.
                   </AccordionItem>
                   <AccordionItem
                     title="Notes"
                     icon={ (<Icon icon="ion-ios-list" />) }
+                    isOpen={ this.state.accordion.notes }
+                    onClick={ () => this.toggle('notes') }
                   >
                     Accordion de Sur Mer
                   </AccordionItem>
                   <AccordionItem
                     title="Content Quality Analyser"
                     icon={ (<Icon icon="ion-connection-bars" />) }
-                  >
-                    Accordion de Sur Mer
-                  </AccordionItem>
-                </Accordion>
-              </Col>
-            </Row>
-          </Card>
-          <Card
-            title="Accordion"
-            titleCaption="where only one child can be opened"
-          >
-            <Row>
-              <Col span={ 12 }>
-                <Accordion openMultiple={ false }>
-                  <AccordionItem
-                    title="Basic information"
-                    icon={ (<Icon icon="ion-information-circled" />) }
-                  >
-                    Not much.
-                  </AccordionItem>
-                  <AccordionItem
-                    title="History"
-                    icon={ (<Icon icon="ion-ios-clock" />) }
-                  >
-                    Idk.
-                  </AccordionItem>
-                  <AccordionItem
-                    title="Notes"
-                    icon={ (<Icon icon="ion-ios-list" />) }
-                  >
-                    Accordion de Sur Mer
-                  </AccordionItem>
-                  <AccordionItem
-                    title="Content Quality Analyser"
-                    icon={ (<Icon icon="ion-connection-bars" />) }
+                    isOpen={ this.state.accordion.cqa }
+                    onClick={ () => this.toggle('cqa') }
                   >
                     Accordion de Sur Mer
                   </AccordionItem>

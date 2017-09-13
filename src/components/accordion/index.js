@@ -10,7 +10,7 @@ export const AccordionItem = (props) => (
     }) }
   >
     <div
-      className="accordion-item-triggers"
+      className="accordion-item-header"
       onClick={ props.onClick }
     >
       { props.icon }

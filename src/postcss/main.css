@@ -27,6 +27,7 @@
 @import './chart.css';
 @import './chart-trace-summary-item.css';
 @import './horizontally-scrollable-row.css';
+@import './accordion.css';
 @import './empty-view';
 
 @import './pages/typography.css';
@@ -39,6 +40,7 @@
 @import './pages/cards.css';
 @import './pages/tagsinput.css';
 @import './pages/charts.css';
+@import './pages/accordions.css';
 @import './pages/tables.css';
 
 body {

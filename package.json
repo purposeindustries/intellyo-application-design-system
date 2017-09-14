@@ -13,7 +13,7 @@
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
     "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
@@ -70,6 +70,7 @@
     "react-autosuggest": "^9.3.2",
     "react-hide-at": "^1.0.4",
     "react-ionicons": "^1.5.8",
+    "react-motion": "^0.5.1",
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.17.0",
     "react-user-avatar": "^1.9.0"

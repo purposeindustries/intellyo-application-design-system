@@ -1,0 +1,103 @@
+/* Local variables */
+
+$hover-and-active-color: $color-primary-3;
+$active-background: $color-grey-1;
+$feature-icon-fill: $color-black-3;
+$title-color: $color-black-5;
+$open-and-close-button: $color-black-4;
+$accordion-item-border: $color-grey-3;
+
+.accordion {
+
+  & .accordion-item {
+    background: #fff;
+    border-bottom: 1px solid $accordion-item-border;
+    transition: background .2s ease-in;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 15px 30px 15px 25px;
+
+      & .icon {
+        height: 22px;
+      }
+
+      & .icon:first-child {
+        margin-right: 25px;
+
+        & svg {
+          fill: $feature-icon-fill;
+
+          &:hover {
+            fill: $hover-and-active-color;
+          }
+
+        }
+
+      }
+
+      & .accordion-item-title {
+        color: $title-color;
+      }
+
+      & .icon:last-child {
+        margin-left: auto;
+
+        & svg {
+          width: 18px;
+          fill: $open-and-close-button;
+          transition: transform 0.2s ease-in;
+
+          &:hover {
+            fill: $hover-and-active-color;
+          }
+
+        }
+
+      }
+
+    }
+
+    &-children {
+      visibility: hidden;
+      overflow: hidden;
+
+      &-inner-wrapper {
+        padding: 0 15px 15px;
+      }
+    }
+
+    &--open {
+      background: $active-background;
+
+      & .accordion-item-header {
+
+        & .accordion-item-title {
+          color: $hover-and-active-color;
+        }
+
+        & .icon svg {
+          fill: $hover-and-active-color;
+        }
+
+        & .icon:last-child svg {
+          transform: rotate(-180deg);
+        }
+
+      }
+
+      & .accordion-item-children {
+        visibility: visible;
+      }
+
+    }
+
+  }
+
+}

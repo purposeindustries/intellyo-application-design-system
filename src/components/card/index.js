@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayText from '../display-text';
+import Heading from '../heading';
 import Caption from '../caption';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -10,9 +10,9 @@ const Card = (props) => (
       props.title && (
         <div className="card-header">
           <div className="card-header-wrap">
-            <DisplayText>
+            <Heading>
               { props.title }
-            </DisplayText>
+            </Heading>
             { props.icon }
           </div>
           {

@@ -66,6 +66,7 @@ $accordion-item-border: $color-grey-3;
 
     &-children {
       visibility: hidden;
+      overflow: hidden;
 
       &-inner-wrapper {
         padding: 0 15px 15px;

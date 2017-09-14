@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const ref = (target, prop) => el => {
+  target[prop] = el;
+};
+
+const toHTML = str => str.replace(/\n/g, '<br />').replace(/https?:\/\/(\S*)/g, match => `<a href='${match}'>${match}</a>`);
+
 const Textarea = (props) => (
   <textarea
     name={ props.name }
@@ -91,5 +97,46 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
   }
 };
 
+class RichTextarea extends React.Component {
+  onUpdate = () => {
+    console.log('update');
+    this.props.onChange({
+      target: {
+        value: this._el.innerText,
+        name: this.props.name,
+      },
+    });
+  };
+
+  shouldComponentUpdate(props) {
+    // prevent updates while the div is edited
+    return props.value !== this._el.innerText;
+  }
+
+  render() {
+    const value = {
+      __html: toHTML(this.props.value),
+    };
+    return (
+      <div
+        contentEditable
+        ref={ ref(this, '_el') }
+        className="rich-textarea"
+        dangerouslySetInnerHTML={ value }
+        onInput={ this.onUpdate }
+        onBlur={ () => {
+          this.forceUpdate();
+        } }
+        onPaste={ e => {
+          e.preventDefault();
+          // only plain text is allowed
+          const text = e.clipboardData.getData('text/plain');
+          document.execCommand('insertHTML', false, text.trim());
+        } }
+      />
+    );
+  }
+}
+
 export default Textarea;
-export {InvisibleTextarea, autogrow};
+export {RichTextarea, InvisibleTextarea, autogrow};

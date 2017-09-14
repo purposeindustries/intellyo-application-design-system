@@ -5,7 +5,7 @@ import Select from '../components/select';
 import DropdownItem from '../components/dropdown-item';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
-import Textarea, {InvisibleTextarea, autogrow} from '../components/textarea';
+import Textarea, {RichTextarea, InvisibleTextarea, autogrow} from '../components/textarea';
 import withLimit from '../components/with-limit';
 import Card from '../components/card';
 import Row from '../components/row';
@@ -43,6 +43,8 @@ export default class Inputs extends Component {
         value: ''
       },
       prefixValue: 'https://facebook.com/',
+      invisibleTitle: 'This is an invisible textarea inside a header',
+      html: textareaValue,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
@@ -72,8 +74,8 @@ export default class Inputs extends Component {
   render() {
     return (
       <div>
-        <DisplayText>Inputs</DisplayText>
         <div className="inputs-page">
+          <DisplayText>Inputs</DisplayText>
           <Card>
             <Row>
               <Col span={ 3 }>
@@ -357,6 +359,24 @@ export default class Inputs extends Component {
                   onChange={ this.handleInputChange }
                   name="bio"
                   limit={ 140 }
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={ 6 }>
+                <DisplayText>
+                  <InvisibleAutgrowTextarea
+                    value={ this.state.invisibleTitle }
+                    onChange={ this.handleInputChange }
+                    name="invisibleTitle"
+                  />
+                </DisplayText>
+              </Col>
+              <Col span={ 6 }>
+                <RichTextarea
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
                 />
               </Col>
             </Row>

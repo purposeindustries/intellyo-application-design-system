@@ -18,15 +18,20 @@ export class AccordionItem extends React.Component {
     onClick: PropTypes.func,
   }
 
+  constructor() {
+    super();
+    this.throttleHandleResize = throttle(this.handleResize);
+  }
+
   state = {}
 
   componentDidMount() {
-    root.addEventListener('resize', throttle(this.handleResize));
+    root.addEventListener('resize', this.throttleHandleResize);
     this.handleResize();
   }
 
   componentWillUnmount() {
-    root.removeEventListener('resize', throttle(this.handleResize));
+    root.removeEventListener('resize', this.throttleHandleResize);
   }
 
   handleResize = () => {

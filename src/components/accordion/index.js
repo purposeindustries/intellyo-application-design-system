@@ -65,7 +65,7 @@ export class AccordionItem extends React.Component {
             opacity: 0
           } }
           style={ {
-            height: this.props.isOpen ? spring(this.state.elementHeight, presets.stiff, 1) : spring(0, presets.stiff, 0.01),
+            height: this.props.isOpen ? spring(this.state.elementHeight, presets.stiff) : spring(0, presets.stiff),
             opacity: this.props.isOpen ? spring(1, presets.stiff) : spring(0, presets.stiff)
           } }
         >

@@ -116,8 +116,6 @@ export class MultiAccordion extends React.Component {
     items: {}
   };
 
-  // Toggles every item to undefined,
-  // but the current one with id
   toggle = (id) => {
     this.setState((state) => ({
       items: {
@@ -145,6 +143,9 @@ export class MultiAccordion extends React.Component {
 
 export class SingleAccordion extends MultiAccordion {
   displayName = 'SingleAccordion';
+
+  // Toggles every item to undefined,
+  // but the current one with id
   toggle = (id) => {
     this.setState((state) => {
       const isOpened = Boolean(state.items[id]);

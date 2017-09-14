@@ -45,6 +45,7 @@ export class AccordionItem extends React.Component {
   }
 
   render() {
+    const target = this.props.isOpen ? 1 : 0;
     return (
       <div
         className={ cx('accordion-item', {
@@ -66,7 +67,7 @@ export class AccordionItem extends React.Component {
           } }
           style={ {
             height: this.props.isOpen ? spring(this.state.elementHeight, presets.stiff) : spring(0, presets.stiff),
-            opacity: this.props.isOpen ? spring(1, presets.stiff) : spring(0, presets.stiff)
+            opacity: spring(target, presets.stiff)
           } }
         >
           { interpolatingStyles =>

@@ -70,7 +70,7 @@ export class AccordionItem extends React.Component {
                 ref={ (el) => {
                   this._childrenWrapper = el;
                   requestAnimationFrame(() => {
-                    const clientHeight = this._childrenWrapper.clientHeight;
+                    const { clientHeight } = this._childrenWrapper;
                     if (this.state.elementHeight !== clientHeight) {
                       this.setState({
                         elementHeight: clientHeight

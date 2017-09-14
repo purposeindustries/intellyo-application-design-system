@@ -131,6 +131,14 @@ class TagsInput extends Component {
         }) }
         value={ this.props.value }
         onChange={ (tags) => {
+          if (this.props.colors && this.props.colors.length) {
+            tags = tags.map((tag, i) => {
+              return {
+                ...tag,
+                color: this.props.colors[i % this.props.colors.length]
+              };
+            });
+          }
           this.props.onChange(tags);
         } }
         addKeys={ this.props.addKeys }

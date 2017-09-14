@@ -76,7 +76,7 @@ export class AccordionItem extends React.Component {
                 ref={ (el) => {
                   this._childrenWrapper = el;
                   requestAnimationFrame(() => {
-                    this.throttleSetElementHeight();
+                    this.setElementHeight();
                   });
                 } }
               >

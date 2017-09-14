@@ -69,6 +69,14 @@ export class AccordionItem extends React.Component {
                 className="accordion-item-children-inner-wrapper"
                 ref={ (el) => {
                   this._childrenWrapper = el;
+                  requestAnimationFrame(() => {
+                    const clientHeight = this._childrenWrapper.clientHeight;
+                    if (this.state.elementHeight !== clientHeight) {
+                      this.setState({
+                        elementHeight: clientHeight
+                      });
+                    }
+                  });
                 } }
               >
                 { this.props.children }

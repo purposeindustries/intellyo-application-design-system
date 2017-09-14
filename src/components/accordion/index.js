@@ -45,6 +45,7 @@ export class AccordionItem extends React.Component {
   }
 
   render() {
+    const targetHeight = this.props.isOpen ? this.state.elementHeight : 0;
     const targetOpacity = this.props.isOpen ? 1 : 0;
     return (
       <div
@@ -66,7 +67,7 @@ export class AccordionItem extends React.Component {
             opacity: 0
           } }
           style={ {
-            height: this.props.isOpen ? spring(this.state.elementHeight, presets.stiff) : spring(0, presets.stiff),
+            height: spring(targetHeight, presets.stiff),
             opacity: spring(targetOpacity, presets.stiff)
           } }
         >

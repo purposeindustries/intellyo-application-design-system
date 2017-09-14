@@ -116,6 +116,8 @@ export class MultiAccordion extends React.Component {
     items: {}
   };
 
+  // Toggles every item to undefined,
+  // but the current one with id
   toggle = (id) => {
     this.setState((state) => ({
       items: {

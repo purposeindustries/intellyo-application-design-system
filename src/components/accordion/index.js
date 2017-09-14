@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import Icon from '../icon/';
@@ -20,26 +19,28 @@ export class AccordionItem extends React.Component {
 
   constructor() {
     super();
-    this.throttleHandleResize = throttle(this.handleResize);
+    this.throttleSetElementHeight = throttle(this.setElementHeight);
   }
 
   state = {}
 
   componentDidMount() {
-    root.addEventListener('resize', this.throttleHandleResize);
-    this.handleResize();
+    root.addEventListener('resize', this.throttleSetElementHeight);
   }
 
   componentWillUnmount() {
-    root.removeEventListener('resize', this.throttleHandleResize);
+    root.removeEventListener('resize', this.throttleSetElementHeight);
   }
 
-  handleResize = () => {
-    if (React.Children.count(this.props.children)) {
-      const { clientHeight } = ReactDOM.findDOMNode(this._childrenWrapper);
-      root.setTimeout(() => this.setState({
+  setElementHeight = () => {
+    if (!this._childrenWrapper) {
+      return;
+    }
+    const { clientHeight } = this._childrenWrapper;
+    if (this.state.elementHeight !== clientHeight) {
+      this.setState({
         elementHeight: clientHeight
-      }));
+      });
     }
   }
 
@@ -75,12 +76,7 @@ export class AccordionItem extends React.Component {
                 ref={ (el) => {
                   this._childrenWrapper = el;
                   requestAnimationFrame(() => {
-                    const { clientHeight } = this._childrenWrapper;
-                    if (this.state.elementHeight !== clientHeight) {
-                      this.setState({
-                        elementHeight: clientHeight
-                      });
-                    }
+                    this.throttleSetElementHeight();
                   });
                 } }
               >

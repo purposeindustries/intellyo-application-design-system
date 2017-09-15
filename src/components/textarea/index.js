@@ -6,7 +6,7 @@ const ref = (target, prop) => el => {
   target[prop] = el;
 };
 
-const toHTML = str => str.replace(/\n/g, '<br />').replace(/https?:\/\/(\S*)/g, match => `<a href='${match}'>${match}</a>`);
+const toHTML = str => str.replace(/https?:\/\/(\S*)/g, match => `<a href='${match}'>${match}</a>`).replace(/\n/g, '<br />');
 
 const Textarea = (props) => (
   <textarea

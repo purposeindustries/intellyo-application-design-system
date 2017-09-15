@@ -54,3 +54,7 @@
 .autogrow--measurer-container {
   height: 0;
 }
+
+.rich-textarea {
+  outline: none;
+}

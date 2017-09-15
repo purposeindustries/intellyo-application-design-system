@@ -80,12 +80,11 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
     };
     return (
       <div className="autogrow" style={ this.state.height ? { height: this.state.height + 'px' } : null }>
-        <div className="autogrow--measurer-container">
+        <div className="autogrow--measurer">
           <Component
             { ...this.props }
             inputRef={ store }
-            className={ classNames('autogrow', this.props.className) }
-            style={ { height: '0px' } }
+            className={ classNames('autogrow', 'autogrow--measured', this.props.className) }
           />
         </div>
         <Component

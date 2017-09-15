@@ -51,7 +51,11 @@
   overflow: hidden;
 }
 
-.autogrow--measurer-container {
+.autogrow--measurer {
+  height: 0;
+}
+
+.autogrow--measured {
   height: 0;
 }
 

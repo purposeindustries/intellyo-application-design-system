@@ -127,6 +127,9 @@ class RichTextarea extends React.Component {
     const value = {
       __html: this.props.transform(this.props.value),
     };
+
+    // i know what i'm doing
+    /* eslint-disable react/no-danger */
     return (
       <div
         contentEditable
@@ -151,6 +154,7 @@ class RichTextarea extends React.Component {
         } }
       />
     );
+    /* eslint-enable react/no-danger */
   }
 }
 

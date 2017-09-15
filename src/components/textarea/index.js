@@ -143,6 +143,12 @@ class RichTextarea extends React.Component {
           const text = e.clipboardData.getData('text/plain');
           document.execCommand('insertHTML', false, text.trim());
         } }
+        onMouseDown={ e => {
+          // open links with left/middle mouse button
+          if (e.button < 2 && e.target.tagName === 'A') {
+            window.open(e.target.href, '_blank');
+          }
+        } }
       />
     );
   }

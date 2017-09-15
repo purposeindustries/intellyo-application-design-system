@@ -98,8 +98,18 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
 };
 
 class RichTextarea extends React.Component {
+  static displayName = 'RichTextarea';
+  static propTypes = {
+    value: PropTypes.text,
+    name: PropTypes.text,
+    onChange: PropTypes.func,
+    transform: PropTypes.func,
+  };
+  static defaultProps = {
+    transform: toHTML,
+  };
+
   onUpdate = () => {
-    console.log('update');
     this.props.onChange({
       target: {
         value: this._el.innerText,
@@ -115,7 +125,7 @@ class RichTextarea extends React.Component {
 
   render() {
     const value = {
-      __html: toHTML(this.props.value),
+      __html: this.props.transform(this.props.value),
     };
     return (
       <div

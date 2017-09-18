@@ -25,7 +25,12 @@ $accordion-item-border: $color-grey-3;
       padding: 15px 30px 15px 25px;
 
       & .icon {
-        height: 22px;
+        height: 20px;
+
+        & svg {
+          width: 20px;
+        }
+
       }
 
       & .icon:first-child {

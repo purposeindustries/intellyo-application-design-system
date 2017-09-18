@@ -3,6 +3,46 @@ import Card from '../card';
 import PropTypes from 'prop-types';
 import EmptyView from '../empty-view';
 
+export const type = (type, options) => (traces) => traces.map(trace => ({
+  ...trace,
+  ...options,
+  type: type,
+}));
+
+export const bar = type('bar');
+export const scatter = type('scatter');
+export const spline = type('scatter', {
+  line: {
+    shape: 'spline'
+  }
+});
+
+export const types = {
+  bar,
+  scatter,
+  spline
+};
+
+export const color = (traces, colors) => traces.map((trace, i) => ({
+  ...trace,
+  marker: {
+    color: colors[i % colors.length]
+  }
+}));
+
+export const layout = (options) => (layout) => ({
+  ...layout,
+  ...options
+});
+
+export const stackedBar = layout({
+  barmode: 'stack'
+});
+
+export const layouts = {
+  stackedBar
+};
+
 export const Preloader = () => (
   <div className="chart-preloader">
     <div className="chart-preloader-title" />
@@ -80,7 +120,8 @@ class Chart extends React.Component {
     if (!this.Plotly) {
       this.Plotly = require('plotly.js/lib/core');
       this.Plotly.register([
-        require('plotly.js/lib/scatter')
+        require('plotly.js/lib/scatter'),
+        require('plotly.js/lib/bar')
       ]);
     } else {
       this.Plotly.purge(this.chartEl);

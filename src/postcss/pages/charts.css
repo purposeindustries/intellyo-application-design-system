@@ -1,7 +1,7 @@
 .charts-page {
 
   & .card,
-  & .header {
+  & .display-text {
     margin-bottom: $gutter-base;
   }
 }

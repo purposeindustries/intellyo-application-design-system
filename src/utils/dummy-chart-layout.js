@@ -3,8 +3,9 @@ export const layout = {
     'l': 50,
     'r': 15,
     't': 15,
-    'b': 50
+    'b': 50,
   },
+  'height': 210,
   'hovermode': 'closest',
   'autosize': true,
   'showlegend': true,

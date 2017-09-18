@@ -39,7 +39,7 @@ class ChartsPage extends React.Component {
                 colors
               ) }
               layout={ layout }
-              title="Basic scatter chart"
+              title="Scatter chart"
             />
           </Col>
           <Col span={ 6 }>

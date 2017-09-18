@@ -21,6 +21,7 @@ const Textarea = (props) => (
     defaultValue={ props.defaultValue }
     ref={ props.inputRef }
     style={ props.style }
+    onBlur={ props.onBlur }
   />
 );
 
@@ -36,6 +37,7 @@ Textarea.propTypes = {
   className: PropTypes.string,
   inputRef: PropTypes.func,
   style: PropTypes.object,
+  onBlur: PropTypes.func,
 };
 
 const InvisibleTextarea = props => (
@@ -103,6 +105,8 @@ class RichTextarea extends React.Component {
     name: PropTypes.text,
     onChange: PropTypes.func,
     transform: PropTypes.func,
+    onBlur: PropTypes.func,
+    className: PropTypes.string,
   };
   static defaultProps = {
     transform: toHTML,
@@ -133,11 +137,14 @@ class RichTextarea extends React.Component {
       <div
         contentEditable
         ref={ ref(this, '_el') }
-        className="rich-textarea"
+        className={ classNames('rich-textarea', this.props.className) }
         dangerouslySetInnerHTML={ value }
         onInput={ this.onUpdate }
-        onBlur={ () => {
+        onBlur={ e => {
           this.forceUpdate();
+          if (this.props.onBlur) {
+            this.props.onBlur(e);
+          }
         } }
         onPaste={ e => {
           e.preventDefault();

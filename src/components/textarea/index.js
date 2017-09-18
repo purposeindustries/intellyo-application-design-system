@@ -22,6 +22,7 @@ const Textarea = (props) => (
     ref={ props.inputRef }
     style={ props.style }
     onBlur={ props.onBlur }
+    onFocus={ props.onFocus }
   />
 );
 
@@ -38,6 +39,7 @@ Textarea.propTypes = {
   inputRef: PropTypes.func,
   style: PropTypes.object,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
 };
 
 const InvisibleTextarea = props => (
@@ -107,6 +109,7 @@ class RichTextarea extends React.Component {
     transform: PropTypes.func,
     onBlur: PropTypes.func,
     className: PropTypes.string,
+    onFocus: PropTypes.func,
   };
   static defaultProps = {
     transform: toHTML,
@@ -140,6 +143,7 @@ class RichTextarea extends React.Component {
         className={ classNames('rich-textarea', this.props.className) }
         dangerouslySetInnerHTML={ value }
         onInput={ this.onUpdate }
+        onFocus={ this.props.onFocus }
         onBlur={ e => {
           this.forceUpdate();
           if (this.props.onBlur) {

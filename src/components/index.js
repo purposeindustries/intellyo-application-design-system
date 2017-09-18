@@ -24,7 +24,7 @@ export { default as SocialPrefixedInput } from './social-prefixed-input';
 export { default as StackedAvatar } from './stacked-avatar';
 export { default as Subheading } from './subheading';
 export { default as Tagsinput, ResponsiveTagsInput, StandAloneInput, DefaultInput } from './tagsinput';
-export { default as Textarea } from './textarea';
+export { default as Textarea, RichTextarea, InvisibleTextarea, autogrow } from './textarea';
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
 export { Table, Column, Expander } from './table';

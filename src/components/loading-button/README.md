@@ -6,7 +6,9 @@
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| onClick | func | Callback function which returns a `Promise`. |
+| onClick | func | Callback function to be called on `click`. |
+| loading | bool | Button loading state, `true` when it is loading. |
+| size | oneOf(['small', 'normal', 'large']) | Button size |
 
 ## Examples
 

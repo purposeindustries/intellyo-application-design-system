@@ -3,8 +3,9 @@ import Button from '../button';
 import Icon from '../icon';
 import PropTypes from 'prop-types';
 
-const LoadingButton = ({ loading, onClick }) => (
+const LoadingButton = ({ loading, onClick, size }) => (
   <Button
+    size={ size }
     disabled={ loading }
     onClick={ onClick }
     icon={ loading ? (
@@ -21,6 +22,7 @@ LoadingButton.displayName = 'LoadingButton';
 LoadingButton.propTypes = {
   onClick: PropTypes.func,
   loading: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'normal', 'large']),
 };
 
 export default LoadingButton;

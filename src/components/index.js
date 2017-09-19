@@ -3,7 +3,14 @@ export { default as Button } from './button';
 export { default as ButtonGroup } from './button-group';
 export { default as Caption } from './caption';
 export { default as Card } from './card';
-export { default as Chart, BodyPreloader, Preloader } from './chart';
+export {
+  default as Chart,
+  BodyPreloader,
+  Preloader,
+  types as chartTypes,
+  color as chartColor,
+  layouts as chartLayouts
+} from './chart';
 export { default as ChartTraceSummaryItem } from './chart-trace-summary-item';
 export { default as Col } from './col';
 export { default as DisplayText } from './display-text';

@@ -103,8 +103,8 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
 class RichTextarea extends React.Component {
   static displayName = 'RichTextarea';
   static propTypes = {
-    value: PropTypes.text,
-    name: PropTypes.text,
+    value: PropTypes.string,
+    name: PropTypes.string,
     onChange: PropTypes.func,
     transform: PropTypes.func,
     onBlur: PropTypes.func,

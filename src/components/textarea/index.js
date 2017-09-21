@@ -23,6 +23,7 @@ const Textarea = (props) => (
     style={ props.style }
     onBlur={ props.onBlur }
     onFocus={ props.onFocus }
+    onKeyDown={ props.onKeyDown }
   />
 );
 
@@ -40,6 +41,7 @@ Textarea.propTypes = {
   style: PropTypes.object,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
 };
 
 const InvisibleTextarea = props => (
@@ -111,6 +113,7 @@ class RichTextarea extends React.Component {
     className: PropTypes.string,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
+    onKeyDown: PropTypes.func,
   };
   static defaultProps = {
     transform: toHTML,
@@ -164,6 +167,7 @@ class RichTextarea extends React.Component {
             window.open(e.target.href, '_blank');
           }
         } }
+        onKeyDown={ this.props.onKeyDown }
       />
     );
     /* eslint-enable react/no-danger */

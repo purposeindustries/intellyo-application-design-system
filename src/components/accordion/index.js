@@ -22,7 +22,9 @@ export class AccordionItem extends React.Component {
     this.throttleSetElementHeight = throttle(this.setElementHeight);
   }
 
-  state = {}
+  state = {
+    isOnRest: false
+  }
 
   componentDidMount() {
     root.addEventListener('resize', this.throttleSetElementHeight);
@@ -30,6 +32,16 @@ export class AccordionItem extends React.Component {
 
   componentWillUnmount() {
     root.removeEventListener('resize', this.throttleSetElementHeight);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isOpen === this.props.isOpen) {
+      return;
+    }
+    this.setElementHeight();
+    this.setState({
+      isOnRest: false
+    });
   }
 
   setElementHeight = () => {
@@ -62,6 +74,11 @@ export class AccordionItem extends React.Component {
           <Icon icon="ion-arrow-down-b" />
         </div>
         <Motion
+          onRest={ () => {
+            this.setState({
+              isOnRest: true
+            });
+          } }
           defaultStyles={ {
             height: 0,
             opacity: 0
@@ -72,7 +89,10 @@ export class AccordionItem extends React.Component {
           } }
         >
           { interpolatingStyles =>
-            <div className="accordion-item-children" style={ interpolatingStyles }>
+            <div
+              className="accordion-item-children"
+              style={ this.state.isOnRest && this.props.isOpen ? null : interpolatingStyles }
+            >
               <div
                 className="accordion-item-children-inner-wrapper"
                 ref={ (el) => {

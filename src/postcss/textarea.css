@@ -61,4 +61,8 @@
 
 .rich-textarea {
   outline: none;
+  &:empty::before {
+    display: block;
+    content: attr(placeholder);
+  }
 }

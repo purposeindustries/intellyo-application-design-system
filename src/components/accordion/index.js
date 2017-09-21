@@ -6,7 +6,7 @@ import cx from 'classnames';
 import { Motion, spring, presets } from 'react-motion';
 import throttle from 'lodash.throttle';
 
-export class AccordionItem extends React.Component {
+export class AccordionItem extends React.PureComponent {
   static displayName = 'AccordionItem';
 
   static propTypes = {

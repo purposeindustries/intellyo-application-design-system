@@ -110,6 +110,7 @@ class RichTextarea extends React.Component {
     onBlur: PropTypes.func,
     className: PropTypes.string,
     onFocus: PropTypes.func,
+    placeholder: PropTypes.string,
   };
   static defaultProps = {
     transform: toHTML,
@@ -139,6 +140,7 @@ class RichTextarea extends React.Component {
     return (
       <div
         contentEditable
+        placeholder={ this.props.placeholder }
         ref={ ref(this, '_el') }
         className={ classNames('rich-textarea', this.props.className) }
         dangerouslySetInnerHTML={ value }

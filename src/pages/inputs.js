@@ -374,6 +374,7 @@ export default class Inputs extends Component {
               </Col>
               <Col span={ 6 }>
                 <RichTextarea
+                  placeholder="Placeholder text"
                   value={ this.state.bio }
                   onChange={ this.handleInputChange }
                   name="bio"

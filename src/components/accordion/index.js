@@ -23,7 +23,7 @@ export class AccordionItem extends React.PureComponent {
   }
 
   state = {
-    isOnRest: false
+    isResting: false
   }
 
   componentDidMount() {
@@ -40,7 +40,7 @@ export class AccordionItem extends React.PureComponent {
     }
     this.setElementHeight();
     this.setState({
-      isOnRest: false
+      isResting: false
     });
   }
 
@@ -76,7 +76,7 @@ export class AccordionItem extends React.PureComponent {
         <Motion
           onRest={ () => {
             this.setState({
-              isOnRest: true
+              isResting: true
             });
           } }
           defaultStyles={ {
@@ -91,7 +91,7 @@ export class AccordionItem extends React.PureComponent {
           { interpolatingStyles =>
             <div
               className="accordion-item-children"
-              style={ this.state.isOnRest && this.props.isOpen ? null : interpolatingStyles }
+              style={ this.state.isResting && this.props.isOpen ? null : interpolatingStyles }
             >
               <div
                 className="accordion-item-children-inner-wrapper"

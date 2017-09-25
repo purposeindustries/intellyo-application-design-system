@@ -1,5 +1,13 @@
-.buttons-page {
-  & .button {
-    margin-bottom: $gutter-base;
+.buttons-page .button {
+  margin-bottom: $gutter-base;
+}
+
+.dropdown-page .dropdowns {
+  display: flex;
+  align-items: center;
+
+  & .dropdown {
+    margin-right: $gutter-base;
   }
+
 }

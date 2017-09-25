@@ -21,5 +21,6 @@ DropdownItem.propTypes = {
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
   default: PropTypes.bool,
-  id: PropTypes.string
+  id: PropTypes.string,
+  icon: PropTypes.element
 };

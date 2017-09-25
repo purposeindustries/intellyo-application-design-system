@@ -90,17 +90,18 @@ class ChartsPage extends React.Component {
                   title="Intel"
                   value="273"
                   data={ 0.23 }
+                  date="30th Apr"
                 />
                 <ChartTraceSummaryItem
                   color="#00BEA9"
                   title="Intellyo"
                   value="1.7k"
-                  data={ 4.23 }
                 />
                 <ChartTraceSummaryItem
                   title="Italiano"
                   value="666"
                   data={ -0.5 }
+                  date="30th Apr"
                 />
               </HorizontallyScrollableRow>
             </Card>

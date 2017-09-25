@@ -4,13 +4,42 @@
   font-size: $font-size-base;
   color: $color-black-5;
   margin-right: 40px;
-  font-weight: $display-text-font-weight-regular;
+  white-space: nowrap;
 
-  & .kpi-data--increase {
-    color: $color-success-5;
+  & .display-text {
+    font-weight: normal;
+  }
+}
+
+.chart-trace-summary-item-date {
+  font-size: 12px;
+  color: $color-black-3;
+}
+
+.chart-trace-summary-item-data {
+
+  font-size: 12px;
+  font-weight: 600;
+
+  & .icon {
+    margin-right: 2px;
   }
 
-  & .kpi-data--decrease {
+  &--increase {
+    color: $color-success-5;
+    & .icon {
+      & svg {
+        fill: $color-success-5;
+      }
+    }
+  }
+
+  &--decrease {
     color: $color-danger-4;
+    & .icon {
+      & svg {
+        fill: $color-danger-4;
+      }
+    }
   }
 }

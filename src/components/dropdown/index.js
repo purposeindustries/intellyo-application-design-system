@@ -15,6 +15,7 @@ export default class Dropdown extends React.Component {
     onBlur: PropTypes.func,
     className: PropTypes.string,
     style: PropTypes.object,
+    arrow: PropTypes.element,
     icon: PropTypes.element
   };
   constructor(props) {
@@ -54,11 +55,11 @@ export default class Dropdown extends React.Component {
     });
   }
 
-  renderIcon() {
+  renderArrow() {
     if (React.Children.count(this.props.children) <= 1) {
       return;
     }
-    return this.props.icon ? this.props.icon : (
+    return this.props.arrow ? this.props.arrow : (
       <Icon icon="ion-android-arrow-dropdown" />
     );
   }
@@ -92,6 +93,9 @@ export default class Dropdown extends React.Component {
           onClick={ defaultItem.props.onClick }
         >
           <span className="dropdown-trigger-label">
+            { defaultItem.props.icon && (
+              defaultItem.props.icon
+            ) }
             { defaultItem.props.children }
           </span>
         </div>
@@ -100,7 +104,7 @@ export default class Dropdown extends React.Component {
           tabIndex="1"
           onClick={ () => this.toggle() }
         >
-          { this.renderIcon() }
+          { this.renderArrow() }
         </div>
         <div
           className={ cx('dropdown-items', {
@@ -145,7 +149,7 @@ export default class Dropdown extends React.Component {
               <span className="dropdown-trigger-label">
                 { this.props.label }
               </span>
-              { this.renderIcon() }
+              { this.renderArrow() }
             </div>
             <div
               className="dropdown-items"

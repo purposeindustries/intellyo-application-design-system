@@ -1,6 +1,24 @@
 .page-tables {
+
   & .display-text,
   & .table {
     margin-bottom: $gutter-base;
+
+    & .id {
+      width: 32px;
+      flex: initial;
+    }
+
+    & .title {
+      flex: 2;
+    }
+  }
+
+  & .row:last-child .col:last-child .table {
+
+    & .id,
+    & .table--cell--header--sorter {
+      width: 60px;
+    }
   }
 }

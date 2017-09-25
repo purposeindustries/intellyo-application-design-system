@@ -131,8 +131,8 @@ Column.defaultProps = {
         {label}
         <Icon
           icon="ion-arrow-down-b"
-          onClick={() => column.props.onSort(column.props.order === 'asc' ? 'desc' : 'asc')}
-          className={c('table--sorter', column.props.order === 'asc' ? 'table--sorter--asc' : 'table--sorter--desc')}
+          onClick={ () => column.props.onSort(column.props.order === 'asc' ? 'desc' : 'asc') }
+          className={ c('table--sorter', column.props.order === 'asc' ? 'table--sorter--asc' : 'table--sorter--desc') }
         />
       </span>
     );

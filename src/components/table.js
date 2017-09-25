@@ -1,6 +1,7 @@
 import React from 'react';
 import p from 'prop-types';
 import c from 'classnames';
+import Icon from './icon';
 import sticky from './utils/sticky';
 
 const type = Component => descriptor => descriptor.type.displayName === Component.displayName;
@@ -121,7 +122,21 @@ class Row extends React.Component {
 
 const Column = () => {};
 Column.defaultProps = {
-  renderHeader: label => label,
+  renderHeader: (label, name, column) => {
+    if (!column.props.sortable) {
+      return label;
+    }
+    return (
+      <span>
+        {label}
+        <Icon
+          icon="ion-arrow-down-b"
+          onClick={() => column.props.onSort(column.props.order === 'asc' ? 'desc' : 'asc')}
+          className={c('table--sorter', column.props.order === 'asc' ? 'table--sorter--asc' : 'table--sorter--desc')}
+        />
+      </span>
+    );
+  },
   renderCell: field => field,
 };
 Column.displayName = 'Column';

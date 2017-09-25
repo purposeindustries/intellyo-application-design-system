@@ -111,6 +111,12 @@
       width: 70%
     }
   }
+
+  &--sorter {
+    &--asc {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 @keyframes pulse {

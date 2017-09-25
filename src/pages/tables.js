@@ -11,7 +11,7 @@ import c from 'classnames';
 
 const data = [];
 let i;
-for (i = 0; i < 30; i++) {
+for (i = 0; i < 10; i++) {
   data.push({
     id: i + 1,
     title: lipsum({count: 1, units: 'sentences'}),
@@ -36,6 +36,7 @@ export default class Tables extends React.Component {
 
   state = {
     loading: false,
+    idOrder: 'asc',
   };
 
   render() {
@@ -46,13 +47,26 @@ export default class Tables extends React.Component {
       }, 2000);
     };
 
+    const sort = ordering => {
+      this.setState({
+        idOrder: this.state.idOrder === 'asc' ? 'desc' : 'asc',
+      });
+    };
+
+    const sortedData = data.slice().sort((a, b) => {
+      if (this.state.idOrder === 'asc') {
+        return a.id - b.id;
+      }
+      return b.id - a.id;
+    });
+
     return (
       <div className="page-tables">
-        <DisplayText>Buttons</DisplayText>
+        <DisplayText>Tables</DisplayText>
         <div className="buttons-page">
           <Card>
             <Row>
-              <Col span={ 12 }>
+              <Col span={ 6 }>
                 <DisplayText>Regular table</DisplayText>
                 <Table data={ data.slice(0, 10) }>
                   <Column name="id" label="ID" />
@@ -60,7 +74,7 @@ export default class Tables extends React.Component {
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
               </Col>
-              <Col span={ 12 }>
+              <Col span={ 6 }>
                 <DisplayText>Table with sticky header &amp; expander</DisplayText>
                 <Table data={ data.slice() } sticky>
                   <Column name="expander" label="" renderCell={ toggleExpander } />
@@ -70,7 +84,9 @@ export default class Tables extends React.Component {
                   <Expander render={ renderExpander } />
                 </Table>
               </Col>
-              <Col span={ 12 }>
+            </Row>
+            <Row>
+              <Col span={ 6 }>
                 <DisplayText>Table with loader</DisplayText>
                 <Table data={ data.slice(0, 10) } loading={ this.state.loading }>
                   <Column name="id" label="ID" />
@@ -78,6 +94,14 @@ export default class Tables extends React.Component {
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
                 <Button onClick={ reload }>Reload</Button>
+              </Col>
+              <Col span={ 6 }>
+                <DisplayText>Sortable columns</DisplayText>
+                <Table data={ sortedData }>
+                  <Column name="id" label="ID" sortable order={ this.state.idOrder } onSort={ sort }/>
+                  <Column name="title" label="Title" />
+                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
+                </Table>
               </Col>
             </Row>
           </Card>

@@ -127,6 +127,7 @@ class Row extends React.Component {
 
 const Column = () => {};
 Column.defaultProps = {
+  // eslint-disable-next-line react/display-name
   renderHeader: (label, name, column) => {
     if (!column.props.sortable) {
       return label;

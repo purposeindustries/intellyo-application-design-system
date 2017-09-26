@@ -47,7 +47,7 @@ export default class Tables extends React.Component {
       }, 2000);
     };
 
-    const sort = ordering => {
+    const sort = () => {
       this.setState({
         idOrder: this.state.idOrder === 'asc' ? 'desc' : 'asc',
       });

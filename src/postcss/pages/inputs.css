@@ -1,8 +1,13 @@
 .inputs-page {
 
   & .input,
-  & .select {
+  & .select,
+  & .multiselect {
     margin-bottom: $gutter-base;
+  }
+
+  & .multiselect {
+    min-width: 130px;
   }
 
   & .input-wrapper .input {

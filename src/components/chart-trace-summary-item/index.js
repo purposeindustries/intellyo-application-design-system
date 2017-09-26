@@ -47,7 +47,7 @@ class ChartTraceSummaryItem extends React.Component {
     color: PropTypes.string,
     value: PropTypes.string,
     title: PropTypes.string,
-    data: PropTypes.number,
+    data: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onClick: PropTypes.func,
     date: PropTypes.string
   };

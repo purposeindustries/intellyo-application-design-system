@@ -97,14 +97,13 @@ export default class Tables extends React.Component {
               </Col>
               <Col span={ 6 }>
                 <DisplayText>Sortable columns</DisplayText>
-                <Table
-                  data={ sortedData }
-                >
+                <Table data={ sortedData }>
                   <Column
                     name="id"
                     label="ID"
                     sortable
-                    order={ this.state.idOrder } onSort={ sort }
+                    order={ this.state.idOrder }
+                    onSort={ sort }
                   />
                   <Column name="title" label="Title" />
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />

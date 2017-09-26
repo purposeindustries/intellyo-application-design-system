@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import Select from '../components/select';
+import Multiselect from '../components/multiselect';
+import Option from '../components/option';
 import DropdownItem from '../components/dropdown-item';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
@@ -45,9 +47,11 @@ export default class Inputs extends Component {
       prefixValue: 'https://facebook.com/',
       invisibleTitle: 'This is an invisible textarea inside a header',
       html: textareaValue,
+      selected: []
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleMultiselect = this.handleMultiselect.bind(this);
     this.handleSocialPrefixedInput = this.handleSocialPrefixedInput.bind(this);
   }
 
@@ -68,6 +72,22 @@ export default class Inputs extends Component {
   handleSelect(value, id) {
     this.setState({
       [id]: value
+    });
+  }
+
+  handleMultiselect(value) {
+    if (this.state.selected.includes(value) === false) {
+      this.setState((prevState) => {
+        return {
+          selected: prevState.selected.concat([value])
+        };
+      });
+      return;
+    }
+    this.setState((prevState) => {
+      return {
+        selected: prevState.selected.filter(s => s !== value)
+      };
     });
   }
 
@@ -113,6 +133,17 @@ export default class Inputs extends Component {
                 </div>
               </Col>
               <Col span={ 6 }>
+                <Multiselect
+                  id="dueDate"
+                  label={ this.state.selectedLabel }
+                  onChange={ this.handleMultiselect }
+                  selected={ this.state.selected }
+                >
+                  <Option value="today">Today</Option>
+                  <Option value="tomorrow">Tomorrow</Option>
+                  <Option value="soon">Soon</Option>
+                  <Option value="not-today">Not today</Option>
+                </Multiselect>
                 <Select
                   id="car"
                   onChange={ this.handleSelect }

@@ -109,13 +109,6 @@ $dropdown-item-bg-color--active: $color-grey-2;
     display: flex;
     align-items: center;
 
-    &-label {
-      font-size: $dropdown-trigger-label-font-size;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
     & .icon {
       position: absolute;
       width: 22px;
@@ -123,6 +116,22 @@ $dropdown-item-bg-color--active: $color-grey-2;
       right: 10px;
       top: 50%;
       transform: translateY(-50%);
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+      font-size: $dropdown-trigger-label-font-size;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      & .icon {
+        position: static;
+        transform: none;
+        margin-right: 5px;
+      }
+
     }
 
   }

@@ -198,20 +198,39 @@ export default class Buttons extends Component {
           <Card>
             <Row>
               <Col span={ 12 }>
-                <Dropdown
-                  label="Foobar"
-                  isActive={ false }
-                >
-                  <DropdownItem>
-                    Hello
-                  </DropdownItem>
-                  <DropdownItem default>
-                    yeah
-                  </DropdownItem>
-                  <DropdownItem>
-                    hi
-                  </DropdownItem>
-                </Dropdown>
+                <div className="dropdowns">
+                  <Dropdown
+                    label="Foobar"
+                    isActive={ false }
+                  >
+                    <DropdownItem>
+                      Hello
+                    </DropdownItem>
+                    <DropdownItem default>
+                      yeah
+                    </DropdownItem>
+                    <DropdownItem>
+                      hi
+                    </DropdownItem>
+                  </Dropdown>
+                  <Dropdown
+                    label="Foobar"
+                    isActive={ false }
+                  >
+                    <DropdownItem>
+                      Home Page
+                    </DropdownItem>
+                    <DropdownItem
+                      default
+                      icon={ (<Icon icon="ion-eye" />) }
+                    >
+                      Preview
+                    </DropdownItem>
+                    <DropdownItem>
+                      Category Page
+                    </DropdownItem>
+                  </Dropdown>
+                </div>
               </Col>
             </Row>
           </Card>

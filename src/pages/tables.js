@@ -47,7 +47,7 @@ export default class Tables extends React.Component {
       }, 2000);
     };
 
-    const sort = ordering => {
+    const sort = () => {
       this.setState({
         idOrder: this.state.idOrder === 'asc' ? 'desc' : 'asc',
       });
@@ -97,8 +97,15 @@ export default class Tables extends React.Component {
               </Col>
               <Col span={ 6 }>
                 <DisplayText>Sortable columns</DisplayText>
-                <Table data={ sortedData }>
-                  <Column name="id" label="ID" sortable order={ this.state.idOrder } onSort={ sort }/>
+                <Table
+                  data={ sortedData }
+                >
+                  <Column
+                    name="id"
+                    label="ID"
+                    sortable
+                    order={ this.state.idOrder } onSort={ sort }
+                  />
                   <Column name="title" label="Title" />
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>

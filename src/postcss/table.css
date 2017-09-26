@@ -37,6 +37,11 @@
     &--header {
       font-weight: 600;
       color: $color-black-3;
+
+      &--sorter span {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
@@ -49,15 +54,6 @@
   & .expander {
     width: 32px;
     flex: initial;
-  }
-
-  & .id {
-    width: 32px;
-    flex: initial;
-  }
-
-  & .title {
-    flex: 2;
   }
 
   &--row-placeholder {
@@ -113,6 +109,7 @@
   }
 
   &--sorter {
+    transition: 0.2s ease-in-out;
     &--asc {
       transform: rotate(180deg);
     }

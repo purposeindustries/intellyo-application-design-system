@@ -29,6 +29,7 @@
 @import './horizontally-scrollable-row.css';
 @import './accordion.css';
 @import './empty-view';
+@import './option';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

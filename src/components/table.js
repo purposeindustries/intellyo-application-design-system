@@ -1,6 +1,7 @@
 import React from 'react';
 import p from 'prop-types';
 import c from 'classnames';
+import Icon from './icon';
 import sticky from './utils/sticky';
 
 const type = Component => descriptor => descriptor.type.displayName === Component.displayName;
@@ -16,7 +17,12 @@ const Table = props => {
           {
             columns.map(column => {
               return (
-                <div key={ column.props.name } className={ c('table--cell', 'table--cell--header', column.props.name) }>{column.props.renderHeader(column.props.label, column.props.name, column)}</div>
+                <div
+                  key={ column.props.name }
+                  className={ c('table--cell', 'table--cell--header', column.props.name, {'table--cell--header--sorter': column.props.sortable}) }
+                >
+                  {column.props.renderHeader(column.props.label, column.props.name, column)}
+                </div>
               );
             })
           }
@@ -121,7 +127,22 @@ class Row extends React.Component {
 
 const Column = () => {};
 Column.defaultProps = {
-  renderHeader: label => label,
+  // eslint-disable-next-line react/display-name
+  renderHeader: (label, name, column) => {
+    if (!column.props.sortable) {
+      return label;
+    }
+    return (
+      <span>
+        {label}
+        <Icon
+          icon="ion-ios-arrow-thin-up"
+          onClick={ () => column.props.onSort(column.props.order === 'asc' ? 'desc' : 'asc') }
+          className={ c('table--sorter', column.props.order === 'asc' ? 'table--sorter--asc' : 'table--sorter--desc') }
+        />
+      </span>
+    );
+  },
   renderCell: field => field,
 };
 Column.displayName = 'Column';

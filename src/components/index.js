@@ -28,6 +28,7 @@ export { default as Row } from './row';
 export { default as Select } from './select';
 export { default as Multiselect } from './multiselect';
 export { default as Option } from './option';
+export { default as OptionSeparator } from './option-separator';
 export { default as Sidebar, SidebarItem } from './sidebar';
 export { default as SocialPrefixedInput } from './social-prefixed-input';
 export { default as StackedAvatar } from './stacked-avatar';

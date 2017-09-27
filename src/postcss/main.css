@@ -30,6 +30,7 @@
 @import './accordion.css';
 @import './empty-view';
 @import './option';
+@import './option-separator';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

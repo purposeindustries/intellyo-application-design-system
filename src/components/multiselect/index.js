@@ -58,16 +58,19 @@ export default class Multiselect extends React.Component {
         >
           {
             React.Children.map(this.props.children, (c) => {
-              this._options[c.props.value] = c;
-              return React.cloneElement(c, {
-                onClick: (e) => {
-                  if (c.props.onClick) {
-                    c.props.onClick(e);
-                  }
-                  this.props.onChange(c.props.value, c.props.children);
-                },
-                checked: this.props.selected.includes(c.props.value)
-              });
+              if (c.type.displayName === 'Option') {
+                this._options[c.props.value] = c;
+                return React.cloneElement(c, {
+                  onClick: (e) => {
+                    if (c.props.onClick) {
+                      c.props.onClick(e);
+                    }
+                    this.props.onChange(c.props.value, c.props.children);
+                  },
+                  checked: this.props.selected.includes(c.props.value)
+                });
+              }
+              return React.cloneElement(c);
             })
           }
         </Dropdown>

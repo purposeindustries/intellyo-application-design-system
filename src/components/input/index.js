@@ -97,6 +97,8 @@ class Input extends React.Component {
       renderSuggestion,
       inputRef,
       onSuggestionSelected,
+      // eslint-disable-next-line
+      onFetchRequested, error, limit, addTag, detailed,
       ...inputProps
     } = props;
     let autosuggestField;

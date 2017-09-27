@@ -67,7 +67,7 @@ class ChartsPage extends React.Component {
             <DisplayText>Custom Preloader</DisplayText>
             <Chart
               renderPreloader={ () => (
-                <p style={ {'text-align': 'center'} }>
+                <p style={ {'textAlign': 'center'} }>
                   ⛅️☁️☁️<br />
                   ☁️👴🏻☁️<br />
                   ☁️👇🏻☁️<br />
@@ -161,7 +161,7 @@ class ChartsPage extends React.Component {
             <Chart
               bodyLoading={ true }
               renderBodyPreloader={ () => (
-                <p style={ {'text-align': 'center'} }>
+                <p style={ {'textAlign': 'center'} }>
                   ⛅️☁️☁️<br />
                   ☁️👴🏻☁️<br />
                   ☁️👇🏻☁️<br />

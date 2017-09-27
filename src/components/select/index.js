@@ -11,7 +11,7 @@ export default class Select extends React.Component {
     onChange: PropTypes.func,
     id: PropTypes.string,
     isActive: PropTypes.bool,
-    style: PropTypes.obj,
+    style: PropTypes.object,
     icon: PropTypes.element
   }
   static defaultProps = {

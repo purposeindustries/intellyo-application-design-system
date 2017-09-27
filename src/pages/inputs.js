@@ -4,6 +4,7 @@ import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import Select from '../components/select';
 import Multiselect from '../components/multiselect';
 import Option from '../components/option';
+import OptionSeparator from '../components/option-separator';
 import DropdownItem from '../components/dropdown-item';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
@@ -143,6 +144,8 @@ export default class Inputs extends Component {
                   <Option value="tomorrow">Tomorrow</Option>
                   <Option value="soon">Soon</Option>
                   <Option value="not-today">Not today</Option>
+                  <OptionSeparator>Other</OptionSeparator>
+                  <Option value="the-day-after-tomorrow">Day after tomorrow</Option>
                 </Multiselect>
                 <Select
                   id="car"

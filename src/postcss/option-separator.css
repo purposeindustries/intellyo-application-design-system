@@ -1,0 +1,11 @@
+/* Local variables */
+$option-separator-title-font-size: $subheading-font-size;
+$option-separator-title-line-height: $subheading-line-height;
+$option-separator-title-font-weight: $subheading-font-weight;
+
+.option-separator-title {
+  padding: 0 10px;
+  font-size: $option-separator-title-font-size;
+  line-height: $option-separator-title-line-height;
+  font-weight: $option-separator-title-font-weight;
+}

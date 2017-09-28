@@ -27,15 +27,34 @@ export class DefaultInput extends React.Component {
   static propTypes = {
     detailed: PropTypes.bool,
     inputRef: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
+    isActive: PropTypes.bool,
+    onAddButtonClick: PropTypes.func,
+    disabled: PropTypes.bool
+  }
+  static defaultProps = {
+    onAddButtonClick: () => {}
   }
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false
+      isActive: !!props.isActive
     };
   }
+  componentWillReceiveProps(next) {
+    if (typeof next.isActive !== 'undefined' && next.isActive !== this.state.isActive) {
+      this.setState({
+        isActive: next.isActive
+      });
+    }
+  }
   render() {
+    const {
+      // eslint-disable-next-line no-unused-vars
+      isActive,
+      onAddButtonClick,
+      ...inputProps
+    } = this.props;
     return (
       <div
         className={ classNames('tagsinput-input-controls tagsinput-default-input', {
@@ -50,14 +69,17 @@ export class DefaultInput extends React.Component {
             />
           ) }
           onClick={ () => {
-            this.setState({
-              isActive: true
-            }, () => this.input.focus());
+            if (!this.props.disabled) {
+              this.setState({
+                isActive: true
+              }, () => this.input.focus());
+            }
+            onAddButtonClick();
           } }
           className="tagsinput-add-tag"
         />
         <Input
-          { ...this.props }
+          { ...inputProps }
           type="text"
           inputRef={ (el) => {
             this.input = el;

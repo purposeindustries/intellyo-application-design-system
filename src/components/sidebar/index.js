@@ -14,6 +14,11 @@ class SidebarItem extends Component {
     expandable: PropTypes.bool,
     items: PropTypes.arrayOf(PropTypes.node),
     className: PropTypes.string,
+    onClick: PropTypes.func
+  }
+
+  static defaultProps = {
+    onClick: () => {}
   }
 
   constructor(props) {
@@ -42,6 +47,7 @@ class SidebarItem extends Component {
                 open: !state.open
               }));
             }
+            this.props.onClick(e);
           } }
         >
           { this.props.children }

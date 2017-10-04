@@ -114,6 +114,7 @@ class RichTextarea extends React.Component {
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
     onKeyDown: PropTypes.func,
+    disabled: PropTypes.bool,
   };
   static defaultProps = {
     transform: toHTML,
@@ -142,7 +143,7 @@ class RichTextarea extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <div
-        contentEditable
+        contentEditable={ !this.props.disabled }
         placeholder={ this.props.placeholder }
         ref={ ref(this, '_el') }
         className={ classNames('rich-textarea', this.props.className) }

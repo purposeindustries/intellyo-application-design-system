@@ -381,6 +381,27 @@ export default class Inputs extends Component {
                 />
               </Col>
             </Row>
+            <Row>
+              <Col span={ 6 }>
+                <DisplayText>
+                  <InvisibleAutgrowTextarea
+                    disabled
+                    value={ this.state.invisibleTitle }
+                    onChange={ this.handleInputChange }
+                    name="invisibleTitle"
+                  />
+                </DisplayText>
+              </Col>
+              <Col span={ 6 }>
+                <RichTextarea
+                  disabled
+                  placeholder="Placeholder text"
+                  value={ this.state.bio }
+                  onChange={ this.handleInputChange }
+                  name="bio"
+                />
+              </Col>
+            </Row>
           </Card>
         </div>
       </div>

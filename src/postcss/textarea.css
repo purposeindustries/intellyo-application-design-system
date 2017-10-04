@@ -40,6 +40,9 @@
     font: inherit;
     border: 0;
     padding: 0;
+    &.textarea--disabled {
+      background: inherit;
+    }
   }
 
   &.autogrow {

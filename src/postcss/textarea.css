@@ -67,5 +67,7 @@
   &:empty::before {
     display: block;
     content: attr(placeholder);
+    cursor: text;
+    color: $textarea-placeholder-color;
   }
 }

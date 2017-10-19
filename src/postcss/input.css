@@ -54,6 +54,10 @@
 
   }
 
+  &--icon .react-autosuggest__container:focus-within + .input-icon-wrapper svg {
+    fill: $input-icon-fill--focus;
+  }
+
   &--icon input {
     padding: $input-padding--icon;
 
@@ -80,6 +84,8 @@
 
     & svg {
       fill: $input-icon-fill;
+      height: 20px;
+      width: 20px;
     }
 
   }

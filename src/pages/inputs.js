@@ -178,6 +178,7 @@ export default class Inputs extends Component {
                   } }
                 />
                 <Input
+                  icon={ (<Icon icon="ion-search" />) }
                   suggestions={ this.state.autosuggestImage.suggestions }
                   onFetchRequested={ () => {
                     this.setState((state) => {

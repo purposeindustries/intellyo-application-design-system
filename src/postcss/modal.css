@@ -1,0 +1,22 @@
+@import "rodal/lib/rodal.css";
+
+/* Local variables */
+$modal-shadow: $box-shadow-base;
+$modal-overlay-background: rgba(0,0,0,.6);
+
+.modal {
+
+  & .rodal-mask {
+    background: $modal-overlay-background;
+  }
+
+  & .rodal-dialog {
+    border-radius: $border-radius-base;
+    box-shadow: $modal-shadow;
+  }
+
+  & .rodal-close::before,
+  & .rodal-close::after {
+    border-radius: 0;
+  }
+}

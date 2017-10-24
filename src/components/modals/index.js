@@ -60,7 +60,7 @@ export default class Modal extends React.PureComponent {
               { this.props.header }
             </header>
           ) }
-          <main className="modal-main-content">
+          <main className="modal-body">
             { this.props.children }
           </main>
           { this.props.footer && (

@@ -13,6 +13,19 @@ $modal-overlay-background: rgba(0,0,0,.6);
   & .rodal-dialog {
     border-radius: $border-radius-base;
     box-shadow: $modal-shadow;
+    padding: 0;
+
+    & .modal-header {
+      padding: 15px 15px 0;
+    }
+
+    & .modal-body {
+      padding: 15px;
+    }
+
+    & .modal-footer {
+      padding: 0 15px 15px;
+    }
   }
 
   & .rodal-close::before,

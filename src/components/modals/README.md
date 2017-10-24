@@ -7,7 +7,7 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 | Prop | Type | Description | isRequired |
 | ---- | ---- | ----------- | ---------- |
 | header | node | The content to display inside your Modal's header. | no |
-| title | string | This is the title of your Modal.to display inside your Modal's header. | no |
+| title | string | This is the title of your Modal to display inside your Modal's header. | no |
 | children | node | The content to display inside your Modal's body. | no |
 | footer | node | The content to display inside your Modal's footer. | no |
 | measure | string | It can either be `"em"`, `"px"`, `"%"` or any other valid CSS metric. It is used for specifying in what measure you'd like to define the Modal's dimensions. | yes |
@@ -38,4 +38,4 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 </Modal>
 ```
 
-See more examples [here](src/pages/modals.js).
+See more examples [here](/src/pages/modals.js).

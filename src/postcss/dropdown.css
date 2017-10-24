@@ -156,13 +156,17 @@ $dropdown-item-bg-color--active: $color-grey-2;
     & .dropdown-item,
     & .prefixed-item {
       font-size: 12px;
-      height: 30px;
+      min-height: 30px;
       cursor: pointer;
       padding: 0 20px;
-      line-height: 30px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      & > label {
+        width: 100%;
+      }
 
       &:hover {
         background-color: $dropdown-item-bg-color--hover;

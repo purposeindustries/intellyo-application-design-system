@@ -89,6 +89,7 @@
 
 .button--disabled {
   background: $button-background-color-disabled;
+  cursor: default;
 }
 
 .button--disabled:hover {

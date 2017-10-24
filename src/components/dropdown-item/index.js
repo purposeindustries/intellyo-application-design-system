@@ -18,6 +18,7 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   children: PropTypes.string,
+  value: PropTypes.string,
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
   default: PropTypes.bool,

@@ -1,0 +1,14 @@
+.dropdown-item.option {
+  padding: 0;
+
+  & label {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & input[type="checkbox"] {
+      margin-left: auto;
+    }
+  }
+}

@@ -43,6 +43,7 @@
 @import './pages/charts.css';
 @import './pages/accordions.css';
 @import './pages/tables.css';
+@import './pages/modals.css';
 
 body {
   margin: 0;

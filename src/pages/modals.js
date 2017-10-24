@@ -12,7 +12,8 @@ export default class ModalsPage extends Component {
   state = {
     modals: {
       animated: false,
-      notAnimated: false
+      notAnimated: false,
+      dialog: false,
     }
   }
 
@@ -77,6 +78,30 @@ export default class ModalsPage extends Component {
                 title="Modal with animation"
               >
                 <div>hello</div>
+              </Modal>
+              <DisplayText>Modal, which looks like a dilaog</DisplayText>
+              <Button
+                onClick={ () => this.handleModalOpen('dialog') }
+              >
+              Open dialog</Button>
+              <Modal
+                visible={ this.state.modals.dialog }
+                onClose={ () => this.handleModalClose('dialog') }
+                measure="px"
+                width={ 500 }
+                height={ 162 }
+                isAnimated={ true }
+                duration={ 300 }
+                animation="fade"
+                title="Are you sure to leave it unsaved?"
+                footer={ (
+                  <div className="dialog-exmaple-buttons">
+                    <Button neutral>Save and then leave</Button>
+                    <Button danger>Leave</Button>
+                  </div>
+                ) }
+              >
+                <div>Your changes aren't going to be saved. There'll be no way to recover them.</div>
               </Modal>
             </Col>
           </Row>

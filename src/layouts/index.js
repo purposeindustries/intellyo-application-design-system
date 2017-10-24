@@ -55,6 +55,9 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-accordions" href="/accordions">
               Accordions
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-modals" href="/modals">
+              Modals
+            </SidebarItem>,
           ]) }
         >
           Components

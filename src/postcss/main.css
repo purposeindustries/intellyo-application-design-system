@@ -29,6 +29,7 @@
 @import './horizontally-scrollable-row.css';
 @import './accordion.css';
 @import './empty-view';
+@import './modal';
 @import './option';
 @import './option-separator';
 
@@ -44,6 +45,7 @@
 @import './pages/charts.css';
 @import './pages/accordions.css';
 @import './pages/tables.css';
+@import './pages/modals.css';
 
 body {
   margin: 0;

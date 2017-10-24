@@ -1,0 +1,35 @@
+@import "rodal/lib/rodal.css";
+
+/* Local variables */
+$modal-shadow: $box-shadow-base;
+$modal-overlay-background: rgba(0,0,0,.6);
+
+.modal {
+
+  & .rodal-mask {
+    background: $modal-overlay-background;
+  }
+
+  & .rodal-dialog {
+    border-radius: $border-radius-base;
+    box-shadow: $modal-shadow;
+    padding: 0;
+
+    & .modal-header {
+      padding: 15px 15px 0;
+    }
+
+    & .modal-body {
+      padding: 15px;
+    }
+
+    & .modal-footer {
+      padding: 0 15px 15px;
+    }
+  }
+
+  & .rodal-close::before,
+  & .rodal-close::after {
+    border-radius: 0;
+  }
+}

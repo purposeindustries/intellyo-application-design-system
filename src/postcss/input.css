@@ -144,6 +144,7 @@
 .input-suggestion-title {
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
   line-height: 17px;
   font-size: 14px;
 }

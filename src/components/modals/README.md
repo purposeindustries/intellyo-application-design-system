@@ -21,6 +21,9 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 | animation | string | You are able to specify different kinds of animations, which `Rodal` provides. You can checkout the animations [here](http://chenjiahan.github.io/rodal/). **NOTE**: In order to use animations, you need to set the `isAnimated` prop to `true`. | no |
 | isAnimated | boolean | This is a custom prop, not a default feature of `Rodal`. You can turn off animation with this props. When it's set to false, then the duration of the animation is set to false. | no |
 | duration | number | You can specify the duration of the animation. **NOTE**: In order to use animations, you need to set the `isAnimated` prop to `true`. | no |
+| customStyles | object | You can provide custom styles within an object to `Rodal`'s dialog. | no |
+| customMaskStyles | object | Similarly to `Rodal`'s dialog, you can provide custom styles within an object to `Rodal`'s mask. | no |
+| hasAutoHeight | boolean | You can set the modal's height to by setting the `hasAutoHeight` prop to true. **NOTE**: `height: auto` related styles will be merged into customStyles prop. | no |
 
 ## Examples
 

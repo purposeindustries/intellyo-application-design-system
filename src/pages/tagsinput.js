@@ -190,6 +190,13 @@ export default class TagsInputPage extends Component {
             ) }
           />
         </Card>
+        <Card>
+          <SuggestionWithImage
+            image="https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+            title="Volvo sooo Loong!"
+            caption="@intellyo"
+          />
+        </Card>
       </div>
     );
   }

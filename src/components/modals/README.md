@@ -23,7 +23,7 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 | duration | number | You can specify the duration of the animation. **NOTE**: In order to use animations, you need to set the `isAnimated` prop to `true`. | no |
 | customStyles | object | You can provide custom styles within an object to `<Modal />`'s dialog. | no |
 | customMaskStyles | object | Similarly to `<Modal />`'s dialog, you can provide custom styles within an object to `<Modal />`'s mask. | no |
-| hasAutoHeight | boolean | You can set the `<Modal />`'s height to by setting the `hasAutoHeight` prop true. **NOTE**: `height: auto` related styles will be merged into customStyles prop. | no |
+| hasAutoHeight | boolean | You can set the `<Modal />`'s height by setting the `hasAutoHeight` prop to true. **NOTE**: `height: auto` related styles will be merged into customStyles prop. | no |
 
 ## Examples
 

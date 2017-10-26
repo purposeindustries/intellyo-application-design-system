@@ -80,7 +80,7 @@ export default class ModalsPage extends Component {
               >
                 <div>hello</div>
               </Modal>
-              <DisplayText>Modal, which looks like a dilaog</DisplayText>
+              <DisplayText>Modal, which looks like a dialog</DisplayText>
               <Button
                 onClick={ () => this.handleModalOpen('dialog') }
               >
@@ -104,7 +104,7 @@ export default class ModalsPage extends Component {
               >
                 <div>Your changes aren't going to be saved. There'll be no way to recover them.</div>
               </Modal>
-              <DisplayText>Modal, which looks like a dilaog and has some custom styles</DisplayText>
+              <DisplayText>Modal, which looks like a dialog and has some custom styles</DisplayText>
               <Button
                 onClick={ () => this.handleModalOpen('customDialog') }
               >

@@ -1,4 +1,9 @@
 .tagsinputs-page {
+
+  &> .card {
+    margin-bottom: $gutter-base;
+  }
+
   & .tagsinput {
     margin-bottom: $gutter-base;
 

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
 import throttle from 'lodash.throttle';
-import OverlayTrigger from '../overlay-trigger';
-import Tooltip from '../tooltip';
+import Caption from '../caption';
 
 const Field = ({ inputRef, className, defaultValue, ...rest }) => (
   <input
@@ -40,34 +39,35 @@ export const Suggestion = (suggestion) => (
   <div
     className="input-suggestion"
   >
-    <OverlayTrigger
-      overlay={ <Tooltip>{ suggestion }</Tooltip> }
+    <div
       className="input-suggestion-title-wrapper"
     >
       <div className="input-suggestion-title">
         { suggestion }
       </div>
-    </OverlayTrigger>
+    </div>
   </div>
 );
 
 Suggestion.displayName = 'Suggestion';
 
-export const SuggestionWithImage = ({ image, title }) => (
+export const SuggestionWithImage = ({ image, title, caption }) => (
   <div
     className="input-suggestion input-suggestion-with-image"
   >
     <div className="input-suggestion-image">
       <img src={ image } alt={ title } />
     </div>
-    <OverlayTrigger
-      overlay={ <Tooltip>{ title }</Tooltip> }
+    <div
       className="input-suggestion-title-wrapper"
     >
       <div className="input-suggestion-title">
         { title }
       </div>
-    </OverlayTrigger>
+      <Caption className="input-suggestion-caption">
+        { caption }
+      </Caption>
+    </div>
   </div>
 );
 
@@ -75,7 +75,8 @@ SuggestionWithImage.displayName = 'SuggestionWithImage';
 
 SuggestionWithImage.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
+  caption: PropTypes.string
 };
 
 class Input extends React.Component {

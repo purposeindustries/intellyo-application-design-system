@@ -17,7 +17,10 @@ export default class TagsInputPage extends Component {
   render() {
     return (
       <div className="tagsinputs-page">
-        <Card>
+        <Card
+          title="TagsInput"
+          titleCaption="Several forms of tags inputs (a.k.a tag bars)"
+        >
           <TagsInput
             value={ this.state.tagsInput1 }
             onChange={ (tags) => this.setState({
@@ -188,6 +191,16 @@ export default class TagsInputPage extends Component {
                 placeholder="Type your tag..."
               />
             ) }
+          />
+        </Card>
+        <Card
+          title="SuggestionWithImage"
+          titleCaption="An item of the list you get as a suggestion when you type something we know about"
+        >
+          <SuggestionWithImage
+            image="https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg"
+            title="Volvo sooo Loong!"
+            caption="@intellyo"
           />
         </Card>
       </div>

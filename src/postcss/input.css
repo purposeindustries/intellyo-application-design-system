@@ -117,10 +117,15 @@
         font-size: 12px;
         font-weight: 400;
         height: 39px;
-        line-height: 39px;
-        vertical-align: middle;
         cursor: pointer;
         padding: 0 15px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
 
         &:hover,
         &.react-autosuggest__suggestion--highlighted {
@@ -137,9 +142,16 @@
 }
 
 .input-suggestion-title {
-  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+  line-height: 17px;
+  font-size: 14px;
+}
+
+.input-suggestion-caption {
+  font-size: 12px;
+  color: $color-black-3;
 }
 
 .input-suggestion-with-image {
@@ -147,8 +159,8 @@
   align-items: center;
 
   & .input-suggestion-image {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 100%;
     overflow: hidden;
     margin-right: 10px;

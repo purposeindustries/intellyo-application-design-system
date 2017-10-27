@@ -14,6 +14,7 @@ export default class ModalsPage extends Component {
       animated: false,
       notAnimated: false,
       dialog: false,
+      customDialog: false,
     }
   }
 
@@ -79,7 +80,7 @@ export default class ModalsPage extends Component {
               >
                 <div>hello</div>
               </Modal>
-              <DisplayText>Modal, which looks like a dilaog</DisplayText>
+              <DisplayText>Modal, which looks like a dialog</DisplayText>
               <Button
                 onClick={ () => this.handleModalOpen('dialog') }
               >
@@ -90,6 +91,32 @@ export default class ModalsPage extends Component {
                 measure="px"
                 width={ 500 }
                 height={ 162 }
+                isAnimated={ true }
+                duration={ 300 }
+                animation="fade"
+                title="Are you sure to leave it unsaved?"
+                footer={ (
+                  <div className="dialog-exmaple-buttons">
+                    <Button neutral>Save and then leave</Button>
+                    <Button danger>Leave</Button>
+                  </div>
+                ) }
+              >
+                <div>Your changes aren't going to be saved. There'll be no way to recover them.</div>
+              </Modal>
+              <DisplayText>Modal, which looks like a dialog and has some custom styles</DisplayText>
+              <Button
+                onClick={ () => this.handleModalOpen('customDialog') }
+              >
+              Open dialog</Button>
+              <Modal
+                hasAutoHeight={ true }
+                customStyles={ {'backgroundColor': 'lightblue'} }
+                visible={ this.state.modals.customDialog }
+                onClose={ () => this.handleModalClose('customDialog') }
+                measure="px"
+                width={ 500 }
+                height={ 500 }
                 isAnimated={ true }
                 duration={ 300 }
                 animation="fade"

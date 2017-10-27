@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool, string, node, func, number } from 'prop-types';
+import { bool, string, node, func, number, object } from 'prop-types';
 import Heading from '../heading/';
 import Rodal from 'rodal';
 
@@ -23,10 +23,14 @@ export default class Modal extends React.PureComponent {
     showCloseButton: bool,
     animation: string,
     onAnimationEnd: func,
+    hasAutoHeight: bool,
+    customStyles: object,
+    customMaskStyles: object,
   }
 
   static defaultProps = {
-    isAnimated: true
+    isAnimated: true,
+    customStyles: {},
   }
 
   handleAnimationEnd = () => {
@@ -37,6 +41,12 @@ export default class Modal extends React.PureComponent {
   }
 
   render() {
+    const autoHeightStyles = {
+      'height': 'auto',
+      'bottom': 'auto',
+      'top': '50%',
+      'transform': 'translateY(-50%)',
+    };
     return (
       <div className="modal">
         <Rodal
@@ -51,6 +61,10 @@ export default class Modal extends React.PureComponent {
           closeOnEsc
           animation={ this.props.animation }
           onAnimationEnd={ this.handleAnimationEnd }
+          customStyles={ this.props.hasAutoHeight
+            ? Object.assign(this.props.customStyles, autoHeightStyles)
+            : this.props.customStyles }
+          customMaskStyles={ this.props.customMaskStyles }
         >
           { (this.props.title || this.props.header) && (
             <header className="modal-header">

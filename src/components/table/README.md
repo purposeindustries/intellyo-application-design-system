@@ -7,7 +7,7 @@ At Intellyo we created our Table as a stateless, controlled component. We use 3 
 - `<Column />` - they are responsible for creating the columns of the table and rendering the table headers.
 - `<Expander />` - It's an optional component. You should use this component, when the rows of your table need expandability.
 
-Let's look at a basic `<Table />`, before we dive into each component:
+Let's take a look at a basic `<Table />`, before we dive into each component:
 
 ```jsx
 <Table data={ ...your data comes here }>

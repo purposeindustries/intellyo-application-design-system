@@ -19,20 +19,21 @@ export default class Multiselect extends React.Component {
   };
 
   static defaultProps = {
-    onChange: () => {}
+    onChange: () => {},
+    defaultLabel: 'Nothing selected'
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      label: this.props.defaultLabel || 'Nothing selected',
+      label: this.props.defaultLabel,
       isActive: props.isActive
     };
   }
 
   getLabel = (selected) => {
     if (selected.length === 0) {
-      return this.props.defaultLabel || 'Nothing selected';
+      return this.props.defaultLabel;
     } else if (selected.length === 1) {
       return this._options[selected[0]].props.children;
     }

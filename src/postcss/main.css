@@ -32,6 +32,7 @@
 @import './modal';
 @import './option';
 @import './option-separator';
+@import './multiselect';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

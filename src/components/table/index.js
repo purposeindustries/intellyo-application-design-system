@@ -37,7 +37,7 @@ const Table = props => {
               <Placeholder key="3" columns={ columns } />,
               <Placeholder key="4" columns={ columns } />,
             ]
-            : props.data.map((row, index) => <Row key={ index } item={ row } columns={ props.children } />)
+            : props.data.map((row, index) => <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />)
         }
       </div>
     </div>
@@ -50,6 +50,10 @@ Table.propTypes = {
   sticky: p.bool,
   loading: p.bool,
   data: p.array,
+  onRowClick: p.func,
+};
+Table.defaultProps = {
+  onRowClick: () => {},
 };
 
 const Placeholder = (props) => (
@@ -83,6 +87,7 @@ class Row extends React.Component {
   static propTypes = {
     columns: p.node,
     item: p.object,
+    onClick: p.func,
   };
   state = {
     expanded: false,
@@ -107,7 +112,10 @@ class Row extends React.Component {
     const row = this.props.item;
 
     return (
-      <div className="table--row">
+      <div
+        className="table--row"
+        onClick={ this.props.onClick }
+      >
         {
           columns.map(column => (
             <div key={ column.props.name } className={ c('table--cell', column.props.name) }>{column.props.renderCell(row[column.props.name], row, column, this)}</div>

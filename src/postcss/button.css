@@ -89,11 +89,26 @@
 
 .button--disabled {
   background: $button-background-color-disabled;
+  background: $button-background-color-disabled;
   cursor: default;
+
+  &.button--neutral {
+    color: $button-color-disabled;
+    border-color: $button-border-color-disabled;
+    background-color: $button-background-color-disabled-neutral;
+
+    & .button-icon-wrapper .icon svg {
+      fill: $button-icon-fill-disabled;
+    }
+  }
 }
 
 .button--disabled:hover {
   background: $button-background-color-disabled;
+
+  &.button--neutral {
+    background-color: $button-background-color-disabled-neutral;
+  }
 }
 
 .button--small {

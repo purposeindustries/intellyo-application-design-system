@@ -95,7 +95,13 @@
   $button-icon-fill-neutral: $color-black-4;
   $button-icon-fill-neutral-hover: $color-primary-4;
 
-  $button-background-color-disabled: $color-black-3;
+  $button-background-color-disabled: $color-grey-4;
+  $button-background-color-disabled-neutral: #fff;
+  $button-border-color-disabled: $color-grey-4;
+  $button-color-disabled: $color-grey-4;
+  $button-icon-fill-disabled: $color-grey-4;
+  $button-color-disabled--hover: #fff;
+  $button-icon-fill-disabled--hover: #fff;
 
 /* Input */
 

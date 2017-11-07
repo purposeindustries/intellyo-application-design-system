@@ -53,7 +53,27 @@ export default class Buttons extends Component {
                   Remove this item
                 </Button>
                 <Button
+                  disabled
+                  danger
+                  size="large"
+                  icon={ (
+                    <Icon icon="ion-close-circled" />
+                  ) }
+                >
+                  Remove this item
+                </Button>
+                <Button
                   neutral
+                  size="large"
+                  icon={ (
+                    <Icon icon="ion-happy" />
+                  ) }
+                >
+                  I'm happy
+                </Button>
+                <Button
+                  neutral
+                  disabled
                   size="large"
                   icon={ (
                     <Icon icon="ion-happy" />
@@ -116,6 +136,15 @@ export default class Buttons extends Component {
                   I'm happy
                 </Button>
                 <Button
+                  disabled
+                  neutral
+                  icon={ (
+                    <Icon icon="ion-happy" />
+                  ) }
+                >
+                  I'm happy
+                </Button>
+                <Button
                   icon={ (
                     <Icon icon="ion-android-cart" />
                   ) }
@@ -161,6 +190,16 @@ export default class Buttons extends Component {
                   Remove this item
                 </Button>
                 <Button
+                  neutral
+                  size="small"
+                  icon={ (
+                    <Icon icon="ion-happy" />
+                  ) }
+                >
+                  I'm happy
+                </Button>
+                <Button
+                  disabled
                   neutral
                   size="small"
                   icon={ (

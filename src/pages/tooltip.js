@@ -57,7 +57,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="bottom"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="bottom">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -73,7 +73,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="left"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="left">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -89,7 +89,7 @@ export default class TooltipPage extends React.Component {
               <OverlayTrigger
                 placement="right"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="right">
                     International University of Monaco
                   </Tooltip>
                 }

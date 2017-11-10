@@ -1,3 +1,5 @@
+$arrow-dimension: 6px;
+
 .tooltip {
   display: inline-block;
   border-radius: $border-radius-base;
@@ -13,6 +15,10 @@
   font-size: $font-size-base;
 
   &-placement--bottom {
+    top: 100%;
+    transform: translate(-50%, $arrow-dimension);
+    left: 50%;
+
     & .tooltip-arrow {
       position: absolute;
       width: 0;
@@ -25,7 +31,12 @@
       bottom: 28px;
     }
   }
+
   &-placement--left {
+    right: 100%;
+    top: 50%;
+    transform: translate(calc(-1 * $arrow-dimension), -50%);
+
     & .tooltip-arrow {
       position: absolute;
       right: -6px;
@@ -38,7 +49,12 @@
       border-color: transparent transparent transparent #000000;
     }
   }
+
   &-placement--top {
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, calc(-1 * $arrow-dimension));
+
     & .tooltip-arrow {
       position: absolute;
       left: 50%;
@@ -51,7 +67,12 @@
       border-color: #000000 transparent transparent transparent;
     }
   }
+
   &-placement--right {
+    left: 100%;
+    top: 50%;
+    transform: translate($arrow-dimension, -50%);
+
     & .tooltip-arrow {
       position: absolute;
       left: -6px;

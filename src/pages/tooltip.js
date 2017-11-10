@@ -10,38 +10,13 @@ export default class TooltipPage extends React.Component {
   static displayName = 'Tooltip'
   render() {
     return (
-      <div>
-        <Card>
-          <Row >
-            <Col span={ 3 }>
-              <Tooltip placement="top">
-                International University of Monaco
-              </Tooltip>
-            </Col>
-            <Col span={ 3 }>
-              <Tooltip placement="right">
-                International University of Monaco
-              </Tooltip>
-            </Col>
-            <Col span={ 3 }>
-              <Tooltip placement="bottom">
-                International University of Monaco
-              </Tooltip>
-            </Col>
-            <Col span={ 3 }>
-              <Tooltip placement="left">
-                International University of Monaco
-              </Tooltip>
-            </Col>
-          </Row>
-        </Card>
+      <div className="tooltips-page">
         <Card>
           <Row>
             <Col span={ 3 }>
               <OverlayTrigger
-                placement="top"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="top">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -55,9 +30,8 @@ export default class TooltipPage extends React.Component {
             </Col>
             <Col span={ 3 }>
               <OverlayTrigger
-                placement="bottom"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="right">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -71,9 +45,8 @@ export default class TooltipPage extends React.Component {
             </Col>
             <Col span={ 3 }>
               <OverlayTrigger
-                placement="left"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="bottom">
                     International University of Monaco
                   </Tooltip>
                 }
@@ -87,9 +60,8 @@ export default class TooltipPage extends React.Component {
             </Col>
             <Col span={ 3 }>
               <OverlayTrigger
-                placement="right"
                 overlay={
-                  <Tooltip>
+                  <Tooltip placement="left">
                     International University of Monaco
                   </Tooltip>
                 }

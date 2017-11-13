@@ -20,7 +20,8 @@ export default class Multiselect extends React.Component {
 
   static defaultProps = {
     onChange: () => {},
-    defaultLabel: 'Nothing selected'
+    defaultLabel: 'Nothing selected',
+    selected: [],
   }
 
   constructor(props) {

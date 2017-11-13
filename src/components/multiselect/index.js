@@ -13,7 +13,6 @@ export default class Multiselect extends React.Component {
     selected: array,
     isActive: bool,
     children: node,
-    label: string,
     defaultLabel: string,
   };
 

@@ -136,7 +136,6 @@ export default class Inputs extends Component {
               <Col span={ 6 }>
                 <Multiselect
                   id="dueDate"
-                  label={ this.state.selectedLabel }
                   onChange={ this.handleMultiselect }
                   selected={ this.state.selected }
                 >

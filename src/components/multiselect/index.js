@@ -14,7 +14,6 @@ export default class Multiselect extends React.Component {
     isActive: bool,
     children: node,
     label: string,
-    value: string,
     defaultLabel: string,
   };
 
@@ -49,10 +48,10 @@ export default class Multiselect extends React.Component {
     }
   }
 
-  componentDidMount(props) {
-    if (props.selected) {
+  componentDidMount() {
+    if (this.props.selected) {
       setTimeout(() => this.setState({
-        label: this.getLabel(props.selected)
+        label: this.getLabel(this.props.selected)
       }));
     }
   }

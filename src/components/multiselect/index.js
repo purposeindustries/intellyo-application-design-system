@@ -49,6 +49,14 @@ export default class Multiselect extends React.Component {
     }
   }
 
+  componentDidMount(props) {
+    if (props.selected) {
+      setTimeout(() => this.setState({
+        label: this.getLabel(props.selected)
+      }));
+    }
+  }
+
   _options = {}
 
   render() {

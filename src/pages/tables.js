@@ -35,44 +35,15 @@ export default class Tables extends React.Component {
   static displayName = 'TablesPage';
 
   state = {
-    loading: {
-      loadingTable: false,
-      updatingTable: false
-    },
+    loading: false,
     idOrder: 'asc',
   };
 
   render() {
-    const load = () => {
-      this.setState({loading: {
-        loadingTable: true,
-      }});
+    const reload = () => {
+      this.setState({loading: true});
       setTimeout(() => {
-        this.setState({loading: {
-          loadingTable: false,
-          data: data.slice(0, 10),
-        }});
-      }, 2000);
-    };
-
-    const update = () => {
-      this.setState(state => {
-        return {
-          loading: {
-            ...state.loading,
-            updatingTable: true
-          }
-        };
-      });
-      setTimeout(() => {
-        this.setState(state => {
-          return {
-            loading: {
-              ...state.loading,
-              updatingTable: false
-            }
-          };
-        });
+        this.setState({loading: false});
       }, 2000);
     };
 
@@ -117,16 +88,12 @@ export default class Tables extends React.Component {
             <Row>
               <Col span={ 6 }>
                 <DisplayText>Table with loader</DisplayText>
-                <Table
-                  data={ this.state.loading.data ? this.state.loading.data : [] }
-                  loading={ this.state.loading.loadingTable }
-                  numberOfPlaceholders={ 10 }
-                >
+                <Table data={ data.slice(0, 10) } loading={ this.state.loading }>
                   <Column name="id" label="ID" />
                   <Column name="title" label="Title" complex />
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
-                <Button disabled={ Boolean(this.state.loading.data) || this.state.loading.loadingTable } onClick={ load }>Load</Button>
+                <Button onClick={ reload }>Reload</Button>
               </Col>
               <Col span={ 6 }>
                 <DisplayText>Sortable columns</DisplayText>
@@ -141,16 +108,6 @@ export default class Tables extends React.Component {
                   <Column name="title" label="Title" />
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
-              </Col>
-            </Row>
-            <Row>
-              <Col span={ 12 }>
-                <Table data={ data } loading={ this.state.loading.updatingTable }>
-                  <Column name="id" label="ID" />
-                  <Column name="title" label="Title" complex />
-                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
-                </Table>
-                <Button onClick={ update }>Update</Button>
               </Col>
             </Row>
           </Card>

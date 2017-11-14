@@ -9,8 +9,6 @@ const type = Component => descriptor => descriptor.type.displayName === Componen
 const Table = props => {
   const columns = React.Children.toArray(props.children).filter(type(Column));
   const s = props.sticky ? sticky() : null;
-  const rows = props.data.map((row, index) => <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />);
-  const placeholders = Array(props.numberOfPlaceholders).fill('').map((el, i) => <Placeholder key={ `placeholder-${i}` } columns={ columns } />);
 
   return (
     <div className="table" ref={ s && s.container }>
@@ -32,13 +30,14 @@ const Table = props => {
       </div>
       <div className="table--rows">
         {
-          // TODO remove ternary
-          // eslint-disable-next-line
           props.loading
-            ? props.data.length !== 0
-              ? rows.concat(placeholders)
-              : placeholders
-            : rows
+            ? [
+              <Placeholder key="1" columns={ columns } />,
+              <Placeholder key="2" columns={ columns } />,
+              <Placeholder key="3" columns={ columns } />,
+              <Placeholder key="4" columns={ columns } />,
+            ]
+            : props.data.map((row, index) => <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />)
         }
       </div>
     </div>
@@ -52,11 +51,9 @@ Table.propTypes = {
   loading: p.bool,
   data: p.array,
   onRowClick: p.func,
-  numberOfPlaceholders: p.number,
 };
 Table.defaultProps = {
   onRowClick: () => {},
-  numberOfPlaceholders: 4,
 };
 
 const Placeholder = (props) => (

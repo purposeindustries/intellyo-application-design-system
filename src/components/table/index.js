@@ -30,14 +30,12 @@ const Table = props => {
       </div>
       <div className="table--rows">
         {
-          props.loading
-            ? [
-              <Placeholder key="1" columns={ columns } />,
-              <Placeholder key="2" columns={ columns } />,
-              <Placeholder key="3" columns={ columns } />,
-              <Placeholder key="4" columns={ columns } />,
-            ]
-            : props.data.map((row, index) => <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />)
+          props.data.map((row, index) => {
+            if (row.pending) {
+              return <Placeholder key={ `placeholder-${index}` } columns={ columns } />;
+            }
+            return <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />;
+          })
         }
       </div>
     </div>
@@ -48,7 +46,6 @@ Table.displayName = 'Table';
 Table.propTypes = {
   children: p.node,
   sticky: p.bool,
-  loading: p.bool,
   data: p.array,
   onRowClick: p.func,
 };

@@ -8,6 +8,7 @@ import {Table, Column, Expander} from '../components/table';
 import lipsum from 'lorem-ipsum';
 import c from 'classnames';
 import InfiniteTable from '../components/table/infinite-loading-table';
+import FakeFetch from '../utils/fake-fetch';
 
 const data = [];
 let i;
@@ -35,15 +36,8 @@ export default class Tables extends React.Component {
   static displayName = 'TablesPage';
 
   state = {
-    infiniteLoadingData: [],
     idOrder: 'asc',
   };
-
-  componentDidMount() {
-    setTimeout(() => this.setState({
-      infiniteLoadingData: data
-    }), 2000);
-  }
 
   render() {
     const sort = () => {
@@ -102,18 +96,24 @@ export default class Tables extends React.Component {
             </Row>
             <Row>
               <Col span={ 12 }>
-                <InfiniteTable
-                  onPaginate={ () => setTimeout(() => {
-                    this.setState({
-                      infiniteLoadingData: this.state.infiniteLoadingData.concat(data)
-                    });
-                  }, 2000) }
-                  data={ this.state.infiniteLoadingData }
-                >
-                  <Column name="id" label="ID" />
-                  <Column name="title" label="Title" complex />
-                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
-                </InfiniteTable>
+                <FakeFetch url={ `https://example.com?page=${this.state.currentPage}` }>
+                  { ({ isLoading, data }) => (
+                    <InfiniteTable
+                      data={ data }
+                      isLoading={ isLoading }
+                      isExhausted={ this.state.currentPage > 2 }
+                      onPaginate={ (currentPage) => {
+                        this.setState({
+                          currentPage
+                        });
+                      } }
+                    >
+                      <Column name="id" label="ID" />
+                      <Column name="title" label="Title" complex />
+                      <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
+                    </InfiniteTable>
+                  ) }
+                </FakeFetch>
               </Col>
             </Row>
           </Card>

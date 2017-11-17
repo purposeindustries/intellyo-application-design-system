@@ -125,17 +125,48 @@ const renderExpander = item => item.description;
 | ---- | ---- | ----------- | ------------- |
 | rowPerPage | number | You can overwrite how many rows needs to be rendered within a page. | `4` |
 | data | array | Here you can put your data that's going to be rendered, it needs to be an array of objects. | `[]` |
-| onPaginate | function | This is callback where you can specify, what can happen, when the user would like to view a new page of the table. | `() => {}` |
+| onPaginate | function | Is invoked if the table reaches the bottom of the scrollable area. The total number of this case is given as a first parameter. Basically it's the "current page" so you can track it in the parent element. | `noop` |
 | children | node | Here you can define what `<Column />`s the table should have. | none |
+| isLoading | bool | Tells the infinite loading table whether it has to add pending placeholder children at the end | false |
+| isExhausted | bool | Tells the infinite loading table that there are no more items coming in | false |
 
 ### Examples of `<InfiniteTable />`
 
 ```jsx
-<InfiniteTable
-  onPaginate={ this.fetchArticles() }
-  data={ this.state.articles }
->
-  <Column name="id" label="ID" />
-  <Column name="title" label="Title" complex />
-</InfiniteTable>
+import { InfiniteLoadingTable } from '@pi/intellyo-components';
+
+class InfiniteTableApp extends React.Component {
+
+  state = {
+    isLoading: false,
+    isExhausted: false,
+    data: []
+  }
+
+  render() {
+    return (
+      <InfiniteLoadingTable
+        onPaginate={ async (currentPage) => {
+          this.setState({ isLoading: true });
+
+          const r = await fetch(`https://api.endpoint.com?page=${currentPage}`);
+          const isExhausted = r.status === 204; // HTTP status code no content.
+
+          this.setState({
+            isLoading: false,
+            data,
+            isExhausted
+          });
+        } }
+        rowPerPage={ 20 }
+        isExhausted={ this.state.isExhausted }
+        isLoading={ this.state.isLoading }
+        data={ this.state.data }
+      >
+        <Column name="id" label="ID" />
+        <Column name="title" label="Title" />
+      </InfiniteLoadingTable>
+    );
+  }
+}
 ```

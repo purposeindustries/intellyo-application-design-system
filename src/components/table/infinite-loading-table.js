@@ -52,7 +52,7 @@ export default class InfiniteLoadingTable extends React.Component {
     const { bottom } = this._container.getBoundingClientRect();
     if (bottom <= window.innerHeight + 100) {
       const { data, rowPerPage } = this.props;
-      const currentPage = data.length / rowPerPage;
+      const currentPage = Math.ceil(data.length / rowPerPage);
       this.props.onPaginate(currentPage);
     }
   };

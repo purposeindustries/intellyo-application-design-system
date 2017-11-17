@@ -38,7 +38,7 @@ export { default as Textarea, RichTextarea, InvisibleTextarea, autogrow } from '
 export { default as Tooltip } from './tooltip';
 export { default as withLimit } from './with-limit';
 export { Table, Column, Expander } from './table';
-export { InfiniteLoadingTable } from './table/infinite-loading-table';
+export { default as InfiniteLoadingTable } from './table/infinite-loading-table';
 export { default as HorizontallyScrollableRow } from './horizontally-scrollable-row';
 export { Accordion, AccordionItem, SingleAccordion, MultiAccordion } from './accordion';
 export { default as EmptyView } from './empty-view';

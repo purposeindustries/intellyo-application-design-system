@@ -1,6 +1,5 @@
 import React from 'react';
 import DisplayText from '../components/display-text';
-import Button from '../components/button';
 import Card from '../components/card';
 import Row from '../components/row';
 import Col from '../components/col';
@@ -8,10 +7,12 @@ import Icon from '../components/icon';
 import {Table, Column, Expander} from '../components/table';
 import lipsum from 'lorem-ipsum';
 import c from 'classnames';
+import InfiniteTable from '../components/table/infinite-loading-table';
+import FakeFetch from '../utils/fake-fetch';
 
 const data = [];
 let i;
-for (i = 0; i < 10; i++) {
+for (i = 0; i < 20; i++) {
   data.push({
     id: i + 1,
     title: lipsum({count: 1, units: 'sentences'}),
@@ -35,25 +36,17 @@ export default class Tables extends React.Component {
   static displayName = 'TablesPage';
 
   state = {
-    loading: false,
     idOrder: 'asc',
   };
 
   render() {
-    const reload = () => {
-      this.setState({loading: true});
-      setTimeout(() => {
-        this.setState({loading: false});
-      }, 2000);
-    };
-
     const sort = () => {
       this.setState({
         idOrder: this.state.idOrder === 'asc' ? 'desc' : 'asc',
       });
     };
 
-    const sortedData = data.slice().sort((a, b) => {
+    const sortedData = data.slice(0, 10).sort((a, b) => {
       if (this.state.idOrder === 'asc') {
         return a.id - b.id;
       }
@@ -76,7 +69,7 @@ export default class Tables extends React.Component {
               </Col>
               <Col span={ 6 }>
                 <DisplayText>Table with sticky header &amp; expander</DisplayText>
-                <Table data={ data.slice() } sticky>
+                <Table data={ data.slice(0, 10) } sticky>
                   <Column name="expander" label="" renderCell={ toggleExpander } />
                   <Column name="id" label="ID" />
                   <Column name="title" label="Title" />
@@ -86,16 +79,7 @@ export default class Tables extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col span={ 6 }>
-                <DisplayText>Table with loader</DisplayText>
-                <Table data={ data.slice(0, 10) } loading={ this.state.loading }>
-                  <Column name="id" label="ID" />
-                  <Column name="title" label="Title" complex />
-                  <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
-                </Table>
-                <Button onClick={ reload }>Reload</Button>
-              </Col>
-              <Col span={ 6 }>
+              <Col span={ 12 }>
                 <DisplayText>Sortable columns</DisplayText>
                 <Table data={ sortedData }>
                   <Column
@@ -108,6 +92,28 @@ export default class Tables extends React.Component {
                   <Column name="title" label="Title" />
                   <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
                 </Table>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={ 12 }>
+                <FakeFetch url={ `https://example.com?page=${this.state.currentPage}` }>
+                  { ({ isLoading, data }) => (
+                    <InfiniteTable
+                      data={ data }
+                      isLoading={ isLoading }
+                      isExhausted={ this.state.currentPage > 2 }
+                      onPaginate={ (currentPage) => {
+                        this.setState({
+                          currentPage
+                        });
+                      } }
+                    >
+                      <Column name="id" label="ID" />
+                      <Column name="title" label="Title" complex />
+                      <Column name="tags" label="Tags" renderCell={ tags => tags.join(', ') } />
+                    </InfiniteTable>
+                  ) }
+                </FakeFetch>
               </Col>
             </Row>
           </Card>

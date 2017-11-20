@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "4.11.7",
+  "version": "5.0.0",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"

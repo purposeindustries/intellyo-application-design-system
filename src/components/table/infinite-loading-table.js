@@ -58,7 +58,7 @@ export default class InfiniteLoadingTable extends React.Component {
   };
 
   render() {
-    const { data, rowPerPage, isLoading } = this.props;
+    const { data, rowPerPage, isLoading, ...rest } = this.props;
     let dataWithPendings;
     if (isLoading) {
       dataWithPendings = this.appendPlaceholders(data, rowPerPage);
@@ -72,6 +72,7 @@ export default class InfiniteLoadingTable extends React.Component {
       >
         <Table
           data={ dataWithPendings || data }
+          { ...rest }
         >
           { this.props.children }
         </Table>

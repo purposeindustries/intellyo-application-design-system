@@ -32,9 +32,18 @@ const Table = props => {
         {
           props.data.map((row, index) => {
             if (row.pending) {
-              return <Placeholder key={ `placeholder-${index}` } columns={ columns } />;
+              return (
+                <Placeholder key={ `placeholder-${index}` } columns={ columns } />
+              );
             }
-            return <Row key={ index } item={ row } onClick={ (e) => props.onRowClick(e, row) } columns={ props.children } />;
+            return (
+              <Row
+                key={ index }
+                item={ row }
+                onClick={ (e) => props.onRowClick(e, row) }
+                columns={ props.children }
+              />
+            );
           })
         }
       </div>

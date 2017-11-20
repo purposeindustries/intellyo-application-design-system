@@ -1,73 +1,68 @@
 import React from 'react';
-import { number, array, func, node } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Table } from './index';
+import throttle from 'lodash.throttle';
 
 export default class InfiniteLoadingTable extends React.Component {
   static displayName = 'InfiniteLoadingTable';
 
   static propTypes = {
-    rowPerPage: number,
-    data: array,
-    onPaginate: func,
-    children: node,
+    rowPerPage: PropTypes.number,
+    data: PropTypes.array,
+    onPaginate: PropTypes.func,
+    isLoading: PropTypes.bool,
+    isExhausted: PropTypes.bool,
+    children: PropTypes.node,
   }
 
   static defaultProps = {
-    onPaginate: () => {},
     rowPerPage: 20,
     data: [],
+    onPaginate: () => {},
+    isLoading: false,
+    isExhausted: false,
   }
 
   constructor(props) {
     super(props);
-    this.state = {
-      data: props.data
-    };
+
+    this.throttledScrollHandler = throttle(this.scrollHandler, 200);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.scrollHandler);
-    if (this.state.data.length === 0) {
-      this.appendPlaceholders();
-    }
+    window.addEventListener('scroll', this.throttledScrollHandler);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.scrollHandler);
+    window.removeEventListener('scroll', this.throttledScrollHandler);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.data !== this.state.data) {
-      this.setState({
-        data: nextProps.data
-      });
-    }
+  getPlaceholders(amount) {
+    return Array(amount).fill({ pending: true });
   }
 
-  isLoading = () => {
-    return this.state.data.some((element) => {
-      return element.pending;
-    });
-  }
-
-  appendPlaceholders() {
-    this.setState({
-      data: this.state.data.concat(Array(this.props.rowPerPage).fill({ pending: true }))
-    });
+  appendPlaceholders(data, amount) {
+    return data.concat(this.getPlaceholders(amount));
   }
 
   scrollHandler = () => {
-    if (!this._container) {
+    if (!this._container || this.props.isLoading || this.props.isExhausted) {
       return;
     }
     const { bottom } = this._container.getBoundingClientRect();
-    if (bottom < window.innerHeight && !this.isLoading()) {
-      this.appendPlaceholders();
-      this.props.onPaginate();
+    if (bottom <= window.innerHeight + 100) {
+      const { data, rowPerPage } = this.props;
+      const currentPage = Math.ceil(data.length / rowPerPage);
+      this.props.onPaginate(currentPage);
     }
   };
 
   render() {
+    const { data, rowPerPage, isLoading } = this.props;
+    let dataWithPendings;
+    if (isLoading) {
+      dataWithPendings = this.appendPlaceholders(data, rowPerPage);
+    }
     return (
       <div
         ref={ el => {
@@ -76,7 +71,7 @@ export default class InfiniteLoadingTable extends React.Component {
         className="data-table--infinite"
       >
         <Table
-          data={ this.state.data }
+          data={ dataWithPendings || data }
         >
           { this.props.children }
         </Table>

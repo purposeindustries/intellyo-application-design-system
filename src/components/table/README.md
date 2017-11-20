@@ -123,7 +123,7 @@ const renderExpander = item => item.description;
 
 | Prop | Type | Description | Default value |
 | ---- | ---- | ----------- | ------------- |
-| rowPerPage | number | You can overwrite how many rows needs to be rendered within a page. | `4` |
+| rowPerPage | number | You can overwrite how many rows needs to be rendered within a page. | `20` |
 | data | array | Here you can put your data that's going to be rendered, it needs to be an array of objects. | `[]` |
 | onPaginate | function | This is callback where you can specify, what can happen, when the user would like to view a new page of the table. | `() => {}` |
 | children | node | Here you can define what `<Column />`s the table should have. | none |

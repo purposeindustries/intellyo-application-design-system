@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import DisplayText from '../components/display-text';
 import Input, { Suggestion, SuggestionWithImage } from '../components/input';
-import Select from '../components/select';
-import Multiselect from '../components/multiselect';
-import Option from '../components/option';
-import OptionSeparator from '../components/option-separator';
-import DropdownItem from '../components/dropdown-item';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
 import Textarea, {RichTextarea, InvisibleTextarea, autogrow} from '../components/textarea';
@@ -51,8 +46,6 @@ export default class Inputs extends Component {
       selected: []
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.handleMultiselect = this.handleMultiselect.bind(this);
     this.handleSocialPrefixedInput = this.handleSocialPrefixedInput.bind(this);
   }
 
@@ -68,28 +61,6 @@ export default class Inputs extends Component {
 
   handleSocialPrefixedInput() {
     return this.state.prefixValue + this.state.prefixInputValue;
-  }
-
-  handleSelect(value, id) {
-    this.setState({
-      [id]: value
-    });
-  }
-
-  handleMultiselect(value) {
-    if (this.state.selected.includes(value) === false) {
-      this.setState((prevState) => {
-        return {
-          selected: prevState.selected.concat([value])
-        };
-      });
-      return;
-    }
-    this.setState((prevState) => {
-      return {
-        selected: prevState.selected.filter(s => s !== value)
-      };
-    });
   }
 
   render() {
@@ -134,43 +105,6 @@ export default class Inputs extends Component {
                 </div>
               </Col>
               <Col span={ 6 }>
-                <Multiselect
-                  id="dueDate"
-                  onChange={ this.handleMultiselect }
-                  selected={ this.state.selected }
-                >
-                  <Option value="today">Today</Option>
-                  <Option value="tomorrow">Tomorrow</Option>
-                  <Option value="soon">Soon</Option>
-                  <Option value="not-today">Not today</Option>
-                  <OptionSeparator>Other</OptionSeparator>
-                  <Option value="the-day-after-tomorrow">Day after tomorrow</Option>
-                </Multiselect>
-                <Select
-                  id="car"
-                  onChange={ this.handleSelect }
-                >
-                  <DropdownItem
-                    value="hello"
-                  >
-                    Hello
-                  </DropdownItem>
-                  <DropdownItem
-                    value="yeah"
-                  >
-                    yeah dafdsfa
-                  </DropdownItem>
-                  <DropdownItem
-                    value="what"
-                  >
-                    what
-                  </DropdownItem>
-                  <DropdownItem
-                    value="where"
-                  >
-                    where
-                  </DropdownItem>
-                </Select>
                 <Input
                   suggestions={ this.state.autosuggest.suggestions }
                   onFetchRequested={ () => {

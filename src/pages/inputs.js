@@ -41,7 +41,7 @@ export default class Inputs extends Component {
         value: ''
       },
       prefixValue: 'https://facebook.com/',
-      invisibleTitle: 'This is an invisible textarea inside a header',
+      invisibleTitle: 'This is an invisible textarea',
       html: textareaValue,
       selected: []
     };
@@ -332,13 +332,11 @@ export default class Inputs extends Component {
             </Row>
             <Row>
               <Col span={ 6 }>
-                <DisplayText>
-                  <InvisibleAutgrowTextarea
-                    value={ this.state.invisibleTitle }
-                    onChange={ this.handleInputChange }
-                    name="invisibleTitle"
-                  />
-                </DisplayText>
+                <InvisibleAutgrowTextarea
+                  value={ this.state.invisibleTitle }
+                  onChange={ this.handleInputChange }
+                  name="invisibleTitle"
+                />
               </Col>
               <Col span={ 6 }>
                 <RichTextarea
@@ -351,14 +349,12 @@ export default class Inputs extends Component {
             </Row>
             <Row>
               <Col span={ 6 }>
-                <DisplayText>
-                  <InvisibleAutgrowTextarea
-                    disabled
-                    value={ this.state.invisibleTitle }
-                    onChange={ this.handleInputChange }
-                    name="invisibleTitle"
-                  />
-                </DisplayText>
+                <InvisibleAutgrowTextarea
+                  disabled
+                  value={ this.state.invisibleTitle }
+                  onChange={ this.handleInputChange }
+                  name="invisibleTitle"
+                />
               </Col>
               <Col span={ 6 }>
                 <RichTextarea

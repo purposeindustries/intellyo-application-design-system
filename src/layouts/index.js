@@ -31,6 +31,9 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-inputs" href="/inputs">
               Inputs
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-select" href="/select">
+              Select
+            </SidebarItem>,
             <SidebarItem key="sidebar-item-tags" href="/tagsinput">
               TagsInput
             </SidebarItem>,

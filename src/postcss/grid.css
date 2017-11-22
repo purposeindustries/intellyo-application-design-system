@@ -1,6 +1,7 @@
 .row {
   margin: 0 -10px;
   display: block;
+  width: 100%;
 }
 
 .row:after {

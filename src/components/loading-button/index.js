@@ -9,9 +9,7 @@ const LoadingButton = ({ loading, onClick, size }) => (
     disabled={ loading }
     onClick={ onClick }
     icon={ loading ? (
-      <span className="button-icon-wrapper">
-        <Icon icon="ion-load-d" color="#fff" rotate={ true } />
-      </span>
+      <Icon icon="ion-load-d" color="#fff" rotate={ true } />
     ) : null }
   >
     { loading ? 'Loading...' : 'Save' }

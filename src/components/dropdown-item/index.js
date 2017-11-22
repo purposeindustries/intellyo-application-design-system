@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export default function DropdownItem(props) {
   return (
     <div
-      className="dropdown-item"
-      onClick={ props.onClick }
+      className={
+        classNames('dropdown-item', {
+          'dropdown-item--disabled': !!props.disabled
+        })
+      }
+      onClick={ !props.disabled && props.onClick }
       onMouseDown={ props.onMouseDown }
       id={ props.id }
     >
@@ -23,5 +28,6 @@ DropdownItem.propTypes = {
   onMouseDown: PropTypes.func,
   default: PropTypes.bool,
   id: PropTypes.string,
-  icon: PropTypes.element
+  icon: PropTypes.element,
+  disabled: PropTypes.bool
 };

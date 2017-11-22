@@ -5,12 +5,10 @@ import classNames from 'classnames';
 
 export default class Select extends React.Component {
   static propTypes = {
-    label: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-    onChange: PropTypes.func,
     id: PropTypes.string,
-    isActive: PropTypes.bool,
     style: PropTypes.object,
     icon: PropTypes.element
   }
@@ -18,37 +16,18 @@ export default class Select extends React.Component {
     onChange: () => {}
   }
   static displayName = 'Select';
-  constructor(props) {
-    super(props);
-    this.state = {
-      label: props.label,
-      value: props.value,
-      isActive: props.isActive
-    };
-  }
+
+  state = {}
+
   getLabel() {
-    if (typeof this.state.value !== 'undefined') {
+    if (typeof this.props.value !== 'undefined') {
       const children = React.Children.toArray(this.props.children);
       const selected = children.find((child) => {
-        return child.props.value === this.state.value;
+        return child.props.value === this.props.value;
       });
       if (selected) {
         return selected.props.children;
       }
-    }
-  }
-  componentWillMount() {
-    if (!this.state.value) {
-      this.setState({
-        value: this.props.children[0].props.value
-      });
-    }
-  }
-  componentWillReceiveProps(props) {
-    if (typeof props.value !== 'undefined' && props.value !== this.state.value) {
-      this.setState({
-        value: props.value
-      });
     }
   }
   render() {
@@ -63,16 +42,16 @@ export default class Select extends React.Component {
         {
           React.Children.map(this.props.children, (c) => {
             return React.cloneElement(c, {
+
               onClick: (e) => {
                 if (c.props.onClick) {
                   c.props.onClick(e);
                 }
-                if (this.state.value !== c.props.value) {
+                if (this.props.value !== c.props.value) {
                   this.props.onChange(c.props.value, this.props.id, c.props.children);
                 }
                 this.setState({
                   label: c.props.children,
-                  value: c.props.value,
                   isActive: false
                 });
               }

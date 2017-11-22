@@ -15,6 +15,7 @@ click or tap. They can be used for any type of action, including navigation.
 | icon | node | Set the icon, displayed within the button |
 | onClick | function | Invokes the default click action |
 | className | string | Module aiding multiple class activation |
+| active | boolean | Set the button status to active | `none` |
 
 ## Examples
 

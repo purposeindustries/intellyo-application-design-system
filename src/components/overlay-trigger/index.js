@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const ESCKeyCode = 27;
+
 export default class OverlayTrigger extends React.Component {
 
   static displayName = 'Overlay Trigger'
@@ -56,7 +58,18 @@ export default class OverlayTrigger extends React.Component {
     });
   }
 
+  onKeyDown = (e) => {
+    if (e.keyCode === ESCKeyCode) {
+      this.deactivate();
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', (e) => this.onKeyDown(e));
+  }
+
   componentWillUnmount() {
+    window.removeEventListener('keydown', (e) => this.onKeyDown(e));
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
@@ -89,9 +102,20 @@ export default class OverlayTrigger extends React.Component {
         }
         { ...triggers }
       >
+        <div
+          className={ classNames('overlay-trigger-outer-area', {
+            'overlay-trigger-outer-area--active': this.state.isActive && this.props.trigger === 'click'
+          }) }
+        />
         { this.props.children }
         { React.cloneElement(this.props.overlay, {
-          className: classNames(this.props.overlay.props.className, 'overlay')
+          className: classNames(this.props.overlay.props.className, 'overlay'),
+          onClick: (e) => {
+            if (this.props.overlay.props.onClick) {
+              e.preventDefault();
+              this.props.overlay.props.onClick();
+            }
+          }
         }) }
       </div>
     );

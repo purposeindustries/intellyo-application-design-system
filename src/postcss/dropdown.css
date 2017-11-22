@@ -164,15 +164,20 @@ $dropdown-item-bg-color--active: $color-grey-2;
       align-items: center;
       width: 100%;
 
+      &--disabled {
+        color: $color-black-2;
+        cursor: default;
+      }
+
       & > label {
         width: 100%;
       }
 
-      &:hover {
+      &:not(.dropdown-item--disabled):hover {
         background-color: $dropdown-item-bg-color--hover;
       }
 
-      &:active {
+      &:not(.dropdown-item--disabled):active {
         background-color: $dropdown-item-bg-color--active;
       }
 

@@ -11,7 +11,9 @@ export default class SelectPage extends React.Component {
   static displayName = 'SelectPage'
 
   state = {
-    selected: []
+    selected: [],
+    car2: '',
+    car: 'hello'
   }
 
   handleSelectChange = (value, id) => {
@@ -43,8 +45,44 @@ export default class SelectPage extends React.Component {
           title="Select"
         >
           <Select
+            id="car2"
+            onChange={ this.handleSelectChange }
+            value={ this.state.car2 }
+          >
+            <DropdownItem
+              value={ '' }
+              disabled
+            >
+              Choose an option
+            </DropdownItem>
+            <DropdownItem
+              value="hello"
+            >
+              Hello
+            </DropdownItem>
+            <DropdownItem
+              value="yeah"
+            >
+              yeah dafdsfa
+            </DropdownItem>
+            <DropdownItem
+              value="what"
+            >
+              what
+            </DropdownItem>
+            <DropdownItem
+              value="where"
+            >
+              where
+            </DropdownItem>
+          </Select>
+
+          <br /><br />
+
+          <Select
             id="car"
             onChange={ this.handleSelectChange }
+            value={ this.state.car }
           >
             <DropdownItem
               value="hello"

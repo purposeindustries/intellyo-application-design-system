@@ -10,25 +10,20 @@ clutter up the interface.
 | ---- | ---- | ----------- |
 | id | string | ID for form input |
 | icon | element | Use it to change the icon |
-| label | string | Label for the checkbox |
 | value | string | Value for form input |
 | children | oneOfType([element, arrayOf(element)]) | The items will appear on your list |
 | onChange | func | Callback when selection is changed |
-| isActive | bool | Use to active or disable the component |
 | style | obj | Pass styles to the component Expected value: `{}` |
 
 ## Examples
 
 ```
 <Select
-  value={ this.state.prefixValue }
+  value={ this.state.value }
   onChange={ (value, id, childrenValue) => {
     this.setState({
-      prefixValue: value
+      value: value
     });
-    if (this.props.onSelectChange) {
-      this.props.onSelectChange(childrenValue);
-    }
   } }
 >
   { this.props.children }

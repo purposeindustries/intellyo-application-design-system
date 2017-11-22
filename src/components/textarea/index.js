@@ -58,8 +58,6 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
     height: null,
   };
 
-  id;
-
   adjustHeight(nextFrame) {
     const adjust = () => {
       if (this.state.height === (this._el && this._el.scrollHeight)) {
@@ -71,7 +69,7 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
     };
 
     if (nextFrame) {
-      this.id = setTimeout(adjust, 0);
+      this.timeoutId = setTimeout(adjust, 0);
     } else {
       adjust();
     }
@@ -83,7 +81,8 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
 
   componentWillUnmount() {
     if (typeof this.id === 'number') {
-      clearTimeout(this.id);
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
     }
   }
 

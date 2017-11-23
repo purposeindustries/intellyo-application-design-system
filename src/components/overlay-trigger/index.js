@@ -47,15 +47,13 @@ export default class OverlayTrigger extends React.Component {
   }
 
   deactivate = () => {
-
+    this.setState({
+      isActive: false
+    });
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
-
-    this.setState({
-      isActive: false
-    });
   }
 
   onKeyDown = (e) => {
@@ -77,11 +75,12 @@ export default class OverlayTrigger extends React.Component {
   }
 
   render() {
-
     const triggers = {};
     if (this.props.trigger === 'click') {
       triggers.onClick = () => {
-        this.toggle();
+        if (this.state.isActive === false) {
+          this.activate();
+        }
       };
     }
     if (this.props.trigger === 'hover') {
@@ -103,6 +102,7 @@ export default class OverlayTrigger extends React.Component {
         { ...triggers }
       >
         <div
+          onClick={ () => this.deactivate() }
           className={ classNames('overlay-trigger-outer-area', {
             'overlay-trigger-outer-area--active': this.state.isActive && this.props.trigger === 'click'
           }) }

@@ -3,7 +3,7 @@ $arrow-dimension: 6px;
 .tooltip {
   display: inline-block;
   border-radius: $border-radius-base;
-  position: relative;
+  position: absolute;
   height: 30px;
   line-height: 30px;
   white-space: nowrap;

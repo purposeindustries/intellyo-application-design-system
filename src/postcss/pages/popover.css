@@ -1,0 +1,13 @@
+.popovers-page {
+
+  & .auto-positioner-card {
+
+    & .col {
+      display: flex;
+
+      & .overlay-trigger {
+        margin-left: auto;
+      }
+    }
+  }
+}

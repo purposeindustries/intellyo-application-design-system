@@ -14,33 +14,4 @@
       pointer-events: auto;
     }
   }
-
-  &--placement-top {
-    & .tooltip {
-      top: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &--placement-right {
-    & .tooltip {
-      top: 50%;
-      left: calc(100% + 10px);
-      transform: translateY(-50%);
-    }
-  }
-  &--placement-bottom {
-    & .tooltip {
-      bottom: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &--placement-left {
-    & .tooltip {
-      top: 50%;
-      right: calc(100% + 10px);
-      transform: translateY(-50%);
-    }
-  }
 }

@@ -21,7 +21,7 @@ export { default as Icon } from './icon';
 export { default as Input, SuggestionWithImage, Suggestion } from './input';
 export { default as LoadingButton } from './loading-button';
 export { default as Logo } from './logo';
-export { default as OverlayTrigger } from './overlay-trigger';
+export { default as OverlayTrigger, AutoPositioner } from './overlay-trigger';
 export { default as Popover } from './popover';
 export { default as PrefixedInput, PrefixedItem } from './prefixed-input';
 export { default as Row } from './row';

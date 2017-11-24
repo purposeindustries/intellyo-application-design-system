@@ -2,27 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Tooltip = (props) => (
-  <div
-    className={
-      classNames(props.className, 'tooltip', `tooltip-placement--${props.placement}`)
-    }
-  >
-    { props.children }
-    <div className="tooltip-arrow" />
-  </div>
-);
+export default class Tooltip extends React.PureComponent {
+  static displayName = 'Tooltip';
 
-Tooltip.displayName = 'Tooltip';
+  static defaultProps = {
+    placement: 'top',
+  };
 
-Tooltip.defaultProps = {
-  placement: 'top',
-};
+  static propTypes = {
+    children: PropTypes.string.isRequired,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    className: PropTypes.string,
+    autoPositionRef: PropTypes.func,
+  };
 
-Tooltip.propTypes = {
-  children: PropTypes.string.isRequired,
-  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-  className: PropTypes.string
-};
-
-export default Tooltip;
+  render() {
+    return (
+      <div
+        ref={ this.props.autoPositionRef }
+        className={
+          classNames(this.props.className, 'tooltip', `tooltip-placement--${this.props.placement}`)
+        }
+      >
+        { this.props.children }
+        <div className="tooltip-arrow" />
+      </div>
+    );
+  }
+}

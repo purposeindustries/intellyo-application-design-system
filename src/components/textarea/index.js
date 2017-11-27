@@ -80,7 +80,7 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
   }
 
   componentWillUnmount() {
-    if (typeof this.id === 'number') {
+    if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }

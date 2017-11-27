@@ -69,7 +69,7 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
     };
 
     if (nextFrame) {
-      setTimeout(adjust, 0);
+      this.timeoutId = setTimeout(adjust, 0);
     } else {
       adjust();
     }
@@ -77,6 +77,13 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
 
   componentDidUpdate() {
     this.adjustHeight();
+  }
+
+  componentWillUnmount() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
   }
 
   render() {

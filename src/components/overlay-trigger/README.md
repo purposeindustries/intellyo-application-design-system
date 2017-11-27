@@ -37,4 +37,40 @@ Sometimes `<Popover />`s and `<Tooltip />`s slip out of the view. That's when `<
 | Prop | Type | Description | Default value |
 | ---- | ---- | ----------- | ------------- |
 | children | `node` | The components to be wrapped by `<AutoPositioner />`. These children needs to be either a `<Tooltip />` or a `<Popover />`. | `none` |
-| behaviour | `oneOf(['flip', 'push'])` | With the `behaviour` prop you can define how `<AutoPositioner />` should align its child. You should use the `push` behaviour only when you wrap a `<Popover />` with this component. `<Tooltip />`s shouldn't react to auto positioner's push behaviour. | `'flip'` |
+| behaviour | `oneOf(['flip', 'push'])` | With the `behaviour` prop you can define how `<AutoPositioner />` should align its child. You should use the `push` behaviour only when you wrap a `<Popover />` with this component and its placement is either `'top'` or `'bottom'`. `<Tooltip />`s shouldn't react to auto positioner's push behaviour. | `'flip'` |
+
+## Examples
+
+Using `<AutoPositioner />` with flip behaviour.
+
+```jsx
+<OverlayTrigger
+  placement="top"
+  overlay={
+    <AutoPositioner>
+      <Popover placement="right">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Popover>
+    </AutoPositioner>
+  }
+>
+  Hover me!
+</OverlayTrigger>
+```
+
+Using `<AutoPositioner />` with push behaviour.
+
+```jsx
+<OverlayTrigger
+  placement="top"
+  overlay={
+    <AutoPositioner behaviour="push">
+      <Popover placement="bottom">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Popover>
+    </AutoPositioner>
+  }
+>
+  Hover me!
+</OverlayTrigger>
+```

@@ -1,3 +1,5 @@
+$overlay-trigger-outer-area-z-index: 1000;
+
 .overlay-trigger {
   display: inline-block;
   position: relative;
@@ -12,35 +14,21 @@
     & .overlay {
       opacity: 1;
       pointer-events: auto;
-    }
-  }
+      z-index: calc($overlay-trigger-outer-area-z-index + 1);
 
-  &--placement-top {
-    & .tooltip {
-      top: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &--placement-right {
-    & .tooltip {
-      top: 50%;
-      left: calc(100% + 10px);
-      transform: translateY(-50%);
-    }
-  }
-  &--placement-bottom {
-    & .tooltip {
-      bottom: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-  &--placement-left {
-    & .tooltip {
-      top: 50%;
-      right: calc(100% + 10px);
-      transform: translateY(-50%);
+      &-trigger-outer-area {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: $overlay-trigger-outer-area-z-index;
+
+        &--active {
+          display: block;
+        }
+      }
     }
   }
 }

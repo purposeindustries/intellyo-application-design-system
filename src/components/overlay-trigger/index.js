@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+const ESCKeyCode = 27;
+
 export default class OverlayTrigger extends React.Component {
 
   static displayName = 'Overlay Trigger'
@@ -31,6 +33,13 @@ export default class OverlayTrigger extends React.Component {
     }
   }
 
+  removeTimer = () => {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+  }
+
   activate = (force) => {
     if (this.props.delay && !force) {
       this.timeoutId = setTimeout(() => {
@@ -44,30 +53,34 @@ export default class OverlayTrigger extends React.Component {
   }
 
   deactivate = () => {
-
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    }
-
     this.setState({
       isActive: false
     });
+    this.removeTimer();
   }
 
-  componentWillUnmount() {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
+  onKeyDown = (e) => {
+    if (e.keyCode === ESCKeyCode) {
+      this.deactivate();
     }
   }
 
-  render() {
+  componentDidMount() {
+    window.addEventListener('keydown', this.onKeyDown);
+  }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKeyDown);
+    this.removeTimer();
+  }
+
+  render() {
     const triggers = {};
     if (this.props.trigger === 'click') {
       triggers.onClick = () => {
-        this.toggle();
+        if (this.state.isActive === false) {
+          this.activate();
+        }
       };
     }
     if (this.props.trigger === 'hover') {
@@ -88,9 +101,21 @@ export default class OverlayTrigger extends React.Component {
         }
         { ...triggers }
       >
+        <div
+          onClick={ () => this.deactivate() }
+          className={ classNames('overlay-trigger-outer-area', {
+            'overlay-trigger-outer-area--active': this.state.isActive && this.props.trigger === 'click'
+          }) }
+        />
         { this.props.children }
         { React.cloneElement(this.props.overlay, {
-          className: classNames(this.props.overlay.props.className, 'overlay')
+          className: classNames(this.props.overlay.props.className, 'overlay'),
+          onClick: (e) => {
+            if (this.props.overlay.props.onClick) {
+              e.preventDefault();
+              this.props.overlay.props.onClick();
+            }
+          }
         }) }
       </div>
     );

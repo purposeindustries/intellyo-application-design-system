@@ -94,7 +94,7 @@ export default class PopoverPage extends React.Component {
         >
           <Row>
             <Col span={ 6 }>
-              <p>This popover (on the right) is placed to the top, but it would slip out of the view if it weren't wrapped in an AutoPositioner wrapper. AutoPositioner pushes it back to the viewport.</p>
+              <p>This popover (on the right) is placed to the bottom, but it would slip out of the view if it weren't wrapped in an AutoPositioner wrapper. AutoPositioner pushes it back to the viewport.</p>
             </Col>
             <Col span={ 6 }>
               <OverlayTrigger

@@ -94,12 +94,11 @@ export default class PopoverPage extends React.Component {
         >
           <Row>
             <Col span={ 6 }>
-              <p>This popover (on the right) is origanally placed to the right, but positioned to the left, because it wouldn't have fit the viewport.</p>
+              <p>This popover (on the right) is placed to the top, but it would slip out of the view if it weren't wrapped in an AutoPositioner wrapper. AutoPositioner pushes it back to the viewport.</p>
             </Col>
             <Col span={ 6 }>
               <OverlayTrigger
                 delay={ 0 }
-                trigger="click"
                 overlay={
                   <AutoPositioner behaviour="push">
                     <Popover placement="bottom">
@@ -108,7 +107,31 @@ export default class PopoverPage extends React.Component {
                   </AutoPositioner>
                 }
               >
-                Click me!
+                Hover me!
+              </OverlayTrigger>
+            </Col>
+          </Row>
+        </Card>
+        <Card
+          title="Popover w/ Auto Positioner - push"
+          className="auto-positioner-card"
+        >
+          <Row>
+            <Col span={ 6 }>
+              <p>This popover (on the right) is placed to the top, but it would slip out of the view if it weren't wrapped in an AutoPositioner wrapper. AutoPositioner pushes it back to the viewport.</p>
+            </Col>
+            <Col span={ 6 }>
+              <OverlayTrigger
+                delay={ 0 }
+                overlay={
+                  <AutoPositioner behaviour="push">
+                    <Popover placement="top">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </Popover>
+                  </AutoPositioner>
+                }
+              >
+                Hover me!
               </OverlayTrigger>
             </Col>
           </Row>

@@ -33,7 +33,6 @@ Here you can find each of our components:
 - [Modals](/src/components/modals)
 - [MultiSelect](/src/components/multiselect)
 - [Option](/src/components/option)
-- [OptionGroup](/src/components/option-group)
 - [OptionSeparator](/src/components/option-separator)
 - [OverlayTrigger](/src/components/overlay-trigger)
 - [Popover](/src/components/popover)

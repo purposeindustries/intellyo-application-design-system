@@ -1,0 +1,10 @@
+.tooltips-page {
+
+  & .autopositioned-tooltip {
+
+    & .col:nth-of-type(2) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

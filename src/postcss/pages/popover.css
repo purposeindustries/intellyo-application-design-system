@@ -1,0 +1,17 @@
+.popovers-page {
+
+  & .card {
+    margin-bottom: $gutter-base;
+  }
+
+  & .auto-positioner-card {
+
+    & .col {
+      display: flex;
+
+      & .overlay-trigger {
+        margin-left: auto;
+      }
+    }
+  }
+}

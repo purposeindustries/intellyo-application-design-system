@@ -33,6 +33,7 @@
 @import './option';
 @import './option-separator';
 @import './multiselect';
+@import './auto-positioner';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -47,6 +48,8 @@
 @import './pages/accordions.css';
 @import './pages/tables.css';
 @import './pages/modals.css';
+@import './pages/popover.css';
+@import './pages/tooltip.css';
 
 body {
   margin: 0;

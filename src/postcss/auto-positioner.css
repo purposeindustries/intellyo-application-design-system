@@ -1,0 +1,5 @@
+.auto-positioner.overlay {
+  position: static;
+  width: 100%;
+  height: 100%;
+}

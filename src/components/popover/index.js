@@ -1,23 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Arrow from './arrow';
 
-const Popover = (props) => (
-  <div className={ classNames(props.className, 'popover', `popover--${props.placement}`) }>
-    { props.children }
-  </div>
-);
+export default class Popover extends React.PureComponent {
+  static displayName = 'Popover';
 
-Popover.displayName = 'Popover';
+  static propTypes = {
+    children: PropTypes.node,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    className: PropTypes.string,
+    autoPositionRef: PropTypes.func,
+    autoStyles: PropTypes.object,
+  }
 
-Popover.propTypes = {
-  children: PropTypes.node,
-  placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
-  className: PropTypes.string,
-};
+  static defaultProps = {
+    placement: 'top',
+    autoStyles: {}
+  }
 
-Popover.defaultProps = {
-  placement: 'top',
-};
-
-export default Popover;
+  render() {
+    return (
+      <div
+        ref={ this.props.autoPositionRef }
+        className={ classNames(this.props.className, 'popover', `popover--${this.props.placement}`) }
+        style={ this.props.autoStyles.popoverStyle }
+      >
+        <Arrow arrowStyles={ this.props.autoStyles.arrowStyles } />
+        { this.props.children }
+      </div>
+    );
+  }
+}

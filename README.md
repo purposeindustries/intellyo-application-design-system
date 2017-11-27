@@ -1,6 +1,6 @@
 # Intellyo's Application Design System
 
-Intellyo's frontend framework (or FeF as we call it), written in [React](https://reactjs.org). We created this repository to organise our components and have a consistent design style throughout our application.
+Intellyo's frontend framework (or FeF as we call it), written in [React](https://reactjs.org). We created this repository to organise our components and have a consistent design style throughout our applications.
 
 ### Applications using FeF
 

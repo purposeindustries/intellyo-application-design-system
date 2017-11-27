@@ -27,3 +27,14 @@ Use to give rise to your `Popover` passed as `prop` to `overlay`.
   Hover me!
 </OverlayTrigger>
 ```
+
+# Auto Positioner
+
+Sometimes `<Popover />`s and `<Tooltip />`s slip out of the view. That's when `<AutoPositioner />` comes to the rescue. `<AutoPositioner />` wrapper is used for automatically align a popover or a tooltip on the viewport.
+
+## Props
+
+| Prop | Type | Description | Default value |
+| ---- | ---- | ----------- | ------------- |
+| children | `node` | The components to be wrapped by `<AutoPositioner />`. These children needs to be either a `<Tooltip />` or a `<Popover />`. | `none` |
+| behaviour | `oneOf(['flip', 'push'])` | With the `behaviour` prop you can define how `<AutoPositioner />` should align its child. You should use the `push` behaviour only when you wrap a `<Popover />` with this component. `<Tooltip />`s shouldn't react to auto positioner's push behaviour. | `'flip'` |

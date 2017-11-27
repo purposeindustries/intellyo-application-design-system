@@ -34,6 +34,13 @@ export default class OverlayTrigger extends React.Component {
     }
   }
 
+  removeTimer = () => {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+  }
+
   activate = (force) => {
     if (this.props.delay && !force) {
       this.timeoutId = setTimeout(() => {
@@ -50,10 +57,7 @@ export default class OverlayTrigger extends React.Component {
     this.setState({
       isActive: false
     });
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    }
+    this.removeTimer();
   }
 
   onKeyDown = (e) => {
@@ -68,6 +72,7 @@ export default class OverlayTrigger extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown);
+    this.removeTimer();
   }
 
   render() {

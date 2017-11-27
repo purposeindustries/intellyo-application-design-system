@@ -63,15 +63,11 @@ export default class OverlayTrigger extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', (e) => this.onKeyDown(e));
+    window.addEventListener('keydown', this.onKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', (e) => this.onKeyDown(e));
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    }
+    window.removeEventListener('keydown', this.onKeyDown);
   }
 
   render() {

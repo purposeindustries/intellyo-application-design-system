@@ -34,54 +34,60 @@ export default class AutoPositioner extends React.Component {
     if (this.overlay && this.positioner) {
       const defaultPlacement = this.props.children.props.placement;
       const { behaviour } = this.props;
+
       const getOverLayRects = () => {
         const { right, left } = this.overlay.getBoundingClientRect();
         return { left, right: window.innerWidth - right };
       };
-      const arrowPosition = (this.positioner.getBoundingClientRect().left + (this.positioner.getBoundingClientRect().width / 2)) - getOverLayRects().left;
+
+      const arrowPosition = behaviour === 'push' && (
+        this.positioner.getBoundingClientRect().left
+        + (this.positioner.getBoundingClientRect().width / 2))
+        - getOverLayRects().left;
+
+      const getCriticalSide = () => {
+        const currentKey = Object.values(getOverLayRects()).findIndex(el => el <= 15);
+        return Object.keys(getOverLayRects())[currentKey];
+      };
+
+      const hasCriticalSide = typeof getCriticalSide() !== 'undefined';
 
       const cases = {
-        top: () => {
+        verticalEdge: () => {
           if (behaviour === 'flip') {
             return;
           }
-          // TODO finish
+          if (
+            hasCriticalSide && (getCriticalSide() === 'left' || getCriticalSide() === 'right')
+          ) {
+            this.setState({
+              styles: {
+                popoverStyle: {
+                  left: getOverLayRects()[getCriticalSide()]
+                },
+                arrowStyles: {
+                  left: arrowPosition
+                }
+              }
+            });
+          }
           return;
         },
         right: () => {
           if (behaviour === 'push') {
             return;
           }
-          if (getOverLayRects().right <= 15) {
+          if (hasCriticalSide && getCriticalSide() === 'right') {
             this.setState({
               placement: 'left'
             });
           }
         },
-        bottom: () => {
-          if (behaviour === 'flip') {
-            return;
-          }
-          const getCriticalSide = () => {
-            const currentKey = Object.values(getOverLayRects()).findIndex(el => el <= 15);
-            return Object.keys(getOverLayRects())[currentKey];
-          };
-          this.setState({
-            styles: {
-              popoverStyle: {
-                left: getOverLayRects()[getCriticalSide()]
-              },
-              arrowStyles: {
-                left: arrowPosition
-              }
-            }
-          });
-        },
         left: () => {
           if (behaviour === 'push') {
             return;
           }
-          if (getOverLayRects().left <= 15) {
+          if (hasCriticalSide && getCriticalSide() === 'left') {
             this.setState({
               placement: 'right'
             });
@@ -91,13 +97,13 @@ export default class AutoPositioner extends React.Component {
 
       switch (defaultPlacement) {
         case 'top':
-          cases.top();
+          cases.verticalEdge();
           break;
         case 'right':
           cases.right();
           break;
         case 'bottom':
-          cases.bottom();
+          cases.verticalEdge();
           break;
         case 'left':
           cases.left();

@@ -54,14 +54,12 @@ import { MultiAccordion } from '@pi/intellyo-components';
   <AccordionItem
     title="Basic information"
     isOpen={ this.state.accordion.basic }
-    onClick={ () => this.toggle('basic') }
   >
     Not much.
   </AccordionItem>
   <AccordionItem
     title="Not basic information"
     isOpen={ this.state.accordion.notBasic }
-    onClick={ () => this.toggle('notBasic') }
   >
     Much.
   </AccordionItem>
@@ -87,14 +85,12 @@ import { SingleAccordion } from '@pi/intellyo-components';
   <AccordionItem
     title="Basic information"
     isOpen={ this.state.accordion.basic }
-    onClick={ () => this.toggle('basic') }
   >
     Not much.
   </AccordionItem>
   <AccordionItem
     title="Not basic information"
     isOpen={ this.state.accordion.notBasic }
-    onClick={ () => this.toggle('notBasic') }
   >
     Much.
   </AccordionItem>
@@ -113,7 +109,6 @@ import { SingleAccordion } from '@pi/intellyo-components';
 | title | string | You can define the title of the AccordionItem. |
 | icon | element | You can define the which `<Icon />` should get rendered. |
 | isOpen | boolean | isOpen is responsible whether the item should be open or not. |
-| onClick | function | onClick is invoked when AccordionItem is clicked. |
 
 ## Examples
 

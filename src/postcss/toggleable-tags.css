@@ -1,0 +1,7 @@
+.toggleable-tags {
+  display: flex;
+
+  & .button:not(:last-child) {
+    margin-right: 8px;
+  }
+}

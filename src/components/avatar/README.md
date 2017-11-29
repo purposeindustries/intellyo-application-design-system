@@ -5,14 +5,16 @@ business in the interface.
 
 ## Props
 
-| Prop | Type | Description |
-| ---- | ---- | ----------- |
-| size | string | Size of the avatar |
-| style | object | Set the style of the avatar |
-| name | string | The name of the person the avatar displays |
-| caption | string | Short description next to the avatar |
-| icon | node | Icon to appear before the caption |
-| src | string | URL of the avatar image |
+| Prop | Type | Description | Default value |
+| ---- | ---- | ----------- | -------------
+| size | string | Size of the avatar | `none` |
+| style | object | Set the style of the avatar | `none` |
+| name | string | The name of the person the avatar displays | `none` |
+| caption | string | Short description next to the avatar | `none` |
+| icon | node | Icon to appear before the caption | `none` |
+| src | string | URL of the avatar image | `none` |
+| tooltipPlacement | `oneOf(['left', 'right', 'top', 'bottom'])` | It's an optional prop for placing the tooltip. If nothing is specified, the `<Tooltip />` will appear at the top as `<Tooltip />`'s default placement is `'top'`. | `<Tooltip />`'s `'top'` |
+| showTooltip | `boolean` | Whether you'd like to render a tooltip or not. | `true` |
 
 ## Examples
 

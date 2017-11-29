@@ -44,6 +44,7 @@ export default class ToggleableTags extends React.PureComponent {
             key={ tag.title }
             onClick={ () => this.handleClick(tag) }
             neutral={ this.state.selected !== tag.value }
+            size="small"
           >
             { tag.title }
           </Button>

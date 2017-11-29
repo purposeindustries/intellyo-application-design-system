@@ -9,7 +9,7 @@ business in the interface.
 | ---- | ---- | ----------- | -------------
 | size | string | Size of the avatar | `none` |
 | style | object | Set the style of the avatar | `none` |
-| name | string | The name of the person the avatar displays | `none` |
+| name | string | The name of the person the avatar displays | `'John Doe'` |
 | caption | string | Short description next to the avatar | `none` |
 | icon | node | Icon to appear before the caption | `none` |
 | src | string | URL of the avatar image | `none` |

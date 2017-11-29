@@ -14,15 +14,25 @@ export default class ToggleableTags extends React.PureComponent {
   }
 
   state = {
-    activeGA: ''
+    selected: ''
   }
 
   handleClick = (tag) => {
-    this.setState({
-      activeGA: tag.value
-    });
-    if (this.props.onChange) {
-      this.props.onChange(tag.value);
+    const onChange = () => {
+      if (this.props.onChange) {
+        this.props.onChange(this.state.selected);
+      }
+      return;
+    };
+
+    if (this.state.selected === tag.value) {
+      this.setState({
+        selected: ''
+      }, onChange);
+    } else {
+      this.setState({
+        selected: tag.value
+      }, onChange);
     }
   }
 
@@ -33,7 +43,7 @@ export default class ToggleableTags extends React.PureComponent {
           <Button
             key={ tag.title }
             onClick={ () => this.handleClick(tag) }
-            neutral={ this.state.activeGA !== tag.value }
+            neutral={ this.state.selected !== tag.value }
           >
             { tag.title }
           </Button>

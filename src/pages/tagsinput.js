@@ -5,16 +5,14 @@ import { SuggestionWithImage } from '../components/input/';
 import breakpoints from '../utils/breakpoints';
 import ToggleableTags from '../components/toggleable-tags';
 
-const tags = [
-  {
-    title: 'blog.intellyo.com',
-    value: 'thisisablablablacode'
-  },
-  {
-    title: 'noble.life',
-    value: 'thisiscode'
-  },
-];
+const randomWords = ['hamburger', 'nachos', 'burrito', 'pizza', 'gyros'];
+
+const tags = randomWords.reduce((arr, word) => {
+  return arr.concat({
+    title: word,
+    value: word
+  });
+}, []);
 
 export default class TagsInputPage extends Component {
 
@@ -23,7 +21,8 @@ export default class TagsInputPage extends Component {
   state = {
     tagsInput2: [],
     tagsInput3: [],
-    tagsInput4: []
+    tagsInput4: [],
+    tagsInput5: '',
   }
 
   render() {
@@ -218,8 +217,12 @@ export default class TagsInputPage extends Component {
         <Card
           title="Toggleable Tags"
         >
+          <p>{ this.state.tagsInput5 !== '' ? this.state.tagsInput5 : 'Nothing is selected' }</p>
           <ToggleableTags
             tags={ tags }
+            onChange={ (tag) => this.setState({
+              tagsInput5: tag
+            }) }
           />
         </Card>
       </div>

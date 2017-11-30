@@ -4,6 +4,7 @@ machine:
 test:
   override:
     - npm run test
+    - npm run test:e2e
 
 dependencies:
   pre:

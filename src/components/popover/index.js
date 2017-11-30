@@ -5,7 +5,7 @@ import { Popper, Arrow } from 'react-popper';
 const Popover = (props) => (
   <Popper placement={ props.placement } className="overlay popover">
     { props.children }
-    <Arrow className="popper__arrow" />
+    <Arrow className="overlay-arrow" />
   </Popper>
 );
 

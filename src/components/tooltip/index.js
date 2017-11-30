@@ -5,7 +5,7 @@ import { Popper, Arrow } from 'react-popper';
 const Tooltip = (props) => (
   <Popper placement={ props.placement } className="overlay tooltip">
     { props.children }
-    <Arrow className="popper__arrow" />
+    <Arrow className="overlay-arrow" />
   </Popper>
 );
 

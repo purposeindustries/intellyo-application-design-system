@@ -11,7 +11,7 @@ export default class PopoverPage extends React.Component {
     return (
       <div>
         <Card>
-          <Row >
+          <Row>
             <Col span={ 3 }>
               <OverlayTrigger
                 delay={ 0 }

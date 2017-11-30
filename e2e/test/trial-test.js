@@ -14,8 +14,6 @@ describe('FEF basic Tests', function () {
   it('should check the loading button', function () {
     browser.url('/');
 
-    let title = browser.getTitle();
-
     assert(browser.isExisting(COMPONENTS_MENU));
     browser.click(COMPONENTS_MENU);
 
@@ -31,6 +29,5 @@ describe('FEF basic Tests', function () {
     browser.click(LOADING_BUTTON);
 
     $(SAVE_BUTTON).waitForExist(2100);
-
   });
 });

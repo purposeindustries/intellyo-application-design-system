@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { Popper, Arrow } from 'react-popper';
 
 const Tooltip = (props) => (
-  <div
-    className={
-      classNames(props.className, 'tooltip', `tooltip-placement--${props.placement}`)
-    }
-  >
+  <Popper placement={ props.placement } className="overlay tooltip">
     { props.children }
-    <div className="tooltip-arrow" />
-  </div>
+    <Arrow className="popper__arrow" />
+  </Popper>
 );
 
 Tooltip.displayName = 'Tooltip';

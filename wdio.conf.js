@@ -1,5 +1,5 @@
 exports.config = {
-
+    
     //
     // ==================
     // Specify Test Files
@@ -10,7 +10,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/**/*.js'
+        './e2e/test/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,7 +58,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'command',
+    logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -71,7 +71,7 @@ exports.config = {
     bail: 0,
     //
     // Saves a screenshot to a given path if a command fails.
-    screenshotPath: './errorShots',
+    screenshotPath: './errorShots/',
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
@@ -125,7 +125,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
     reporters: ['spec','allure'],
-
+    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -171,7 +171,7 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-
+    
     /**
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
@@ -208,7 +208,7 @@ exports.config = {
      */
     // afterSuite: function (suite) {
     // },
-
+    
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

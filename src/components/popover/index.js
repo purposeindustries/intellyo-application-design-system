@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Popper, Arrow } from 'react-popper';
 
 const Popover = (props) => (
-  <Popper placement={ props.placement } className="overlay popper popover">
+  <Popper placement={ props.placement } className="overlay popover">
     { props.children }
     <Arrow className="popper__arrow" />
   </Popper>

@@ -46,5 +46,6 @@ Here you can find each of our components:
 - [Table](/src/components/table)
 - [Tagsinput](/src/components/tagsinput)
 - [Textarea](/src/components/textarea)
+- [ToggleableTags](/src/components/toggleable-tags)
 - [Tooltip](/src/components/tooltip)
 - [withLimit](/src/components/with-limit)

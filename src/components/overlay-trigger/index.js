@@ -69,15 +69,7 @@ export default class OverlayTrigger extends React.Component {
   }
 
   handleOutSideTap = () => {
-    const elements = [this.target];
-
-    if (this.popper) {
-      elements.push(this.popper);
-    }
-
-    if (this.outsideTap) {
-      this.outsideTap.remove();
-    }
+    const elements = [this.target, this.popper].filter(Boolean);
 
     this.outsideTap = outy(
       elements,
@@ -89,12 +81,6 @@ export default class OverlayTrigger extends React.Component {
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
     this.handleOutSideTap();
-  }
-
-  componentDidUpdate(lastProps, lastState) {
-    if (lastState.isActive !== this.state.isActive) {
-      setTimeout(() => this.handleOutSideTap());
-    }
   }
 
   componentWillUnmount() {

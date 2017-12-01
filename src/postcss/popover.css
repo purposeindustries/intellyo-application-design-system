@@ -1,100 +1,11 @@
 .popover {
   display: inline-block;
   position: absolute;
-  padding: 20px;
-  border-radius: calc(2 * $border-radius-base);
+  padding: $gutter-base;
+  border-radius: $border-radius-base;
   font-family: $font-family-base;
   font-size: $font-size-base;
   background: #fff;
   box-shadow: 0 0 3px rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.15);
   z-index: 10;
-
-  &::before, &::after {
-    content: '';
-    display: block;
-    background: #fff;
-    position: absolute;
-  }
-
-  &::before {
-    transform: rotate(-45deg);
-    box-shadow: 0 0 3px rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.15);
-    z-index: 11;
-  }
-
-  &::after {
-    z-index: 12;
-  }
-
-  &--right {
-    top: 0%;
-    left: 100%;
-    transform: translate3d(16px, -12px, 0);
-    &::before {
-      width: 16px;
-      height: 16px;
-      top: 16px;
-      left: -5px;
-    }
-    &::after {
-      width: 16px;
-      height: 30px;
-      top: 10px;
-      left: 0;
-    }
-  }
-
-  &--left {
-    right: 100%;
-    top: 0%;
-    transform: translate3d(-16px, -12px, 0);
-    &::before {
-      width: 16px;
-      height: 16px;
-      top: 16px;
-      right: -5px;
-    }
-    &::after {
-      width: 16px;
-      height: 30px;
-      top: 10px;
-      right: 0;
-    }
-  }
-
-  &--top {
-    bottom: 100%;
-    left: 0%;
-    transform: translate3d(0, -9px, 0);
-    &::before {
-      width: 16px;
-      height: 16px;
-      bottom: -5px;
-      left: 16px;
-    }
-    &::after {
-      width: 30px;
-      height: 16px;
-      bottom: 0px;
-      left: 10px;
-    }
-  }
-
-  &--bottom {
-    top: 100%;
-    left: 0%;
-    transform: translate3d(0, 9px, 0);
-    &::before {
-      width: 16px;
-      height: 16px;
-      top: -5px;
-      left: 16px;
-    }
-    &::after {
-      width: 30px;
-      height: 16px;
-      top: 0px;
-      left: 10px;
-    }
-  }
 }

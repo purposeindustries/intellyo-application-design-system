@@ -74,6 +74,12 @@ export default class TooltipPage extends React.Component {
               </OverlayTrigger>
             </Col>
           </Row>
+          <Row>
+            <Col span={ 3 }><p>top</p></Col>
+            <Col span={ 3 }><p>right</p></Col>
+            <Col span={ 3 }><p>bottom</p></Col>
+            <Col span={ 3 }><p>left</p></Col>
+          </Row>
         </Card>
       </div>
     );

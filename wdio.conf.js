@@ -44,10 +44,10 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
-        chromeOptions: {
-          args: ['--headless', '--disable-gpu', '--window-size=1280,800']
-        }
+        browserName: 'firefox',
+        // chromeOptions: {
+        //   args: ['--headless', '--disable-gpu', '--window-size=1280,800']
+        // }
     }],
     //
     // ===================
@@ -80,7 +80,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8000',
+    baseUrl: 'http://ux.intellyo.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -114,7 +114,10 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: ['sauce'],
+    user: "kernighan",
+    key: process.env.JAMES_SAUCE_LABS_ACCES_KEY,
+    sauceConnect: true,
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

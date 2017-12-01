@@ -4,16 +4,18 @@ machine:
 test:
   override:
     - npm run test
-    - cd sc-*-linux && ./bin/sc --user kernighan --api-key 7b63e447-677a-4f1c-8d02-5058a7cf5229 --readyfile ~/sauce_is_ready:
+    - cd sc-*-linux && ./bin/sc --user kernighan --api-key $JAMES_SAUCE_LABS_ACCES_KEY --readyfile ~/sauce_is_ready:
         background: true
     # Wait for tunnel to be ready
     - while [ ! -e ~/sauce_is_ready ]; do sleep 1; done
-    - python -m hello.hello_app:
-        background: true
+    - npm run watch
     # Wait for app to be ready
     - curl --retry 10 --retry-delay 2 -v http://localhost:8000
     #run tests
     - npm run test:e2e
+  post:
+    # wait for Sauce Connect to close the tunnel
+    - killall --wait sc
 
 dependencies:
   pre:
@@ -22,6 +24,8 @@ dependencies:
     - "cache"
   post:
     - NODE_ENV=production npm run build
+    - wget https://saucelabs.com/downloads/sc-latest-linux.tar.gz
+    - tar -xzf sc-latest-linux.tar.gz
 
 deployment:
   release:

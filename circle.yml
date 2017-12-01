@@ -24,8 +24,8 @@ dependencies:
     - "cache"
   post:
     - NODE_ENV=production npm run build
-    - wget https://saucelabs.com/downloads/sc-latest-linux.tar.gz
-    - tar -xzf sc-latest-linux.tar.gz
+    - wget https://saucelabs.com/downloads/sc-4.4.10-linux32.tar.gz
+    - tar -xzf sc-4.4.10-linux32.tar.gz
 
 deployment:
   release:

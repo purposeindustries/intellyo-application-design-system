@@ -4,8 +4,9 @@ machine:
 test:
   override:
     - npm run test
-    - cd sc-*-linux && ./bin/sc --user kernighan --api-key 7b63e447-677a-4f1c-8d02-5058a7cf5229 --readyfile ~/sauce_is_ready:
-        background: true
+    - ./bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -f ~/sc_ready:
+            background: true
+            pwd: sc-*-linux
     # Wait for tunnel to be ready
     - while [ ! -e ~/sauce_is_ready ]; do sleep 1; done
     - npm run watch

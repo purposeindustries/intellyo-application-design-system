@@ -4,7 +4,7 @@ machine:
 test:
   override:
     - npm run test
-    - ./bin/sc -u kernighan -k 7b63e447-677a-4f1c-8d02-5058a7cf5229 -f ~/sc_ready:
+    - cd sc-*-linux32 && ./bin/sc -u kernighan -k 7b63e447-677a-4f1c-8d02-5058a7cf5229 -f ~/sc_ready:
             background: true
             pwd: sc-*-linux32
     # Wait for tunnel to be ready

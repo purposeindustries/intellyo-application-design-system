@@ -34,6 +34,7 @@ export default class Avatars extends Component {
                   <Avatar
                     name="Donald Trump"
                     size="small"
+                    showTooltip={ false }
                     src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   />
                   <Avatar

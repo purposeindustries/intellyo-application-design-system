@@ -73,7 +73,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   src: silhouette,
   showTooltip: true,
-  name: 'John Doe',
+  name: 'N/A',
 };
 
 export default Avatar;

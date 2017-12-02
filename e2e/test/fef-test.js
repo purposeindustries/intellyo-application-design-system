@@ -12,7 +12,7 @@ describe('FEF basic tests', function () {
 
 describe('FEF button tests', function () {
   it('should check the loading button', function () {
-    browser.url('http://ux.intellyo.com/buttons');
+    browser.url('http://localhost:8000/buttons');
 
     $(SAVE_BUTTON).scroll();
 

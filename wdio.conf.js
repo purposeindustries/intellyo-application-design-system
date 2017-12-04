@@ -125,8 +125,8 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: [driver],
-    user: process.env.JAMES_SAUCE_LABS_USER_NAME,
-    key: process.env.JAMES_SAUCE_LABS_ACCES_KEY,
+    user: process.env.SAUCE_LABS_USERNAME,
+    key: process.env.SAUCE_LABS_ACCES_KEY,
     sauceConnect: true,
     //
     // Framework you want to run your specs with.

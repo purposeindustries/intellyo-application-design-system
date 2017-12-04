@@ -9,8 +9,8 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   driver = 'sauce';
 }
 
-if (process.env.CI || process.env.BROWSER === 'firefox') {
-  browserName = 'firefox';
+if (process.env.BROWSER) {
+  browserName = process.env.BROWSER;
 }
 
 exports.config = {

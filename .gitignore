@@ -38,3 +38,6 @@ dist
 
 # Test results
 allure-results
+
+#Environment variables
+.env

@@ -1,3 +1,14 @@
+require('dotenv').config()
+let sauceLabsUsername;
+let saucelabsAccesKey;
+let browserName = 'chrome';
+let driver = 'selenium-standalone';
+if (process.env.CI) {
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCES_KEY;
+  driver = 'sauce';
+}
+
 exports.config = {
 
     //
@@ -44,7 +55,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox',
+        browserName: browserName,
         // chromeOptions: {
         //   args: ['--headless', '--disable-gpu', '--window-size=1280,800']
         // }
@@ -114,9 +125,9 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['sauce'],
-    user: process.env.JAMES_SAUCE_LABS_USER_NAME,
-    key: process.env.JAMES_SAUCE_LABS_ACCES_KEY,
+    services: [driver],
+    user: process.env.SAUCE_LABS_USERNAME,
+    key: process.env.SAUCE_LABS_ACCES_KEY,
     sauceConnect: true,
     //
     // Framework you want to run your specs with.

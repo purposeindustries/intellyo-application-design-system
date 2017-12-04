@@ -55,16 +55,20 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: browserName,
-        // chromeOptions: {
-        //   args: ['--headless', '--disable-gpu', '--window-size=1280,800']
-        // }
+    capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
+      browerName: 'chrome',
+      version: '62.0'
+    }, {
+      browserName: 'chrome',
+      version: '61.0'
+    }, {
+      browserName: 'firefox',
+      version: '56.0'
+    }, {
+      browserName: 'internet explorer',
+      version: '11.103'
+    }] : [{
+      browserName: browserName,
     }],
     //
     // ===================

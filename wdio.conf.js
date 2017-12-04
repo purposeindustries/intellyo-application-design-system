@@ -57,16 +57,16 @@ exports.config = {
     //
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
       browserName: 'firefox',
-      version: '56.0'
+      version: 'latest'
     }, {
       browserName: 'chrome',
-      version: '62.0'
+      version: 'latest'
     }, {
       browserName: 'chrome',
-      version: '61.0'
+      version: 'latest-1'
     }, {
       browserName: 'internet explorer',
-      version: '11.103'
+      version: 'latest'
     }] : [{
       browserName: browserName,
     }],

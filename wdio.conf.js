@@ -59,7 +59,7 @@ exports.config = {
       browserName: 'firefox',
       version: '56.0'
     }, {
-      browerName: 'chrome',
+      browserName: 'chrome',
       version: '62.0'
     }, {
       browserName: 'chrome',

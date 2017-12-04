@@ -115,7 +115,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['sauce'],
-    user: "kernighan",
+    user: process.env.JAMES_SAUCE_LABS_USER_NAME,
     key: process.env.JAMES_SAUCE_LABS_ACCES_KEY,
     sauceConnect: true,
     //

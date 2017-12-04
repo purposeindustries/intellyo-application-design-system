@@ -56,14 +56,14 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
+      browserName: 'firefox',
+      version: '56.0'
+    }, {
       browerName: 'chrome',
       version: '62.0'
     }, {
       browserName: 'chrome',
       version: '61.0'
-    }, {
-      browserName: 'firefox',
-      version: '56.0'
     }, {
       browserName: 'internet explorer',
       version: '11.103'

@@ -4,7 +4,7 @@ machine:
 test:
   override:
     - npm run test
-    - cd sc-*-linux32 && ./bin/sc --user $JAMES_SAUCE_LABS_USER_NAME --api-key $JAMES_SAUCE_LABS_ACCES_KEY --readyfile ~/sauce_is_ready:
+    - cd sc-*-linux32 && ./bin/sc --user $SAUCE_LABS_USERNAME --api-key $SAUCE_LABS_ACCES_KEY --readyfile ~/sauce_is_ready:
         background: true
     # Wait for tunnel to be ready
     - while [ ! -e ~/sauce_is_ready ]; do sleep 1; done

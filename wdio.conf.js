@@ -1,8 +1,10 @@
 require('dotenv').config();
+
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let browserName = 'chrome';
 let driver = 'selenium-standalone';
+
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCES_KEY;

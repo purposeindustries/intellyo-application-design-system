@@ -16,7 +16,7 @@
     "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
-    "test:e2e": "wdio",
+    "test:e2e": "JUNIT_OUTPUT=${JUNIT_OUTPUT-./e2e/test_results} wdio",
     "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
     "deploy:s3": "cd public; babel-node ../s3",
     "deploy:tar": "cd public; tar -czvf ../${npm_package_version}.tgz .",

@@ -157,7 +157,7 @@ exports.config = {
     reporters: ['spec', 'junit'],
     reporterOptions: {
         junit: {
-            outputDir: './e2e/test_results/'
+            outputDir: process.env.JUNIT_OUTPUT
         }
     },
     // Options to be passed to Mocha.

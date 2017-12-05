@@ -154,9 +154,12 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    reporters: ['spec', 'allure'],
-
-    //
+    reporters: ['spec', 'junit'],
+    reporterOptions: {
+        junit: {
+            outputDir: './e2e/test_results/'
+        }
+    },
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {

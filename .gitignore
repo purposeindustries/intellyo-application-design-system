@@ -37,8 +37,7 @@ src/css/main.css
 dist
 
 # Test results
-allure-results
-allure-report
+e2e/test_results
 .DS_Store
 
 #Environment variables

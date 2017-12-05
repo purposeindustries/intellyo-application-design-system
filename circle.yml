@@ -4,8 +4,6 @@ machine:
   environment:
     JUNIT_OUTPUT: $CIRCLE_TEST_REPORTS/junit/
 test:
-  pre:
-    mkdir -p $CIRCLE_TEST_REPORTS/junit
   override:
     - npm run test
     - npm run watch:

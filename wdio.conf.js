@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const hostname = require('os').hostname();
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let browserName = 'chrome';
@@ -139,6 +139,9 @@ exports.config = {
     user: sauceLabsUsername,
     key: saucelabsAccesKey,
     sauceConnect: true,
+    sauceConnectOpts: {
+      tunnelIdentifier: hostname
+    },
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

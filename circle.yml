@@ -11,10 +11,7 @@ test:
     #run tests
     - npm run test:e2e
     - allure generate ./allure-results/
-
-  general:
-    artifacts:
-      - "allure-report"
+    - cp -rf ./allure-report $CIRCLE_ARTIFACTS
 
 dependencies:
   pre:

@@ -38,6 +38,8 @@ dist
 
 # Test results
 allure-results
+allure-report
+.DS_Store
 
 #Environment variables
 .env

@@ -10,6 +10,11 @@ test:
     - wget --retry-connrefused --no-check-certificate -T 30 http://localhost:8000
     #run tests
     - npm run test:e2e
+    - allure generate ./allure-results/
+
+  general:
+    artifacts:
+      - "allure-report"
 
 dependencies:
   pre:
@@ -18,8 +23,6 @@ dependencies:
     - "cache"
   post:
     - NODE_ENV=production npm run build
-    - wget https://saucelabs.com/downloads/sc-4.4.10-linux32.tar.gz
-    - tar -xzf sc-4.4.10-linux32.tar.gz
 
 deployment:
   release:

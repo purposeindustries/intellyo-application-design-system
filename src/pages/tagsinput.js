@@ -220,8 +220,9 @@ export default class TagsInputPage extends Component {
           <p>{ this.state.tagsInput5 !== '' ? this.state.tagsInput5 : 'Nothing is selected' }</p>
           <ToggleableTags
             tags={ tags }
+            selected={ this.state.tagsInput5 }
             onChange={ (tag) => this.setState({
-              tagsInput5: tag
+              tagsInput5: tag === this.state.tagsInput5 ? '' : tag
             }) }
           />
         </Card>

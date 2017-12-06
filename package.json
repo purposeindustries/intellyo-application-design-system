@@ -39,8 +39,8 @@
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
-    "gatsby": "^1.8.10",
-    "gatsby-cli": "^1.0.12",
+    "gatsby": "^1.9.128",
+    "gatsby-cli": "^1.1.25",
     "gatsby-link": "^1.6.5",
     "gatsby-plugin-react-helmet": "^1.0.1",
     "lorem-ipsum": "^1.0.4",
@@ -60,6 +60,8 @@
     "postcss-utilities": "^0.6.1",
     "pre-commit": "^1.2.2",
     "prettier": "^1.5.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "window-or-global": "^1.0.1"
   },
   "dependencies": {
@@ -70,12 +72,12 @@
     "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
     "react-hide-at": "^1.0.4",
-    "react-ionicons": "^1.5.8",
-    "react-motion": "^0.5.1",
+    "react-ionicons": "^1.5.9",
+    "react-motion": "^0.5.2",
     "react-popper": "^0.7.4",
     "react-show-at": "^1.0.0",
-    "react-tagsinput": "^3.17.0",
+    "react-tagsinput": "^3.19.0",
     "react-user-avatar": "^1.9.0",
-    "rodal": "^1.6.0"
+    "rodal": "^1.6.1"
   }
 }

@@ -1,9 +1,25 @@
 require('dotenv').config();
+var path = require('path');
+var VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const hostname = require('os').hostname();
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let browserName = 'chrome';
 let driver = 'selenium-standalone';
+
+function getScreenshotName(basePath) {
+  return function(context) {
+    var type = context.type;
+    var testName = context.test.title;
+    var browserVersion = parseInt(context.browser.version, 10);
+    var browserName = context.browser.name;
+    var browserViewport = context.meta.viewport;
+    var browserWidth = browserViewport.width;
+    var browserHeight = browserViewport.height;
+
+    return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
+  };
+}
 
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
@@ -51,7 +67,15 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
-    services: [driver],
+    services: [driver, 'visual-regression'],
+    visualRegression: {
+    compare: new VisualRegressionCompare.LocalCompare({
+      referenceName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/reference')),
+      screenshotName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/screen')),
+      diffName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/diff')),
+      misMatchTolerance: 0.01,
+    }),
+    },
     user: sauceLabsUsername,
     key: saucelabsAccesKey,
     sauceConnect: true,

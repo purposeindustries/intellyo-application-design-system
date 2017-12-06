@@ -70,9 +70,9 @@ exports.config = {
     services: [driver, 'visual-regression'],
     visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/reference')),
-      screenshotName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/screen')),
-      diffName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/diff')),
+      referenceName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/reference/')),
+      screenshotName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/screen/')),
+      diffName: getScreenshotName(path.join(process.cwd(), process.env.E2E_SCREENSHOTS + '/diff/')),
       misMatchTolerance: 0.01,
     }),
     },

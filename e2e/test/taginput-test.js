@@ -4,13 +4,11 @@ function getExactSameImage(results) {
   return results[0].isExactSameImage;
 }
 
-describe.only('FEF basic tests', function () {
-  it('takes reference pics', function () {
+describe.only('visual regression', function () {
+  it('takes reference pics and check it', function () {
+    this.timeout(20000);
     browser.url('/');
-    assert(getExactSameImage(browser.checkElement('.sidebar')));
-  });
-  it('check diff in menu', function () {
-    browser.url('/');
+    browser.checkElement('.sidebar');
     browser.click('a=Components');
     assert(getExactSameImage(browser.checkElement('.sidebar')));
   });

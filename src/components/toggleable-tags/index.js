@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../button';
 
+const ToggleableTagsPropTypes = {
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  })),
+  onChange: PropTypes.func
+};
+
 export default class ToggleableTags extends React.PureComponent {
   static displayName = 'ToggleableTags';
 
-  static propTypes = {
-    tags: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired
-    })),
-    onChange: PropTypes.func
-  }
+  static propTypes = ToggleableTagsPropTypes;
 
   state = {
     selected: ''
@@ -53,3 +55,28 @@ export default class ToggleableTags extends React.PureComponent {
     );
   }
 }
+
+export const ControlledToggleableTags = ({ tags, selected, onChange }) => {
+  return (
+    <div className="toggleable-tags">
+      { tags.map(tag =>
+        <Button
+          key={ tag.title }
+          onClick={ () => onChange(tag.value) }
+          neutral={ tag.value !== selected }
+          size="small"
+        >
+          { tag.title }
+        </Button>
+      ) }
+    </div>
+  );
+};
+
+ControlledToggleableTags.displayName = 'ControlledToggleableTags';
+
+const ControlledToggleableTagsPropTypes = Object.assign({}, ToggleableTagsPropTypes);
+ControlledToggleableTagsPropTypes.selected = PropTypes.string.isRequired;
+ControlledToggleableTagsPropTypes.onChange = PropTypes.func.isRequired;
+
+ControlledToggleableTags.propTypes = ControlledToggleableTagsPropTypes;

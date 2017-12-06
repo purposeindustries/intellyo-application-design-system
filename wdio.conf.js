@@ -47,7 +47,7 @@ exports.config = {
     deprecationWarnings: true,
     bail: 0,
     screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-    baseUrl: 'http://localhost:' + process.env.FEF_PORT,
+    baseUrl: 'http://localhost:9000',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,

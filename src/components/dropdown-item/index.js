@@ -10,7 +10,7 @@ export default function DropdownItem(props) {
           'dropdown-item--disabled': !!props.disabled
         })
       }
-      onClick={ !props.disabled && props.onClick }
+      onClick={ !props.disabled ? props.onClick : undefined }
       onMouseDown={ props.onMouseDown }
       id={ props.id }
     >

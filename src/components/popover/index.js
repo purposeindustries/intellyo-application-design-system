@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { Popper, Arrow } from 'react-popper';
 
 const Popover = (props) => (
-  <div className={ classNames(props.className, 'popover', `popover--${props.placement}`) }>
+  <Popper placement={ props.placement } className="overlay popover">
     { props.children }
-  </div>
+    <Arrow className="overlay-arrow" />
+  </Popper>
 );
 
 Popover.displayName = 'Popover';

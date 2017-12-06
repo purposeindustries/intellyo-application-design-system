@@ -58,7 +58,7 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
     height: null,
   };
 
-  adjustHeight(nextFrame) {
+  adjustHeight() {
     const adjust = () => {
       if (this.state.height === (this._el && this._el.scrollHeight)) {
         return;
@@ -67,36 +67,26 @@ const autogrow = Component => class AutogrowingComponent extends React.Component
         height: this._el && this._el.scrollHeight,
       });
     };
+    adjust();
+  }
 
-    if (nextFrame) {
-      this.timeoutId = setTimeout(adjust, 0);
-    } else {
-      adjust();
-    }
+  componentDidMount() {
+    this.adjustHeight();
   }
 
   componentDidUpdate() {
     this.adjustHeight();
   }
 
-  componentWillUnmount() {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-      this.timeoutId = null;
-    }
-  }
-
   render() {
-    const store = el => {
-      this._el = el;
-      this.adjustHeight(true);
-    };
     return (
       <div className="autogrow" style={ this.state.height ? { height: this.state.height + 'px' } : null }>
         <div className="autogrow--measurer">
           <Component
             { ...this.props }
-            inputRef={ store }
+            inputRef={ el => {
+              this._el = el;
+            } }
             className={ classNames('autogrow', 'autogrow--measured', this.props.className) }
           />
         </div>

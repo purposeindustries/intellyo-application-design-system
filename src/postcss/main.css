@@ -33,6 +33,8 @@
 @import './option';
 @import './option-separator';
 @import './multiselect';
+@import './overlay';
+@import './toggleable-tags';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

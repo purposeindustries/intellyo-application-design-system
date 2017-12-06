@@ -1,6 +1,9 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Manager, Target } from 'react-popper';
+import outy from 'outy';
 
 const ESCKeyCode = 27;
 
@@ -65,13 +68,25 @@ export default class OverlayTrigger extends React.Component {
     }
   }
 
+  handleOutSideTap = () => {
+    const elements = [this.target, this.popper].filter(Boolean);
+
+    this.outsideTap = outy(
+      elements,
+      ['click', 'touchstart'],
+      this.deactivate
+    );
+  }
+
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
+    this.handleOutSideTap();
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown);
     this.removeTimer();
+    this.outsideTap.remove();
   }
 
   render() {
@@ -93,31 +108,33 @@ export default class OverlayTrigger extends React.Component {
     }
 
     return (
-      <div
-        className={
-          classNames('overlay-trigger', {
-            'overlay-trigger--active': this.state.isActive
-          }, this.props.className)
-        }
-        { ...triggers }
-      >
+      <Manager>
         <div
-          onClick={ () => this.deactivate() }
-          className={ classNames('overlay-trigger-outer-area', {
-            'overlay-trigger-outer-area--active': this.state.isActive && this.props.trigger === 'click'
-          }) }
-        />
-        { this.props.children }
-        { React.cloneElement(this.props.overlay, {
-          className: classNames(this.props.overlay.props.className, 'overlay'),
-          onClick: (e) => {
-            if (this.props.overlay.props.onClick) {
-              e.preventDefault();
-              this.props.overlay.props.onClick();
-            }
+          className={
+            classNames('overlay-trigger', {
+              'overlay-trigger--active': this.state.isActive
+            }, this.props.className)
           }
-        }) }
-      </div>
+          { ...triggers }
+        >
+          <Target
+            innerRef={ c => (this.target = findDOMNode(c)) }
+            onClick={ this.toggle }
+          >
+            { this.props.children }
+          </Target>
+          { React.cloneElement(this.props.overlay, {
+            className: classNames(this.props.overlay.props.className, 'overlay'),
+            onClick: (e) => {
+              if (this.props.overlay.props.onClick) {
+                e.preventDefault();
+                this.props.overlay.props.onClick();
+              }
+            },
+            innerRef: (c) => (this.popper = findDOMNode(c))
+          }) }
+        </div>
+      </Manager>
     );
   }
 }

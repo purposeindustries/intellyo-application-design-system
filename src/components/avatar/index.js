@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UserAvatar from 'react-user-avatar';
 import classNames from 'classnames';
+import silhouette from './silhouette';
+import Tooltip from '../tooltip';
+import OverlayTrigger from '../overlay-trigger';
 
 const Avatar = (props) => {
 
@@ -20,11 +23,27 @@ const Avatar = (props) => {
       }) }
       style={ props.style }
     >
-      <UserAvatar
-        size={ sizes[props.size] || defaultSize }
-        src={ props.src }
-        name={ props.name }
-      />
+      { !props.caption && props.showTooltip ? (
+        <OverlayTrigger
+          trigger="hover"
+          delay={ 0 }
+          overlay={
+            <Tooltip placement={ props.tooltipPlacement }>{ props.name }</Tooltip>
+          }
+        >
+          <UserAvatar
+            size={ sizes[props.size] || defaultSize }
+            src={ props.src }
+            name={ props.name }
+          />
+        </OverlayTrigger>
+      ) : (
+        <UserAvatar
+          size={ sizes[props.size] || defaultSize }
+          src={ props.src }
+          name={ props.name }
+        />
+      ) }
       { props.caption && (
         <div className="avatar-caption-wrapper">
           <span className="avatar-name">{ props.name }</span>
@@ -46,7 +65,15 @@ Avatar.propTypes = {
   name: PropTypes.string,
   caption: PropTypes.string,
   icon: PropTypes.node,
-  src: PropTypes.string
+  src: PropTypes.string,
+  tooltipPlacement: PropTypes.string,
+  showTooltip: PropTypes.bool,
+};
+
+Avatar.defaultProps = {
+  src: silhouette,
+  showTooltip: true,
+  name: 'N/A',
 };
 
 export default Avatar;

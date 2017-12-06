@@ -1,9 +1,18 @@
 machine:
   node:
     version: 8.7.0
+  environment:
+    E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
+    E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
 test:
   override:
     - npm run test
+    - npm run serve:
+        background: true
+    # Wait for app to be ready
+    - wget --retry-connrefused --no-check-certificate -T 30 http://localhost:9000
+    #run tests
+    - npm run test:e2e
 
 dependencies:
   pre:

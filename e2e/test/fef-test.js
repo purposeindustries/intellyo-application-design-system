@@ -21,6 +21,6 @@ describe('FEF button tests', function () {
     assert(browser.isExisting(LOADING_BUTTON));
     browser.click(LOADING_BUTTON);
 
-    $(SAVE_BUTTON).waitForExist(2100);
+    $(SAVE_BUTTON).waitForExist(2200);
   });
 });

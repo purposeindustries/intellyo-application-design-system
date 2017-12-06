@@ -25,7 +25,8 @@
     "lint:watch": "esw src -w",
     "watch": "npm run watch:css & npm run develop & wait",
     "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p",
-    "prepublish": "npm t && npm run build:css && npm run build:components"
+    "prepublish": "npm t && npm run build:css && npm run build:components",
+    "serve": "gatsby serve"
   },
   "devDependencies": {
     "aws-sdk-then": "^1.1.0",

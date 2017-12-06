@@ -11,7 +11,7 @@ describe('FEF basic tests', function () {
 
 describe('FEF button tests', function () {
   it('should check the loading button', function () {
-    browser.url('http://localhost:8000/buttons');
+    browser.url('/buttons');
 
     $(SAVE_BUTTON).scroll();
 

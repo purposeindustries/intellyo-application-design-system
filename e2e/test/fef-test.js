@@ -5,7 +5,7 @@ const LOADING_BUTTON = 'span=Loading...';
 describe('FEF basic tests', function () {
   it('should open  with proper title', function () {
     browser.url('/');
-    assert.equal(browser.getTitle(), 'Intellsfyo Application Design System');
+    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
   });
 });
 

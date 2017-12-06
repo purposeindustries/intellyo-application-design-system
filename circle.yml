@@ -2,7 +2,8 @@ machine:
   node:
     version: 8.7.0
   environment:
-    JUNIT_OUTPUT: $CIRCLE_TEST_REPORTS/junit/
+    E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
+    E2E_ERRORSHOTS_OUTPUT: $CIRCLE_TEST_REPORTS/e2e-errorshots/
 test:
   override:
     - npm run test

@@ -42,7 +42,7 @@ exports.config = {
     }],
 
     sync: true,
-    logLevel: 'verbose',
+    logLevel: 'silent',
     coloredLogs: true,
     deprecationWarnings: true,
     bail: 0,

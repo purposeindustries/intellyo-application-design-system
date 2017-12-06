@@ -43,4 +43,4 @@ export { default as HorizontallyScrollableRow } from './horizontally-scrollable-
 export { Accordion, AccordionItem, SingleAccordion, MultiAccordion } from './accordion';
 export { default as EmptyView } from './empty-view';
 export { default as Modal } from './modals';
-export { default as ToggleableTags, ControlledToggleableTags } from './toggleable-tags';
+export { default as ToggleableTags } from './toggleable-tags';

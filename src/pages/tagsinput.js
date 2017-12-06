@@ -3,7 +3,7 @@ import TagsInput, { StandAloneInput, DefaultInput, ResponsiveTagsInput } from '.
 import Card from '../components/card/';
 import { SuggestionWithImage } from '../components/input/';
 import breakpoints from '../utils/breakpoints';
-import ToggleableTags from '../components/toggleable-tags';
+import ToggleableTags, { ControlledToggleableTags } from '../components/toggleable-tags';
 
 const randomWords = ['hamburger', 'nachos', 'burrito', 'pizza', 'gyros'];
 
@@ -23,6 +23,7 @@ export default class TagsInputPage extends Component {
     tagsInput3: [],
     tagsInput4: [],
     tagsInput5: '',
+    tagsInput6: '',
   }
 
   render() {
@@ -222,6 +223,18 @@ export default class TagsInputPage extends Component {
             tags={ tags }
             onChange={ (tag) => this.setState({
               tagsInput5: tag
+            }) }
+          />
+        </Card>
+        <Card
+          title="Controlled Toggleable Tags"
+        >
+          <p>{ this.state.tagsInput6 !== '' ? this.state.tagsInput6 : 'Nothing is selected' }</p>
+          <ControlledToggleableTags
+            tags={ tags }
+            selected={ this.state.tagsInput6 }
+            onChange={ (tag) => this.setState({
+              tagsInput6: tag === this.state.tagsInput6 ? '' : tag
             }) }
           />
         </Card>

@@ -1,7 +1,7 @@
 const assert = require('assert');
 
 function getExactSameImage(results) {
-  console.log(results);
+  return results[0].isExactSameImage;
 }
 
 describe.only('visual regression', function () {
@@ -10,6 +10,6 @@ describe.only('visual regression', function () {
     browser.url('/');
     browser.checkElement('.sidebar');
     browser.click('a=Components');
-    getExactSameImage(browser.checkElement('.sidebar'));
+    assert(getExactSameImage(browser.checkElement('.sidebar')));
   });
 });

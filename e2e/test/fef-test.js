@@ -1,15 +1,24 @@
+const visualRegression = require('./visual-regression');
+
+const { takeRefScreenshot, takeScreenshotAndGetComapreResult } = visualRegression;
+
 const assert = require('assert');
 const SAVE_BUTTON = 'span=Save';
 const LOADING_BUTTON = 'span=Loading...';
 
 describe('FEF basic tests', function () {
-  it('should open  with proper title', function () {
+  before(function () {
+    takeRefScreenshot();
+  });
+
+  it('Checks the the fef main page', function () {
     browser.url('/');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
+    assert(takeScreenshotAndGetComapreResult(browser));
   });
 });
 
-describe('FEF button tests', function () {
+describe('FEF load button tests', function () {
   it('should check the loading button', function () {
     browser.url('/buttons');
 

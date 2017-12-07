@@ -105,9 +105,10 @@ export default class TagsInputPage extends Component {
             inputProps={ {
               placeholder: 'Type your tag...'
             } }
-            renderInput={ (props) => (
+            //eslint-disable-next-line no-unused-vars
+            renderInput={ ({ ref, ...rest }) => (
               <StandAloneInput
-                { ...props }
+                { ...rest }
                 suggestions={ [{
                   id: 0,
                   image: 'https://yt3.ggpht.com/-kjvQ93RHls8/AAAAAAAAAAI/AAAAAAAAAAA/R-e1VQdsqVs/s48-c-k-no-mo-rj-c0xffffff/photo.jpg',
@@ -220,8 +221,9 @@ export default class TagsInputPage extends Component {
           <p>{ this.state.tagsInput5 !== '' ? this.state.tagsInput5 : 'Nothing is selected' }</p>
           <ToggleableTags
             tags={ tags }
+            selected={ this.state.tagsInput5 }
             onChange={ (tag) => this.setState({
-              tagsInput5: tag
+              tagsInput5: tag === this.state.tagsInput5 ? '' : tag
             }) }
           />
         </Card>

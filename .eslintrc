@@ -9,6 +9,14 @@
     "node": true,
     "es6": true
   },
+  "globals": {
+    "browser": true,
+    "$": true,
+    "describe": true,
+    "it": true,
+    "beforeEach": true,
+    "afterEach": true,
+},
   "rules": {
     "react/jsx-boolean-value": 0
   }

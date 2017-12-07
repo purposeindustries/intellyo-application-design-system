@@ -2,54 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../button';
 
-export default class ToggleableTags extends React.PureComponent {
-  static displayName = 'ToggleableTags';
+const ToggleableTags = ({ tags, selected, onChange }) => {
+  return (
+    <div className="toggleable-tags">
+      { tags.map(tag =>
+        <Button
+          key={ tag.title }
+          onClick={ () => onChange(tag.value) }
+          neutral={ tag.value !== selected }
+          size="small"
+        >
+          { tag.title }
+        </Button>
+      ) }
+    </div>
+  );
+};
 
-  static propTypes = {
-    tags: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired
-    })),
-    onChange: PropTypes.func
-  }
+ToggleableTags.displayName = 'ToggleableTags';
 
-  state = {
-    selected: ''
-  }
+ToggleableTags.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  })),
+  onChange: PropTypes.func.isRequired,
+  selected: PropTypes.string.isRequired
+};
 
-  handleClick = (tag) => {
-    const onChange = () => {
-      if (this.props.onChange) {
-        this.props.onChange(this.state.selected);
-      }
-      return;
-    };
-
-    if (this.state.selected === tag.value) {
-      this.setState({
-        selected: ''
-      }, onChange);
-    } else {
-      this.setState({
-        selected: tag.value
-      }, onChange);
-    }
-  }
-
-  render() {
-    return (
-      <div className="toggleable-tags">
-        { this.props.tags.map(tag =>
-          <Button
-            key={ tag.title }
-            onClick={ () => this.handleClick(tag) }
-            neutral={ this.state.selected !== tag.value }
-            size="small"
-          >
-            { tag.title }
-          </Button>
-        ) }
-      </div>
-    );
-  }
-}
+export default ToggleableTags;

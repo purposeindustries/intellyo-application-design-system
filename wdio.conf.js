@@ -6,6 +6,15 @@ let sauceLabsUsername;
 let saucelabsAccesKey;
 let browserName = 'chrome';
 let driver = 'selenium-standalone';
+let browsers = [];
+
+if (process.env.BROWSER) {
+  process.env.BROWSER.split(',').forEach(element => browsers.push({browserName: element}));
+}
+
+else {
+  browsers = [{browserName: browserName}];
+}
 
 function getScreenshotName(basePath) {
   return function(context) {
@@ -23,7 +32,7 @@ function getScreenshotName(basePath) {
 
 function getRefPicName(basePath) {
   return function(context) {
-    return path.join(basePath, `reference.png`);
+    return path.join(basePath, 'reference.png');
   };
 }
 
@@ -59,9 +68,7 @@ exports.config = {
     }, {
       browserName: 'MicrosoftEdge',
       version: 'latest'
-    }] : [{
-      browserName: browserName,
-    }],
+    }] : browsers,
 
     sync: true,
     logLevel: 'silent',

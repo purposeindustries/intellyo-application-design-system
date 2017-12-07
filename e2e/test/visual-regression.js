@@ -5,7 +5,7 @@ function getExactSameImage(results) {
 }
 
 describe.only('Visual regression test', function () {
-  it('takes reference pics', function () {
+  before(function () {
     this.timeout(20000);
     browser.url('/');
     browser.checkViewport();

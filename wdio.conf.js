@@ -79,7 +79,7 @@ exports.config = {
       referenceName: getRefPicName(process.env.E2E_SCREENSHOTS + 'reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 0.7,
+      misMatchTolerance: 1.0,
     }),
     },
     user: sauceLabsUsername,

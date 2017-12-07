@@ -21,6 +21,12 @@ function getScreenshotName(basePath) {
   };
 }
 
+function getRefPicName(basePath) {
+  return function(context) {
+    return path.join(basePath, `reference.png`);
+  };
+}
+
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
@@ -70,10 +76,10 @@ exports.config = {
     services: [driver, 'visual-regression'],
     visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'reference/'),
+      referenceName: getRefPicName(process.env.E2E_SCREENSHOTS + 'reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 0.01,
+      misMatchTolerance: 0.7,
     }),
     },
     user: sauceLabsUsername,

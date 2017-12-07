@@ -7,7 +7,7 @@ module.exports.takeRefScreenshot = function () {
   browser.checkViewport();
 };
 
-module.exports.takeScreenshotAndGetComapreResult = function (browser) {
+module.exports.takeScreenshotAndGetCompareResult = function (browser) {
   browser.url('/');
   return getExactSameImage(browser.checkViewport());
 };

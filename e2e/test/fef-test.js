@@ -1,6 +1,6 @@
 const visualRegression = require('./visual-regression');
 
-const { takeRefScreenshot, takeScreenshotAndGetComapreResult } = visualRegression;
+const { takeRefScreenshot, takeScreenshotAndGetCompareResult } = visualRegression;
 
 const assert = require('assert');
 const SAVE_BUTTON = 'span=Save';
@@ -14,7 +14,7 @@ describe('FEF basic tests', function () {
   it('Checks the the fef main page', function () {
     browser.url('/');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetComapreResult(browser));
+    assert(takeScreenshotAndGetCompareResult(browser));
   });
 });
 

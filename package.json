@@ -88,6 +88,7 @@
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.19.0",
     "react-user-avatar": "^1.9.0",
-    "rodal": "^1.6.1"
+    "rodal": "^1.6.1",
+    "slugify": "^1.2.6"
   }
 }

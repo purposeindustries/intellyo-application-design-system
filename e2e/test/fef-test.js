@@ -1,15 +1,12 @@
 const visualRegression = require('./visual-regression');
 
-const { takeRefScreenshot, takeScreenshotAndGetCompareResult } = visualRegression;
+const { takeScreenshotAndGetCompareResult } = visualRegression;
 
 const assert = require('assert');
 const SAVE_BUTTON = 'span=Save';
 const LOADING_BUTTON = 'span=Loading...';
 
 describe('FEF basic tests', function () {
-  before(function () {
-    takeRefScreenshot();
-  });
 
   it('Checks the the fef main page', function () {
     browser.url('/');

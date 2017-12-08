@@ -7,6 +7,7 @@ let saucelabsAccesKey;
 let browserName = 'chrome';
 let driver = 'selenium-standalone';
 let browsers = [];
+const slugify = require('slugify');
 
 if (process.env.BROWSER) {
   process.env.BROWSER.split(',').forEach(element => browsers.push({browserName: element}));
@@ -15,9 +16,19 @@ if (process.env.BROWSER) {
 else {
   browsers = [{browserName: browserName}];
 }
-
+//let referenceImage;
 function getScreenshotName(basePath) {
   return function(context) {
+    //console.log('getScreenshotName', context);
+    
+    /*if (context.desiredCapabilities.browserName === browsers[0].browserName) {
+      console.log('skip %s', browsers[0]);
+      path.join(basePath, `${browsers[0].browserName}-${slugify(context.test.parent)}-${slugify(context.test.title)}-${context.meta.viewport.width}x${context.meta.viewport.height}.png`);
+    }*/
+    const p = path.join(basePath, `${context.desiredCapabilities.browserName}-${slugify(context.test.parent)}-${slugify(context.test.title)}-${context.meta.viewport.width}x${context.meta.viewport.height}.png`);
+    console.log('screenshot for %s in %s is %s', context.test.title, context.browser.name, p);
+    return p;
+    //return `${context.desiredCapabilities.browserName}`
     var type = context.type;
     var testName = context.test.title;
     var browserVersion = parseInt(context.browser.version, 10);
@@ -31,7 +42,11 @@ function getScreenshotName(basePath) {
 }
 
 function getRefPicName(basePath) {
-  return function(context) {
+  return function(context) {    
+    const referenceImage = path.join(basePath, `${browsers[0].browserName}-${slugify(context.test.parent)}-${slugify(context.test.title)}-${context.meta.viewport.width}x${context.meta.viewport.height}.png`);
+    console.log('reference for %s in %s is %s', context.test.title, context.browser.name, referenceImage);
+    return referenceImage;
+    //console.log('getrefpicname', context);
     return path.join(basePath, 'reference.png');
   };
 }
@@ -83,10 +98,10 @@ exports.config = {
     services: [driver, 'visual-regression'],
     visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName(process.env.E2E_SCREENSHOTS + 'reference/'),
+      referenceName: getRefPicName(process.env.E2E_SCREENSHOTS + 'screen/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 1.0,
+      misMatchTolerance: 0.1, //1.0,
     }),
     },
     user: sauceLabsUsername,

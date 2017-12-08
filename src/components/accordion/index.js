@@ -88,23 +88,45 @@ export class AccordionItem extends React.PureComponent {
             opacity: spring(targetOpacity, presets.stiff)
           } }
         >
-          { interpolatingStyles =>
-            <div
-              className="accordion-item-children"
-              style={ this.state.isResting && this.props.isOpen ? null : interpolatingStyles }
-            >
+          { interpolatingStyles => {
+            let children;
+            if (this.props.isOpen) {
+              children = (
+                <div
+                  className="accordion-item-children-inner-wrapper"
+                  ref={ (el) => {
+                    this._childrenWrapper = el;
+                    requestAnimationFrame(() => {
+                      this.setElementHeight();
+                    });
+                  } }
+                >
+                  { this.props.children }
+                </div>
+              );
+            }
+            return (
               <div
-                className="accordion-item-children-inner-wrapper"
-                ref={ (el) => {
-                  this._childrenWrapper = el;
-                  requestAnimationFrame(() => {
-                    this.setElementHeight();
-                  });
-                } }
+                className="accordion-item-children"
+                style={
+                  this.state.isResting && this.props.isOpen
+                    ? null
+                    : Object.assign(
+                      {},
+                      interpolatingStyles,
+                      {
+                        // b/c we renders children when it becomes opened,
+                        // for the very first time `interpolatingStyles.height`
+                        // is NaN which is an invalid type so that's why the following.
+                        height: interpolatingStyles.height || 0
+                      }
+                    )
+                }
               >
-                { this.props.children }
+                { children }
               </div>
-            </div> }
+            );
+          } }
         </Motion>
       </div>
     );

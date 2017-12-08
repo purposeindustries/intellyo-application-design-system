@@ -108,7 +108,20 @@ export class AccordionItem extends React.PureComponent {
             return (
               <div
                 className="accordion-item-children"
-                style={ this.state.isResting && this.props.isOpen ? null : interpolatingStyles }
+                style={
+                  this.state.isResting && this.props.isOpen
+                    ? null
+                    : Object.assign(
+                      {},
+                      interpolatingStyles,
+                      {
+                        // b/c we renders children when it becomes opened,
+                        // for the very first time `interpolatingStyles.height`
+                        // is NaN which is an invalid type so that's why the following.
+                        height: interpolatingStyles.height || 0
+                      }
+                    )
+                }
               >
                 { children }
               </div>

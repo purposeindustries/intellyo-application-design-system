@@ -33,14 +33,14 @@ const Avatar = (props) => {
         >
           <UserAvatar
             size={ sizes[props.size] || defaultSize }
-            src={ props.src }
+            src={ props.src || silhouette }
             name={ props.name }
           />
         </OverlayTrigger>
       ) : (
         <UserAvatar
           size={ sizes[props.size] || defaultSize }
-          src={ props.src }
+          src={ props.src || silhouette }
           name={ props.name }
         />
       ) }

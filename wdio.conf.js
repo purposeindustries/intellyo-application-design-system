@@ -1,6 +1,6 @@
 require('dotenv').config();
-var path = require('path');
-var VisualRegressionCompare = require('wdio-visual-regression-service/compare');
+const path = require('path');
+const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const hostname = require('os').hostname();
 let sauceLabsUsername;
 let saucelabsAccesKey;
@@ -17,22 +17,32 @@ else {
 }
 
 function getScreenshotName(basePath) {
-  return function(context) {
-    var type = context.type;
-    var testName = context.test.title;
-    var browserVersion = parseInt(context.browser.version, 10);
-    var browserName = context.browser.name;
-    var browserViewport = context.meta.viewport;
-    var browserWidth = browserViewport.width;
-    var browserHeight = browserViewport.height;
+  return function (context) {
+    const type = context.type;
+    const testName = context.test.title;
+    const browserVersion = parseInt(context.browser.version, 10);
+    const browserName = context.browser.name;
+    const browserViewport = context.meta.viewport;
+    const browserWidth = browserViewport.width;
+    const browserHeight = browserViewport.height;
+    const parent = context.test.parent;
 
-    return path.join(basePath, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
+    return path.join(basePath, `${parent}/${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
   };
 }
 
+
 function getRefPicName(basePath) {
-  return function(context) {
-    return path.join(basePath, 'reference.png');
+  return function (context) {
+    const testName = context.test.title;
+    const parent = context.test.parent;
+    const browserName = context.browser.name;
+    const lastWordOfTestName = testName.split(" ").pop();
+
+    if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
+      return path.join(basePath, `${parent}/whole_page_reference.png`);
+    }
+    return path.join(basePath, `${parent}/${testName}${lastWordOfTestName}_reference_pic.png`);
   };
 }
 
@@ -107,6 +117,7 @@ exports.config = {
     },
 
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: 99999999
     },
 };

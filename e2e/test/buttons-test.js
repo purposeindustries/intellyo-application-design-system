@@ -5,7 +5,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = 
 const SAVE_BUTTON = 'span=Save';
 const LOADING_BUTTON = 'span=Loading...';
 
-const SAVE_BUTTON_NAME = 'yeah dropdown';
+const SAVE_BUTTON_NAME = 'Save Button';
 
 describe('FEF buttons tests', () => {
 

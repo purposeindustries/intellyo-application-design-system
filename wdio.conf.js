@@ -26,8 +26,9 @@ function getScreenshotName(basePath) {
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
     const parent = context.test.parent;
+    const time = new Date()
 
-    return path.join(basePath, `${parent}/${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
+    return path.join(basePath, `${parent}/${testName}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${time}.png`);
   };
 }
 
@@ -64,7 +65,7 @@ exports.config = {
     exclude: [
     ],
 
-    maxInstances: 10,
+    maxInstances: 3,
 
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
       browserName: 'firefox',

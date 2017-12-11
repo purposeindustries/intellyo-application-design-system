@@ -42,7 +42,7 @@ function getRefPicName(basePath) {
     if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
       return path.join(basePath, `${parent}/whole_page_reference.png`);
     }
-    return path.join(basePath, `${parent}/${testName}${lastWordOfTestName}_reference_pic.png`);
+    return path.join(basePath, `${parent}/${testName}/${lastWordOfTestName}_reference_pic.png`);
   };
 }
 

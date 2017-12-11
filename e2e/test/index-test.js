@@ -8,6 +8,6 @@ describe('FEF index tests', () => {
   it('Checks the the fef index page title and browser compare visual regression', () => {
     browser.url('/');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult(1));
+    assert(takeScreenshotAndGetWholePageCompareResult(3));
   });
 });

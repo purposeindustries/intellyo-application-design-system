@@ -41,7 +41,7 @@ function getRefPicName(basePath) {
     const lastWordOfTestName = testName.split(" ").pop();
 
     if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
-      return path.join(basePath, `${parent}/whole_page_reference.png`);
+      return path.join(basePath, `${parent}/${testName}/whole_page_reference.png`);
     }
     return path.join(basePath, `${parent}/${testName}/${lastWordOfTestName}_reference_pic.png`);
   };
@@ -97,7 +97,7 @@ exports.config = {
       referenceName: getRefPicName('./e2e/screenshots/reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 1.0,
+      misMatchTolerance: 3.0,
     }),
     },
     user: sauceLabsUsername,

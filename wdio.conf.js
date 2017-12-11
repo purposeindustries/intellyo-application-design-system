@@ -94,7 +94,7 @@ exports.config = {
     services: [driver, 'visual-regression'],
     visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName(process.env.E2E_SCREENSHOTS + 'reference/'),
+      referenceName: getRefPicName('./e2e/screenshots/reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
       misMatchTolerance: 1.0,

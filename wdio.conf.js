@@ -68,17 +68,17 @@ exports.config = {
     maxInstances: 10,
 
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-      browserName: 'firefox',
-      version: 'latest'
-    }, {
+    //   browserName: 'firefox',
+    //   version: 'latest'
+    // }, {
       browserName: 'chrome',
       version: 'latest'
-    }, {
-      browserName: 'chrome',
-      version: 'latest-1'
-    }, {
-      browserName: 'MicrosoftEdge',
-      version: 'latest'
+    // }, {
+    //   browserName: 'chrome',
+    //   version: 'latest-1'
+    // }, {
+    //   browserName: 'MicrosoftEdge',
+    //   version: 'latest'
     }] : browsers,
 
     sync: true,

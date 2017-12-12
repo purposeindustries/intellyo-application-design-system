@@ -1,7 +1,9 @@
 require('dotenv').config();
+const slugify = require('slugify');
 const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const hostname = require('os').hostname();
+
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let browserName = 'chrome';
@@ -28,7 +30,7 @@ function getScreenshotName(basePath) {
     const parent = context.test.parent;
     const time = new Date()
 
-    return path.join(basePath, `${parent}/${testName}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${time}.png`);
+    return path.join(basePath, `${slugify(parent)}/${slugify(testName)}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${time}.png`);
   };
 }
 

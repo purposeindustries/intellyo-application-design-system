@@ -6,7 +6,7 @@ machine:
     E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
     E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
   pre:
-    sudo apt-get install tree
+    - sudo apt-get install tree
 test:
   override:
     - npm run test

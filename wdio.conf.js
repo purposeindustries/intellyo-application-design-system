@@ -3,6 +3,7 @@ const slugify = require('slugify');
 const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const hostname = require('os').hostname();
+const dateFormat = require('dateformat');
 
 let sauceLabsUsername;
 let saucelabsAccesKey;
@@ -11,10 +12,17 @@ let driver = 'selenium-standalone';
 let browsers = [];
 
 if (process.env.BROWSER) {
-  process.env.BROWSER.split(',').forEach(element => browsers.push({browserName: element}));
-}
-
-else {
+  process.env.BROWSER.split(',').forEach(element => {
+    if (element !== 'chrome') {
+      browsers.push({browserName: element});
+    } else {
+      browsers.push({browserName: element,
+        chromeOptions: {
+          'args': ['disable-infobars']
+        } });
+    }
+  });
+} else {
   browsers = [{browserName: browserName}];
 }
 
@@ -28,9 +36,9 @@ function getScreenshotName(basePath) {
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
     const parent = context.test.parent;
-    const time = new Date()
+    const time = dateFormat(new Date(), 'dddd-mmmm-dS-yyyy-h-MM-ss-TT')
 
-    return path.join(basePath, `${slugify(parent)}/${slugify(testName)}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${time}.png`);
+    return path.join(basePath, `${slugify(parent)}/${slugify(testName)}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${slugify(time)}.png`);
   };
 }
 
@@ -39,8 +47,7 @@ function getRefPicName(basePath) {
   return function (context) {
     const testName = context.test.title;
     const parent = context.test.parent;
-    const browserName = context.browser.name;
-    const lastWordOfTestName = testName.split(" ").pop();
+    const lastWordOfTestName = testName.split(' ').pop();
 
     if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
       return path.join(basePath, `${parent}/${testName}/whole_page_reference.png`);
@@ -55,10 +62,6 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   driver = 'sauce';
 }
 
-if (process.env.BROWSER) {
-  browserName = process.env.BROWSER;
-}
-
 exports.config = {
 
     specs: [
@@ -70,17 +73,20 @@ exports.config = {
     maxInstances: 10,
 
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-    //   browserName: 'firefox',
-    //   version: 'latest'
-    // }, {
-      browserName: 'chrome',
+      browserName: 'firefox',
       version: 'latest'
-    // }, {
-    //   browserName: 'chrome',
-    //   version: 'latest-1'
-    // }, {
-    //   browserName: 'MicrosoftEdge',
-    //   version: 'latest'
+    }, {
+      browserName: 'chrome',
+      'chromeOptions': {
+        'args': ['disable-infobars']
+      },
+      version: 'latest',
+    }, {
+      browserName: 'chrome',
+      version: 'latest-1'
+    }, {
+      browserName: 'MicrosoftEdge',
+      version: 'latest'
     }] : browsers,
 
     sync: true,

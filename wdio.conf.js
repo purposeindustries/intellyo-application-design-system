@@ -65,7 +65,7 @@ exports.config = {
     exclude: [
     ],
 
-    maxInstances: 3,
+    maxInstances: 10,
 
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
       browserName: 'firefox',

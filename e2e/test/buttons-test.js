@@ -23,7 +23,7 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_XPATH));
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 5));
+    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6));
   });
 
   it.skip('should check the button: ' + SAVE_BUTTON_NAME, () => {
@@ -42,13 +42,13 @@ describe('FEF buttons tests', () => {
 
   it.skip('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
-    $(SAVE_BUTTON_XPATH).scroll();
+    $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
 
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR));
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 3));
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4));
   });
 
   it('should check the loading button', () => {

@@ -19,20 +19,20 @@ describe('FEF buttons tests', () => {
     }
   });
 
-  it('Checks the the fef buttons page title and browser compare visual regression', () => {
+  it.skip('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult(3.6));
   });
 
-  it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
+  it.skip('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_XPATH));
     assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6));
   });
 
-  it('should check the button: ' + SAVE_BUTTON_NAME, () => {
+  it.skip('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
@@ -58,7 +58,7 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
   });
 
-  it('should check the loading button', () => {
+  it.skip('should check the loading button', () => {
     browser.url('/buttons');
 
     $(SAVE_BUTTON_SELECTOR).scroll();

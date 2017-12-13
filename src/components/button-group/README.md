@@ -11,9 +11,19 @@ Button group displays multiple related actions in a row to help with horizontal 
 ## Examples
 
 ```
-<ButtonGroup>
-  <Button>
-    Hello
-  </Button>
-</ButtonGroup>
+import { ButtonGroup } from '@pi/intellyo-components';
+
+const MyButtonGroup = () => (
+  <ButtonGroup>
+    <Button>
+      Button 1
+    </Button>
+    <Button>
+      Button 2
+    </Button>
+    <Button>
+      Button 3
+    </Button>
+  </ButtonGroup>
+);
 ```

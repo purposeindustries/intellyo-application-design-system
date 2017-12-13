@@ -11,9 +11,9 @@ Button group displays multiple related actions in a row to help with horizontal 
 ## Examples
 
 ```
-<Button Group>
+<ButtonGroup>
   <Button>
     Hello
   </Button>
-</Button Group>
+</ButtonGroup>
 ```

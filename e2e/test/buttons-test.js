@@ -8,7 +8,7 @@ const SAVE_BUTTON_NAME = 'Save-button';
 const SAVE_BUTTON_LOADING_NAME = 'Save-button-loading';
 
 const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
-const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button';
+const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //todo: create a normal xpath
 const YEAH_DROPDOWN_NAME = 'Yeah-button';
 
 describe('FEF buttons tests', () => {

@@ -36,9 +36,9 @@ function getScreenshotName(basePath) {
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
     const parent = context.test.parent;
-    const time = dateFormat(new Date(), 'dddd-mmmm-dS-yyyy-h-MM-ss-TT')
+    const time = dateFormat(new Date(), 'dddd-mmmm-dS-yyyy-h-MM-ss-TT');
 
-    return path.join(basePath, `${slugify(parent)}/${slugify(testName)}/${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}_${slugify(time)}.png`);
+    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}_${slugify(time.toLowerCase())}.png`);
   };
 }
 
@@ -50,9 +50,9 @@ function getRefPicName(basePath) {
     const lastWordOfTestName = testName.split(' ').pop();
 
     if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
-      return path.join(basePath, `${parent}/${testName}/whole_page_reference.png`);
+      return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/whole_page_reference.png`);
     }
-    return path.join(basePath, `${parent}/${testName}/${lastWordOfTestName}_reference_pic.png`);
+    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`);
   };
 }
 
@@ -84,9 +84,9 @@ exports.config = {
     }, {
       browserName: 'chrome',
       version: 'latest-1'
-    }, {
-      browserName: 'MicrosoftEdge',
-      version: 'latest'
+    // }, {
+    //   browserName: 'MicrosoftEdge',
+    //   version: 'latest'
     }] : browsers,
 
     sync: true,

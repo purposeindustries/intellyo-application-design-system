@@ -35,11 +35,13 @@ describe('FEF tags input tests', () => {
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 6.5));
   });
 
-  it.skip('should check the input: ' + TEST_NAME_TAGS_INPUT_MOUSE_OVER, () => {
-    browser.url('/tagsinput');
-    assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH));
-    browser.moveToObject(TAGS_INPUT_CLICKABLE, 0, 0);
-    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 10));
+  it('should check the input: ' + TEST_NAME_TAGS_INPUT_MOUSE_OVER, () => {
+    if (!browser.desiredCapabilities.browserName.includes('firefox')) {
+      browser.url('/tagsinput');
+      assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH));
+      browser.moveToObject(TAGS_INPUT_CLICKABLE, 0, 0);
+      assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 10));
+    }
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_CLICK, () => {

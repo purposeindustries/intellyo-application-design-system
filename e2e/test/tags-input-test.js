@@ -1,5 +1,5 @@
 const assert = require('assert');
-const visualRegression = require('./visual-regression');
+const visualRegression = require('../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 
 //Selectors/xpaths

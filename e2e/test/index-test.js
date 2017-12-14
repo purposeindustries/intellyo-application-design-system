@@ -1,4 +1,4 @@
-const visualRegression = require('./visual-regression');
+const visualRegression = require('../utils/visual-regression');
 const assert = require('assert');
 
 const { takeScreenshotAndGetWholePageCompareResult } = visualRegression;

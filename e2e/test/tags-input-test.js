@@ -5,8 +5,8 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = 
 //Selectors/xpaths
 const TAGS_INPUT_WHOLE_ORIG_XPATH = '//*[@class="tagsinput tagsinput--size-normal"]';
 const TAGS_INPUT_CLICKABLE = '//*[@class="button tagsinput-add-tag button--normal"]';
-const TAGS_INPUT_WHOLE_CLICKED_XPATH = '//*[@class="tagsinput tagsinput--size-normal react-tagsinput--focused"]'
-const TAGS_INPUT_INPUT = '//*[@class="react-tagsinput-input tagsinput-input"]'
+const TAGS_INPUT_WHOLE_CLICKED_XPATH = '//*[@class="tagsinput tagsinput--size-normal react-tagsinput--focused"]';
+const TAGS_INPUT_INPUT = '//*[@class="react-tagsinput-input tagsinput-input"]';
 
 //test names
 const TEST_NAME_TAGS_INPUT_NAME = 'tags-input';

@@ -26,7 +26,7 @@ describe('FEF tags input tests', () => {
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_NAME, () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH));
-    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 6.5));
+    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 10));
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_MOUSE_OVER, () => {
@@ -59,6 +59,6 @@ describe('FEF tags input tests', () => {
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
     browser.click('span=hamburger');
-    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 7));
+    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 10));
   });
 });

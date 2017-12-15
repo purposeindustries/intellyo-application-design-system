@@ -1,4 +1,5 @@
 function getMisMatchPercentage(results) {
+  console.log(results);
   return results[0].misMatchPercentage;
 }
 

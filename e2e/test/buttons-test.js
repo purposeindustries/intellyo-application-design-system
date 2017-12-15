@@ -32,6 +32,8 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
     if (!process.env.CI || !process.env.TEST_PROVIDER === 'sauce') {
       assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 99));
+    } else {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 22));
     }
 
     assert(browser.isExisting(SAVE_BUTTON_XPATH));

@@ -50,7 +50,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH));
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
-    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH, 10));
+    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH, 11));
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_ADD_INPUT_CLICK, () => {

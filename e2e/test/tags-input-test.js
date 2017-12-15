@@ -17,12 +17,6 @@ const TEST_NAME_TAGS_ADD_INPUT_CLICK = 'tags-input-add-input-click';
 
 describe('FEF tags input tests', () => {
 
-  before(() => {
-    if (!process.env.CI || !process.env.TEST_PROVIDER === 'sauce') {
-      browser.windowHandleSize({width: 1300, height: 768});
-    }
-  });
-
   it('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/tagsinput');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');

@@ -5,25 +5,41 @@ const VisualRegressionCompare = require('wdio-visual-regression-service/compare'
 const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
 
+const resolution = {width: 1280, height: 768}
+const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString()
+const browserName = 'chrome';
 let sauceLabsUsername;
 let saucelabsAccesKey;
-let browserName = 'chrome';
 let driver = 'selenium-standalone';
 let browsers = [];
 
 if (process.env.BROWSER) {
   process.env.BROWSER.split(',').forEach(element => {
     if (element !== 'chrome') {
-      browsers.push({browserName: element});
+      browsers.push({
+        width: resolution.width,
+        height: resolution.height,
+        browserName: element
+      });
     } else {
-      browsers.push({browserName: element,
+      browsers.push({
+        width: resolution.width,
+        height: resolution.height,
+        browserName: element,
         chromeOptions: {
           'args': ['disable-infobars']
         } });
     }
   });
 } else {
-  browsers = [{browserName: browserName}];
+  browsers = [{
+    width: resolution.width,
+    height: resolution.height,
+    browserName: browserName,
+    chromeOptions: {
+      'args': ['disable-infobars']
+    }
+  }];
 }
 
 function getScreenshotName(basePath) {
@@ -74,16 +90,19 @@ exports.config = {
 
     capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
       browserName: 'firefox',
-      version: 'latest'
+      version: 'latest',
+      screenResolution: screenResolution
     }, {
       browserName: 'chrome',
       'chromeOptions': {
         'args': ['disable-infobars']
       },
       version: 'latest',
+      screenResolution: screenResolution
     }, {
       browserName: 'chrome',
-      version: 'latest-1'
+      version: 'latest-1',
+      screenResolution: screenResolution
     // }, {
     //   browserName: 'MicrosoftEdge',
     //   version: 'latest'
@@ -129,4 +148,14 @@ exports.config = {
         ui: 'bdd',
         timeout: 99999999
     },
+
+    before: function(capabilities) {
+      if (capabilities.width && capabilities.height) {
+         browser.windowHandleSize({
+           width: capabilities.width,
+           height: capabilities.height
+         });
+      }
+
+    }
 };

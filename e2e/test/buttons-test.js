@@ -13,12 +13,6 @@ const YEAH_DROPDOWN_NAME = 'Yeah-button';
 
 describe('FEF buttons tests', () => {
 
-  before(() => {
-    if (!process.env.CI || !process.env.TEST_PROVIDER === 'sauce') {
-      browser.windowHandleSize({width: 1300, height: 768});
-    }
-  });
-
   it('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
@@ -32,21 +26,24 @@ describe('FEF buttons tests', () => {
     assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6));
   });
 
-  it('should check the button: ' + SAVE_BUTTON_NAME, () => {
+  it.only('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 18));
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 19));
 
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
-
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 18));
+    if (!browser.desiredCapabilities.browserName.includes('firefox')) {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 22));
+    } else {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 10));
+    }
   });
 
-  it.skip('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
+  it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH));

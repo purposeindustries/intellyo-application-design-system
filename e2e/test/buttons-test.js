@@ -17,6 +17,7 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult(10));
+    assert(false);
   });
 
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {

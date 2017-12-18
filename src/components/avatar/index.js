@@ -28,20 +28,20 @@ const Avatar = (props) => {
           trigger="hover"
           delay={ 0 }
           overlay={
-            <Tooltip placement={ props.tooltipPlacement }>{ props.name }</Tooltip>
+            <Tooltip placement={ props.tooltipPlacement }>{ props.name === '' ? 'N/A' : props.name }</Tooltip>
           }
         >
           <UserAvatar
             size={ sizes[props.size] || defaultSize }
             src={ props.src || silhouette }
-            name={ props.name }
+            name={ props.name === '' ? 'N/A' : props.name }
           />
         </OverlayTrigger>
       ) : (
         <UserAvatar
           size={ sizes[props.size] || defaultSize }
           src={ props.src || silhouette }
-          name={ props.name }
+          name={ props.name === '' ? 'N/A' : props.name }
         />
       ) }
       { props.caption && (

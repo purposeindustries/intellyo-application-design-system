@@ -5,8 +5,8 @@ const VisualRegressionCompare = require('wdio-visual-regression-service/compare'
 const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
 
-const resolution = {width: 1280, height: 768}
-const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString()
+const resolution = { width: 1280, height: 768 };
+const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
 let sauceLabsUsername;
 let saucelabsAccesKey;
@@ -80,82 +80,79 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
 
 exports.config = {
 
-    specs: [
-        './e2e/test/*.js'
-    ],
-    exclude: [
-    ],
+  specs: [
+    './e2e/test/*.js'
+  ],
+  exclude: [
+  ],
 
-    maxInstances: 10,
+  maxInstances: 10,
 
-    capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-      browserName: 'firefox',
-      version: 'latest',
-      screenResolution: screenResolution
-    }, {
-      browserName: 'chrome',
-      'chromeOptions': {
-        'args': ['disable-infobars']
-      },
-      version: 'latest',
-      screenResolution: screenResolution
-    }, {
-      browserName: 'chrome',
-      version: 'latest-1',
-      screenResolution: screenResolution
-    // }, {
-    //   browserName: 'MicrosoftEdge',
-    //   version: 'latest'
-    }] : browsers,
+  capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution
+  }] : browsers,
 
-    sync: true,
-    logLevel: 'silent',
-    coloredLogs: true,
-    deprecationWarnings: true,
-    bail: 0,
-    screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-    baseUrl: 'http://localhost:9000',
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 90000,
-    connectionRetryCount: 3,
-    services: [driver, 'visual-regression'],
-    visualRegression: {
+  sync: true,
+  logLevel: 'silent',
+  coloredLogs: true,
+  deprecationWarnings: true,
+  bail: 0,
+  screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
+  baseUrl: 'http://localhost:9000',
+  waitforTimeout: 10000,
+  connectionRetryTimeout: 90000,
+  connectionRetryCount: 3,
+  services: [driver, 'visual-regression'],
+  visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName('./e2e/screenshots/reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
       misMatchTolerance: 3.0,
     }),
-    },
-    user: sauceLabsUsername,
-    key: saucelabsAccesKey,
-    sauceConnect: true,
+  },
+  user: sauceLabsUsername,
+  key: saucelabsAccesKey,
+  sauceConnect: true,
 
-    sauceConnectOpts: {
-      tunnelIdentifier: hostname
-    },
+  sauceConnectOpts: {
+    tunnelIdentifier: hostname
+  },
 
-    framework: 'mocha',
-    reporters: ['spec', 'junit'],
+  framework: 'mocha',
+  reporters: ['spec', 'junit'],
 
-    reporterOptions: {
-        junit: {
-            outputDir: process.env.E2E_OUTPUT
-        }
-    },
-
-    mochaOpts: {
-        ui: 'bdd',
-        timeout: 99999999
-    },
-
-    before: function(capabilities) {
-      if (capabilities.width && capabilities.height) {
-         browser.windowHandleSize({
-           width: capabilities.width,
-           height: capabilities.height
-         });
-      }
-
+  reporterOptions: {
+    junit: {
+      outputDir: process.env.E2E_OUTPUT
     }
+  },
+
+  mochaOpts: {
+    ui: 'bdd',
+    timeout: 99999999
+  },
+
+  before: function (capabilities) {
+    if (capabilities.width && capabilities.height) {
+      browser.windowHandleSize({
+        width: capabilities.width,
+        height: capabilities.height
+      });
+    }
+
+  }
 };

@@ -30,7 +30,7 @@ describe('FEF tags input tests', () => {
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_MOUSE_OVER, () => {
-    if (!browser.desiredCapabilities.browserName.includes('firefox')) {
+    if (!browser.desiredCapabilities.browserName.includes('firefox')) { //TODO: We should find solutions for moveToObject and other cross-browser problems
       browser.url('/tagsinput');
       assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH));
       browser.moveToObject(TAGS_INPUT_CLICKABLE, 0, 0);

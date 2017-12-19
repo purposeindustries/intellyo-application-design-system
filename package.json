@@ -71,7 +71,7 @@
     "wdio-sauce-service": "^0.4.4",
     "wdio-selenium-standalone-service": "0.0.9",
     "wdio-spec-reporter": "^0.1.3",
-    "wdio-visual-regression-service": "^0.8.0",
+    "wdio-visual-regression-service": "https://github.com/purposeindustries/wdio-visual-regression-service/releases/download/ignore-comparison/wdio-visual-regression-service-0.8.0.tgz",
     "webdriver": "^5.0.0-rc1",
     "webdriverio": "^4.9.11",
     "window-or-global": "^1.0.1"

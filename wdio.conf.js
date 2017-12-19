@@ -122,6 +122,7 @@ exports.config = {
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
       misMatchTolerance: 3.0,
+      ignoreComparison: 'colors'
     }),
   },
   user: sauceLabsUsername,

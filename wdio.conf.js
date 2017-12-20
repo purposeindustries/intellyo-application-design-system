@@ -37,7 +37,7 @@ if (process.env.BROWSER) {
     height: resolution.height,
     browserName: browserName,
     chromeOptions: {
-      'args': ['disable-infobars']
+      'args': ['disable-infobars', '--headless']
     }
   }];
 }
@@ -91,18 +91,39 @@ exports.config = {
   capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
     browserName: 'firefox',
     version: 'latest',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }, {
     browserName: 'chrome',
     'chromeOptions': {
       'args': ['disable-infobars']
     },
     version: 'latest',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }, {
     browserName: 'chrome',
     version: 'latest-1',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
   }] : browsers,
 
   sync: true,

@@ -8,12 +8,14 @@ const dateFormat = require('dateformat');
 const resolution = { width: 1280, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
+let isDefaultBrowser = true;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 let browsers = [];
 
 if (process.env.BROWSER) {
+  isDefaultBrowser = false;
   process.env.BROWSER.split(',').forEach(element => {
     if (element !== 'chrome') {
       browsers.push({
@@ -47,7 +49,7 @@ function getScreenshotName(basePath) {
     const type = context.type;
     const testName = context.test.title;
     const browserVersion = parseInt(context.browser.version, 10);
-    const browserName = context.browser.name;
+    const browserName = (isDefaultBrowser) ? 'chrome' : context.browser.name;
     const browserViewport = context.meta.viewport;
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
@@ -142,8 +144,7 @@ exports.config = {
       referenceName: getRefPicName('./e2e/screenshots/reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 3.0,
-      ignoreComparison: 'colors'
+      misMatchTolerance: 3.0
     }),
   },
   user: sauceLabsUsername,

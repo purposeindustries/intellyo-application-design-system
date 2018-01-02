@@ -1,0 +1,6 @@
+.calendar-page {
+
+  & .rbc-calendar .rbc-month-view {
+    min-height: calc(100vh - ($gutter-base * 2) - 25px - 37px - $gutter-base - ($gutter-base * 2));
+  }
+}

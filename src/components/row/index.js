@@ -31,7 +31,8 @@ const Row = (props) => {
 
 Row.propTypes = {
   gutter: PropTypes.number,
-  style: PropTypes.object
+  style: PropTypes.object,
+  children: PropTypes.node
 };
 
 Row.defaultProps = {
@@ -40,9 +41,5 @@ Row.defaultProps = {
 };
 
 Row.displayName = 'GridRow';
-
-Row.propTypes = {
-  children: PropTypes.node
-};
 
 export default Row;

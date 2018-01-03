@@ -5,7 +5,7 @@ const VisualRegressionCompare = require('wdio-visual-regression-service/compare'
 const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
 
-const resolution = { width: 1280, height: 768 };
+const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
 let isDefaultBrowser = true;
@@ -13,6 +13,13 @@ let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 let browsers = [];
+
+if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
+  isDefaultBrowser = false;
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+  driver = 'sauce';
+}
 
 if (process.env.BROWSER) {
   isDefaultBrowser = false;
@@ -74,12 +81,6 @@ function getRefPicName(basePath) {
   };
 }
 
-if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
-  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
-  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
-  driver = 'sauce';
-}
-
 exports.config = {
 
   specs: [
@@ -107,7 +108,7 @@ exports.config = {
     browserName: 'chrome',
     version: 'latest-1',
     screenResolution: screenResolution,
-    platform: 'macOS 10.13'
+    platform: 'Windows 10'
   }, {
     browserName: 'firefox',
     version: 'latest',
@@ -125,7 +126,7 @@ exports.config = {
     browserName: 'chrome',
     version: 'latest-1',
     screenResolution: screenResolution,
-    platform: 'Windows 10'
+    platform: 'macOS 10.13'
   }] : browsers,
 
   sync: true,

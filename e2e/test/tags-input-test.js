@@ -53,7 +53,7 @@ describe('FEF tags input tests', () => {
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH, 11), 'Check if tags input with input is similar to the reference');
   });
 
-  it.only('should check the input: ' + TEST_NAME_TAGS_ADD_INPUT_CLICK, () => {
+  it('should check the input: ' + TEST_NAME_TAGS_ADD_INPUT_CLICK, () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Check if tags input existing in the DOM');
     browser.click(TAGS_INPUT_CLICKABLE);

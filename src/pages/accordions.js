@@ -57,7 +57,7 @@ export default class Accordions extends Component {
                     <div className="accordion-example">
                       <Avatar
                         name="Norbert Gaal"
-                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        src="https://res.cloudinary.com/intellyo/image/upload/v1496232631/11737867_940396712690158_6739706124442441468_n_cnruql.jpg"
                         size="medium"
                       />
                       <div className="accordion-example-inner-wrapper">
@@ -73,7 +73,7 @@ export default class Accordions extends Component {
                     <div className="accordion-example">
                       <Avatar
                         name="Norbert Gaal"
-                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        src="https://res.cloudinary.com/intellyo/image/upload/v1496232631/11737867_940396712690158_6739706124442441468_n_cnruql.jpg"
                         size="medium"
                       />
                       <div className="accordion-example-inner-wrapper">
@@ -95,7 +95,7 @@ export default class Accordions extends Component {
                     <div className="accordion-example">
                       <Avatar
                         name="Norbert Gaal"
-                        src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10686958_776463182416846_6951421580753737633_n.jpg?oh=59a64e2aaa6fb5615dab773797ed55b9&oe=5A45D2C9"
+                        src="https://res.cloudinary.com/intellyo/image/upload/v1496232631/11737867_940396712690158_6739706124442441468_n_cnruql.jpg"
                         size="medium"
                       />
                       <div className="accordion-example-inner-wrapper">

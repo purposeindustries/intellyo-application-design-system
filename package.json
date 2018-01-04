@@ -14,7 +14,7 @@
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
     "pretest:e2e": "curl -O /dev/null localhost:9000",

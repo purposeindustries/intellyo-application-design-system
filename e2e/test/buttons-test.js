@@ -18,52 +18,35 @@ describe('FEF buttons tests', () => {
   it('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult(10));
+    assert(takeScreenshotAndGetWholePageCompareResult(10), 'Whole FEF buttons page screenshot compare to a reference picture');
   });
 
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
-    assert(browser.isExisting(YEAH_DROPDOWN_XPATH));
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6));
+    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
+    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6), '"Yeah dropdown" is not similar to the reference');
   });
 
   it('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
-    assert(browser.isExisting(SAVE_BUTTON_XPATH));
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true));
-
-    assert(browser.isExisting(SAVE_BUTTON_XPATH));
+    assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), 'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true));
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true) + 'Save button is not similar to the reference after click');
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
-    assert(browser.isExisting(SAVE_BUTTON_XPATH));
 
-    assert(browser.isExisting(SAVE_BUTTON_SELECTOR));
+    assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4));
-    $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
-  });
-
-  it('should check the loading button', () => {
-    browser.url('/buttons');
-
-    $(SAVE_BUTTON_SELECTOR).scroll();
-
-    assert(browser.isExisting(SAVE_BUTTON_SELECTOR));
-    browser.click(SAVE_BUTTON_SELECTOR);
-
-    assert(browser.isExisting(LOADING_BUTTON));
-    browser.click(LOADING_BUTTON);
-
+    assert(takeScreenShotOfElement(LOADING_BUTTON, 4), 'Loading button is not similar to the reference after click loading');
     $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
   });
 });

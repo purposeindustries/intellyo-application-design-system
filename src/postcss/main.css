@@ -35,6 +35,7 @@
 @import './multiselect';
 @import './overlay';
 @import './toggleable-tags';
+@import './calendar';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -49,6 +50,7 @@
 @import './pages/accordions.css';
 @import './pages/tables.css';
 @import './pages/modals.css';
+@import './pages/calendar.css';
 
 body {
   margin: 0;

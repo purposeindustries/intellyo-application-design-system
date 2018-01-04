@@ -13,7 +13,6 @@ const Option = (props) => (
 Option.displayName = 'Option';
 Option.propTypes = {
   children: string,
-  label: string,
   checked: bool,
   onClick: func,
   value: string,

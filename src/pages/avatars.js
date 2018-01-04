@@ -27,7 +27,7 @@ export default class Avatars extends Component {
                     size="medium"
                   />
                   <Avatar
-                    name="Donald Trump"
+                    name=""
                   />
                 </div>
                 <div className="avatar-wrapper">

@@ -95,9 +95,12 @@ Creating a sortable `<Column />`
 ### Example of using `<Expander />`
 
 ```jsx
+import classNames from 'classnames';
+import { Icon } from '@pi/intellyo-components';
+
 const toggleExpander = (prop, item, column, instance) => (
   <Icon
-    icon="ion-arrow-right-b" className={ c('table--expander-button', {
+    icon="ion-arrow-right-b" className={ classNames('table--expander-button', {
       'table--expander-button--expanded': instance.state.expanded,
     }) } onClick={ () => instance.toggleExpand() }
   />

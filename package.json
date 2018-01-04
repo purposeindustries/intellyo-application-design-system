@@ -13,7 +13,7 @@
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
     "build:css": "postcss src/postcss/main.css -o src/css/main.css",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
     "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} wdio",

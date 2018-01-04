@@ -49,3 +49,7 @@ Here you can find each of our components:
 - [ToggleableTags](/src/components/toggleable-tags)
 - [Tooltip](/src/components/tooltip)
 - [withLimit](/src/components/with-limit)
+
+## E2E tests usage:
+
+You can find the README.md in the [e2e](/e2e/) folder.

@@ -35,7 +35,7 @@ describe('FEF buttons tests', () => {
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), ' 1st check if save button is similar to the reference');
     browser.click(SAVE_BUTTON_XPATH);
 
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7200);
+    $(SAVE_BUTTON_SELECTOR).waitForExist(7300);
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true) + '2nd check if save button is similar to the reference');
   });
 
@@ -47,7 +47,7 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_SELECTOR);
 
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4), 'Check if loading button is similar to the reference');
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7200);
+    $(SAVE_BUTTON_SELECTOR).waitForExist(7300);
   });
 
   it('should check the loading button', () => {
@@ -61,6 +61,6 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(LOADING_BUTTON), 'Check if loading button appears in the DOM after click save button');
     browser.click(LOADING_BUTTON);
 
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7200);
+    $(SAVE_BUTTON_SELECTOR).waitForExist(7300);
   });
 });

@@ -4,10 +4,11 @@ The `Row` component is used to horizontally separate the elements.
 
 ## Props
 
-| Prop | Type | Description |
-| ---- | ---- | ----------- |
-| children | node | Use to render out elements passed into the component. |
-| gutter | number | You can set a custom value for the left and right paddings of the Row. The default value is `15`. |
+| Prop | Type | Description | Default value |
+| ---- | ---- | ----------- | ------------- |
+| children | node | Use to render out elements passed into the component. | `none` |
+| gutter | number | You can set the gutter of each row. | `15` |
+| style | object | You can set the styles of each row. You need to set the CSS rules with camalCased syntax. | `{}` |
 
 ## Examples
 

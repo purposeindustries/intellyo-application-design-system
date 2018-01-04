@@ -1,0 +1,7 @@
+.calendar-page {
+
+  & .rbc-calendar .rbc-month-view {
+    /* Measured by hand:  top paddings, Heading height, calendar controls height + margin, padding, bottom paddings */
+    min-height: calc(100vh - ($gutter-base * 2) - 25px - 37px - $gutter-base - ($gutter-base * 2));
+  }
+}

@@ -24,14 +24,14 @@ describe('FEF buttons tests', () => {
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
-    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), 'Check if "Yeah dropdown" existing in the DOM');
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6), 'Check if "Yeah dropdown" is similar to the reference');
+    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM.');
+    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH, 6), '"Yeah dropdown" is not similar to the reference');
   });
 
   it('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
-    assert(browser.isExisting(SAVE_BUTTON_XPATH), '1st check if save button existing in the DOM');
+    assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), ' 1st check if save button is similar to the reference');
 
     assert(browser.isExisting(SAVE_BUTTON_XPATH), '2nd check if save button existing in the DOM');

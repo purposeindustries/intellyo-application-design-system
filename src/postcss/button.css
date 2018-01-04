@@ -9,6 +9,7 @@
   border: 0;
   border-radius: 5px;
   color: $button-color-primary;
+  font-family: $font-family-base, sans-serif;
   font-size: $button-font-size;
   font-weight: $button-font-weight;
   background: $button-background-color-primary;

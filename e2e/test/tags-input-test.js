@@ -59,6 +59,6 @@ describe('FEF tags input tests', () => {
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
     browser.click('span=hamburger');
-    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 10));
+    assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH, 11));
   });
 });

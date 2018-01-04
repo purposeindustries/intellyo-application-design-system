@@ -32,13 +32,13 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 12));
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true));
 
     assert(browser.isExisting(SAVE_BUTTON_XPATH));
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(2200);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 12));
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true));
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {

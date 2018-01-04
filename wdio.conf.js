@@ -5,15 +5,24 @@ const VisualRegressionCompare = require('wdio-visual-regression-service/compare'
 const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
 
-const resolution = { width: 1280, height: 768 };
+const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
+let isDefaultBrowser = true;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 let browsers = [];
 
+if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
+  isDefaultBrowser = false;
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+  driver = 'sauce';
+}
+
 if (process.env.BROWSER) {
+  isDefaultBrowser = false;
   process.env.BROWSER.split(',').forEach(element => {
     if (element !== 'chrome') {
       browsers.push({
@@ -37,7 +46,7 @@ if (process.env.BROWSER) {
     height: resolution.height,
     browserName: browserName,
     chromeOptions: {
-      'args': ['disable-infobars']
+      'args': ['disable-infobars', '--headless']
     }
   }];
 }
@@ -47,7 +56,7 @@ function getScreenshotName(basePath) {
     const type = context.type;
     const testName = context.test.title;
     const browserVersion = parseInt(context.browser.version, 10);
-    const browserName = context.browser.name;
+    const browserName = (isDefaultBrowser) ? 'chrome' : context.browser.name;
     const browserViewport = context.meta.viewport;
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
@@ -72,12 +81,6 @@ function getRefPicName(basePath) {
   };
 }
 
-if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
-  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
-  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
-  driver = 'sauce';
-}
-
 exports.config = {
 
   specs: [
@@ -91,18 +94,39 @@ exports.config = {
   capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
     browserName: 'firefox',
     version: 'latest',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }, {
     browserName: 'chrome',
     'chromeOptions': {
       'args': ['disable-infobars']
     },
     version: 'latest',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }, {
     browserName: 'chrome',
     version: 'latest-1',
-    screenResolution: screenResolution
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }] : browsers,
 
   sync: true,
@@ -121,8 +145,7 @@ exports.config = {
       referenceName: getRefPicName('./e2e/screenshots/reference/'),
       screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
-      misMatchTolerance: 3.0,
-      ignoreComparison: 'colors'
+      misMatchTolerance: 3.0
     }),
   },
   user: sauceLabsUsername,

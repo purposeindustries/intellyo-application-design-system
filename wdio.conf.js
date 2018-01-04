@@ -2,7 +2,6 @@ require('dotenv').config();
 const slugify = require('slugify');
 const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
-const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
 const os = require('os');
 

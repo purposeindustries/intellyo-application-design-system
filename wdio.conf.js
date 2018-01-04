@@ -4,6 +4,7 @@ const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const hostname = require('os').hostname();
 const dateFormat = require('dateformat');
+const os = require('os');
 
 const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
@@ -13,6 +14,17 @@ let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 let browsers = [];
+let name;
+
+if (process.env.CIRCLE_PROJECT_USERNAME) {
+  name = [
+    process.env.CIRCLE_PROJECT_USERNAME,
+    process.env.CIRCLE_PROJECT_REPONAME,
+    process.env.CIRCLE_BRANCH
+  ].join('/') + '#' + process.env.CIRCLE_BUILD_NUM;
+} else {
+  name = os.userInfo().username + '@' + os.hostname();
+}
 
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   isDefaultBrowser = false;
@@ -89,7 +101,7 @@ exports.config = {
   exclude: [
   ],
 
-  maxInstances: 10,
+  maxInstances: 1,
 
   capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
     browserName: 'firefox',
@@ -153,7 +165,7 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: hostname
+    tunnelIdentifier: name
   },
 
   framework: 'mocha',

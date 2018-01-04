@@ -296,7 +296,7 @@ export default class Buttons extends Component {
                 loading={ this.state.loading }
                 onClick={ async () => {
                   this.setState({loading: true});
-                  await sleep(2000);
+                  await sleep(7000);
                   this.setState({loading: false});
                 } }
               />

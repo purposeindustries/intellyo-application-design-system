@@ -1,9 +1,10 @@
 require('dotenv').config();
-const slugify = require('slugify');
-const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const os = require('os');
-const dateFormat = require('dateformat');
+const visualRegression = require('./e2e/utils/visual-regression');
+
+
+const { getScreenshotName, getRefPicName } = visualRegression;
 
 const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
@@ -49,36 +50,6 @@ if (process.env.BROWSER) {
       'args': ['disable-infobars', '--headless']
     }
   }];
-}
-
-function getScreenshotName(basePath) {
-  return function (context) {
-    const type = context.type;
-    const testName = context.test.title;
-    const browserVersion = parseInt(context.browser.version, 10);
-    const browserName = (isDefaultBrowser) ? 'chrome' : context.browser.name;
-    const browserViewport = context.meta.viewport;
-    const browserWidth = browserViewport.width;
-    const browserHeight = browserViewport.height;
-    const parent = context.test.parent;
-    const time = dateFormat(new Date(), 'MM-ss-TT-yyyy-mm-dd');
-
-    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
-  };
-}
-
-
-function getRefPicName(basePath) {
-  return function (context) {
-    const testName = context.test.title;
-    const parent = context.test.parent;
-    const lastWordOfTestName = testName.split(' ').pop();
-
-    if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
-      return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/whole_page_reference.png`);
-    }
-    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`);
-  };
 }
 
 exports.config = {
@@ -142,8 +113,8 @@ exports.config = {
   services: [driver, 'visual-regression'],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName('./e2e/screenshots/reference/'),
-      screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
+      referenceName: getRefPicName('./e2e/screenshots/reference/', isDefaultBrowser),
+      screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/', isDefaultBrowser),
       diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
       misMatchTolerance: 3.0
     }),
@@ -177,6 +148,5 @@ exports.config = {
         height: capabilities.height
       });
     }
-
   }
 };

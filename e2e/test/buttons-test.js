@@ -4,7 +4,6 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = 
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
-const LOADING_BUTTON = 'span=Loading...';
 const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
 const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
 
@@ -15,7 +14,7 @@ const SAVE_BUTTON_LOADING_NAME = 'Save-button-loading';
 
 describe('FEF buttons tests', () => {
 
-  it('Checks the the fef buttons page title and browser compare visual regression', () => {
+  it.skip('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult(10), 'Whole FEF buttons page screenshot compare to a reference picture');
@@ -35,7 +34,7 @@ describe('FEF buttons tests', () => {
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), 'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7800);
+    $(SAVE_BUTTON_SELECTOR).waitForExist(8000);
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true) + '2nd check if save button is similar to the reference');
   });
 
@@ -45,7 +44,7 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    assert(takeScreenShotOfElement(LOADING_BUTTON, 4), 'Loading button is not similar to the reference after click loading');
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7800);
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4), 'Loading button is not similar to the reference after click loading');
+    $(SAVE_BUTTON_SELECTOR).waitForExist(8000);
   });
 });

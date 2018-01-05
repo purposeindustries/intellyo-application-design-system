@@ -14,17 +14,6 @@ let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 let browsers = [];
-let name;
-
-if (process.env.CIRCLE_PROJECT_USERNAME) {
-  name = [
-    process.env.CIRCLE_PROJECT_USERNAME,
-    process.env.CIRCLE_PROJECT_REPONAME,
-    process.env.CIRCLE_BRANCH
-  ].join('/') + '#' + process.env.CIRCLE_BUILD_NUM;
-} else {
-  name = os.userInfo().username + '@' + os.hostname();
-}
 
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   isDefaultBrowser = false;
@@ -165,7 +154,7 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: name
+    tunnelIdentifier: os.hostname()
   },
 
   framework: 'mocha',

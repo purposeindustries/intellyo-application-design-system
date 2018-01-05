@@ -92,11 +92,7 @@ export default class OverlayTrigger extends React.Component {
   render() {
     const triggers = {};
     if (this.props.trigger === 'click') {
-      triggers.onClick = () => {
-        if (this.state.isActive === false) {
-          this.activate();
-        }
-      };
+      triggers.onClick = () => this.toggle();
     }
     if (this.props.trigger === 'hover') {
       triggers.onMouseEnter = () => {
@@ -110,20 +106,15 @@ export default class OverlayTrigger extends React.Component {
     return (
       <Manager>
         <div
-          className={
-            classNames('overlay-trigger', {
-              'overlay-trigger--active': this.state.isActive
-            }, this.props.className)
-          }
-          { ...triggers }
+          className={ `overlay-trigger ${this.props.className}` }
         >
           <Target
             innerRef={ c => (this.target = findDOMNode(c)) }
-            onClick={ this.toggle }
+            { ...triggers }
           >
             { this.props.children }
           </Target>
-          { React.cloneElement(this.props.overlay, {
+          { this.state.isActive && React.cloneElement(this.props.overlay, {
             className: classNames(this.props.overlay.props.className, 'overlay'),
             onClick: (e) => {
               if (this.props.overlay.props.onClick) {

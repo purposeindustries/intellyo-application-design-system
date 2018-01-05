@@ -2,33 +2,9 @@ $overlay-trigger-outer-area-z-index: 1000;
 
 .overlay-trigger {
   display: inline-block;
-  position: relative;
 
   & .overlay {
-    position: absolute;
     opacity: 0;
     pointer-events: none;
-  }
-
-  &--active {
-    & .overlay {
-      opacity: 1;
-      pointer-events: auto;
-      z-index: calc($overlay-trigger-outer-area-z-index + 1);
-
-      &-trigger-outer-area {
-        display: none;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        z-index: $overlay-trigger-outer-area-z-index;
-
-        &--active {
-          display: block;
-        }
-      }
-    }
   }
 }

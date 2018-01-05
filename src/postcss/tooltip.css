@@ -1,7 +1,6 @@
 .tooltip {
   display: inline-block;
   border-radius: $border-radius-base;
-  position: relative;
   height: 30px;
   line-height: 30px;
   white-space: nowrap;

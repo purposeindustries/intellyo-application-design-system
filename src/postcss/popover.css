@@ -1,6 +1,5 @@
 .popover {
   display: inline-block;
-  position: absolute;
   padding: $gutter-base;
   border-radius: $border-radius-base;
   font-family: $font-family-base;

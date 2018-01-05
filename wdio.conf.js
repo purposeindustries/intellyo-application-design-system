@@ -8,7 +8,6 @@ const dateFormat = require('dateformat');
 const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
-const platform = process.platform;
 let isDefaultBrowser = true;
 let sauceLabsUsername;
 let saucelabsAccesKey;
@@ -64,7 +63,7 @@ function getScreenshotName(basePath) {
     const parent = context.test.parent;
     const time = dateFormat(new Date(), 'MM-ss-TT-yyyy-mm-dd');
 
-    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${slugify(platform.toLowerCase())}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
+    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
   };
 }
 

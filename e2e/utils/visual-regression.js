@@ -3,7 +3,6 @@ const slugify = require('slugify');
 const path = require('path');
 
 function getMisMatchPercentage(results) {
-  console.log('misMatchPercentage: ', results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 

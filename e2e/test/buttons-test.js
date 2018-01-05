@@ -47,7 +47,7 @@ describe('FEF buttons tests', () => {
     if (browser.desiredCapabilities.platform.includes('Windows')) {
       assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 18), 'Loading button is not similar to the reference after click loading on windows');
     } else {
-      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4), 'Loading button is not similar to the reference after click loading');
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 12), 'Loading button is not similar to the reference after click loading');
     }
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

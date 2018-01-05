@@ -44,7 +44,7 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    if (browser.desiredCapabilities.platform.includes('windows')) {
+    if (browser.desiredCapabilities.platform.includes('Windows')) {
       assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 18), 'Loading button is not similar to the reference after click loading on windows');
     } else {
       assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 4), 'Loading button is not similar to the reference after click loading');

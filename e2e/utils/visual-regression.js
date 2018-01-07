@@ -25,7 +25,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, misMatchTolerance, ig
     ignoreComparisonValue = 'colors';
   }
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }));
-  const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
+  const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
   }

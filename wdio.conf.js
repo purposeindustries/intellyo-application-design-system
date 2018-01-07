@@ -63,41 +63,41 @@ exports.config = {
   maxInstances: 10,
 
   capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-  //   browserName: 'firefox',
-  //   version: 'latest',
-  //   screenResolution: screenResolution,
-  //   platform: 'macOS 10.13'
-  // }, {
-  //   browserName: 'chrome',
-  //   'chromeOptions': {
-  //     'args': ['disable-infobars']
-  //   },
-  //   version: 'latest',
-  //   screenResolution: screenResolution,
-  //   platform: 'macOS 10.13'
-  // }, {
-  //   browserName: 'chrome',
-  //   version: 'latest-1',
-  //   screenResolution: screenResolution,
-  //   platform: 'Windows 10'
-  // }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
     browserName: 'firefox',
     version: 'latest',
     screenResolution: screenResolution,
     platform: 'Windows 10'
-  // }, {
-  //   browserName: 'chrome',
-  //   'chromeOptions': {
-  //     'args': ['disable-infobars']
-  //   },
-  //   version: 'latest',
-  //   screenResolution: screenResolution,
-  //   platform: 'Windows 10'
-  // }, {
-  //   browserName: 'chrome',
-  //   version: 'latest-1',
-  //   screenResolution: screenResolution,
-  //   platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   }] : browsers,
 
   sync: true,

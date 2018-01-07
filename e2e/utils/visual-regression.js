@@ -31,7 +31,6 @@ module.exports.takeScreenShotOfElement = (elementSelector, misMatchTolerance, ig
   }
   console.log('misMatchTolerance: ' + misMatchTolerance
   + '\nmisMatchPercentage: ' + misMatchPercentage
-  + '\nisTestPassed: ' + isTestPassed
   + '\nproblematic elementSelector: ' + elementSelector);
 
   return isTestPassed;

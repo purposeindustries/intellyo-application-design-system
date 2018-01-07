@@ -3,6 +3,7 @@ const slugify = require('slugify');
 const path = require('path');
 
 function getMisMatchPercentage(results) {
+  console.log(results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 
@@ -30,6 +31,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, misMatchTolerance, ig
   }
   console.log('misMatchTolerance: ' + misMatchTolerance
   + '\nmisMatchPercentage: ' + misMatchPercentage
+  + '\nisTestPassed: ' + isTestPassed
   + '\nproblematic elementSelector: ' + elementSelector);
 
   return isTestPassed;

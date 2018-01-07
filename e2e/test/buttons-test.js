@@ -20,7 +20,7 @@ describe('FEF buttons tests', () => {
     assert(takeScreenshotAndGetWholePageCompareResult(10), 'Whole FEF buttons page screenshot compare to a reference picture');
   });
 
-  it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
+  it.only('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
@@ -31,11 +31,11 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), 'Save button is not similar to the reference before click');
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 15, true), 'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true) + '2nd check if save button is similar to the reference');
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 15, true) + '2nd check if save button is similar to the reference');
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {

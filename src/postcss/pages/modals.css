@@ -1,10 +1,10 @@
-.page-modals {
+#floating-container {
   & .modal-footer .dialog-exmaple-buttons {
     display: flex;
     justify-content: flex-end;
 
     & .button:not(:last-child) {
-      margin-right: 10px; 
+      margin-right: 10px;
     }
   }
 }

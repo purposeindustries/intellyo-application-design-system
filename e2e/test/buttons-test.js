@@ -4,7 +4,6 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = 
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
-const LOADING_BUTTON = 'span=Loading...';
 const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
 const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
 
@@ -32,11 +31,11 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true), 'Save button is not similar to the reference before click');
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17.5, true), 'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7800);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17, true) + '2nd check if save button is similar to the reference');
+    $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17.5, true), '2nd check if save button is similar to the reference');
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
@@ -45,7 +44,11 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    assert(takeScreenShotOfElement(LOADING_BUTTON, 4), 'Loading button is not similar to the reference after click loading');
-    $(SAVE_BUTTON_SELECTOR).waitForExist(7800);
+    if (browser.desiredCapabilities.platform && browser.desiredCapabilities.platform.includes('Windows')) {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 8.5), 'Loading button is not similar to the reference after click loading on windows');
+    } else {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 3), 'Loading button is not similar to the reference after click loading');
+    }
+    $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });
 });

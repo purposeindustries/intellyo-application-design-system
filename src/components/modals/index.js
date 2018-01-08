@@ -2,6 +2,13 @@ import React from 'react';
 import { bool, string, node, func, number, object } from 'prop-types';
 import Heading from '../heading/';
 import Rodal from 'rodal';
+import ReactDOM from 'react-dom';
+
+let floatingContainer;
+
+if (typeof document !== 'undefined') {
+  floatingContainer = document.getElementById('floating-container');
+}
 
 export default class Modal extends React.PureComponent {
 
@@ -47,7 +54,7 @@ export default class Modal extends React.PureComponent {
       'top': '50%',
       'transform': 'translateY(-50%)',
     };
-    return (
+    return ReactDOM.createPortal((
       <div className="modal">
         <Rodal
           visible={ this.props.visible }
@@ -83,7 +90,8 @@ export default class Modal extends React.PureComponent {
             </footer>
           ) }
         </Rodal>
-      </div>
+      </div>),
+      floatingContainer
     );
   }
 }

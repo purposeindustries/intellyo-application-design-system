@@ -45,7 +45,7 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_SELECTOR);
 
     if (browser.desiredCapabilities.platform && browser.desiredCapabilities.platform.includes('Windows')) {
-      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 8), 'Loading button is not similar to the reference after click loading on windows');
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 8.5), 'Loading button is not similar to the reference after click loading on windows');
     } else {
       assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 3), 'Loading button is not similar to the reference after click loading');
     }

@@ -11,6 +11,10 @@ if (typeof document !== 'undefined') {
 }
 
 export default class Modal extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.el = document.createElement('div');
+  }
 
   static displayName = 'Modal';
 
@@ -38,6 +42,14 @@ export default class Modal extends React.PureComponent {
   static defaultProps = {
     isAnimated: true,
     customStyles: {},
+  }
+
+  componentDidMount() {
+    floatingContainer.appendChild(this.el);
+  }
+
+  componentWillUnmount() {
+    floatingContainer.removeChild(this.el);
   }
 
   handleAnimationEnd = () => {
@@ -91,7 +103,8 @@ export default class Modal extends React.PureComponent {
           ) }
         </Rodal>
       </div>),
-      floatingContainer
+      this.el
+      // floatingContainer
     );
   }
 }

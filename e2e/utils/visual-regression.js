@@ -83,7 +83,7 @@ module.exports.getDiffScreenshotName = (isItCiRun, isDefaultBrowser) => {
     const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
     if (isItCiRun) {
-      basePathScreen = process.env.E2E_SCREENSHOTS + 'diff/';
+      basePathDiff = process.env.E2E_SCREENSHOTS + 'diff/';
     }
 
     return path.join(basePathDiff, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${type}_${platform.toLowerCase()}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);

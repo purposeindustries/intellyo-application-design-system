@@ -2,21 +2,8 @@ import React from 'react';
 import { bool, string, node, func, number, object } from 'prop-types';
 import Heading from '../heading/';
 import Rodal from 'rodal';
-import ReactDOM from 'react-dom';
-
-let floatingContainer;
-
-if (typeof document !== 'undefined') {
-  floatingContainer = document.getElementById('floating-container');
-}
 
 export default class Modal extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    if (typeof document !== 'undefined') {
-      this.el = document.createElement('div');
-    }
-  }
 
   static displayName = 'Modal';
 
@@ -46,14 +33,6 @@ export default class Modal extends React.PureComponent {
     customStyles: {},
   }
 
-  componentDidMount() {
-    floatingContainer.appendChild(this.el);
-  }
-
-  componentWillUnmount() {
-    floatingContainer.removeChild(this.el);
-  }
-
   handleAnimationEnd = () => {
     if (this.props.onAnimationEnd) {
       this.props.onAnimationEnd();
@@ -68,7 +47,7 @@ export default class Modal extends React.PureComponent {
       'top': '50%',
       'transform': 'translateY(-50%)',
     };
-    return ReactDOM.createPortal((
+    return (
       <div className="modal">
         <Rodal
           visible={ this.props.visible }
@@ -104,9 +83,7 @@ export default class Modal extends React.PureComponent {
             </footer>
           ) }
         </Rodal>
-      </div>),
-      this.el
-      // floatingContainer
+      </div>
     );
   }
 }

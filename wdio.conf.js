@@ -4,12 +4,13 @@ const os = require('os');
 const visualRegression = require('./e2e/utils/visual-regression');
 
 
-const { getScreenshotName, getRefPicName } = visualRegression;
+const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
 const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
 let isDefaultBrowser = true;
+let isItCiRun = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
@@ -17,6 +18,7 @@ let browsers = [];
 
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   isDefaultBrowser = false;
+  isItCiRun = true;
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
   driver = 'sauce';
@@ -55,7 +57,7 @@ if (process.env.BROWSER) {
 exports.config = {
 
   specs: [
-    './e2e/test/*.js'
+    './e2e/test/**/*.js'
   ],
   exclude: [
   ],
@@ -113,9 +115,9 @@ exports.config = {
   services: [driver, 'visual-regression'],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName('./e2e/screenshots/reference/', isDefaultBrowser),
-      screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/', isDefaultBrowser),
-      diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
+      referenceName: getRefPicName(),
+      screenshotName: getScreenshotName(isItCiRun, isDefaultBrowser),
+      diffName: getDiffScreenshotName(isItCiRun, isDefaultBrowser),
       misMatchTolerance: 3.0
     }),
   },

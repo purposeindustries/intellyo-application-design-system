@@ -13,7 +13,9 @@ if (typeof document !== 'undefined') {
 export default class Modal extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.el = document.createElement('div');
+    if (typeof document !== 'undefined') {
+      this.el = document.createElement('div');
+    }
   }
 
   static displayName = 'Modal';

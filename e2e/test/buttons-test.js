@@ -38,16 +38,16 @@ describe('FEF buttons tests', () => {
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 17.5, true), '2nd check if save button is similar to the reference');
   });
 
-  it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
+  it.only('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
 
-    if (browser.desiredCapabilities.platform.includes('Windows')) {
-      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 18), 'Loading button is not similar to the reference after click loading on windows');
+    if (browser.desiredCapabilities.platform && browser.desiredCapabilities.platform.includes('Windows')) {
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 0), 'Loading button is not similar to the reference after click loading on windows');
     } else {
-      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 12), 'Loading button is not similar to the reference after click loading');
+      assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH, 0), 'Loading button is not similar to the reference after click loading');
     }
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

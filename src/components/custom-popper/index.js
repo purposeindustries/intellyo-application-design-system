@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Popper as ReactPopper, Arrow } from 'react-popper';
 
-const floatingContainer = document.getElementById('floating-container');
+let floatingContainer;
+
+if (typeof document !== 'undefined') {
+  floatingContainer = document.getElementById('floating-container');
+}
 
 export default class Popper extends React.PureComponent {
   static displayName = 'Popper';

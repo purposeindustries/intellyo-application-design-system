@@ -48,7 +48,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, misMatchTolerance, ig
   return isTestPassed;
 };
 
-module.exports.getScreenshotName = (isItCiRun, isDefaultBrowser) => {
+module.exports.getScreenshotName = (isDefaultBrowser) => {
   return function (context) {
     const type = context.type;
     const testName = context.test.title;
@@ -61,7 +61,7 @@ module.exports.getScreenshotName = (isItCiRun, isDefaultBrowser) => {
     const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
     const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
-    if (isItCiRun) {
+    if (process.env.CIRCLE_ARTIFACTS) {
       basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
     }
 
@@ -69,7 +69,7 @@ module.exports.getScreenshotName = (isItCiRun, isDefaultBrowser) => {
   };
 };
 
-module.exports.getDiffScreenshotName = (isItCiRun, isDefaultBrowser) => {
+module.exports.getDiffScreenshotName = (isDefaultBrowser) => {
   return function (context) {
     const type = context.type;
     const testName = context.test.title;
@@ -82,7 +82,7 @@ module.exports.getDiffScreenshotName = (isItCiRun, isDefaultBrowser) => {
     const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
     const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
-    if (isItCiRun) {
+    if (process.env.CIRCLE_ARTIFACTS) {
       basePathDiff = process.env.E2E_SCREENSHOTS + 'diff/';
     }
 

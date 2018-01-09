@@ -10,7 +10,6 @@ const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
 let isDefaultBrowser = true;
-let isItCiRun = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
@@ -18,7 +17,6 @@ let browsers = [];
 
 if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   isDefaultBrowser = false;
-  isItCiRun = true;
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
   driver = 'sauce';
@@ -116,8 +114,8 @@ exports.config = {
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName(),
-      screenshotName: getScreenshotName(isItCiRun, isDefaultBrowser),
-      diffName: getDiffScreenshotName(isItCiRun, isDefaultBrowser),
+      screenshotName: getScreenshotName(isDefaultBrowser),
+      diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
     }),
   },

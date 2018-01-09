@@ -16,9 +16,30 @@ function setBasePath(dirPath) {
   basePathScreen = dirPath + '/pics/screen';
 }
 
-module.exports.takeScreenshotAndGetWholePageCompareResult = (misMatchTolerance, testDirPath) => {
-  setBasePath(testDirPath);
-  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport());
+module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
+  let misMatchTolerance;
+  let ignoreComparisonValue = '';
+
+  if (!options.testDirPath) {
+    console.log("missing argument. The testDirPath is neccessary for visual regression pics (default '__dirname')");
+    return false;
+  }
+
+  setBasePath(options.testDirPath);
+
+  if (options.windowsTolerance
+    && browser.desiredCapabilities.platform
+    && browser.desiredCapabilities.platform.includes('Windows')) {
+    misMatchTolerance = options.windowsTolerance;
+  } else {
+    misMatchTolerance = options.defaultTolerance;
+  }
+
+  if (options.ignoreComparison) {
+    ignoreComparisonValue = 'colors';
+  }
+
+  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }));
   const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
@@ -29,12 +50,29 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (misMatchTolerance, 
   return isTestPassed;
 };
 
-module.exports.takeScreenShotOfElement = (elementSelector, misMatchTolerance, ignoreComparison, testDirPath) => {
-  setBasePath(testDirPath);
+module.exports.takeScreenShotOfElement = (elementSelector, options) => {
+  let misMatchTolerance;
   let ignoreComparisonValue = '';
-  if (ignoreComparison === true) {
+
+  if (!options.testDirPath) {
+    console.log("missing argument. The testDirPath is neccessary for visual regression pics (default '__dirname')");
+    return false;
+  }
+
+  setBasePath(options.testDirPath);
+
+  if (options.windowsTolerance
+    && browser.desiredCapabilities.platform
+    && browser.desiredCapabilities.platform.includes('Windows')) {
+    misMatchTolerance = options.windowsTolerance;
+  } else {
+    misMatchTolerance = options.defaultTolerance;
+  }
+
+  if (options.ignoreComparison) {
     ignoreComparisonValue = 'colors';
   }
+
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }));
   const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
   if (isTestPassed) {

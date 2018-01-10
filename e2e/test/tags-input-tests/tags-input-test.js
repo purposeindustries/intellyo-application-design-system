@@ -17,10 +17,10 @@ const TEST_NAME_TAGS_ADD_INPUT_CLICK = 'tags-input-add-input-click';
 
 describe('FEF tags input tests', () => {
 
-  it('Checks the the fef buttons page title and browser compare visual regression', () => {
+  it('Checks the the fef tags input page title and browser compare visual regression', () => {
     browser.url('/tagsinput');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5, ignoreComparison: false, testDirPath: __dirname}), 'Whole FEF tags input page screenshot compare to a reference picture');
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false, testDirPath: __dirname}), 'Whole FEF tags input page screenshot compare to a reference picture');
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_NAME, () => {

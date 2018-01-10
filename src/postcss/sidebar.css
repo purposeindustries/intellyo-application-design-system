@@ -1,3 +1,6 @@
+/* Local variables */
+$sauce-labs-text-color: #474C55;
+
 .sidebar {
   background: #373737;
   width: 230px;
@@ -18,6 +21,27 @@
     list-style: none;
     margin: 0;
     padding: 50px 0 0;
+  }
+
+  & .saucelabs-logo-wrapper {
+    background: #FFFFFF;
+    padding: 7.5px 7.5px 2.5px 7.5px;
+    width: 80%;
+    margin: auto auto 0;
+    border-radius: $border-radius-base;
+    box-shadow: $box-shadow-base;
+
+    & .saucelabs-logo {
+      width: 100%;
+    }
+
+    & .saucelabs-logo-text {
+      font-size: 10px;
+      color: $sauce-labs-text-color;
+      margin: 0;
+      text-transform: uppercase;
+      text-align: right;
+    }
   }
 }
 

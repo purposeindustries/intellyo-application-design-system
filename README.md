@@ -53,3 +53,9 @@ Here you can find each of our components:
 ## E2E tests usage:
 
 You can find the README.md in the [e2e](/e2e/) folder.
+
+### Big Thanks
+
+Cross-browser Testing Platform and Open Source <3 Provided by [Sauce Labs][homepage]
+
+[homepage]: https://saucelabs.com

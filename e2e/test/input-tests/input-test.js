@@ -13,7 +13,7 @@ describe('FEF tags input tests', () => {
   it('Checks the the fef inputs page title and browser compare visual regression', () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 9, ignoreComparison: false, testDirPath: __dirname}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 12, ignoreComparison: false, testDirPath: __dirname}),
       'Whole FEF input page screenshot not similar to other configurations');
   });
 

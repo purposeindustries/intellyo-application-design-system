@@ -141,7 +141,8 @@ exports.config = {
     timeout: 99999999
   },
 
-  before: function (capabilities) {
+  before: function (capabilities, tests) {
+    browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
         width: capabilities.width,

@@ -7,6 +7,7 @@ let basePathDiff = '';
 let basePathScreen = '';
 
 function getMisMatchPercentage(results) {
+  console.log(results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 

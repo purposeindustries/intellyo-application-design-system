@@ -4,7 +4,7 @@ const os = require('os');
 const visualRegression = require('./e2e/utils/visual-regression');
 
 
-const { getScreenshotName, getRefPicName } = visualRegression;
+const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
 const resolution = { width: 1024, height: 768 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
@@ -55,7 +55,7 @@ if (process.env.BROWSER) {
 exports.config = {
 
   specs: [
-    './e2e/test/*.js'
+    './e2e/test/**/*.js'
   ],
   exclude: [
   ],
@@ -113,9 +113,9 @@ exports.config = {
   services: [driver, 'visual-regression'],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName('./e2e/screenshots/reference/', isDefaultBrowser),
-      screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/', isDefaultBrowser),
-      diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
+      referenceName: getRefPicName(),
+      screenshotName: getScreenshotName(isDefaultBrowser),
+      diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
     }),
   },
@@ -141,7 +141,8 @@ exports.config = {
     timeout: 99999999
   },
 
-  before: function (capabilities) {
+  before: function (capabilities, tests) {
+    browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
         width: capabilities.width,

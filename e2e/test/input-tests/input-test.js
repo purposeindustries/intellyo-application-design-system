@@ -8,12 +8,12 @@ const BASIC_INPUT_NAME = 'Basic-input';
 const BASIC_INPUT_CLICKED_NAME = 'Basic-input-clicked';
 const BASIC_INPUT_ADDED_TEXT_NAME = 'Basic-input-added-text';
 
-describe('FEF tags input tests', () => {
+describe('FEF input tests', () => {
 
   it('Checks the the fef inputs page title and browser compare visual regression', () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 12, ignoreComparison: false, testDirPath: __dirname}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 14, ignoreComparison: false, testDirPath: __dirname}),
       'Whole FEF input page screenshot not similar to other configurations');
   });
 

@@ -20,7 +20,7 @@ describe('FEF input tests', () => {
   it('should check: ' + BASIC_INPUT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 11 : 4;//TODO : Why firefox problematic?
+    const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 11.5 : 4;//TODO : Why firefox problematic?
     assert(takeScreenShotOfElement(BASIC_INPUT,
       {defaultTolerance: misMatchTolerance, ignoreComparison: false, testDirPath: __dirname}),
       'Basic input is not similar to reference picture');

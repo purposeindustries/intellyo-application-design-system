@@ -17,7 +17,7 @@ describe('FEF input tests', () => {
       'Whole FEF input page screenshot not similar to other configurations');
   });
 
-  it('should check: ' + BASIC_INPUT_NAME, () => {
+  it('should check ' + BASIC_INPUT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 11.5 : 4;//TODO : Why firefox problematic?
@@ -26,7 +26,7 @@ describe('FEF input tests', () => {
       'Basic input is not similar to reference picture');
   });
 
-  it('should check: ' + BASIC_INPUT_CLICKED_NAME, () => {
+  it('should check ' + BASIC_INPUT_CLICKED_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 12 : 9.2;//TODO : Why firefox problematic?
@@ -36,7 +36,7 @@ describe('FEF input tests', () => {
       'Basic input is not similar to reference picture');
   });
 
-  it('should check: ' + BASIC_INPUT_ADDED_TEXT_NAME, () => {
+  it('should check ' + BASIC_INPUT_ADDED_TEXT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 14 : 11;//TODO : Why firefox problematic?

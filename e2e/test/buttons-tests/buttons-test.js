@@ -51,7 +51,7 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_SELECTOR);
 
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {windowsTolerance: 8.5, defaultTolerance: 3, ignoreComparison: false, testDirPath: __dirname}),
+      {windowsTolerance: 8.8, defaultTolerance: 3, ignoreComparison: false, testDirPath: __dirname}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

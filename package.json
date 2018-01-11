@@ -9,7 +9,6 @@
   "pre-commit": [
     "test"
   ],
-
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
@@ -82,6 +81,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "debug": "^3.1.0",
     "lodash.throttle": "^4.1.1",
     "outy": "^0.1.2",
     "plotly.js": "^1.30.0",

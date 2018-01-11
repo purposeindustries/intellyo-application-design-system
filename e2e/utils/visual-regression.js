@@ -1,12 +1,14 @@
 const dateFormat = require('dateformat');
 const slugify = require('slugify');
 const path = require('path');
+let testDebug = require('debug')('test');
 
 let basePathRef = '';
 let basePathDiff = '';
 let basePathScreen = '';
 
 function getMisMatchPercentage(results) {
+  testDebug(browser.currentTest, ' misMatchPercentage: ', results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 

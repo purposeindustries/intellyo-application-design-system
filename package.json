@@ -9,7 +9,7 @@
   "pre-commit": [
     "test"
   ],
-
+  "license": "MIT",
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",

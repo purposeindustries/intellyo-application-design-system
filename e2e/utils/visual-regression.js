@@ -53,7 +53,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
 module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   let misMatchTolerance;
   let ignoreComparisonValue = '';
-  
+
   if (!options.testDirPath) {
     options.testDirPath = path.dirname(browser.currentTest);
   }

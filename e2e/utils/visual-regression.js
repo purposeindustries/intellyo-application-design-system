@@ -21,7 +21,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   let ignoreComparisonValue = '';
 
   if (!options.testDirPath) {
-    console.log("missing argument. The testDirPath is neccessary for visual regression pics (default '__dirname')");
+    console.log('missing argument. The testDirPath is neccessary for visual regression pics (default "__dirname")');
     return false;
   }
 
@@ -53,10 +53,9 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
 module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   let misMatchTolerance;
   let ignoreComparisonValue = '';
-
+  
   if (!options.testDirPath) {
-    console.log("missing argument. The testDirPath is neccessary for visual regression pics (default '__dirname')");
-    return false;
+    options.testDirPath = path.dirname(browser.currentTest);
   }
 
   setBasePath(options.testDirPath);

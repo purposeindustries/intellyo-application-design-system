@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "6.1.3",
+  "version": "6.2.0",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
@@ -9,6 +9,7 @@
   "pre-commit": [
     "test"
   ],
+  "license": "MIT",
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",

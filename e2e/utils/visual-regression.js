@@ -7,7 +7,6 @@ let basePathDiff = '';
 let basePathScreen = '';
 
 function getMisMatchPercentage(results) {
-  console.log(results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 
@@ -28,6 +27,8 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
 
   setBasePath(options.testDirPath);
 
+  misMatchTolerance = options.defaultTolerance;
+
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
@@ -36,8 +37,6 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     && browser.desiredCapabilities.browserName
     && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.firefoxTolerance;
-  } else {
-    misMatchTolerance = options.defaultTolerance;
   }
 
   if (options.ignoreComparison) {

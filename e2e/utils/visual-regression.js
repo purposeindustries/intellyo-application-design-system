@@ -1,12 +1,18 @@
 const dateFormat = require('dateformat');
 const slugify = require('slugify');
 const path = require('path');
+const testDebug = require('debug')('test');
+const testDev = require('debug')('testDev');
 
 let basePathRef = '';
 let basePathDiff = '';
 let basePathScreen = '';
 
-function getMisMatchPercentage(results) {
+function getMisMatchPercentage(results, testName) {
+  testDev('testName: ' + testName
+  + '\nbrowser: ' + browser.desiredCapabilities.browserName
+  + '\nplatform: ' + browser.desiredCapabilities.platform
+  + '\nmisMatchPercentage: ', results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 
@@ -21,7 +27,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   let ignoreComparisonValue = '';
 
   if (!options.testDirPath) {
-    console.log('missing argument. The testDirPath is neccessary for visual regression pics (default "__dirname")');
+    testDebug('missing argument. The testDirPath is neccessary for visual regression pics (default "__dirname")');
     return false;
   }
 
@@ -39,12 +45,15 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     ignoreComparisonValue = 'colors';
   }
 
-  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }));
+  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
   }
-  console.log('misMatchTolerance: ' + misMatchTolerance
+  testDebug('failing testName: ' + browser.currentTestName
+  + '\nbrowser: ' + browser.desiredCapabilities.browserName
+  + '\nplatform: ' + browser.desiredCapabilities.platform
+  + '\nmisMatchTolerance: ' + misMatchTolerance
   + '\nmisMatchPercentage: ' + misMatchPercentage);
 
   return isTestPassed;
@@ -72,12 +81,15 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     ignoreComparisonValue = 'colors';
   }
 
-  const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }));
+  const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
   }
-  console.log('misMatchTolerance: ' + misMatchTolerance
+  testDebug('failing testName: ' + browser.currentTestName
+  + '\nbrowser: ' + browser.desiredCapabilities.browserName
+  + '\nplatform: ' + browser.desiredCapabilities.platform
+  + '\nmisMatchTolerance: ' + misMatchTolerance
   + '\nmisMatchPercentage: ' + misMatchPercentage
   + '\nproblematic elementSelector: ' + elementSelector);
 

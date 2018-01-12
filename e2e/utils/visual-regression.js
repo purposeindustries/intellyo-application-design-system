@@ -45,12 +45,12 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     ignoreComparisonValue = 'colors';
   }
 
-  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }));
+  const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
   }
-  testDebug('failing testName: ' + options.testName
+  testDebug('failing testName: ' + browser.currentTestName
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform
   + '\nmisMatchTolerance: ' + misMatchTolerance
@@ -81,12 +81,12 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     ignoreComparisonValue = 'colors';
   }
 
-  const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), options.testName);
+  const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
   if (isTestPassed) {
     return isTestPassed;
   }
-  testDebug('failing testName: ' + options.testName
+  testDebug('failing testName: ' + browser.currentTestName
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform
   + '\nmisMatchTolerance: ' + misMatchTolerance

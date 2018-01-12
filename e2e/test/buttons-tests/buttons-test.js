@@ -12,18 +12,12 @@ const YEAH_DROPDOWN_NAME = 'Yeah-button';
 const SAVE_BUTTON_NAME = 'Save-button';
 const SAVE_BUTTON_LOADING_NAME = 'Save-button-loading';
 
-let testName = '';
-
 describe('FEF buttons tests', () => {
-
-  beforeEach(function () {
-    testName = this.currentTest.title;
-  });
 
   it('Checks the the fef buttons page title and browser compare visual regression', () => {
     browser.url('/buttons');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false, testDirPath: __dirname, testName: testName}), 'Whole FEF buttons page screenshot compare to a reference picture');
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false, testDirPath: __dirname}), 'Whole FEF buttons page screenshot compare to a reference picture');
   });
 
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
@@ -31,7 +25,7 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH,
-      {defaultTolerance: 6, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 6, ignoreComparison: false, testDirPath: __dirname}),
        '"Yeah dropdown" is not similar to the reference');
   });
 
@@ -40,13 +34,13 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {defaultTolerance: 17.5, ignoreComparison: true, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 17.5, ignoreComparison: true, testDirPath: __dirname}),
        'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {defaultTolerance: 17.5, ignoreComparison: true, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 17.5, ignoreComparison: true, testDirPath: __dirname}),
        'Save button is not similar to the reference after click');
   });
 
@@ -57,7 +51,7 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_SELECTOR);
 
     assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {windowsTolerance: 8.5, defaultTolerance: 3, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {windowsTolerance: 8.5, defaultTolerance: 3, ignoreComparison: false, testDirPath: __dirname}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

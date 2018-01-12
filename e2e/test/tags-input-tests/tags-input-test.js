@@ -15,25 +15,19 @@ const TEST_NAME_TAGS_INPUT_CLICK = 'tags-input-click';
 const TEST_NAME_TAGS_ADD_INPUT = 'tags-input-add-input';
 const TEST_NAME_TAGS_ADD_INPUT_CLICK = 'tags-input-add-input-click';
 
-let testName = '';
-
-beforeEach(function () {
-  testName = this.currentTest.title;
-});
-
 describe('FEF tags input tests', () => {
 
   it('Checks the the fef tags input page title and browser compare visual regression', () => {
     browser.url('/tagsinput');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false, testDirPath: __dirname, testName: testName}), 'Whole FEF tags input page screenshot compare to a reference picture');
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false, testDirPath: __dirname}), 'Whole FEF tags input page screenshot compare to a reference picture');
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_NAME, () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM');
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH,
-      {defaultTolerance: 10, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 10, ignoreComparison: false, testDirPath: __dirname}),
        'Tags input is not similar to the reference');
   });
 
@@ -43,7 +37,7 @@ describe('FEF tags input tests', () => {
       assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before mouse over');
       browser.moveToObject(TAGS_INPUT_CLICKABLE, 0, 0);
       assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH,
-        {defaultTolerance: 10, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+        {defaultTolerance: 10, ignoreComparison: false, testDirPath: __dirname}),
          'Mouse over tags input is not similar to the reference');
     }
   });
@@ -53,7 +47,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before click');
     browser.click(TAGS_INPUT_CLICKABLE);
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH,
-      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname}),
        'Clicked tags input is not similar to the reference');
   });
 
@@ -63,7 +57,7 @@ describe('FEF tags input tests', () => {
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH,
-      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname}),
        'Added tags input is not similar to the reference');
   });
 
@@ -74,7 +68,7 @@ describe('FEF tags input tests', () => {
     browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
     browser.click('span=hamburger');
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH,
-      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname, testName: testName}),
+      {defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname}),
        'Added and clicked tags input is not similar to the reference');
 
   });

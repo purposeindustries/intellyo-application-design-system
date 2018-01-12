@@ -59,3 +59,7 @@ You can find the README.md in the [e2e](/e2e/) folder.
 Cross-browser Testing Platform and Open Source <3 Provided by [Sauce Labs][homepage]
 
 [homepage]: https://saucelabs.com
+
+## License
+
+MIT

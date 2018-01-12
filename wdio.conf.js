@@ -138,7 +138,8 @@ exports.config = {
 
   mochaOpts: {
     ui: 'bdd',
-    timeout: 99999999
+    timeout: 99999999,
+    require: './e2e/utils/mocha-setup.js'
   },
 
   before: function (capabilities, tests) {

@@ -7,6 +7,7 @@ let basePathDiff = '';
 let basePathScreen = '';
 
 function getMisMatchPercentage(results) {
+  console.log(results[0].misMatchPercentage);
   return results[0].misMatchPercentage;
 }
 
@@ -31,6 +32,10 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
+  } if (options.firefoxTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.firefoxTolerance;
   } else {
     misMatchTolerance = options.defaultTolerance;
   }
@@ -64,6 +69,11 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
+  }
+  if (options.firefoxTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.firefoxTolerance;
   } else {
     misMatchTolerance = options.defaultTolerance;
   }

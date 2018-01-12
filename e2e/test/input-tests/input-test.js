@@ -20,30 +20,27 @@ describe('FEF input tests', () => {
   it('should check ' + BASIC_INPUT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 11.5 : 4;//TODO : Why firefox problematic?
     assert(takeScreenShotOfElement(BASIC_INPUT,
-      {defaultTolerance: misMatchTolerance, ignoreComparison: false, testDirPath: __dirname}),
+      {firefoxTolerance: 11.5, defaultTolerance: 4, ignoreComparison: false, testDirPath: __dirname}), //TODO : Why firefox problematic?
       'Basic input is not similar to reference picture');
   });
 
   it('should check ' + BASIC_INPUT_CLICKED_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 12 : 9.2;//TODO : Why firefox problematic?
     browser.click(BASIC_INPUT);
     assert(takeScreenShotOfElement(BASIC_INPUT,
-      {defaultTolerance: misMatchTolerance, ignoreComparison: false, testDirPath: __dirname}),
+      {firefoxTolerance: 12, defaultTolerance: 9.2, ignoreComparison: false, testDirPath: __dirname}), //TODO : Why firefox problematic?
       'Basic input is not similar to reference picture');
   });
 
   it('should check ' + BASIC_INPUT_ADDED_TEXT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    const misMatchTolerance = (browser.desiredCapabilities.browserName === 'firefox') ? 14 : 11;//TODO : Why firefox problematic?
     browser.click(BASIC_INPUT);
     browser.setValue(BASIC_INPUT, `${'foobar'}\n`);
     assert(takeScreenShotOfElement(BASIC_INPUT,
-      {defaultTolerance: misMatchTolerance, ignoreComparison: false, testDirPath: __dirname}),
+      {firefoxTolerance: 14, defaultTolerance: 11, ignoreComparison: false, testDirPath: __dirname}), //TODO : Why firefox problematic?
       'Basic input is not similar to reference picture');
   });
 

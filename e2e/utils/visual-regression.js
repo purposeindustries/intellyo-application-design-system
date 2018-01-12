@@ -64,17 +64,16 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
 
   setBasePath(options.testDirPath);
 
+  misMatchTolerance = options.defaultTolerance;
+
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
-  }
-  if (options.firefoxTolerance
+  } if (options.firefoxTolerance
     && browser.desiredCapabilities.browserName
     && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.firefoxTolerance;
-  } else {
-    misMatchTolerance = options.defaultTolerance;
   }
 
   if (options.ignoreComparison) {

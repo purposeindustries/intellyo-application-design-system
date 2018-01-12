@@ -35,6 +35,7 @@ $input-label-font-size: $font-size-base;
 $input-label-font-family: $font-family-base;
 
 .input {
+  display: inline-block;
   position: relative;
 
   & input {
@@ -48,6 +49,11 @@ $input-label-font-family: $font-family-base;
     outline: none;
     font-family: $input-font-family;
     font-size: $input-font-size;
+    /*
+      On Mozilla there is a generated
+      box-shadow, which needs to be disabled.
+    */
+    box-shadow: none;
 
     &::placeholder {
       color: $input-placeholder-color;
@@ -60,19 +66,60 @@ $input-label-font-family: $font-family-base;
 
   }
 
-  &--error input {
-    border-color: $input-border-color--error;
-    color: $input-color--error;
+  & .input-state-icon {
+    position: absolute;
+    right: 7px;
+    top: 9.5px;
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
 
-    &::placeholder {
-      color: inherit;
+    & .icon {
+      width: 17.5px;
+      height: 17.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & svg {
+        fill: #fff;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &--success {
+
+    & .input-state-icon {
+      background-color: $color-success-4;
     }
 
-    &:hover,
-    &:focus {
-      border-color: inherit;
+    & input {
+      padding-right: calc(2 * $gutter-base);
+    }
+  }
+
+  &--error {
+
+    & .input-state-icon {
+      background-color: $input-color--error;
     }
 
+    & input {
+      border-color: $input-border-color--error;
+      color: $input-color--error;
+      padding-right: calc(2 * $gutter-base);
+
+      &::placeholder {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        border-color: $input-border-color--error;
+      }
+    }
   }
 
   &--disabled input {

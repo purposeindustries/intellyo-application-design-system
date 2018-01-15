@@ -81,6 +81,10 @@ export default class Inputs extends Component {
                   success={ true }
                 />
                 <Input
+                  label="Successfully implemented"
+                  success={ true }
+                />
+                <Input
                   disabled
                   placeholder="Disabled"
                 />

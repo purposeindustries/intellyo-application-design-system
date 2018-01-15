@@ -82,24 +82,27 @@ The most important two function are the takeScreenshotAndGetWholePageCompareResu
 ### Ok... Ok... How can I write a test?
 
 Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. add and "it" and gave a name, this will be your test. First of all write in the it:
-
- - `browser.url('/accordions');`
+```
+ browser.url('/accordions');
+```
 
  This will open the accordion page. The 'browser' object is the model of your page, so you should use the browser for clicking an element for example:
-
- - `browser.click(ELEMENT_SELECTOR);`
+```
+ browser.click(ELEMENT_SELECTOR);
+```
 
  You can find more infos about that [here](http://webdriver.io/api.html)
 
  So do something and take a screenshot of an element. You have to use the takeScreenShotOfElement() embedded in an 'assert' to fail the test if it is not under the tolerance.
-
-  - `assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
+```
+  assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
-     'print it out if the test fails);`
+     'print it out if the test fails);
+```
 
 At the end all of these you have to see something like this:
-
-- `const assert = require('assert');
+```
+const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 
@@ -107,9 +110,10 @@ describe('Your test set name', () => {
 
   it('your test name', () => {
     browser.url('/accordions');
-    //* Do soemthing here *//
+     [Do something here]
     assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
     'print it out if the test fails);
   });
-});`
+});
+```

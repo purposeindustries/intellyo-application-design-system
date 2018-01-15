@@ -96,3 +96,20 @@ Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create 
   - `assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
      'print it out if the test fails);`
+
+At the end all of these you have to see something like that:
+
+`const assert = require('assert');
+const visualRegression = require('../../utils/visual-regression');
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+
+describe('Your test set name', () => {
+
+  it('your test name', () => {
+    browser.url('/accordions');
+    //* Do soemthing here *//
+    assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
+    {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
+    'print it out if the test fails);
+  });
+});`

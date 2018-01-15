@@ -77,11 +77,11 @@ The structure and the name of the pics are come from the structure of the test j
 
 As it is mentioned above : The utils contains the functions for the tests. You can find here the tools for testing.
 
-The most important two function are the takeScreenshotAndGetWholePageCompareResult and takeScreenShotOfElement. The first takes picture about a whole page and compare to the reference. The second takes a screenshot about an element and make difference to the reference.
+The most important two function are the takeScreenshotAndGetWholePageCompareResult and takeScreenShotOfElement. The first takes picture of a whole page and compare to the reference. The second takes a screenshot of an element and make difference to the reference.
 
 ### Ok... Ok... How can I write a test?
 
-Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. add and "it" and gave a name, this will be your test. First of all write in the it:
+Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. Add an "it" and gave a name, this will be your test. First of all write in the it:
 ```
  browser.url('/accordions');
 ```
@@ -91,7 +91,7 @@ Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create 
  browser.click(ELEMENT_SELECTOR);
 ```
 
- You can find more infos about that [here](http://webdriver.io/api.html)
+ You can find more infos about browser object [here](http://webdriver.io/api.html)
 
  So do something and take a screenshot of an element. You have to use the takeScreenShotOfElement() embedded in an 'assert' to fail the test if it is not under the tolerance.
 ```
@@ -117,3 +117,5 @@ describe('Your test set name', () => {
   });
 });
 ```
+
+Now you have your first test for FEF, congratulations.

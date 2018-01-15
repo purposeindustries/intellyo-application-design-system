@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
 import throttle from 'lodash.throttle';
 import Caption from '../caption';
+import Icon from '../icon';
 
 const Field = ({ inputRef, className, defaultValue, ...rest }) => (
   <input
@@ -99,7 +100,7 @@ class Input extends React.Component {
       inputRef,
       onSuggestionSelected,
       // eslint-disable-next-line
-      onFetchRequested, error, limit, addTag, detailed,
+      onFetchRequested, error, limit, addTag, detailed, success,
       ...inputProps
     } = props;
     let autosuggestField;
@@ -141,6 +142,7 @@ class Input extends React.Component {
       <div
         className={
           classNames('input', props.className, {
+            'input--success': props.success,
             'input--error': props.error,
             'input--disabled': props.disabled,
             'input--icon': props.icon
@@ -152,21 +154,35 @@ class Input extends React.Component {
             <label className="input-label">{ props.label }</label>
           )
         }
-        { autosuggestField || field }
-        {
-          props.icon && (
-            <span className="input-icon-wrapper">
-              { props.icon }
-            </span>
-          )
-        }
-        {
-          props.error && (
-            <span className="input-error-message">
-              { props.error.message }
-            </span>
-          )
-        }
+        <div className="input-inner-wrapper">
+          { autosuggestField || field }
+          {
+            props.icon && (
+              <span className="input-icon-wrapper">
+                { props.icon }
+              </span>
+            )
+          }
+          {
+            props.error && (
+              <Fragment>
+                <span className="input-state-icon">
+                  <Icon icon="ion-android-close" />
+                </span>
+                <span className="input-error-message">
+                  { props.error.message }
+                </span>
+              </Fragment>
+            )
+          }
+          {
+            props.success && (
+              <span className="input-state-icon">
+                <Icon icon="ion-android-done" />
+              </span>
+            )
+          }
+        </div>
       </div>
     );
   }
@@ -188,6 +204,7 @@ Input.propTypes = {
   error: PropTypes.shape({
     message: PropTypes.string.isRequired
   }),
+  success: PropTypes.bool,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   icon: PropTypes.node,

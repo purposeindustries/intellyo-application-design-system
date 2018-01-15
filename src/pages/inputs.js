@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DisplayText from '../components/display-text';
 import Input, { Suggestion, SuggestionWithImage } from '../components/input';
 import PrefixedInput, { PrefixedItem } from '../components/prefixed-input';
 import SocialPrefixedInput from '../components/social-prefixed-input';
@@ -67,8 +66,7 @@ export default class Inputs extends Component {
     return (
       <div>
         <div className="inputs-page">
-          <DisplayText>Inputs</DisplayText>
-          <Card>
+          <Card title="Inputs">
             <Row>
               <Col span={ 3 }>
                 <Input
@@ -78,6 +76,9 @@ export default class Inputs extends Component {
                   error={ {message: 'This field is required.'} }
                   placeholder="Error"
                   required
+                />
+                <Input
+                  success={ true }
                 />
                 <Input
                   disabled

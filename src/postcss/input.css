@@ -36,7 +36,10 @@ $input-label-font-family: $font-family-base;
 
 .input {
   display: inline-block;
-  position: relative;
+
+  & .input-inner-wrapper {
+    position: relative;
+  }
 
   & input {
     background: $input-background-color;

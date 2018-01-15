@@ -55,7 +55,7 @@ The FEF tests based on visual testing. The basic concept is to take screenshot o
 
 ### Structure
 
-You can find everything regarding to end to end testing in the "e2e" folder. There are two important folders located in e2e: test and utils. The "test" contains the folders of the tests of the different pages. The utils contains the functions for the tests.
+You can find everything regarding to end to end testing in the "e2e" folder. There are two important folders located in e2e: test and utils. The "test" contains the folders of the tests of the different pages. The "utils" contains the functions for the tests.
 
 ### Test
 
@@ -65,7 +65,7 @@ The tests located in the javascript file in groups.
 
 The references, screenshots and the diff pictures (created by the js file) located in the pics folder.
 
-The structure and the name of the pics are come from the structure of the test javascript file and the name of the test. The "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "I-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
+The structure and the name of the pics are come from the structure of the test javascript file and the name of the test. For example the "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "I-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
 
  An example of a reference:
   - e2e/test/buttons-tests/pics/reference/fef-buttons-tests/should-check-the-button:-yeah-button/yeah-button_reference_pic.png
@@ -89,7 +89,7 @@ Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create 
 
  - `browser.click(ELEMENT_SELECTOR);`
 
- You can find more infos about that [here][http://webdriver.io/api.html].
+ You can find more infos about that [here](http://webdriver.io/api.html)
 
  So do something and take a screenshot of an element. You have to use the takeScreenShotOfElement() embedded in an 'assert' to fail the test if it is not under the tolerance.
 
@@ -97,9 +97,9 @@ Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create 
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
      'print it out if the test fails);`
 
-At the end all of these you have to see something like that:
+At the end all of these you have to see something like this:
 
-`const assert = require('assert');
+- `const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 

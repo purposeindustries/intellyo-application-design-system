@@ -154,33 +154,35 @@ class Input extends React.Component {
             <label className="input-label">{ props.label }</label>
           )
         }
-        { autosuggestField || field }
-        {
-          props.icon && (
-            <span className="input-icon-wrapper">
-              { props.icon }
-            </span>
-          )
-        }
-        {
-          props.error && (
-            <Fragment>
+        <div className="input-inner-wrapper">
+          { autosuggestField || field }
+          {
+            props.icon && (
+              <span className="input-icon-wrapper">
+                { props.icon }
+              </span>
+            )
+          }
+          {
+            props.error && (
+              <Fragment>
+                <span className="input-state-icon">
+                  <Icon icon="ion-android-close" />
+                </span>
+                <span className="input-error-message">
+                  { props.error.message }
+                </span>
+              </Fragment>
+            )
+          }
+          {
+            props.success && (
               <span className="input-state-icon">
-                <Icon icon="ion-android-close" />
+                <Icon icon="ion-android-done" />
               </span>
-              <span className="input-error-message">
-                { props.error.message }
-              </span>
-            </Fragment>
-          )
-        }
-        {
-          props.success && (
-            <span className="input-state-icon">
-              <Icon icon="ion-android-done" />
-            </span>
-          )
-        }
+            )
+          }
+        </div>
       </div>
     );
   }

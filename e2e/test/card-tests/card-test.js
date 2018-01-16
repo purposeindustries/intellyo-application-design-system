@@ -12,7 +12,7 @@ const CARD = 'Card';
 const CARD_WITH_CAPTION = 'Card-with-caption';
 const CARD_WITH_CAPTION_AND_I = 'Card-with-caption-and-i';
 
-describe('FEF input tests', () => {
+describe('FEF card tests', () => {
 
   it('Checks the the fef cards page title and browser compare visual regression', () => {
     browser.url('/cards');
@@ -26,7 +26,7 @@ describe('FEF input tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_XPATH,
       {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
-      'Basic input is not similar to reference picture');
+      'Card is not similar to reference picture');
   });
 
   it('should check ' + CARD_WITH_CAPTION, () => {
@@ -34,14 +34,14 @@ describe('FEF input tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_WITH_CAPTION_XPATH,
       {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
-      'Basic input is not similar to reference picture');
+      'Card with caption is not similar to reference picture');
   });
 
   it('should check ' + CARD_WITH_CAPTION_AND_I, () => {
     browser.url('/cards');
     assert(takeScreenShotOfElement(CARD_WITH_CAPTION_AND_I_XPATH,
       {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
-      'Basic input is not similar to reference picture');
+      'Card with caption and i is not similar to reference picture');
   });
 
 });

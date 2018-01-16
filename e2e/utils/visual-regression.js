@@ -38,7 +38,9 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
-  } if (options.firefoxTolerance
+  }
+
+  if (options.firefoxTolerance
     && browser.desiredCapabilities.browserName
     && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.firefoxTolerance;
@@ -78,7 +80,9 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
-  } if (options.firefoxTolerance
+  }
+
+  if (options.firefoxTolerance
     && browser.desiredCapabilities.browserName
     && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.firefoxTolerance;

@@ -16,6 +16,9 @@ A `Tags input` component let's you create individually labeled tags.
 | onSuggestionSelected | func | Callback function which fires when there is a suggestion selected. |
 | colors | arrayOf(string) | Use to specify unique colors to the component. |
 | addKeys | arrayOf(number) | Use to add unique keys to your component. |
+| tagsInputRef | func | You can create a ref to react-tagsinput's instance. This way you are able to reach its methods. |
+| inputValue | string | It needs to be used, when `onChangeInput` is set. Inputvalue is used for making the rendered input a controlled element. |
+| onChangeInput | func | Callback function which fires on every time there is a change taking place in the rendered input **and inputValue is set**. |
 
 
 ## Examples

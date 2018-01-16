@@ -56,7 +56,7 @@ describe('FEF tags input tests', () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before adding');
     browser.click(TAGS_INPUT_CLICKABLE);
-    browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
+    browser.setValue(TAGS_INPUT_INPUT, 'foobar\n');
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_CLICKED_XPATH,
       {defaultTolerance: 11, ignoreComparison: false}),
        'Added tags input is not similar to the reference');
@@ -66,7 +66,7 @@ describe('FEF tags input tests', () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before adding and clicking');
     browser.click(TAGS_INPUT_CLICKABLE);
-    browser.setValue(TAGS_INPUT_INPUT, `${'foobar'}\n`);
+    browser.setValue(TAGS_INPUT_INPUT, 'foobar\n');
     browser.click('span=hamburger');
     assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH,
       {defaultTolerance: 11, ignoreComparison: false}),

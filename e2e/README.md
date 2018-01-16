@@ -27,7 +27,7 @@ With command above the tests run in headless chrome. To run tests in other brows
 
 The first command make the tests run in firefox. The second will run in firefox and chrome.
 
-### run the tests with Saucelabs:
+### run the tests with Saucelabs
 
 To run tests on saucelabs you have to cp the .env.example to .env with "cp .env.example ./.env" and fill the environment variables.
 
@@ -41,6 +41,12 @@ Both command do the same, use the saucelabs as a driver, but you get the results
 ### pictures
 
 The results of the tests are written in the terminal, but you can check the created pictures about the elements in the same folder where the tests are located in the ./pics folder, next to the references.
+
+### run only one test file
+
+If you want to run just one file you can use the --spec argument. This argument not works with `npm run test:e2e`, you have to use `./node_modules/.bin/wdio`. Here is an example to run just the buttuns-test.js:
+
+- `./node_modules/.bin/wdio wdio.conf.js --spec ./e2e/test/buttons-tests/buttons-test.js`
 
 ### clean the Tests
 

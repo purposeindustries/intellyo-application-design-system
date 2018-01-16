@@ -57,7 +57,7 @@ If you have too many pics which is confusing you can run a command which clean e
 
 ## Test developement guide
 
-The FEF tests based on visual testing. The basic concept is to take screenshot of every status of elements or pages and make difference to a reference picture.
+FeF tests are based on visual testing. The basic concept is to take screenshots of every status of every element or page first and compare the difference between the reference pictures and the actual screenshots.
 
 ### Structure
 
@@ -65,13 +65,13 @@ You can find everything regarding to end to end testing in the "e2e" folder. The
 
 ### Test
 
-Every folder in the test folder contains a .js file and a pics folder. This is a whole page test, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.Intellyo.com/select](http://ux.Intellyo.com/select).
+Every folder in the test folder contains a .js file and a pics folder. These .js files test the whole page, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.Intellyo.com/select](http://ux.Intellyo.com/select).
 
-The tests located in the javascript file in groups.
+Each .js file represents a whole page test and each folder represents a page.
 
-The references, screenshots and the diff pictures (created by the js file) located in the pics folder.
+The reference pictures, screenshots and the diff pictures (created by the js file) located in the pics folder.
 
-The structure and the name of the pics are come from the structure of the test javascript file and the name of the test. For example the "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "I-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
+The structure and the name of the pics come from the structure of the test javascript file and the name of the test. For example the "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "I-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
 
  An example of a reference:
   - e2e/test/buttons-tests/pics/reference/fef-buttons-tests/should-check-the-button:-yeah-button/yeah-button_reference_pic.png
@@ -81,13 +81,13 @@ The structure and the name of the pics are come from the structure of the test j
 
 ### Utils
 
-As it is mentioned above : The utils contains the functions for the tests. You can find here the tools for testing.
+As it is mentioned above : The utils contain the functions for the tests. You can find here the tools for testing.
 
-The most important two function are the takeScreenshotAndGetWholePageCompareResult and takeScreenShotOfElement. The first takes picture of a whole page and compare to the reference. The second takes a screenshot of an element and make difference to the reference.
+ The two most important functions are the takeScreenshotAndGetWholePageCompareResult and takeScreenShotOfElement. The first takes picture of a whole page and compare it to the reference. The second takes a screenshot of an element and create a diff picture by comparing it to the reference picture..
 
 ### Ok... Ok... How can I write a test?
 
-Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. Add an "it" and gave a name, this will be your test. First of all write in the it:
+Ok let's write a test. Create a folder e.g. `./e2e/test/accordions-tests`. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. Add an "it" and gave a name, this will be your test. First of all write in the it:
 ```
  browser.url('/accordions');
 ```
@@ -107,7 +107,7 @@ Ok let's write a test. Create a folder e.g. ./e2e/test/accordions-tests. Create 
 ```
 
 At the end all of these you have to see something like this:
-```
+```js
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
@@ -123,5 +123,4 @@ describe('Your test set name', () => {
   });
 });
 ```
-
 Now you have your first test for FEF, congratulations.

@@ -40,6 +40,12 @@ Both command do the same, use the saucelabs as a driver, but you get the results
 
 ### pictures
 
+To see more information about the failing tests you can use the 'DEBUG' environment variable.
+
+- `DEBUG=test CI=true npm run test:e2e`
+
+### pictures
+
 The results of the tests are written in the terminal, but you can check the created pictures about the elements in the same folder where the tests are located in the ./pics folder, next to the references.
 
 ### run only one test file

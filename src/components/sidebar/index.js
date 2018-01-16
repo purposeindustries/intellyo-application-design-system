@@ -82,10 +82,12 @@ const Sidebar = (props) => (
         { props.children }
       </ul>
     </nav>
-    <div className="saucelabs-logo-wrapper">
-      <p className="saucelabs-logo-text">Testing powered by</p>
-      <img className="saucelabs-logo" src="https://saucelabs.com/content/images/logo.png" alt="Tests powered by Saucelabs" />
-    </div>
+    <a className="saucelabs-logo-wrapper" href="https://saucelabs.com">
+      <div>
+        <p className="saucelabs-logo-text">Testing powered by</p>
+        <img className="saucelabs-logo" src="https://saucelabs.com/content/images/logo.png" alt="Tests powered by Saucelabs" />
+      </div>
+    </a>
   </aside>
 );
 

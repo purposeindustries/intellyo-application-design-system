@@ -101,19 +101,24 @@ export class DefaultInput extends React.Component {
   }
 }
 
-class TagsInput extends Component {
-  static displayName = 'TagsInput'
+export default class TagsInput extends Component {
+  static displayName = 'TagsInput';
+
   static propTypes = {
     className: PropTypes.string,
     value: PropTypes.array,
     onChange: PropTypes.func,
+    onChangeInput: PropTypes.func,
     size: PropTypes.string,
     inputProps: PropTypes.object,
     detailed: PropTypes.bool,
+    inputValue: PropTypes.string,
+    validationRegex: PropTypes.instanceOf(RegExp),
     renderInput: PropTypes.func.isRequired,
     onSuggestionSelected: PropTypes.func,
     colors: PropTypes.arrayOf(PropTypes.string),
     addKeys: PropTypes.arrayOf(PropTypes.number),
+    tagsInputRef: PropTypes.func,
     suggestions: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.string,
@@ -129,29 +134,36 @@ class TagsInput extends Component {
     onFetchRequested: PropTypes.func,
     onClearRequested: PropTypes.func,
   }
+
   static defaultProps = {
     value: [],
     size: 'normal',
     onChange: () => {},
     inputProps: {},
     onSuggestionSelected: () => {},
-    colors: []
+    colors: [],
+    tagsInputRef: () => {},
   }
+
   constructor(props) {
     super(props);
     this.state = {
       value: props.value,
     };
   }
+
   render() {
     return (
       <ReactTagsInput
         { ...this.props }
+        ref={ this.props.tagsInputRef }
         className={ classNames('tagsinput', this.props.className, {
           'tagsinput--detailed': !!this.props.detailed,
           [`tagsinput--size-${this.props.size}`]: true
         }) }
         value={ this.props.value }
+        onChangeInput={ this.props.onChangeInput }
+        inputValue={ this.props.inputValue }
         onChange={ (tags) => {
           if (this.props.colors && this.props.colors.length) {
             tags = tags.map((tag, i) => {
@@ -164,6 +176,7 @@ class TagsInput extends Component {
           this.props.onChange(tags);
         } }
         addKeys={ this.props.addKeys }
+        validationRegex={ this.props.validationRegex }
         renderTag={ (props) => {
           const { tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other } = props;
           const remove = (
@@ -250,8 +263,6 @@ class TagsInput extends Component {
     );
   }
 }
-
-export default TagsInput;
 
 export const ResponsiveTagsInput = (props) => (
   <div className="responsive-tagsinput">

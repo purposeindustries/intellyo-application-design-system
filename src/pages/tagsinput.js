@@ -14,8 +14,6 @@ const tags = randomWords.reduce((arr, word) => {
   });
 }, []);
 
-const pattern = /\S+@\S+\.\S+/;
-
 export default class TagsInputPage extends Component {
 
   static displayName = 'TagsInputPage'
@@ -25,48 +23,6 @@ export default class TagsInputPage extends Component {
     tagsInput3: [],
     tagsInput4: [],
     tagsInput5: '',
-    validatingTagsInput: {
-      emailTags: [],
-      isTyping: false,
-      inputValue: ''
-    }
-  }
-
-  componentWillMount() {
-    this.timer = null;
-  }
-
-  handleInputChange = (value) => {
-    (() => this.timer !== null && clearTimeout(this.timer))();
-
-    this.setState(state => {
-      return {
-        validatingTagsInput: {
-          emailTags: state.validatingTagsInput.emailTags,
-          inputValue: value,
-          isTyping: true
-        }
-      };
-    });
-
-    this.timer = setTimeout(() => {
-      this.setState(state => {
-        return {
-          validatingTagsInput: {
-            emailTags: state.validatingTagsInput.emailTags,
-            inputValue: state.validatingTagsInput.inputValue,
-            isTyping: false
-          }
-        };
-      });
-    }, 1200);
-  }
-
-  checkEmailValidation = (isTyping, value, message) => {
-    if (!isTyping && value && !pattern.test(value)) {
-      return { message };
-    }
-    return;
   }
 
   render() {
@@ -247,37 +203,6 @@ export default class TagsInputPage extends Component {
                 placeholder="Type your tag..."
               />
             ) }
-          />
-        </Card>
-        <Card title="TagsInput with validation">
-          <TagsInput
-            tagsInputRef={ tagsinput => (this.tagsinput = tagsinput) }
-            value={ this.state.validatingTagsInput.emailTags }
-            onChange={ (tags) => this.setState(state => {
-              return {
-                validatingTagsInput: {
-                  emailTags: tags,
-                  isTyping: state.validatingTagsInput.isTyping,
-                  inputValue: state.validatingTagsInput.inputValue,
-                }
-              };
-            }) }
-            onlyUnique={ true }
-            isTyping={ this.state.validatingTagsInput.isTyping }
-            validationRegex={ pattern }
-            inputValue={ this.state.validatingTagsInput.inputValue }
-            onChangeInput={ this.handleInputChange }
-            removeKeys={ [] }
-            renderInput={ (props) =>
-              <DefaultInput
-                { ...props }
-                onKeyUp={ e => e.keyCode === 27 && this.tagsinput.input.input.blur() }
-                placeholder="Type your email here"
-                value={ this.state.validatingTagsInput.inputValue }
-                success={ Boolean(!this.state.validatingTagsInput.isTyping && props.value && pattern.test(props.value)) }
-                error={ this.checkEmailValidation(this.state.validatingTagsInput.isTyping, props.value, 'Type in a valid email please.') }
-              />
-            }
           />
         </Card>
         <Card

@@ -37,7 +37,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
-    misMatchTolerance = options.windowsTolerance
+    misMatchTolerance = options.windowsTolerance;
   }
 
   if (options.firefoxTolerance

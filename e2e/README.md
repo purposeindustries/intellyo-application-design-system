@@ -59,7 +59,7 @@ You can find everything regarding to end to end testing in the "e2e" folder. The
 
 ### Test
 
-Every folder in the test folder contains a .js file and a pics folder. This is a whole page test, e.g. the ./e2e/test/select-tests folder contains every tests of ux.Intellyo.com/select.
+Every folder in the test folder contains a .js file and a pics folder. This is a whole page test, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.Intellyo.com/select](http://ux.Intellyo.com/select).
 
 The tests located in the javascript file in groups.
 

@@ -38,7 +38,7 @@ If you have .env file, you can use CI or TEST_PROVIDER environment variables to 
 
 Both command do the same, use the saucelabs as a driver, but you get the results and the evidences locally.
 
-### pictures
+### debug
 
 To see more information about the failing tests you can use the 'DEBUG' environment variable.
 
@@ -50,9 +50,9 @@ The results of the tests are written in the terminal, but you can check the crea
 
 ### run only one test file
 
-If you want to run just one file you can use the --spec argument. This argument not works with `npm run test:e2e`, you have to use `./node_modules/.bin/wdio`. Here is an example to run just the buttuns-test.js:
+If you want to run just one file you can use the --spec argument. Here is an example to run just the buttuns-test.js:
 
-- `./node_modules/.bin/wdio wdio.conf.js --spec ./e2e/test/buttons-tests/buttons-test.js`
+- `npm run test:e2e -- --spec ./e2e/test/buttons-tests/buttons-test.js`
 
 ### clean the Tests
 
@@ -71,13 +71,13 @@ You can find everything regarding to end to end testing in the "e2e" folder. The
 
 ### Test
 
-Every folder in the test folder contains a .js file and a pics folder. These .js files test the whole page, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.Intellyo.com/select](http://ux.Intellyo.com/select).
+Every folder in the test folder contains a .js file and a pics folder. These .js files test the whole page, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.intellyo.com/select](http://ux.intellyo.com/select).
 
 Each .js file represents a whole page test and each folder represents a page.
 
 The reference pictures, screenshots and the diff pictures (created by the js file) located in the pics folder.
 
-The structure and the name of the pics come from the structure of the test javascript file and the name of the test. For example the "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "I-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
+The structure and the name of the pics come from the structure of the test javascript file and the name of the test. For example the "this is the test set" describe contains a "I am the name of the test" test. This is stored in the "this-is-the-test-set" folder which contains a "i-am-the-name-of-the-test" folder (and other folders too). The pic of the element name generated from the last word of the test name, the time of the creation and the parameters of the the environment.
 
  An example of a reference:
   - e2e/test/buttons-tests/pics/reference/fef-buttons-tests/should-check-the-button:-yeah-button/yeah-button_reference_pic.png
@@ -94,22 +94,25 @@ As it is mentioned above : The utils contain the functions for the tests. You ca
 ### Ok... Ok... How can I write a test?
 
 Ok let's write a test. Create a folder e.g. `./e2e/test/accordions-tests`. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. Add an "it" and gave a name, this will be your test. First of all write in the it:
-```
+
+```js
  browser.url('/accordions');
 ```
 
  This will open the accordion page. The 'browser' object is the model of your page, so you should use the browser for clicking an element for example:
-```
+
+```js
  browser.click(ELEMENT_SELECTOR);
 ```
 
  You can find more infos about browser object [here](http://webdriver.io/api.html)
 
  So do something and take a screenshot of an element. You have to use the takeScreenShotOfElement() embedded in an 'assert' to fail the test if it is not under the tolerance.
-```
+
+```js
   assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
-     'print it out if the test fails);
+     'print it out if the test fails');
 ```
 
 At the end all of these you have to see something like this:
@@ -125,7 +128,7 @@ describe('Your test set name', () => {
      [Do something here]
     assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),
-    'print it out if the test fails);
+    'print it out if the test fails');
   });
 });
 ```

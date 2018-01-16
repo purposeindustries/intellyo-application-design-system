@@ -14,6 +14,14 @@ const tags = randomWords.reduce((arr, word) => {
   });
 }, []);
 
+const pattern = /\S+@\S+\.\S+/;
+const checkEmailValidation = (value, message) => {
+  if (value && !pattern.test(value)) {
+    return { message };
+  }
+  return;
+};
+
 export default class TagsInputPage extends Component {
 
   static displayName = 'TagsInputPage'
@@ -23,6 +31,7 @@ export default class TagsInputPage extends Component {
     tagsInput3: [],
     tagsInput4: [],
     tagsInput5: '',
+    emailTags: [],
   }
 
   render() {
@@ -203,6 +212,24 @@ export default class TagsInputPage extends Component {
                 placeholder="Type your tag..."
               />
             ) }
+          />
+        </Card>
+        <Card title="TagsInput with validation">
+          <TagsInput
+            value={ this.state.emailTags }
+            onChange={ (tags) => this.setState({
+              emailTags: tags
+            }) }
+            onlyUnique={ true }
+            validationRegex={ pattern }
+            renderInput={ (props) =>
+              <DefaultInput
+                { ...props }
+                placeholder="hey ya"
+                success={ props.value && pattern.test(props.value) }
+                error={ checkEmailValidation(props.value, 'Type in a valid email please.') }
+              />
+            }
           />
         </Card>
         <Card

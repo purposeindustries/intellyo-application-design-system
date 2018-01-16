@@ -110,6 +110,7 @@ class TagsInput extends Component {
     size: PropTypes.string,
     inputProps: PropTypes.object,
     detailed: PropTypes.bool,
+    validationRegex: PropTypes.instanceOf(RegExp),
     renderInput: PropTypes.func.isRequired,
     onSuggestionSelected: PropTypes.func,
     colors: PropTypes.arrayOf(PropTypes.string),
@@ -164,6 +165,7 @@ class TagsInput extends Component {
           this.props.onChange(tags);
         } }
         addKeys={ this.props.addKeys }
+        validationRegex={ this.props.validationRegex }
         renderTag={ (props) => {
           const { tag, key, disabled, onRemove, classNameRemove, getTagDisplayValue, ...other } = props;
           const remove = (

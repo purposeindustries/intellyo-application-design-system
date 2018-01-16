@@ -27,18 +27,23 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   let ignoreComparisonValue = '';
 
   if (!options.testDirPath) {
-    testDebug('missing argument. The testDirPath is neccessary for visual regression pics (default "__dirname")');
-    return false;
+    options.testDirPath = path.dirname(browser.currentTest);
   }
 
   setBasePath(options.testDirPath);
+
+  misMatchTolerance = options.defaultTolerance;
 
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
-  } else {
-    misMatchTolerance = options.defaultTolerance;
+  }
+
+  if (options.firefoxTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.firefoxTolerance;
   }
 
   if (options.ignoreComparison) {
@@ -69,12 +74,18 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
 
   setBasePath(options.testDirPath);
 
+  misMatchTolerance = options.defaultTolerance;
+
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
     && browser.desiredCapabilities.platform.includes('Windows')) {
     misMatchTolerance = options.windowsTolerance;
-  } else {
-    misMatchTolerance = options.defaultTolerance;
+  }
+
+  if (options.firefoxTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.firefoxTolerance;
   }
 
   if (options.ignoreComparison) {

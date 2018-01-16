@@ -6,7 +6,7 @@ const visualRegression = require('./e2e/utils/visual-regression');
 
 const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
-const resolution = { width: 1024, height: 768 };
+const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
 let isDefaultBrowser = true;

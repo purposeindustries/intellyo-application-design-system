@@ -24,6 +24,7 @@ $sauce-labs-text-color: #474C55;
   }
 
   & .saucelabs-logo-wrapper {
+    text-decoration: none;
     background: #FFFFFF;
     padding: 7.5px 7.5px 2.5px 7.5px;
     width: 80%;

@@ -44,9 +44,9 @@ The results of the tests are written in the terminal, but you can check the crea
 
 ### run only one test file
 
-If you want to run just one file you can use the --spec argument. This argument not works with `npm run test:e2e`, you have to use `./node_modules/.bin/wdio`. Here is an example to run just the buttuns-test.js:
+If you want to run just one file you can use the --spec argument. Here is an example to run just the buttuns-test.js:
 
-- `./node_modules/.bin/wdio wdio.conf.js --spec ./e2e/test/buttons-tests/buttons-test.js`
+- `npm run test:e2e -- --spec ./e2e/test/buttons-tests/buttons-test.js`
 
 ### clean the Tests
 
@@ -65,7 +65,7 @@ You can find everything regarding to end to end testing in the "e2e" folder. The
 
 ### Test
 
-Every folder in the test folder contains a .js file and a pics folder. These .js files test the whole page, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.Intellyo.com/select](http://ux.intellyo.com/select).
+Every folder in the test folder contains a .js file and a pics folder. These .js files test the whole page, e.g. the [./e2e/test/select-tests](/e2e/test/select-tests/) folder contains every tests of [ux.intellyo.com/select](http://ux.intellyo.com/select).
 
 Each .js file represents a whole page test and each folder represents a page.
 

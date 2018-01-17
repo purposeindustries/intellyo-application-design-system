@@ -29,7 +29,7 @@
     "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p",
     "prepublish": "npm t && npm run build:css && npm run build:components",
     "serve": "gatsby serve",
-    "clean-test": "find ./e2e/ \\( -name 'diff' -o -name 'screen' \\) -exec rm -r '{}' \\; || exit 0"
+    "clean-test": "find ./e2e/ \\( -name 'diff' -o -name 'screen' -o -name '*browser-compare-visual-regression' \\) -exec rm -r '{}' \\; || exit 0"
   },
   "devDependencies": {
     "aws-sdk-then": "^1.1.0",

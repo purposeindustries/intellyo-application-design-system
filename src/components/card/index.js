@@ -39,7 +39,7 @@ const Card = (props) => (
 Card.displayName = 'Card';
 
 Card.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.node,
   titleCaption: PropTypes.string,
   children: PropTypes.node,
   footer: PropTypes.node,

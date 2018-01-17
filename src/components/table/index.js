@@ -159,6 +159,17 @@ Column.defaultProps = {
   },
   renderCell: field => field,
 };
+
+Column.propTypes = {
+  name: p.string,
+  label: p.node,
+  complex: p.bool,
+  renderCell: p.func,
+  sortable: p.bool,
+  order: p.oneOf(['asc', 'desc']),
+  onSort: p.func
+};
+
 Column.displayName = 'Column';
 
 const Expander = () => {};

@@ -2,7 +2,6 @@ const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 
-//Selectors/xpaths
 const BASIC_INPUT = '//*[@placeholder="Basic"]';
 
 //test names

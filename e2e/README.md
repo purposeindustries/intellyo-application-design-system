@@ -38,6 +38,12 @@ If you have .env file, you can use CI or TEST_PROVIDER environment variables to 
 
 Both command do the same, use the saucelabs as a driver, but you get the results and the evidences locally.
 
+### debug
+
+To see more information about the failing tests you can use the 'DEBUG' environment variable.
+
+- `DEBUG=test CI=true npm run test:e2e`
+
 ### pictures
 
 The results of the tests are written in the terminal, but you can check the created pictures about the elements in the same folder where the tests are located in the ./pics folder, next to the references.
@@ -88,11 +94,13 @@ As it is mentioned above : The utils contain the functions for the tests. You ca
 ### Ok... Ok... How can I write a test?
 
 Ok let's write a test. Create a folder e.g. `./e2e/test/accordions-tests`. Create a test file called accordion-test.js. Copy the structure of the tests from another "something-test.js". Rename the "describe" which will be your test set name. Add an "it" and gave a name, this will be your test. First of all write in the it:
+
 ```js
  browser.url('/accordions');
 ```
 
  This will open the accordion page. The 'browser' object is the model of your page, so you should use the browser for clicking an element for example:
+
 ```js
  browser.click(ELEMENT_SELECTOR);
 ```
@@ -100,6 +108,7 @@ Ok let's write a test. Create a folder e.g. `./e2e/test/accordions-tests`. Creat
  You can find more infos about browser object [here](http://webdriver.io/api.html)
 
  So do something and take a screenshot of an element. You have to use the takeScreenShotOfElement() embedded in an 'assert' to fail the test if it is not under the tolerance.
+
 ```js
   assert(takeScreenShotOfElement(ELEMENT_SELECTOR,
     {windowsTolerance: 12, firefoxTolerance: 15, defaultTolerance: 5.5, ignoreComparison: false}),

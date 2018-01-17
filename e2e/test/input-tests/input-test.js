@@ -32,7 +32,7 @@ describe('FEF input tests', () => {
     browser.click(BASIC_INPUT);
     assert(takeScreenShotOfElement(BASIC_INPUT,
       {firefoxTolerance: 12, defaultTolerance: 9.2, ignoreComparison: false}), //TODO : Why firefox problematic?
-      'Basic input is not similar to reference picture');
+      'Basic input clicked is not similar to reference picture');
   });
 
   it('should check ' + BASIC_INPUT_ADDED_TEXT_NAME, () => {
@@ -42,7 +42,7 @@ describe('FEF input tests', () => {
     browser.setValue(BASIC_INPUT, 'foobar\n');
     assert(takeScreenShotOfElement(BASIC_INPUT,
       {firefoxTolerance: 14, defaultTolerance: 11, ignoreComparison: false}), //TODO : Why firefox problematic?
-      'Basic input is not similar to reference picture');
+      'Basic input with added text is not similar to reference picture');
   });
 
 });

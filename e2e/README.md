@@ -31,9 +31,8 @@ The first command make the tests run in firefox. The second will run in firefox 
 
 To run tests on saucelabs you have to cp the .env.example to .env with "cp .env.example ./.env" and fill the environment variables.
 
-If you have .env file, you can use CI or TEST_PROVIDER environment variables to use saucelabs eg.:
+If you have .env file, you can use TEST_PROVIDER environment variable to use saucelabs eg.:
 
-- `CI=true npm run test:e2e`
 - `TEST_PROVIDER=sauce npm run test:e2e`
 
 Both command do the same, use the saucelabs as a driver, but you get the results and the evidences locally.
@@ -42,7 +41,7 @@ Both command do the same, use the saucelabs as a driver, but you get the results
 
 To see more information about the failing tests you can use the 'DEBUG' environment variable.
 
-- `DEBUG=test CI=true npm run test:e2e`
+- `DEBUG=test npm run test:e2e`
 
 ### pictures
 

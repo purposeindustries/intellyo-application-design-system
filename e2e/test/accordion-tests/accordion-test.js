@@ -29,7 +29,7 @@ describe('FEF modal tests', () => {
     assert(browser.getAttribute(BASIC_INFO_ACCORDION_CHILDREN_XPATH, 'style') === 'height: 0px; opacity: 0;', 'Accordion children height and/or opacity note 0');
     assert(takeScreenShotOfElement(BASIC_INFO_ACCORDION_XPATH,
       {defaultTolerance: 3.5, ignoreComparison: false}),
-      'Modal is not similar to reference picture');
+      'Basic accordion info is not similar to reference picture');
   });
 
   it('should check ' + BASIC_INFO_ACCORDION_OPEN, () => {
@@ -37,8 +37,8 @@ describe('FEF modal tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INFO_ACCORDION_XPATH);
     assert(takeScreenShotOfElement(BASIC_INFO_ACCORDION_OPEN_XPATH,
-      {defaultTolerance: 3.5, ignoreComparison: false}),
-      'Modal is not similar to reference picture');
+      {defaultTolerance: 6, ignoreComparison: false}),
+      'Basic accordion info in opened state is not similar to reference picture');
   });
 
 });

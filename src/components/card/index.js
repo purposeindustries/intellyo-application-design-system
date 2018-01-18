@@ -40,7 +40,7 @@ Card.displayName = 'Card';
 
 Card.propTypes = {
   title: PropTypes.node,
-  titleCaption: PropTypes.string,
+  titleCaption: PropTypes.node,
   children: PropTypes.node,
   footer: PropTypes.node,
   icon: PropTypes.node,

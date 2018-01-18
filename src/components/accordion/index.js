@@ -11,7 +11,7 @@ export class AccordionItem extends React.PureComponent {
 
   static propTypes = {
     icon: PropTypes.element,
-    title: PropTypes.string,
+    title: PropTypes.node,
     children: PropTypes.node,
     isOpen: PropTypes.bool,
     onClick: PropTypes.func,

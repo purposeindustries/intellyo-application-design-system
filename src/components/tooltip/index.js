@@ -16,7 +16,7 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   className: PropTypes.string
 };

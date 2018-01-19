@@ -27,7 +27,7 @@ describe('FEF popover tests', () => {
     === 'An element could not be located on the page using the given search parameters.',
     'Triggered overlay shows where its not allowed');
     assert(takeScreenShotOfElement(CLICK_ME_POPOVER_XPATH,
-      {defaultTolerance: 15.5, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 27, windowsTolerance: 19, defaultTolerance: 15.5, ignoreComparison: false}), //TODO: more than 20% tolerance
       'Click me popover is not similar to reference picture');
   });
 

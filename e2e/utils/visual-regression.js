@@ -46,6 +46,12 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     misMatchTolerance = options.firefoxTolerance;
   }
 
+  if (options.ffAndWindowsTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.ffAndWindowsTolerance;
+  }
+
   if (options.ignoreComparison) {
     ignoreComparisonValue = 'colors';
   }
@@ -86,6 +92,12 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     && browser.desiredCapabilities.browserName
     && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.firefoxTolerance;
+  }
+
+  if (options.ffAndWindowsTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.ffAndWindowsTolerance;
   }
 
   if (options.ignoreComparison) {

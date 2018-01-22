@@ -71,15 +71,15 @@
   $button-line-height-large: 40px;
 
   $button-color-primary: #fff;
-  $button-background-color-primary: $color-primary-1;
-  $button-background-color-primary-hover: $color-primary-2;
-  $button-background-color-primary-active: $color-primary-3;
+  $button-background-color-primary: $color-primary-2;
+  $button-background-color-primary-hover: $color-primary-1;
+  $button-background-color-primary-active: $color-primary-1;
 
   $button-icon-fill-primary: #fff;
 
   $button-color-danger: #fff;
-  $button-background-color-danger: $color-danger-3;
-  $button-background-color-danger-hover: $color-danger-4;
+  $button-background-color-danger: $color-danger-4;
+  $button-background-color-danger-hover: $color-danger-5;
   $button-background-color-danger-active: $color-danger-5;
 
   $button-icon-fill-danger: #fff;

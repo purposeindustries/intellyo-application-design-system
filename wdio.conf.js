@@ -63,11 +63,11 @@ exports.config = {
   maxInstances: 10,
 
   capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
+  //   browserName: 'firefox',
+  //   version: 'latest',
+  //   screenResolution: screenResolution,
+  //   platform: 'macOS 10.13'
+  // }, {
     browserName: 'chrome',
     'chromeOptions': {
       'args': ['disable-infobars']

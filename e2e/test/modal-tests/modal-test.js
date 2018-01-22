@@ -17,7 +17,7 @@ describe('FEF modal tests', () => {
   it('Checks the the fef modal page title and browser compare visual regression', () => {
     browser.url('/modals');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3, ignoreComparison: false}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3.5, ignoreComparison: false}),
       'Whole FEF modal page screenshot not similar to other configurations');
   });
 

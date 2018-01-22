@@ -8,9 +8,6 @@ machine:
   pre:
     - sudo apt-get install tree
 test:
-  branches:
-    ignore:
-      - feat/add-basic-grid-typography-incons-tests
   override:
     - npm run test
     - npm run serve:

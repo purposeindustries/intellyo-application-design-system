@@ -71,9 +71,9 @@
   $button-line-height-large: 40px;
 
   $button-color-primary: #fff;
-  $button-background-color-primary: $color-primary-3;
-  $button-background-color-primary-hover: $color-primary-4;
-  $button-background-color-primary-active: $color-primary-5;
+  $button-background-color-primary: $color-primary-1;
+  $button-background-color-primary-hover: $color-primary-2;
+  $button-background-color-primary-active: $color-primary-3;
 
   $button-icon-fill-primary: #fff;
 

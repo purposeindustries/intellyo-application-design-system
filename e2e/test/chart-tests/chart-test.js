@@ -10,7 +10,7 @@ const SCATTER_CHART_XPATH = '//*[@class="row"][1]//*[@class="col col-6"][1]//*[@
 const BASIC_BAR_CHART = 'Basic-bar-chart';
 const SCATTER_CHART = 'Scatter-chart';
 
-describe('FEF card tests', () => {
+describe('FEF charts tests', () => {
 
   it('Checks the the fef charts page title and browser compare visual regression', () => {
     browser.url('/charts');

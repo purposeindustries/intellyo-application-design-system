@@ -34,7 +34,7 @@ describe('FEF modal tests', () => {
     browser.url('/modals');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_WITH_ANIMATION_XPATH);
-    assert(browser.getAttribute(MODAL_WITH_ANIMATION_XPATH, 'style').includes('animation-duration: 300ms;'));
+    assert(browser.getAttribute(MODAL_WITH_ANIMATION_XPATH, 'style').includes('animation-duration: 300ms;'), 'Animation duration is not 300ms');
     assert(takeScreenShotOfElement(MODAL_WITH_ANIMATION_XPATH,
       {defaultTolerance: 3, ignoreComparison: false}),
       'Basic input is not similar to reference picture');

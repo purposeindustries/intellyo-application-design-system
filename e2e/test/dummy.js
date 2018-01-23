@@ -15,8 +15,7 @@ function moveMouse(aBrowser, selector, x = 100, y = 100) {
         }
       ]
     }]);
-  }
-  else {
+  } else {
     aBrowser.moveToObject(selector);
   }
 }

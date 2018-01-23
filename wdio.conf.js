@@ -106,11 +106,11 @@ exports.config = {
   deprecationWarnings: true,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-  baseUrl: 'http://localhost:9000',
+  baseUrl: `http://localhost:${process.env.STATIC_PORT || 4567}`,
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  services: [driver, 'visual-regression'],
+  services: [driver, 'visual-regression', 'static-server'],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName(),
@@ -150,5 +150,9 @@ exports.config = {
         height: capabilities.height
       });
     }
-  }
+  },
+  staticServerPort: process.env.STATIC_PORT || 4567,
+  staticServerFolders: [{
+    mount: '/', path: './public'
+  }]
 };

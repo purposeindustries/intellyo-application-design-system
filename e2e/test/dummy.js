@@ -19,6 +19,7 @@ function moveMouse(aBrowser, selector, x = 100, y = 100) {
     aBrowser.moveToObject(selector);
   }
 }
+
 describe('dummy test', () => {
   /*it('move', () => {
     browser.url('/');
@@ -46,8 +47,8 @@ describe('dummy test', () => {
     }]);*/
 
     //browser.actions();
-    moveMouse(browser, '#maki', 10, 10);
-    takeScreenshotAndGetWholePageCompareResult({});
+    //moveMouse(browser, '#maki', 10, 10);
+    //takeScreenshotAndGetWholePageCompareResult({});
     //console.log(browser.logTypes());
     //browser.moveToElement('button#maki', 10, 10);
     //console.log('LOGS:\n', browser.log('browser').value.map(v => v.message).join('\n'));

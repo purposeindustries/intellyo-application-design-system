@@ -15,7 +15,7 @@ test:
     # Wait for app to be ready
     - wget --retry-connrefused --no-check-certificate -T 30 http://localhost:9000
     #run tests
-    - npm run test:e2e -- --spec e2e/test/dummy.js
+    - npm run test:e2e
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS
 
 dependencies:

@@ -29,7 +29,11 @@ if (process.env.BROWSER) {
       browsers.push({
         width: resolution.width,
         height: resolution.height,
-        browserName: element
+        browserName: element,
+        'moz:firefoxOptions': {
+          // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+           args: ['-headless']
+        }
       });
     } else {
       browsers.push({
@@ -51,56 +55,63 @@ if (process.env.BROWSER) {
     }
   }];
 }
-
+const browserLogEntries = [];
 exports.config = {
-  seleniumInstallArgs: {version: '3.4.0'},
-  seleniumArgs: {version: '3.4.0'},
+  seleniumInstallArgs: { version: '3.4.0' },
+  seleniumArgs: { version: '3.4.0' },
 
-  specs: [
-    './e2e/test/**/*.js'
-  ],
-  exclude: [
-  ],
+  specs: ['./e2e/test/**/*.js'],
+  exclude: [],
 
   maxInstances: 10,
 
-  capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
-    browserName: 'chrome',
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }] : browsers,
+  capabilities:
+    process.env.CI || process.env.TEST_PROVIDER === 'sauce'
+      ? [
+          {
+            browserName: 'firefox',
+            version: 'latest',
+            screenResolution: screenResolution,
+            platform: 'macOS 10.13'
+          },
+          {
+            browserName: 'chrome',
+            chromeOptions: {
+              args: ['disable-infobars']
+            },
+            version: 'latest',
+            screenResolution: screenResolution,
+            platform: 'macOS 10.13'
+          },
+          {
+            browserName: 'chrome',
+            version: 'latest-1',
+            screenResolution: screenResolution,
+            platform: 'Windows 10'
+          },
+          {
+            browserName: 'firefox',
+            version: 'latest',
+            screenResolution: screenResolution,
+            platform: 'Windows 10'
+          },
+          {
+            browserName: 'chrome',
+            chromeOptions: {
+              args: ['disable-infobars']
+            },
+            version: 'latest',
+            screenResolution: screenResolution,
+            platform: 'Windows 10'
+          },
+          {
+            browserName: 'chrome',
+            version: 'latest-1',
+            screenResolution: screenResolution,
+            platform: 'macOS 10.13'
+          }
+        ]
+      : browsers,
 
   sync: true,
   logLevel: 'silent',
@@ -119,7 +130,7 @@ exports.config = {
       screenshotName: getScreenshotName(isDefaultBrowser),
       diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
-    }),
+    })
   },
   user: sauceLabsUsername,
   key: saucelabsAccesKey,
@@ -144,13 +155,42 @@ exports.config = {
     require: './e2e/utils/mocha-setup.js'
   },
 
-  before: function (capabilities, tests) {
+  before: (capabilities, tests) => {
     browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
         width: capabilities.width,
         height: capabilities.height
       });
+    }
+  },
+
+  afterTest: (test) => {
+    console.log('aftertest');
+    /*if (
+      !test.passed &&
+      browser.options.desiredCapabilities.browserName === 'chrome'
+    ) {*/
+    if (browser.options.desiredCapabilities.browserName === 'chrome') {
+      browserLogEntries.push({
+        title: test.title,
+        result: test.passed,
+        messages: browser.log('browser').value,
+        url: browser.getUrl()
+      });
+    }
+  },
+
+  after: (result, capabilities, specs) => {
+    console.log('after');
+    /*if (
+      result !== 0 &&
+      browser.options.desiredCapabilities.browserName === 'chrome'
+    ) {*/
+    if (browser.options.desiredCapabilities.browserName === 'chrome') {
+      const specPath = specs[0];
+      console.log('console entries for %s', specPath);
+      console.log(JSON.stringify(browserLogEntries, null, 2));
     }
   }
 };

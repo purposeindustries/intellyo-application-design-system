@@ -1,6 +1,8 @@
 beforeEach(function () {
   browser.currentTestName = this.currentTest.title;
+});
 
+before(function () {
   browser.addCommand('moveToElement', (selector, x = 10, y = 10) => {
     if (browser.desiredCapabilities.browserName === 'firefox') {
       const element = browser.element(selector);

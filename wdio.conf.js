@@ -108,7 +108,7 @@ exports.config = {
   deprecationWarnings: true,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-  baseUrl: 'http://localhost:9000',
+  baseUrl: 'https://b5b22ec9.ngrok.io',
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,

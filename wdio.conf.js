@@ -53,6 +53,8 @@ if (process.env.BROWSER) {
 }
 
 exports.config = {
+  seleniumInstallArgs: {version: '3.4.0'},
+  seleniumArgs: {version: '3.4.0'},
 
   specs: [
     './e2e/test/**/*.js'

@@ -149,7 +149,6 @@ module.exports.getDiffScreenshotName = (isDefaultBrowser) => {
   };
 };
 
-
 module.exports.getRefPicName = () => {
   return function (context) {
     const testName = context.test.title;
@@ -161,4 +160,8 @@ module.exports.getRefPicName = () => {
     }
     return path.join(basePathRef, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`);
   };
+};
+
+module.exports.printOutConsoleLog = () => {
+  browser.printOutConsoleLog = true;
 };

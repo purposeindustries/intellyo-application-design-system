@@ -68,49 +68,49 @@ exports.config = {
   capabilities:
     process.env.CI || process.env.TEST_PROVIDER === 'sauce'
       ? [
-          {
-            browserName: 'firefox',
-            version: 'latest',
-            screenResolution: screenResolution,
-            platform: 'macOS 10.13'
+        {
+          browserName: 'firefox',
+          version: 'latest',
+          screenResolution: screenResolution,
+          platform: 'macOS 10.13'
+        },
+        {
+          browserName: 'chrome',
+          chromeOptions: {
+            args: ['disable-infobars']
           },
-          {
-            browserName: 'chrome',
-            chromeOptions: {
-              args: ['disable-infobars']
-            },
-            version: 'latest',
-            screenResolution: screenResolution,
-            platform: 'macOS 10.13'
+          version: 'latest',
+          screenResolution: screenResolution,
+          platform: 'macOS 10.13'
+        },
+        {
+          browserName: 'chrome',
+          version: 'latest-1',
+          screenResolution: screenResolution,
+          platform: 'Windows 10'
+        },
+        {
+          browserName: 'firefox',
+          version: 'latest',
+          screenResolution: screenResolution,
+          platform: 'Windows 10'
+        },
+        {
+          browserName: 'chrome',
+          chromeOptions: {
+            args: ['disable-infobars']
           },
-          {
-            browserName: 'chrome',
-            version: 'latest-1',
-            screenResolution: screenResolution,
-            platform: 'Windows 10'
-          },
-          {
-            browserName: 'firefox',
-            version: 'latest',
-            screenResolution: screenResolution,
-            platform: 'Windows 10'
-          },
-          {
-            browserName: 'chrome',
-            chromeOptions: {
-              args: ['disable-infobars']
-            },
-            version: 'latest',
-            screenResolution: screenResolution,
-            platform: 'Windows 10'
-          },
-          {
-            browserName: 'chrome',
-            version: 'latest-1',
-            screenResolution: screenResolution,
-            platform: 'macOS 10.13'
-          }
-        ]
+          version: 'latest',
+          screenResolution: screenResolution,
+          platform: 'Windows 10'
+        },
+        {
+          browserName: 'chrome',
+          version: 'latest-1',
+          screenResolution: screenResolution,
+          platform: 'macOS 10.13'
+        }
+      ]
       : browsers,
 
   sync: true,
@@ -119,7 +119,7 @@ exports.config = {
   deprecationWarnings: true,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-  baseUrl: 'https://b5b22ec9.ngrok.io',
+  baseUrl: 'http://localhost:9000',
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
@@ -167,10 +167,6 @@ exports.config = {
 
   afterTest: (test) => {
     console.log('aftertest');
-    /*if (
-      !test.passed &&
-      browser.options.desiredCapabilities.browserName === 'chrome'
-    ) {*/
     if (browser.options.desiredCapabilities.browserName === 'chrome') {
       browserLogEntries.push({
         title: test.title,
@@ -179,18 +175,10 @@ exports.config = {
         url: browser.getUrl()
       });
     }
-  },
-
-  after: (result, capabilities, specs) => {
-    console.log('after');
-    /*if (
-      result !== 0 &&
-      browser.options.desiredCapabilities.browserName === 'chrome'
-    ) {*/
-    if (browser.options.desiredCapabilities.browserName === 'chrome') {
-      const specPath = specs[0];
-      console.log('console entries for %s', specPath);
+    if (browser.options.desiredCapabilities.browserName === 'chrome' && browser.printOutConsoleLog) {
+      console.log('console entries for %s', browser.currentTest);
       console.log(JSON.stringify(browserLogEntries, null, 2));
+      browser.printOutConsoleLog = false;
     }
   }
 };

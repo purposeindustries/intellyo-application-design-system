@@ -38,11 +38,11 @@ export default class Colors extends Component {
                   title: 'Basic Colors',
                   palettes: [
                     [
-                      '#5F9AE7',
-                      '#377DE0',
-                      '#0F65D9',
-                      '#0053D2',
-                      '#00398C',
+                      '#F22A5D',
+                      '#FF336D',
+                      '#F4547D',
+                      '#F5698D',
+                      '#F67E9D',
                     ],
                     [
                       '#F9ACBC',

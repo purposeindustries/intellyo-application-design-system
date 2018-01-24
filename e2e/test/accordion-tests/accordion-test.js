@@ -12,9 +12,9 @@ const BASIC_INFO_ACCORDION_INNER_WRAP_XPATH = '//*[@class="content"]//*[@class="
 const BASIC_INFO_ACCORDION = 'basic-info-accordion';
 const BASIC_INFO_ACCORDION_OPEN = 'basic-info-accordion-open';
 
-describe('FEF modal tests', () => {
+describe('FEF accordions tests', () => {
 
-  it('Checks the the fef modal page title and browser compare visual regression', () => {
+  it('Checks the the fef accordions page title and browser compare visual regression', () => {
     browser.url('/accordions');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),

@@ -34,9 +34,9 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_XPATH).scroll();
     assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {defaultTolerance: 17.5, ignoreComparison: true}),
-       'Save button is not similar to the reference before click');
+    // assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+    //   {defaultTolerance: 17.5, ignoreComparison: true}),
+    //    'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);

@@ -166,7 +166,6 @@ exports.config = {
   },
 
   afterTest: (test) => {
-    console.log('aftertest');
     if (browser.options.desiredCapabilities.browserName === 'chrome') {
       browserLogEntries.push({
         title: test.title,

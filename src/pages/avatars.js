@@ -29,6 +29,10 @@ export default class Avatars extends Component {
                   <Avatar
                     name=""
                   />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
+                  />
                 </div>
                 <div className="avatar-wrapper">
                   <Avatar
@@ -44,6 +48,11 @@ export default class Avatars extends Component {
                   />
                   <Avatar
                     name="Donald Trump"
+                    src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
                     src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   />
                 </div>

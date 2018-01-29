@@ -1,0 +1,32 @@
+.avatar-editor {
+  max-width: 120px;
+
+  &-label {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    & .button {
+      margin: $gutter-base auto 0;
+    }
+
+    & .avatar-editor-org-image {
+      display: block;
+      margin: 0 auto;
+      height: 120px;
+      width: auto;
+      border-radius: $border-radius-base;
+    }
+
+    & input[type="file"] {
+      cursor: inherit;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+}

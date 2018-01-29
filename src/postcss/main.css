@@ -35,6 +35,7 @@
 @import './multiselect';
 @import './overlay';
 @import './toggleable-tags';
+@import './avatar-editor';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

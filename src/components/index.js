@@ -44,3 +44,4 @@ export { Accordion, AccordionItem, SingleAccordion, MultiAccordion } from './acc
 export { default as EmptyView } from './empty-view';
 export { default as Modal } from './modals';
 export { default as ToggleableTags } from './toggleable-tags';
+export { default as AvatarEditor } from './avatar-editor';

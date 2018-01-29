@@ -17,6 +17,10 @@
   border: 1px solid transparent;
   display: flex;
   align-items: center;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
 
 .button:hover {

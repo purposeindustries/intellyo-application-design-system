@@ -53,6 +53,7 @@
 @import './pages/tables.css';
 @import './pages/modals.css';
 @import './pages/sections.css';
+@import './pages/confirmations.css';
 
 body {
   margin: 0;

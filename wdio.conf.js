@@ -29,7 +29,11 @@ if (process.env.BROWSER) {
       browsers.push({
         width: resolution.width,
         height: resolution.height,
-        browserName: element
+        browserName: element,
+        'moz:firefoxOptions': {
+          // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+          args: ['-headless']
+        }
       });
     } else {
       browsers.push({
@@ -51,16 +55,13 @@ if (process.env.BROWSER) {
     }
   }];
 }
-
+const browserLogEntries = [];
 exports.config = {
-  seleniumInstallArgs: {version: '3.4.0'},
-  seleniumArgs: {version: '3.4.0'},
+  seleniumInstallArgs: { version: '3.4.0' },
+  seleniumArgs: { version: '3.4.0' },
 
-  specs: [
-    './e2e/test/**/*.js'
-  ],
-  exclude: [
-  ],
+  specs: ['./e2e/test/**/*.js'],
+  exclude: [],
 
   maxInstances: 10,
 
@@ -119,7 +120,7 @@ exports.config = {
       screenshotName: getScreenshotName(isDefaultBrowser),
       diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
-    }),
+    })
   },
   user: sauceLabsUsername,
   key: saucelabsAccesKey,
@@ -144,13 +145,29 @@ exports.config = {
     require: './e2e/utils/mocha-setup.js'
   },
 
-  before: function (capabilities, tests) {
+  before: (capabilities, tests) => {
     browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
         width: capabilities.width,
         height: capabilities.height
       });
+    }
+  },
+
+  afterTest: (test) => {
+    if (browser.options.desiredCapabilities.browserName === 'chrome') {
+      browserLogEntries.push({
+        title: test.title,
+        result: test.passed,
+        messages: browser.log('browser').value,
+        url: browser.getUrl()
+      });
+    }
+    if (browser.options.desiredCapabilities.browserName === 'chrome' && browser.printOutConsoleLog) {
+      console.log('console entries for %s', browser.currentTest);
+      console.log(JSON.stringify(browserLogEntries, null, 2));
+      browser.printOutConsoleLog = false;
     }
   }
 };

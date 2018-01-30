@@ -39,6 +39,7 @@ Here you can find each of our components:
 - [Popover](/src/components/popover)
 - [PrefixedInput](/src/components/prefixed-input)
 - [Row](/src/components/row)
+- [Section](/src/components/section)
 - [Select](/src/components/select)
 - [Sidebar](/src/components/sidebar)
 - [SocialPrefixedInput](/src/components/social-prefixed-input)

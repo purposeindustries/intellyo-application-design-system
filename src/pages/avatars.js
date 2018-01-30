@@ -16,6 +16,9 @@ export default class Avatars extends Component {
   }
 
   handleImageChange = (file) => {
+    if (!file) {
+      return;
+    }
     const src = window.URL.createObjectURL(file);
 
     this.setState({ imageSrc: src });

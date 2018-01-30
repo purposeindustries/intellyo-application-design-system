@@ -28,12 +28,17 @@ export default class AvatarEditor extends React.PureComponent {
             />
           ) }
           { !this.props.isProfileAvatar && (
-            <img
-              className="avatar-editor-org-image"
-              src={ this.props.src }
-            />
+            <div
+              className={ `avatar-editor-org-image-wrapper ${
+                !this.props.src ? 'avatar-editor-org-image-wrapper--empty' : ''}` }
+            >
+              <img
+                className="avatar-editor-org-image"
+                src={ this.props.src }
+              />
+            </div>
           ) }
-          <Button>Upload picture</Button>
+          <Button>{ this.props.isProfileAvatar ? 'Upload picture' : 'Upload logo' }</Button>
           <input type="file" onChange={ (e) => this.props.onChange(e.target.files[0]) } />
         </label>
       </div>

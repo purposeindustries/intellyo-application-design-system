@@ -11,12 +11,37 @@
       margin: $gutter-base auto 0;
     }
 
-    & .avatar-editor-org-image {
-      display: block;
+    & .avatar-editor-org-image-wrapper {
       margin: 0 auto;
       height: 120px;
-      width: auto;
+      width: 120px;
+      overflow: hidden;
       border-radius: $border-radius-base;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      &--empty {
+        background-color: $color-grey-2;
+
+        &::after {
+          content: "?";
+          color: $color-black-3;
+          position: absolute;
+          font-size: 48px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+        }
+      }
+
+      & .avatar-editor-org-image {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
     }
 
     & input[type="file"] {

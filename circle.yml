@@ -10,7 +10,13 @@ machine:
 test:
   override:
     - npm run test
-    - npm run test:e2e
+    #run tests
+    - >
+      if [[ $(git rev-parse --abbrev-ref HEAD) == *"feat"* || $(git rev-parse --abbrev-ref HEAD) == *"fix"* || $(git rev-parse --abbrev-ref HEAD) == *"chore"* ]] ; then
+          export FEAT_TEST=true; else unset FEAT_TEST
+      fi
+      npm run test:e2e
+    # make html form from test result pictures
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS
 
 dependencies:

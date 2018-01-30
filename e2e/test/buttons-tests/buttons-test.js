@@ -25,17 +25,8 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH,
-      {defaultTolerance: 6, ignoreComparison: false}),
-       '"Yeah dropdown" is not similar to the reference');
-  });
-
-  it.only('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
-    browser.url('/buttons');
-    $(SAVE_BUTTON_SELECTOR).scroll();
-    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
     browser.moveToElement(YEAH_DROPDOWN_XPATH);
-    assert(takeScreenShotOfElement2('.dropdown', {defaultTolerance: 1}),
+    assert(takeScreenShotOfElement2('.dropdown', {defaultTolerance: 6}),
      '"Yeah dropdown" is not similar to the reference');
   });
 

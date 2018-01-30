@@ -117,7 +117,7 @@ exports.config = {
   sync: true,
   logLevel: 'silent',
   coloredLogs: true,
-  deprecationWarnings: true,
+  deprecationWarnings: false,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
   baseUrl: 'http://localhost:9000',

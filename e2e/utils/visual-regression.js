@@ -3,6 +3,8 @@ const slugify = require('slugify');
 const path = require('path');
 const testDebug = require('debug')('test');
 const testDev = require('debug')('testDev');
+const mkdirp = require('mkdirp');
+const resemble = require('node-resemble-js');
 
 let basePathRef = '';
 let basePathDiff = '';
@@ -13,13 +15,30 @@ function getMisMatchPercentage(results, testName) {
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform
   + '\nmisMatchPercentage: ', results[0].misMatchPercentage);
-  return results[0].misMatchPercentage;
+  return results.misMatchPercentage;
 }
 
 function setBasePath(dirPath) {
-  basePathRef = dirPath + '/pics/reference';
-  basePathDiff = dirPath + '/pics/diff';
-  basePathScreen = dirPath + '/pics/screen';
+  basePathRef = dirPath + '/pics/reference/';
+  basePathDiff = dirPath + '/pics/diff/';
+  basePathScreen = dirPath + '/pics/screen/';
+}
+
+function createTestName() {
+  const testName = browser.currentTestName;
+  const browserVersion = parseInt(browser.desiredCapabilities.version, 10);
+  const browserName = browser.desiredCapabilities.browserName;
+  const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
+  const parent = browser.currentDescribe;
+  const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
+
+  mkdirp(basePathScreen + `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}`, function (err) {
+    if (err) {
+      testDev(err);
+    }
+  });
+
+  return `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${platform.toLowerCase()}_${browserName.toLowerCase()}_v${browserVersion}.png`;
 }
 
 module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
@@ -128,12 +147,12 @@ module.exports.getScreenshotName = (isDefaultBrowser) => {
     const browserViewport = context.meta.viewport;
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
-    const parent = context.test.parent;
+    const parent = browser.currentDescribe;
     const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
     const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
     if (process.env.CIRCLE_ARTIFACTS) {
-      basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
+      basePathDiff = process.env.E2E_SCREENSHOTS + 'diff/';
     }
 
     return path.join(basePathScreen, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${type}_${platform.toLowerCase()}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
@@ -173,4 +192,57 @@ module.exports.getRefPicName = () => {
     }
     return path.join(basePathRef, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`);
   };
+};
+
+function getRefPicName() {
+  const testName = browser.currentTestName;
+  const parent = browser.currentDescribe;
+  const lastWordOfTestName = testName.split(' ').pop();
+
+  if (typeof parent !== undefined && testName.includes('browser compare visual regression')) {
+    return path.join(basePathRef, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/whole_page_reference.png`);
+  }
+  return basePathRef + `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`;
+}
+
+module.exports.takeScreenShotOfElement2 = (selector, options) => {
+  let isTestPassed = false;
+  setBasePath(path.dirname(browser.currentTest));
+  const testPathAndName = basePathScreen + createTestName();
+
+  let misMatchTolerance = options.defaultTolerance;
+
+  if (options.windowsTolerance
+    && browser.desiredCapabilities.platform
+    && browser.desiredCapabilities.platform.includes('Windows')) {
+    misMatchTolerance = options.windowsTolerance;
+  }
+
+  if (options.firefoxTolerance
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.firefoxTolerance;
+  }
+
+  if (options.ffAndWindowsTolerance
+  && browser.desiredCapabilities.browserName
+  && browser.desiredCapabilities.browserName.includes('firefox')) {
+    misMatchTolerance = options.ffAndWindowsTolerance;
+  }
+
+  browser.saveElementScreenshot(selector, testPathAndName);
+  resemble(getRefPicName()).compareTo(testPathAndName).onComplete(function (data) {
+
+    isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+
+    if (!isTestPassed) {
+      testDebug('failing testName: ' + browser.currentTestName
+      + '\nbrowser: ' + browser.desiredCapabilities.browserName
+      + '\nplatform: ' + browser.desiredCapabilities.platform
+      + '\nmisMatchTolerance: ' + misMatchTolerance
+      + '\nmisMatchPercentage: ' + data.misMatchPercentage
+      + '\nproblematic elementSelector: ' + selector);
+    }
+  });
+  return isTestPassed;
 };

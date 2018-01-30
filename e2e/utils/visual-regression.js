@@ -5,6 +5,7 @@ const testDebug = require('debug')('test');
 const testDev = require('debug')('testDev');
 const mkdirp = require('mkdirp');
 const resemble = require('node-resemble-js');
+const fs = require('fs');
 
 let basePathRef = '';
 let basePathDiff = '';
@@ -205,12 +206,31 @@ function getRefPicName() {
   return basePathRef + `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`;
 }
 
+function handleTakenScreenshot(data, misMatchTolerance, selector) {
+  let isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+
+
+  if (!isTestPassed) {
+    mkdirp(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`, function (err) {
+      if (err) {
+        testDev(err);
+      }
+    });
+    data.getDiffImage().pack().pipe(fs.createWriteStream(basePathDiff + createTestName()));
+    testDebug('failing testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + data.misMatchPercentage
+    + '\nproblematic elementSelector: ' + selector);
+  }
+  return isTestPassed;
+}
 module.exports.takeScreenShotOfElement2 = (selector, options) => {
-  let isTestPassed = false;
+  let misMatchTolerance = options.defaultTolerance;
+
   setBasePath(path.dirname(browser.currentTest));
   const testPathAndName = basePathScreen + createTestName();
-
-  let misMatchTolerance = options.defaultTolerance;
 
   if (options.windowsTolerance
     && browser.desiredCapabilities.platform
@@ -231,18 +251,13 @@ module.exports.takeScreenShotOfElement2 = (selector, options) => {
   }
 
   browser.saveElementScreenshot(selector, testPathAndName);
-  resemble(getRefPicName()).compareTo(testPathAndName).onComplete(function (data) {
-
-    isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
-
-    if (!isTestPassed) {
-      testDebug('failing testName: ' + browser.currentTestName
-      + '\nbrowser: ' + browser.desiredCapabilities.browserName
-      + '\nplatform: ' + browser.desiredCapabilities.platform
-      + '\nmisMatchTolerance: ' + misMatchTolerance
-      + '\nmisMatchPercentage: ' + data.misMatchPercentage
-      + '\nproblematic elementSelector: ' + selector);
-    }
-  });
-  return isTestPassed;
+  if (options.ignoreComparison === true) {
+    resemble(getRefPicName()).compareTo(testPathAndName).ignoreColors().onComplete(function (data) {
+      return handleTakenScreenshot(data, misMatchTolerance, selector);
+    });
+  } else {
+    resemble(getRefPicName()).compareTo(testPathAndName).onComplete(function (data) {
+      return handleTakenScreenshot(data, misMatchTolerance, selector);
+    });
+  }
 };

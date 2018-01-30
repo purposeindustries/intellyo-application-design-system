@@ -51,6 +51,7 @@
 @import './pages/accordions.css';
 @import './pages/tables.css';
 @import './pages/modals.css';
+@import './pages/sections.css';
 
 body {
   margin: 0;

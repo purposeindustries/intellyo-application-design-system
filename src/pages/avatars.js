@@ -109,7 +109,7 @@ export default class Avatars extends Component {
               </Col>
             </Row>
           </Card>
-          <Card title="Avatar editor">
+          <Card title="Avatar editor" className="card-avatar-editor">
             <AvatarEditor
               src={ this.state.imageSrc }
               onChange={ this.handleImageChange }

@@ -2,7 +2,6 @@ const fs = require('fs');
 const pngCrop = require('png-crop');
 const ScreenshotService = {
   before() {
-    //console.log('before', !!browser);
     browser.addCommand('getElementRect', getElementRect);
     browser.addCommand('takeElementScreenshot', takeElementScreenshot);
     browser.addCommand('saveElementScreenshot', saveElementScreenshot);

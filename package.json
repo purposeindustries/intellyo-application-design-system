@@ -17,7 +17,7 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
-    "pretest:e2e": "curl -o /dev/null localhost:9000 -s",
+    "pretest:e2e": "curl -o /dev/null localhost:9000 -s || exit 0",
     "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} wdio",
     "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
     "deploy:s3": "cd public; babel-node ../s3",
@@ -51,6 +51,7 @@
     "gatsby-plugin-react-helmet": "^1.0.1",
     "lorem-ipsum": "^1.0.4",
     "mk-release": "^1.0.1",
+    "png-crop": "0.0.1",
     "postcss-at2x": "^3.2.0",
     "postcss-cli": "^4.1.0",
     "postcss-cssnext": "^2.11.0",
@@ -94,6 +95,7 @@
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.19.0",
     "react-user-avatar": "^1.9.0",
-    "rodal": "^1.6.1"
+    "rodal": "^1.6.1",
+    "wdio-element-screenshot": "^1.0.4"
   }
 }

@@ -2,7 +2,7 @@ require('dotenv').config();
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const os = require('os');
 const visualRegression = require('./e2e/utils/visual-regression');
-
+const ScreenshotService = require('./e2e/utils/screenshot');
 
 const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
@@ -124,7 +124,7 @@ exports.config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  services: [driver, 'visual-regression'],
+  services: [driver, 'visual-regression', ScreenshotService],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName(),

@@ -214,7 +214,7 @@ function getRefPicName() {
 }
 
 function handleTakenScreenshot(data, misMatchTolerance, selector) {
-  let isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
 
 
   if (!isTestPassed) {

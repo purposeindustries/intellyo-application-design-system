@@ -16,10 +16,16 @@ function getMisMatchPercentage(results, testName) {
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform
   + '\nmisMatchPercentage: ', results[0].misMatchPercentage);
-  return results.misMatchPercentage;
+  return results[0].misMatchPercentage;
 }
 
 function setBasePath(dirPath) {
+  basePathRef = dirPath + '/pics/reference/';
+  basePathDiff = dirPath + '/pics/diff/';
+  basePathScreen = dirPath + '/pics/screen/';
+}
+
+function setBasePath2(dirPath) {
   basePathRef = dirPath + '/pics/reference/';
   basePathDiff = dirPath + '/pics/diff/';
   basePathScreen = dirPath + '/pics/screen/';
@@ -41,6 +47,7 @@ function createTestName() {
 
   return `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${platform.toLowerCase()}_${browserName.toLowerCase()}_v${browserVersion}.png`;
 }
+
 
 module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   let misMatchTolerance;
@@ -148,12 +155,12 @@ module.exports.getScreenshotName = (isDefaultBrowser) => {
     const browserViewport = context.meta.viewport;
     const browserWidth = browserViewport.width;
     const browserHeight = browserViewport.height;
-    const parent = browser.currentDescribe;
+    const parent = context.test.parent;
     const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
     const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
     if (process.env.CIRCLE_ARTIFACTS) {
-      basePathDiff = process.env.E2E_SCREENSHOTS + 'diff/';
+      basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
     }
 
     return path.join(basePathScreen, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${type}_${platform.toLowerCase()}_${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}.png`);
@@ -229,7 +236,7 @@ function handleTakenScreenshot(data, misMatchTolerance, selector) {
 module.exports.takeScreenShotOfElement2 = (selector, options) => {
   let misMatchTolerance = options.defaultTolerance;
 
-  setBasePath(path.dirname(browser.currentTest));
+  setBasePath2(path.dirname(browser.currentTest));
   const testPathAndName = basePathScreen + createTestName();
 
   if (options.windowsTolerance
@@ -251,13 +258,11 @@ module.exports.takeScreenShotOfElement2 = (selector, options) => {
   }
 
   browser.saveElementScreenshot(selector, testPathAndName);
+  const img = resemble(getRefPicName()).compareTo(testPathAndName);
   if (options.ignoreComparison === true) {
-    resemble(getRefPicName()).compareTo(testPathAndName).ignoreColors().onComplete(function (data) {
-      return handleTakenScreenshot(data, misMatchTolerance, selector);
-    });
-  } else {
-    resemble(getRefPicName()).compareTo(testPathAndName).onComplete(function (data) {
-      return handleTakenScreenshot(data, misMatchTolerance, selector);
-    });
+    img.ignoreColors();
   }
+  return img.onComplete(function (data) {
+    return handleTakenScreenshot(data, misMatchTolerance, selector);
+  });
 };

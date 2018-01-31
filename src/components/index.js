@@ -45,3 +45,5 @@ export { default as EmptyView } from './empty-view';
 export { default as Modal } from './modals';
 export { default as ToggleableTags } from './toggleable-tags';
 export { default as AvatarEditor } from './avatar-editor';
+export { default as Box } from './box';
+export { default as Section } from './section';

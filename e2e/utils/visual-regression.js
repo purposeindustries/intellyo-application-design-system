@@ -218,11 +218,7 @@ function handleTakenScreenshot(data, misMatchTolerance, selector) {
 
 
   if (!isTestPassed) {
-    mkdirp(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`, function (err) {
-      if (err) {
-        testDev(err);
-      }
-    });
+    mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);
     data.getDiffImage().pack().pipe(fs.createWriteStream(basePathDiff + createTestName()));
     testDebug('failing testName: ' + browser.currentTestName
     + '\nbrowser: ' + browser.desiredCapabilities.browserName

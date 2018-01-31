@@ -1,6 +1,12 @@
 beforeEach(function () {
   browser.currentTestName = this.currentTest.title;
-  browser.currentDescribe = this.currentTest.fullTitle().slice(0, -browser.currentTestName.length);
+  try {
+    browser.currentDescribe = this.currentTest.fullTitle().slice(0, -browser.currentTestName.length);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    console.log('asdfasdfasfasd');
+  }
 });
 
 before(function () {

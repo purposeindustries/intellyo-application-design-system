@@ -4,7 +4,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, tak
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
-// const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
+const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
 const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
 
 //test names
@@ -21,14 +21,24 @@ describe('FEF buttons tests', () => {
     'Whole FEF buttons page screenshot compare to a reference picture');
   });
 
-  it.only('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
+
+  it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
+    browser.url('/buttons');
+    $(SAVE_BUTTON_SELECTOR).scroll();
+    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
+    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH,
+      {defaultTolerance: 6, ignoreComparison: false}),
+       '"Yeah dropdown" is not similar to the reference');
+  });
+
+  it.only('should check the button with mouseover: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     browser.moveToElement('.dropdown');
     assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElement2('.dropdown',
-      {defaultTolerance: 0}),
-      'assert is not ok, i hate non-seq processes.');
+      {defaultTolerance: 5}),
+      '"Yeah dropdown" with mouseover is not similar to the reference');
   });
 
   it('should check the button: ' + SAVE_BUTTON_NAME, () => {

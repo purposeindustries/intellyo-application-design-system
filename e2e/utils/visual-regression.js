@@ -26,9 +26,15 @@ function setBasePath(dirPath) {
 }
 
 function setBasePath2(dirPath) {
-  basePathRef = dirPath + '/pics/reference/';
-  basePathDiff = dirPath + '/pics/diff/';
-  basePathScreen = dirPath + '/pics/screen/';
+  if (process.env.CIRCLE_ARTIFACTS) {
+    basePathRef = process.env.E2E_SCREENSHOTS + 'ref/';
+    basePathDiff = process.env.E2E_SCREENSHOTS + 'dif/';
+    basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
+  } else {
+    basePathRef = dirPath + '/pics/reference/';
+    basePathDiff = dirPath + '/pics/diff/';
+    basePathScreen = dirPath + '/pics/screen/';
+  }
 }
 
 function createTestName() {
@@ -237,7 +243,7 @@ function handleTakenScreenshot(data, misMatchTolerance, selector) {
     resolve(isTestPassed);
   });
 }
-function writeDataIfNeeded(img, misMatchTolerance, selector, cb) {
+function writeDataIfNeeded(img, misMatchTolerance, selector) {
   return new Promise((resolve, reject) => {
     img.onComplete(function (data) {
       handleTakenScreenshot(data, misMatchTolerance, selector)

@@ -27,7 +27,6 @@ function setBasePath(dirPath) {
 
 function setBasePath2(dirPath) {
   if (process.env.CIRCLE_ARTIFACTS) {
-    basePathRef = process.env.E2E_SCREENSHOTS + 'ref/';
     basePathDiff = process.env.E2E_SCREENSHOTS + 'dif/';
     basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
   } else {

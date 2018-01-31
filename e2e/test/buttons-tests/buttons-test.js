@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElement2 } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, /*takeScreenShotOfElement2*/ } = visualRegression;
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
@@ -21,12 +21,12 @@ describe('FEF buttons tests', () => {
     'Whole FEF buttons page screenshot compare to a reference picture');
   });
 
-  it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
+  it.only('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     browser.moveToElement('.dropdown');
     assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement2('.dropdown',
+    assert(takeScreenShotOfElement('.dropdown',
       {defaultTolerance: 6, ignoreComparison: false}),
        '"Yeah dropdown" is not similar to the reference');
   });

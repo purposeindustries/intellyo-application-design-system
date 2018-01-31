@@ -19,7 +19,7 @@ test:
       if [[ $(git rev-parse --abbrev-ref HEAD) == *"feat"* || $(git rev-parse --abbrev-ref HEAD) == *"fix"* || $(git rev-parse --abbrev-ref HEAD) == *"chore"* ]] ; then
           export FEAT_TEST=true; else unset FEAT_TEST
         fi
-        npm run test:e2e
+        DEBUG=test npm run test:e2e -- --spec e2e/test/buttons-tests/buttons-test.js
     #make html form from test result pictures
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS
 

@@ -16,7 +16,7 @@ test:
     - wget --retry-connrefused --no-check-certificate -T 30 http://localhost:9000
     #run tests
     - >
-      if [[ $(git rev-parse --abbrev-ref HEAD) == *"feat"* || $(git rev-parse --abbrev-ref HEAD) == *"fix"* || $(git rev-parse --abbrev-ref HEAD) == *"chore"* ]] ; then
+      if [[ $(git rev-parse --abbrev-ref HEAD) == *"feaat"* || $(git rev-parse --abbrev-ref HEAD) == *"fix"* || $(git rev-parse --abbrev-ref HEAD) == *"chore"* ]] ; then
           export FEAT_TEST=true; else unset FEAT_TEST
         fi
         npm run test:e2e

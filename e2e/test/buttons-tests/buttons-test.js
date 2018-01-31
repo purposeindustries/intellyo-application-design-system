@@ -4,11 +4,12 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, tak
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
-const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
+const YEAH_DROPDOWN_XPATH = '.dropdown';
 const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
 
 //test names
 const YEAH_DROPDOWN_NAME = 'Yeah-button';
+const YEAH_DROPDOWN_MOUSEOVER_NAME = 'Yeah-button-mouseover';
 const SAVE_BUTTON_NAME = 'Save-button';
 const SAVE_BUTTON_LOADING_NAME = 'Save-button-loading';
 
@@ -31,11 +32,10 @@ describe('FEF buttons tests', () => {
        '"Yeah dropdown" is not similar to the reference');
   });
 
-  it('should check the button with mouseover: ' + YEAH_DROPDOWN_NAME, () => {
+  it('should check the button with mouseover: ' + YEAH_DROPDOWN_MOUSEOVER_NAME, () => {
     browser.url('/buttons');
-    $(SAVE_BUTTON_SELECTOR).scroll();
-    browser.moveToElement('.dropdown');
-    assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
+    browser.moveToElement(YEAH_DROPDOWN_XPATH);
+    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef('.dropdown',
       {defaultTolerance: 6}),
       '"Yeah dropdown" with mouseover is not similar to the reference');
@@ -51,9 +51,9 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
-    takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {defaultTolerance: 17.5, ignoreComparison: true}
-    );
+    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+      {defaultTolerance: 17.5, ignoreComparison: true}),
+       'Save button is not similar to the reference after click');
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {

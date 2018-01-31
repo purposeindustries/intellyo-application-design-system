@@ -27,7 +27,7 @@ function setBasePath(dirPath) {
 
 function setBasePath2(dirPath) {
   if (process.env.CIRCLE_ARTIFACTS) {
-    basePathDiff = process.env.E2E_SCREENSHOTS + 'dif/';
+    basePathDiff = process.env.E2E_SCREENSHOTS + 'diff/';
     basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
   } else {
     basePathDiff = dirPath + '/pics/diff/';
@@ -38,7 +38,7 @@ function setBasePath2(dirPath) {
 
 function createTestName() {
   const testName = browser.currentTestName;
-  const browserVersion = parseInt(browser.desiredCapabilities.version, 10);
+  const browserVersion = browser.desiredCapabilities.version;
   const browserName = browser.desiredCapabilities.browserName;
   const platform = browser.desiredCapabilities.platform ? browser.desiredCapabilities.platform : '';
   const parent = browser.currentDescribe;
@@ -292,5 +292,5 @@ module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
   });
   return browser.waitUntil(() => {
     return promise;
-  }, 1e4);
+  }, 1e5);
 };

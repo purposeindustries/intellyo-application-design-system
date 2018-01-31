@@ -30,10 +30,10 @@ function setBasePath2(dirPath) {
     basePathDiff = process.env.E2E_SCREENSHOTS + 'dif/';
     basePathScreen = process.env.E2E_SCREENSHOTS + 'screen/';
   } else {
-    basePathRef = dirPath + '/pics/reference/';
     basePathDiff = dirPath + '/pics/diff/';
     basePathScreen = dirPath + '/pics/screen/';
   }
+  basePathRef = dirPath + '/pics/reference/';
 }
 
 function createTestName() {

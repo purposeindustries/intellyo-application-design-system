@@ -41,9 +41,9 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_XPATH);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
-      {defaultTolerance: 17.5, ignoreComparison: true}),
-       'Save button is not similar to the reference after click');
+    takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+      {defaultTolerance: 17.5, ignoreComparison: true}
+    );
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {

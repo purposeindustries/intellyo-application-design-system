@@ -251,7 +251,7 @@ function writeDataIfNeeded(img, misMatchTolerance, selector) {
     });
   });
 }
-module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
+module.exports.takeScreenShotOfElementAndCompareWithRef = (selector, options) => {
   return module.exports.takeScreenShotOfElementWithCrop(selector, options).value;
 };
 

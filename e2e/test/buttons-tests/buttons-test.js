@@ -37,7 +37,7 @@ describe('FEF buttons tests', () => {
     browser.moveToElement('.dropdown');
     assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef('.dropdown',
-      {defaultTolerance: 5}),
+      {defaultTolerance: 6}),
       '"Yeah dropdown" with mouseover is not similar to the reference');
   });
 

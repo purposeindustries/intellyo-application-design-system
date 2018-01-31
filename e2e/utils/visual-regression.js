@@ -292,5 +292,5 @@ module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
   });
   return browser.waitUntil(() => {
     return promise;
-  }, 1e5);
+  }, 1e4);
 };

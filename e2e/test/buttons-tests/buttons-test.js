@@ -24,9 +24,9 @@ describe('FEF buttons tests', () => {
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
-    browser.moveToElement('.dropdow');
-    assert(browser.isExisting('.dropdow'), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement2('.dropdow',
+    browser.moveToElement('.dropdown');
+    assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
+    assert(takeScreenShotOfElement2('.dropdown',
       {defaultTolerance: 6, ignoreComparison: false}),
        '"Yeah dropdown" is not similar to the reference');
   });

@@ -27,8 +27,8 @@ describe('FEF buttons tests', () => {
     browser.moveToElement('.dropdown');
     assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElement2('.dropdown',
-      {defaultTolerance: 6, ignoreComparison: false}),
-       '"Yeah dropdown" is not similar to the reference');
+      {defaultTolerance: 0}),
+      'assert is not ok, i hate non-seq processes.');
   });
 
   it('should check the button: ' + SAVE_BUTTON_NAME, () => {

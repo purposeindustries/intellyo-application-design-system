@@ -39,11 +39,7 @@ function createTestName() {
   const parent = browser.currentDescribe;
   const time = dateFormat(new Date(), 'hh-MM-ss-TT-yyyy-mm-dd');
 
-  mkdirp(basePathScreen + `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}`, function (err) {
-    if (err) {
-      testDev(err);
-    }
-  });
+  mkdirp.sync(basePathScreen + `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}`);
 
   return `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${slugify(time.toLowerCase())}_${platform.toLowerCase()}_${browserName.toLowerCase()}_v${browserVersion}.png`;
 }
@@ -215,19 +211,51 @@ function getRefPicName() {
 
 function handleTakenScreenshot(data, misMatchTolerance, selector) {
   const isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+  console.log(isTestPassed);
+  return new Promise((resolve, reject) => {
+    if (!isTestPassed) {
+      mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);
+      console.log('start writing file to ', basePathDiff + createTestName());
+      data
+        .getDiffImage()
+        .pack()
+        .on('error', (err) => reject(err))
+        .on('end', () => {
+          console.log('file is written');
+          resolve(isTestPassed);
+        })
+        .pipe(
+          fs.createWriteStream(basePathDiff + createTestName())
+        );
 
+      testDebug('failing testName: ' + browser.currentTestName
+      + '\nbrowser: ' + browser.desiredCapabilities.browserName
+      + '\nplatform: ' + browser.desiredCapabilities.platform
+      + '\nmisMatchTolerance: ' + misMatchTolerance
+      + '\nmisMatchPercentage: ' + data.misMatchPercentage
+      + '\nproblematic elementSelector: ' + selector);
+      return;
+    }
+    resolve(isTestPassed);
+  });
+}
+function writeDataIfNeeded(img, misMatchTolerance, selector, cb) {
+  img.onComplete(function (data) {
+    console.log('complete is done');
+    handleTakenScreenshot(data, misMatchTolerance, selector)
+      .then(res => {
+        cb(null, res);
+        console.log(res + 'rest');
+      })
+      .catch(err => cb(err));
 
-  if (!isTestPassed) {
-    mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);
-    data.getDiffImage().pack().pipe(fs.createWriteStream(basePathDiff + createTestName()));
-    testDebug('failing testName: ' + browser.currentTestName
-    + '\nbrowser: ' + browser.desiredCapabilities.browserName
-    + '\nplatform: ' + browser.desiredCapabilities.platform
-    + '\nmisMatchTolerance: ' + misMatchTolerance
-    + '\nmisMatchPercentage: ' + data.misMatchPercentage
-    + '\nproblematic elementSelector: ' + selector);
-  }
-  return isTestPassed;
+    /*const res = browser.waitUntil(() => {
+      handleTakenScreenshot(data, misMatchTolerance, selector);
+    });
+    console.log('resolved with', res);
+    Promise.resolve(res);
+    console.log('kkkkkkkkkkkk');*/
+  });
 }
 module.exports.takeScreenShotOfElement2 = (selector, options) => {
   let misMatchTolerance = options.defaultTolerance;
@@ -258,7 +286,30 @@ module.exports.takeScreenShotOfElement2 = (selector, options) => {
   if (options.ignoreComparison === true) {
     img.ignoreColors();
   }
-  return img.onComplete(function (data) {
-    return handleTakenScreenshot(data, misMatchTolerance, selector);
+  /*const promise = new Promise(resolve => {
+    img.onComplete(function (data) {
+      console.log('asdfsadfasdf');
+      resolve(handleTakenScreenshot(data, misMatchTolerance, selector));
+      console.log('kkkkkkkkkkkk');
+    });
+  });*/
+  //console.log('asdfsadfsadfggggggggg');
+  //return browser.waitUntil(function() { return promise; }, 15000);
+  let done = false;
+  let res;
+  writeDataIfNeeded(img, misMatchTolerance, selector, (err, result) => {
+    console.log('write data if needed ended', err, result);
+    done = true;
+    if (err) {
+      return Promise.reject(err);
+    }
+    res = result;
+    Promise.resolve(result);
   });
+  return browser.waitUntil(() => {
+    if (done) {
+      return res;
+    }
+  }, 1e4);
+
 };

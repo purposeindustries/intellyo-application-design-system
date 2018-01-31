@@ -251,11 +251,11 @@ function writeDataIfNeeded(img, misMatchTolerance, selector) {
     });
   });
 }
-module.exports.takeScreenShotOfElement2 = (selector, options) => {
-  return module.exports.takeScreenShotOfElement3(selector, options).value;
+module.exports.takeScreenShotOfElementAndCompareWithRef = (selector, options) => {
+  return module.exports.takeScreenShotOfElementWithCrop(selector, options).value;
 };
 
-module.exports.takeScreenShotOfElement3 = (selector, options) => {
+module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
   let misMatchTolerance = options.defaultTolerance;
 
   setBasePath2(path.dirname(browser.currentTest));

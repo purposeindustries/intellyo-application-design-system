@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElement2 } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
@@ -31,12 +31,12 @@ describe('FEF buttons tests', () => {
        '"Yeah dropdown" is not similar to the reference');
   });
 
-  it.only('should check the button with mouseover: ' + YEAH_DROPDOWN_NAME, () => {
+  it('should check the button with mouseover: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     browser.moveToElement('.dropdown');
     assert(browser.isExisting('.dropdown'), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement2('.dropdown',
+    assert(takeScreenShotOfElementAndCompareWithRef('.dropdown',
       {defaultTolerance: 5}),
       '"Yeah dropdown" with mouseover is not similar to the reference');
   });

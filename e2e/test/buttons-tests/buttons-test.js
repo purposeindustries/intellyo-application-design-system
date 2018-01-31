@@ -1,10 +1,10 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement/*, takeScreenShotOfElement2*/ } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElement2 } = visualRegression;
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
-const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
+// const YEAH_DROPDOWN_XPATH = '//*[@class="dropdown"][1]//*[@class="dropdown-inner-wrap dropdown-inner-wrap--split"]';
 const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
 
 //test names
@@ -24,8 +24,9 @@ describe('FEF buttons tests', () => {
   it('should check the button: ' + YEAH_DROPDOWN_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
-    assert(browser.isExisting(YEAH_DROPDOWN_XPATH), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_XPATH,
+    browser.moveToElement('.dropdow');
+    assert(browser.isExisting('.dropdow'), '"Yeah dropdown" is not existing in the DOM');
+    assert(takeScreenShotOfElement2('.dropdow',
       {defaultTolerance: 6, ignoreComparison: false}),
        '"Yeah dropdown" is not similar to the reference');
   });

@@ -81,6 +81,7 @@ export default class SelectPage extends React.Component {
 
           <Select
             id="car"
+            label="Select without a default value"
             onChange={ this.handleSelectChange }
             value={ this.state.car }
           >

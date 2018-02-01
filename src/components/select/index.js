@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from '../dropdown';
-import Caption from '../caption';
 import classNames from 'classnames';
 
 export default class Select extends React.Component {
@@ -12,7 +11,7 @@ export default class Select extends React.Component {
     id: PropTypes.string,
     style: PropTypes.object,
     icon: PropTypes.element,
-    label: PropTypes.string,
+    label: PropTypes.node,
   }
   static defaultProps = {
     onChange: () => {}
@@ -36,7 +35,7 @@ export default class Select extends React.Component {
     return (
       <div className="select-wrapper">
         { this.props.label && (
-          <Caption className="select-label">{ this.props.label }</Caption>
+          <div className="select-label">{ this.props.label }</div>
         ) }
         <Dropdown
           label={ this.getLabel() }

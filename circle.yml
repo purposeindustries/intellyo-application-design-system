@@ -18,7 +18,7 @@ test:
     - >
       if [[ $CIRCLE_BRANCH != *"master"* || !$CIRCLE_TAG ]] ; then
         FEAT_TEST=true npm run test:e2e
-      elif
+      else
         npm run test:e2e
       fi
     #make html form from test result pictures

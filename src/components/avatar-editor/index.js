@@ -8,10 +8,14 @@ export default class AvatarEditor extends React.PureComponent {
     src: PropTypes.string,
     onChange: PropTypes.func,
     isProfileAvatar: PropTypes.bool,
+    buttonLabelAvatar: PropTypes.node,
+    buttonLabelOrg: PropTypes.node,
   }
 
   static defaultProps = {
     isProfileAvatar: true,
+    buttonLabelAvatar: 'Upload picture',
+    buttonLabelOrg: 'Upload logo',
   }
 
   static displayName = 'AvatarEditor'
@@ -38,7 +42,7 @@ export default class AvatarEditor extends React.PureComponent {
               />
             </div>
           ) }
-          <Button>{ this.props.isProfileAvatar ? 'Upload picture' : 'Upload logo' }</Button>
+          <Button>{ this.props.isProfileAvatar ? this.props.buttonLabelAvatar : this.props.buttonLabelOrg }</Button>
           <input type="file" onChange={ (e) => this.props.onChange(e.target.files[0]) } />
         </label>
       </div>

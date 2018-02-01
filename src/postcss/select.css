@@ -1,39 +1,45 @@
-.select {
-  position: relative;
-  width: auto;
+.select-wrapper {
 
-  & select {
-    appearance: none;
-    outline: none;
+  & .select-label {
+    margin-bottom: calc((1/2) * $gutter-base);
+  }
+
+  & .select {
+    position: relative;
     width: auto;
-    height: $select-height;
-    padding: $select-padding;
-    background: $select-background-color;
-    border-radius: $select-border-radius;
-    border: 1px solid $select-border-color;
-    font-family: $select-font-family;
-    font-size: $select-font-size;
 
-    &:hover,
-    &:active {
-      border-color: $select-border-color--hover;
-      color: $select-font-color--hover;
+    & select {
+      appearance: none;
+      outline: none;
+      width: auto;
+      height: $select-height;
+      padding: $select-padding;
+      background: $select-background-color;
+      border-radius: $select-border-radius;
+      border: 1px solid $select-border-color;
+      font-family: $select-font-family;
+      font-size: $select-font-size;
+
+      &:hover,
+      &:active {
+        border-color: $select-border-color--hover;
+        color: $select-font-color--hover;
+      }
+
     }
 
-  }
+    & .icon {
+      position: absolute;
+      width: $select-icon-dimension;
+      height: $select-icon-dimension;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-  & .icon {
-    position: absolute;
-    width: $select-icon-dimension;
-    height: $select-icon-dimension;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    & select:hover + .icon svg,
+    & select:active + .icon svg {
+      fill: $select-svg-fill--hover;
+    }
   }
-
-  & select:hover + .icon svg,
-  & select:active + .icon svg {
-    fill: $select-svg-fill--hover;
-  }
-
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from '../dropdown';
+import Caption from '../caption';
 import classNames from 'classnames';
 
 export default class Select extends React.Component {
@@ -10,7 +11,8 @@ export default class Select extends React.Component {
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     id: PropTypes.string,
     style: PropTypes.object,
-    icon: PropTypes.element
+    icon: PropTypes.element,
+    label: PropTypes.string,
   }
   static defaultProps = {
     onChange: () => {}
@@ -32,33 +34,38 @@ export default class Select extends React.Component {
   }
   render() {
     return (
-      <Dropdown
-        label={ this.getLabel() }
-        isActive={ this.state.isActive }
-        className={ classNames('select') }
-        style={ this.props.style }
-        icon={ this.props.icon }
-      >
-        {
-          React.Children.map(this.props.children, (c) => {
-            return React.cloneElement(c, {
+      <div className="select-wrapper">
+        { this.props.label && (
+          <Caption className="select-label">{ this.props.label }</Caption>
+        ) }
+        <Dropdown
+          label={ this.getLabel() }
+          isActive={ this.state.isActive }
+          className={ classNames('select') }
+          style={ this.props.style }
+          icon={ this.props.icon }
+        >
+          {
+            React.Children.map(this.props.children, (c) => {
+              return React.cloneElement(c, {
 
-              onClick: (e) => {
-                if (c.props.onClick) {
-                  c.props.onClick(e);
+                onClick: (e) => {
+                  if (c.props.onClick) {
+                    c.props.onClick(e);
+                  }
+                  if (this.props.value !== c.props.value) {
+                    this.props.onChange(c.props.value, this.props.id, c.props.children);
+                  }
+                  this.setState({
+                    label: c.props.children,
+                    isActive: false
+                  });
                 }
-                if (this.props.value !== c.props.value) {
-                  this.props.onChange(c.props.value, this.props.id, c.props.children);
-                }
-                this.setState({
-                  label: c.props.children,
-                  isActive: false
-                });
-              }
-            });
-          })
-        }
-      </Dropdown>
+              });
+            })
+          }
+        </Dropdown>
+      </div>
     );
   }
 }

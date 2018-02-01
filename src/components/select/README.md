@@ -14,6 +14,7 @@ clutter up the interface.
 | children | oneOfType([element, arrayOf(element)]) | The items will appear on your list |
 | onChange | func | Callback when selection is changed |
 | style | obj | Pass styles to the component Expected value: `{}` |
+| label | string | You can write any string which appears above select as a label. |
 
 ## Examples
 

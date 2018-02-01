@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import {
   Heading,
@@ -20,7 +21,7 @@ export default class Section extends React.PureComponent {
 
   render() {
     return (
-      <div className="section">
+      <div className={ cx('section', this.props.className) }>
         <div className="section-header">
           <div className="section-header-wrap">
             <Heading>{ this.props.title }</Heading>

@@ -17,7 +17,7 @@ test:
     - wget --retry-connrefused --no-check-certificate -T 30 http://localhost:9000
     #run tests
     - >
-      if [[ $CIRCLE_BRANCH != *"master"* || !$CIRCLE_TAG ]] ; then
+      if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
         E2EPROFILE=saucelight npm run test:e2e
       else
         npm run test:e2e

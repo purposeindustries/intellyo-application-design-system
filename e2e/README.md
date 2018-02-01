@@ -20,10 +20,10 @@ After that in the other (second) terminal type
 
 to the terminal.
 
-With command above the tests run in headless chrome. To run tests in other browser(s) you should use the BROWSER environment variable, eg.:
+With command above the tests run in headless chrome. To run tests in other browser(s) you should use the E2EPROFILE environment variable, eg.:
 
-- `BROWSER=firefox npm run test:e2e`
-- `BROWSER=firefox,chrome npm run test:e2e`
+- `E2EPROFILE=firefox npm run test:e2e`
+- `E2EPROFILE=firefox,chrome npm run test:e2e`
 
 The first command make the tests run in firefox. The second will run in firefox and chrome.
 
@@ -34,6 +34,10 @@ To run tests on saucelabs you have to cp the .env.example to .env with "cp .env.
 If you have .env file, you can use TEST_PROVIDER environment variable to use saucelabs eg.:
 
 - `TEST_PROVIDER=sauce npm run test:e2e`
+
+You can run just chrome tests on macOS with saucelabs:
+
+- `E2EPROFILE=saucelight TEST_PROVIDER=sauce npm run test:e2e`
 
 Both command do the same, use the saucelabs as a driver, but you get the results and the evidences locally.
 

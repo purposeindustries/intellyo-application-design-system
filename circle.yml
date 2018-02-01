@@ -5,6 +5,7 @@ machine:
     E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
     E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
     E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
+    E2EPROFILE: sauceextended
   pre:
     - sudo apt-get install tree
 test:
@@ -19,7 +20,7 @@ test:
       if [[ $CIRCLE_BRANCH != *"master"* || !$CIRCLE_TAG ]] ; then
         E2EPROFILE=saucelight npm run test:e2e
       else
-        E2EPROFILE=sauceextended npm run test:e2e
+        npm run test:e2e
       fi
     #make html form from test result pictures
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS

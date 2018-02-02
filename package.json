@@ -17,16 +17,8 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "pretest:e2e": "curl -o /dev/null localhost:9000 -s",
-    "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} wdio",
-=======
     "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} E2EPROFILE=${E2EPROFILE-sauceextended} wdio",
->>>>>>> 733e70d... tes: add hamburger toggleable tag test
-=======
-    "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} E2EPROFILE=${E2EPROFILE-sauceextended} wdio",
->>>>>>> 733e70d... tes: add hamburger toggleable tag test
     "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
     "deploy:s3": "cd public; babel-node ../s3",
     "deploy:tar": "cd public; tar -czvf ../${npm_package_version}.tgz .",

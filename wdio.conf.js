@@ -2,7 +2,7 @@ require('dotenv').config();
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const os = require('os');
 const visualRegression = require('./e2e/utils/visual-regression');
-
+const ScreenshotService = require('./e2e/utils/screenshot');
 
 const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
@@ -23,9 +23,10 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   driver = 'sauce';
 }
 
-if (process.env.BROWSER) {
+if (process.env.E2EPROFILE && process.env.E2EPROFILE !== 'saucelight'
+    && process.env.E2EPROFILE !== 'sauceextended') {
   isDefaultBrowser = false;
-  process.env.BROWSER.split(',').forEach(element => {
+  process.env.E2EPROFILE.split(',').forEach(element => {
     if (element !== 'chrome') {
       localBrowsers.push({
         width: resolution.width,
@@ -53,14 +54,14 @@ if (process.env.BROWSER) {
   }];
 }
 
-if (process.env.FEAT_TEST === 'true') {
+if (process.env.E2EPROFILE === 'saucelight') {
   sauceBrowsers = [{
     browserName: 'chrome',
     version: 'latest',
     screenResolution: screenResolution,
     platform: 'macOS 10.13'
   }];
-} else {
+} else if (process.env.E2EPROFILE === 'sauceextended') {
   sauceBrowsers = [{
     browserName: 'firefox',
     version: 'latest',
@@ -117,14 +118,14 @@ exports.config = {
   sync: true,
   logLevel: 'silent',
   coloredLogs: true,
-  deprecationWarnings: true,
+  deprecationWarnings: false,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
   baseUrl: `http://localhost:${process.env.STATIC_PORT || 4567}`,
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  services: [driver, 'visual-regression', 'static-server'],
+  services: [driver, 'visual-regression', 'static-server', ScreenshotService],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName(),

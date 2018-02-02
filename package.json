@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "7.0.4",
+  "version": "7.1.2",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
@@ -50,6 +50,9 @@
     "gatsby-plugin-react-helmet": "^1.0.1",
     "lorem-ipsum": "^1.0.4",
     "mk-release": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "node-resemble-js": "^0.2.0",
+    "png-crop": "0.0.1",
     "postcss-at2x": "^3.2.0",
     "postcss-cli": "^4.1.0",
     "postcss-cssnext": "^2.11.0",

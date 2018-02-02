@@ -1,5 +1,6 @@
 beforeEach(function () {
   browser.currentTestName = this.currentTest.title;
+  browser.currentDescribe = this.currentTest.fullTitle().slice(0, -browser.currentTestName.length);
 });
 
 before(function () {

@@ -35,6 +35,9 @@
 @import './multiselect';
 @import './overlay';
 @import './toggleable-tags';
+@import './avatar-editor';
+@import './box';
+@import './section';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -49,6 +52,7 @@
 @import './pages/accordions.css';
 @import './pages/tables.css';
 @import './pages/modals.css';
+@import './pages/sections.css';
 
 body {
   margin: 0;

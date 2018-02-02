@@ -1,5 +1,18 @@
 .avatars-page {
 
+  & .card {
+    margin-bottom: calc(2 * $gutter-base);
+
+    &-avatar-editor .card-body {
+      display: flex;
+      align-items: center;
+
+      & .avatar-editor:not(:last-child) {
+        margin-right: $gutter-base;
+      }
+    }
+  }
+
   & .avatar-wrapper {
     display: flex;
     justify-content: space-around;

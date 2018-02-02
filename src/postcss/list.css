@@ -1,0 +1,16 @@
+.intellyo-list {
+  & .list-new-button-wrap {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #DDD;
+        border-radius: 4px;
+      }
+
+      & button {
+        margin-right: 16px;
+      }
+  }
+}

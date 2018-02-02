@@ -23,7 +23,7 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   driver = 'sauce';
 }
 
-if (process.env.E2EPROFILE && process.env.E2EPROFILE !== 'saucelight'
+if (process.env.E2EPROFILE !== 'saucelight'
     && process.env.E2EPROFILE !== 'sauceextended') {
   isDefaultBrowser = false;
   process.env.E2EPROFILE.split(',').forEach(element => {

@@ -23,9 +23,10 @@ if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
   driver = 'sauce';
 }
 
-if (process.env.BROWSER) {
+if (process.env.E2EPROFILE && process.env.E2EPROFILE !== 'saucelight'
+    && process.env.E2EPROFILE !== 'sauceextended') {
   isDefaultBrowser = false;
-  process.env.BROWSER.split(',').forEach(element => {
+  process.env.E2EPROFILE.split(',').forEach(element => {
     if (element !== 'chrome') {
       localBrowsers.push({
         width: resolution.width,
@@ -53,14 +54,14 @@ if (process.env.BROWSER) {
   }];
 }
 
-if (process.env.FEAT_TEST === 'true') {
+if (process.env.E2EPROFILE === 'saucelight') {
   sauceBrowsers = [{
     browserName: 'chrome',
     version: 'latest',
     screenResolution: screenResolution,
     platform: 'macOS 10.13'
   }];
-} else {
+} else if (process.env.E2EPROFILE === 'sauceextended') {
   sauceBrowsers = [{
     browserName: 'firefox',
     version: 'latest',

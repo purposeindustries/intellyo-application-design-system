@@ -25,7 +25,7 @@ describe('FEF card tests', () => {
     browser.url('/cards');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_XPATH,
-      {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
+      {windowsTolerance: 6.5, defaultTolerance: 5, ignoreComparison: false}),
       'Card is not similar to reference picture');
   });
 
@@ -33,14 +33,14 @@ describe('FEF card tests', () => {
     browser.url('/cards');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_WITH_CAPTION_XPATH,
-      {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
+      {windowsTolerance: 6.5, defaultTolerance: 5, ignoreComparison: false}),
       'Card with caption is not similar to reference picture');
   });
 
   it('should check ' + CARD_WITH_CAPTION_AND_I, () => {
     browser.url('/cards');
     assert(takeScreenShotOfElement(CARD_WITH_CAPTION_AND_I_XPATH,
-      {windowsTolerance: 6.5, defaultTolerance: 3.5, ignoreComparison: false}),
+      {windowsTolerance: 6.5, defaultTolerance: 5, ignoreComparison: false}),
       'Card with caption and i is not similar to reference picture');
   });
 

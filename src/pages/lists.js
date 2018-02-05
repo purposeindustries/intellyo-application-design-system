@@ -15,31 +15,37 @@ class ListsPage extends React.Component {
         {
           id: 1,
           text: 'Write a cool JS library',
+          isEditing: false,
         },
         {
           id: 2,
           text: 'Make it generic enough',
+          isEditing: false,
         },
         {
           id: 3,
           text: 'Write README',
+          isEditing: false,
         },
         {
           id: 4,
           text: 'Create some examples',
+          isEditing: false,
         },
         {
           id: 5,
-          text:
-            'Spam in Twitter and IRC to promote it (note that this element is taller than the others)',
+          text: 'Spam in Twitter and IRC to promote it (note that this element is taller than the others)',
+          isEditing: false,
         },
         {
           id: 6,
           text: '???',
+          isEditing: false,
         },
         {
           id: 7,
           text: 'PROFIT',
+          isEditing: false,
         },
       ],
       isEditing: false,
@@ -47,9 +53,27 @@ class ListsPage extends React.Component {
   }
 
   addNewListItem = () => {
+    const id = +new Date();
     this.setState(prevState => ({
-      cards: [...prevState.cards, { id: +new Date(), text: 'bar' }]
-    }));
+      cards: [...prevState.cards, { id, text: '' }]
+    }), () => this.editItem(this.state.cards.length - 1));
+  }
+
+  editItem = (index) => {
+    this.setState({
+      cards: update(this.state.cards, {[index]: {
+        isEditing: {$set: true}
+      }})
+    });
+  }
+
+  updateItem = (index, newValue) => {
+    this.setState({
+      cards: update(this.state.cards, {[index]: {
+        text: {$set: newValue},
+        isEditing: {$set: false}
+      }})
+    });
   }
 
   removeListItem = (id) => {
@@ -59,12 +83,11 @@ class ListsPage extends React.Component {
 
   moveListItem = (dragIndex, hoverIndex) => {
     const { cards } = this.state;
-    const dragCard = cards[dragIndex];
 
     this.setState(
       update(this.state, {
         cards: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]],
+          $splice: [[dragIndex, 1], [hoverIndex, 0, cards[dragIndex]]],
         },
       }),
     );
@@ -91,6 +114,8 @@ class ListsPage extends React.Component {
                 <Item
                   onRemove={ this.state.isEditing && (() => this.removeListItem(card.id)) }
                   text={ card.text }
+                  isEditing={ card.isEditing }
+                  onUpdate={ (newValue) => this.updateItem(i, newValue) }
                 />
               </DragSort>
             )

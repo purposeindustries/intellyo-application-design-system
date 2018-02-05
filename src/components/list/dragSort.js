@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
-import ItemTypes from './ItemTypes';
 
 const style = {
   border: '1px dashed gray',
@@ -11,7 +10,7 @@ const style = {
   backgroundColor: 'white',
 };
 
-const cardSource = {
+const itemSource = {
   beginDrag(props) {
     return {
       id: props.id,
@@ -20,7 +19,7 @@ const cardSource = {
   },
 };
 
-const cardTarget = {
+const itemTarget = {
   hover(props, monitor, component) {
     const dragIndex = monitor.getItem().index;
     const hoverIndex = props.index;
@@ -57,7 +56,7 @@ const cardTarget = {
     }
 
     // Time to actually perform the action
-    props.moveCard(dragIndex, hoverIndex);
+    props.moveListItem(dragIndex, hoverIndex);
 
     // Note: we're mutating the monitor item here!
     // Generally it's better to avoid mutations,
@@ -77,19 +76,9 @@ const collectDrag = (connect, monitor) => ({
   connectDragPreview: connect.dragPreview(),
 });
 
-const handleStyle = {
-  backgroundColor: 'green',
-  width: '1rem',
-  height: '1rem',
-  display: 'inline-block',
-  marginRight: '0.75rem',
-  cursor: 'move',
-};
-
-class Card extends Component {
+class DragSort extends Component {
   render() {
     const {
-      text,
       isDragging,
       connectDragSource,
       connectDropTarget,
@@ -99,32 +88,35 @@ class Card extends Component {
 
     return connectDragPreview(
       connectDropTarget(
-        <div style={ { ...style, opacity } }>
-          {connectDragSource(<div style={ handleStyle } />)}
-          {text} <button onClick={ this.props.onRemove }>Remove</button>
+        <div
+          className="intellyo-drag-sort"
+          style={ { ...style, opacity } }
+        >
+          {connectDragSource(<div className="drag-and-drop-handle" />)}
+          { this.props.children }
         </div>)
       );
   }
 }
 
-Card.propTypes = {
+DragSort.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   isDragging: PropTypes.bool.isRequired,
   id: PropTypes.any.isRequired,
-  text: PropTypes.string.isRequired,
-  moveCard: PropTypes.func.isRequired,
-  onRemove: PropTypes.func
+  moveListItem: PropTypes.func.isRequired,
+  onRemove: PropTypes.func,
+  children: PropTypes.node,
 };
 
-Card.defaultProps = {
+DragSort.defaultProps = {
   onRemove: () => {}
 };
 
-Card.displayName = 'Card';
+DragSort.displayName = 'DragSort';
 
-export default DropTarget(ItemTypes.CARD, cardTarget, collectDrop)(
-  DragSource(ItemTypes.CARD, cardSource, collectDrag)(Card)
+export default DropTarget('card', itemTarget, collectDrop)(
+  DragSource('card', itemSource, collectDrag)(DragSort)
 );

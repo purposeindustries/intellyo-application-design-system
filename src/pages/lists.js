@@ -3,7 +3,8 @@ import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import List from '../components/list/';
-import Card from '../components/list/Card';
+import DragSort from '../components/list/dragSort';
+import Item from '../components/list/item';
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -49,12 +50,12 @@ class ListsPage extends React.Component {
     }));
   }
 
-  removeListItem = (state, id) => {
-    const cards = state.cards.filter(card => card.id !== id);
+  removeListItem = (id) => {
+    const cards = this.state.cards.filter(card => card.id !== id);
     this.setState({ cards });
   }
 
-  moveCard = (dragIndex, hoverIndex) => {
+  moveListItem = (dragIndex, hoverIndex) => {
     const { cards } = this.state;
     const dragCard = cards[dragIndex];
 
@@ -73,17 +74,19 @@ class ListsPage extends React.Component {
       <div>
         <List
           items={ cards }
-          moveCard={ this.moveCard }
           onAddClick={ this.addNewListItem }
           renderItem={ (card, i) => (
-            <Card
+            <DragSort
               key={ card.id }
               index={ i }
               id={ card.id }
-              text={ card.text }
-              moveCard={ this.moveCard }
-              onRemove={ () => this.removeListItem(this.state, card.id) }
-            />
+              moveListItem={ this.moveListItem }
+            >
+              <Item
+                onRemove={ () => this.removeListItem(card.id) }
+                text={ card.text }
+              />
+            </DragSort>
           ) }
         />
       </div>

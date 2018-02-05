@@ -47,6 +47,7 @@ Here you can find each of our components:
 - [StackedAvatar](/src/components/stacked-avatar)
 - [Subheading](/src/components/subheading)
 - [Table](/src/components/table)
+- [TabPanel](/src/components/tab-panel)
 - [Tagsinput](/src/components/tagsinput)
 - [Textarea](/src/components/textarea)
 - [ToggleableTags](/src/components/toggleable-tags)

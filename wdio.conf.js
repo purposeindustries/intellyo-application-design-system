@@ -11,6 +11,7 @@ const screenResolution = resolution.width.toString() + 'x' + resolution.height.t
 const e2eProfile = (process.env.E2EPROFILE || '').split(',').filter(profile => profile !== '');
 const browsers = [];
 let isDefaultBrowser = false;
+let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
 
@@ -24,6 +25,7 @@ if (e2eProfile.includes('saucelight')) {
   });
 
   driver = 'sauce';
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
 
 }
@@ -67,6 +69,7 @@ if (e2eProfile.includes('sauceextended')) {
   });
 
   driver = 'sauce';
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
 
 }
@@ -154,7 +157,7 @@ exports.config = {
       misMatchTolerance: 3.0
     }),
   },
-  user: process.env.SAUCE_LABS_USERNAME,
+  user: sauceLabsUsername,
   key: saucelabsAccesKey,
   sauceConnect: true,
 

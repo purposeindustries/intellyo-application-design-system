@@ -17,7 +17,6 @@ let driver = 'selenium-standalone';
 let browsers = [];
 
 if (e2eProfile.includes('sauce')) {
-  console.log('sauce');
   isDefaultBrowser = false;
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
@@ -70,11 +69,9 @@ if (e2eProfile.includes('sauce')) {
     }];
   }
 } else if (!e2eProfile.includes('sauce') && e2eProfile !== '') {
-  console.log('not sauce');
   isDefaultBrowser = false;
   e2eProfile.split(',').forEach(element => {
     if (element === 'headless-chrome') {
-      console.log(element.split('-')[1]);
       browsers.push({
         width: resolution.width,
         height: resolution.height,
@@ -83,7 +80,6 @@ if (e2eProfile.includes('sauce')) {
           'args': ['--headless']
         } });
     } else if (element === 'headless-firefox') {
-      console.log(element.split('-')[1]);
       browsers.push({
         width: resolution.width,
         height: resolution.height,
@@ -109,7 +105,6 @@ if (e2eProfile.includes('sauce')) {
     }
   });
 } else {
-  console.log('chrome default');
   browsers = [{
     width: resolution.width,
     height: resolution.height,

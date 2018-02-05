@@ -51,6 +51,32 @@ export default class TabPanels extends React.Component {
             </Box>
           </Tab>
         </TabPanel>
+        <TabPanel
+          activeIndex={ 2 }
+          // eslint-disable-next-line no-alert
+          onBeforeChange={ () => confirm('Are you sure?') }
+        >
+          <Tab title="Create">
+            <Box>
+              Create
+            </Box>
+          </Tab>
+          <Tab title="Plan">
+            <Box>
+              Plan
+            </Box>
+          </Tab>
+          <Tab title="Assign">
+            <Box>
+              Assign
+            </Box>
+          </Tab>
+          <Tab title="Distribute">
+            <Box>
+              Distribute
+            </Box>
+          </Tab>
+        </TabPanel>
       </div>
     );
   }

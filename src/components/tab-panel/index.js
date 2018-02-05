@@ -10,16 +10,37 @@ export class TabPanel extends React.Component {
       PropTypes.node,
     ]),
     isSticky: PropTypes.bool,
+    onBeforeChange: PropTypes.func,
+    onChange: PropTypes.func,
+    activeIndex: PropTypes.number,
   };
-
-  state = {
+  static defaultProps = {
+    onBeforeChange: () => true,
+    onChange: () => {},
     activeIndex: 0,
-  };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeIndex: props.activeIndex
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.activeIndex !== this.state.activeIndex) {
+      this.setState({
+        activeIndex: nextProps.activeIndex
+      });
+    }
+  }
 
   activate(n) {
-    this.setState({
-      activeIndex: n,
-    });
+    if (this.props.onBeforeChange(n)) {
+      this.setState({
+        activeIndex: n,
+      }, () => this.props.onChange(n));
+    }
   }
 
   render() {
@@ -38,11 +59,11 @@ export class TabPanel extends React.Component {
               }) }
               onClick={ () => this.activate(index) }
             >
-              {child.props.title}
+              { child.props.title }
             </div>
             )) }
         </div>
-        {activeTab}
+        { activeTab }
       </div>
     );
   }
@@ -61,7 +82,7 @@ export class Tab extends React.Component {
   render() {
     return (
       <div className="tab">
-        {this.props.children}
+        { this.props.children }
       </div>
     );
   }

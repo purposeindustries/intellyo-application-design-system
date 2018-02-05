@@ -8,97 +8,120 @@ const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegres
 
 const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
-const browserName = 'chrome';
-let isDefaultBrowser = true;
+const e2eProfile = (process.env.E2EPROFILE || '').split(',').filter(profile => profile !== '');
+const browsers = [];
+let isDefaultBrowser = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
-let localBrowsers = [];
-let sauceBrowsers;
 
-if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
-  isDefaultBrowser = false;
+if (e2eProfile.includes('saucelight')) {
+  browsers.push({
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+
+  });
+
+  driver = 'sauce';
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+
+}
+if (e2eProfile.includes('sauceextended')) {
+  browsers.push({
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  });
+
   driver = 'sauce';
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+
 }
 
-if (process.env.E2EPROFILE && process.env.E2EPROFILE !== 'saucelight'
-    && process.env.E2EPROFILE !== 'sauceextended') {
-  isDefaultBrowser = false;
-  process.env.E2EPROFILE.split(',').forEach(element => {
-    if (element !== 'chrome') {
-      localBrowsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element
-      });
-    } else {
-      localBrowsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element,
-        chromeOptions: {
-          'args': ['disable-infobars']
-        } });
-    }
-  });
-} else {
-  localBrowsers = [{
+if (e2eProfile.includes('chrome')) {
+  browsers.push({
     width: resolution.width,
     height: resolution.height,
-    browserName: browserName,
+    browserName: 'chrome'
+  });
+}
+
+if (e2eProfile.includes('headless-chrome')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'chrome',
     chromeOptions: {
       'args': ['disable-infobars', '--headless']
     }
-  }];
+  });
 }
 
-if (process.env.E2EPROFILE === 'saucelight') {
-  sauceBrowsers = [{
-    browserName: 'chrome',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }];
-} else if (process.env.E2EPROFILE === 'sauceextended') {
-  sauceBrowsers = [{
+if (e2eProfile.includes('firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'firefox'
+  });
+}
+
+if (e2eProfile.includes('headless-firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
     browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
+    'moz:firefoxOptions': {
+      args: ['-headless']
+    }
+  });
+}
+
+if (e2eProfile.length === 0) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
     browserName: 'chrome',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }];
+    chromeOptions: {
+      'args': ['disable-infobars', '--headless']
+    }
+  });
+  isDefaultBrowser = true;
 }
 
 exports.config = {
@@ -113,7 +136,7 @@ exports.config = {
 
   maxInstances: 10,
 
-  capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? sauceBrowsers : localBrowsers,
+  capabilities: browsers,
 
   sync: true,
   logLevel: 'silent',

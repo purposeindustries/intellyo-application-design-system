@@ -12,16 +12,7 @@ class ListOfCards extends React.Component {
     return (
       <div>
         <div style={ style }>
-          {this.props.cards.map((card, i) => (
-            <Card
-              key={ card.id }
-              index={ i }
-              id={ card.id }
-              text={ card.text }
-              moveCard={ this.props.moveCard }
-              onRemove={ this.props.removeCard }
-            />
-          ))}
+          { this.props.cards.map(this.props.renderItem) }
         </div>
         <button onClick={ this.props.onAddClick }>Add Card</button>
       </div>

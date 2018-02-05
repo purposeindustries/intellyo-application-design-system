@@ -5,6 +5,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import List from '../components/list/';
 import ListOfCards from '../components/list/listOfCards';
+import Card from '../components/list/Card';
 
 
 const MyListItem = ({ id, name, onRemove }) => (
@@ -25,6 +26,7 @@ MyListItem.propTypes = {
   name: PropTypes.string,
   onRemove: PropTypes.func
 };
+
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -109,7 +111,16 @@ class ListsPage extends React.Component {
           cards={ cards }
           moveCard={ this.moveCard }
           onAddClick={ this.addNewListCard }
-          removeCard={ () => this.removeCard(this.state, 3) }
+          renderItem={ (card, i) => (
+            <Card
+              key={ card.id }
+              index={ i }
+              id={ card.id }
+              text={ card.text }
+              moveCard={ this.moveCard }
+              onRemove={ () => this.removeCard(this.state, card.id) }
+            />
+          ) }
         />
         <List
           onAddClick={ this.addNewListItem }

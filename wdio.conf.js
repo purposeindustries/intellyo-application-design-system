@@ -71,7 +71,24 @@ if (e2eProfile.includes('sauce')) {
 } else if (!e2eProfile.includes('sauce') && e2eProfile !== '') {
   isDefaultBrowser = false;
   e2eProfile.split(',').forEach(element => {
-    if (element !== 'chrome') {
+    if (element === 'headless-chrome') {
+      browsers.push({
+        width: resolution.width,
+        height: resolution.height,
+        browserName: 'chrome',
+        chromeOptions: {
+          'args': ['--headless']
+        } });
+    } else if (element === 'headless-firefox') {
+      browsers.push({
+        width: resolution.width,
+        height: resolution.height,
+        browserName: element.split('-')[1],
+        'moz:firefoxOptions': {
+          args: ['-headless']
+        }
+      });
+    } else if (element !== 'chrome') {
       browsers.push({
         width: resolution.width,
         height: resolution.height,
@@ -83,7 +100,7 @@ if (e2eProfile.includes('sauce')) {
         height: resolution.height,
         browserName: element,
         chromeOptions: {
-          'args': ['disable-infobars']
+          'args': ['disable-infobars', '--headless']
         } });
     }
   });

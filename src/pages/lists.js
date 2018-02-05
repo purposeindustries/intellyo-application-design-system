@@ -4,29 +4,7 @@ import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import List from '../components/list/';
-import ListOfCards from '../components/list/listOfCards';
 import Card from '../components/list/Card';
-
-
-const MyListItem = ({ id, name, onRemove }) => (
-  <div>
-    <div>
-      {id}, {name}
-    </div>
-    <button onClick={ onRemove }>
-      Remove
-    </button>
-  </div>
-);
-
-MyListItem.displayName = 'MyListItem';
-
-MyListItem.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  name: PropTypes.string,
-  onRemove: PropTypes.func
-};
-
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -64,25 +42,13 @@ class ListsPage extends React.Component {
           text: 'PROFIT',
         },
       ],
-      items: [],
     };
-  }
-
-  addNewListItem = () => {
-    this.setState(prevState => ({
-      items: [...prevState.items, { id: +new Date(), name: 'bar' }]
-    }));
   }
 
   addNewListCard = () => {
     this.setState(prevState => ({
       cards: [...prevState.cards, { id: +new Date(), text: 'bar' }]
     }));
-  }
-
-  removeItem = (state, id) => {
-    const items = state.items.filter(item => item.id !== id);
-    this.setState({ items });
   }
 
   removeCard = (state, id) => {
@@ -107,7 +73,7 @@ class ListsPage extends React.Component {
     const { cards } = this.state;
     return (
       <div>
-        <ListOfCards
+        <List
           cards={ cards }
           moveCard={ this.moveCard }
           onAddClick={ this.addNewListCard }
@@ -119,19 +85,6 @@ class ListsPage extends React.Component {
               text={ card.text }
               moveCard={ this.moveCard }
               onRemove={ () => this.removeCard(this.state, card.id) }
-            />
-          ) }
-        />
-        <List
-          onAddClick={ this.addNewListItem }
-          items={ this.state.items }
-          renderItem={ (props) => (
-            <MyListItem
-              { ...props }
-              key={ props.id }
-              onRemove={ () => {
-                this.removeItem(this.state, props.id);
-              } }
             />
           ) }
         />

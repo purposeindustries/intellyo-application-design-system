@@ -8,94 +8,121 @@ const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegres
 
 const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
-const browserName = 'chrome';
-const e2eProfile = process.env.E2EPROFILE || '';
+const e2eProfile = (process.env.E2EPROFILE || '').split(',');
 let isDefaultBrowser = true;
 let sauceLabsUsername;
 let saucelabsAccesKey;
-let driver = 'selenium-standalone';
 let browsers = [];
+let driver = 'selenium-standalone';
 
-if (e2eProfile.includes('sauce')) {
+if (e2eProfile.includes('saucelight')) {
+  browsers.push({
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+
+  });
+
+  driver = 'sauce';
   isDefaultBrowser = false;
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
-  driver = 'sauce';
 
-  if (e2eProfile === 'saucelight') {
-    browsers = [{
-      browserName: 'chrome',
-      version: 'latest',
-      screenResolution: screenResolution,
-      platform: 'macOS 10.13'
-    }];
-  } else if (e2eProfile === 'sauceextended') {
-    browsers = [{
-      browserName: 'firefox',
-      version: 'latest',
-      screenResolution: screenResolution,
-      platform: 'macOS 10.13'
-    }, {
-      browserName: 'chrome',
-      version: 'latest',
-      screenResolution: screenResolution,
-      platform: 'macOS 10.13'
-    }, {
-      browserName: 'chrome',
-      'chromeOptions': {
-        'args': ['disable-infobars']
-      },
-      version: 'latest-1',
-      screenResolution: screenResolution,
-      platform: 'Windows 10'
-    }, {
-      browserName: 'firefox',
-      version: 'latest',
-      screenResolution: screenResolution,
-      platform: 'Windows 10'
-    }, {
-      browserName: 'chrome',
-      'chromeOptions': {
-        'args': ['disable-infobars']
-      },
-      version: 'latest',
-      screenResolution: screenResolution,
-      platform: 'Windows 10'
-    }, {
-      browserName: 'chrome',
-      version: 'latest-1',
-      screenResolution: screenResolution,
-      platform: 'macOS 10.13'
-    }];
-  }
-} else if (!e2eProfile.includes('sauce') && e2eProfile !== '') {
-  isDefaultBrowser = false;
-  e2eProfile.split(',').forEach(element => {
-    if (element !== 'chrome') {
-      browsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element
-      });
-    } else {
-      browsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element,
-        chromeOptions: {
-          'args': ['disable-infobars']
-        } });
-    }
+}
+if (e2eProfile.includes('sauceextended')) {
+  browsers.push({
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    'chromeOptions': {
+      'args': ['disable-infobars']
+    },
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
   });
-} else {
-  browsers = [{
+
+  driver = 'sauce';
+  isDefaultBrowser = false;
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+
+}
+
+if (e2eProfile.includes('chrome')) {
+  browsers.push({
     width: resolution.width,
     height: resolution.height,
-    browserName: browserName,
+    browserName: 'chrome'
+  });
+}
+
+if (e2eProfile.includes('headless-chrome')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'chrome',
     chromeOptions: {
       'args': ['disable-infobars', '--headless']
     }
-  }];
+  });
+}
+
+if (e2eProfile.includes('firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'firefox'
+  });
+}
+
+if (e2eProfile.includes('headless-firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'firefox',
+    'moz:firefoxOptions': {
+      args: ['-headless']
+    }
+  });
+}
+
+if (e2eProfile[0] === '') {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'chrome',
+    chromeOptions: {
+      'args': ['disable-infobars', '--headless']
+    }
+  });
 }
 
 exports.config = {

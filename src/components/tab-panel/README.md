@@ -4,10 +4,13 @@
 
 ## Props
 
-| Prop | Type | Description |
-| ---- | ---- | ----------- |
-| children | node | Tabs, which hold their content as children. |
-| isSticky | bool | If you'd like to set the TabPanel's header sticky, set this prop to `true`. |
+| Prop | Type | Description | true |
+| ---- | ---- | ----------- | ---- |
+| children | node | Tabs, which hold their content as children. | `none` |
+| isSticky | bool | If you'd like to set the TabPanel's header sticky, set this prop to `true`. | `none` |
+| onBeforeChange | function | You can prompt the user before switching between tabs. | `() => true` |
+| onChange | function | Take a number as its first parameter. Invoked whenever activeIndex state changes. | `() => {}` |
+| activeIndex | number | You can put a number here, which renders you the (n - 1)th <Tab />. | `() => {}` |
 
 ## Example
 

@@ -88,7 +88,9 @@ if (e2eProfile.includes('sauce')) {
         width: resolution.width,
         height: resolution.height,
         browserName: element.split('-')[1],
-        args: ['-headless']
+        'moz:firefoxOptions': {
+          args: ['-headless']
+        }
       });
     } else if (element !== 'chrome') {
       browsers.push({

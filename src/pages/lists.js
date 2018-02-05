@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -9,7 +8,6 @@ import Card from '../components/list/Card';
 class ListsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.moveCard = this.moveCard.bind(this);
     this.state = {
       cards: [
         {
@@ -45,18 +43,18 @@ class ListsPage extends React.Component {
     };
   }
 
-  addNewListCard = () => {
+  addNewListItem = () => {
     this.setState(prevState => ({
       cards: [...prevState.cards, { id: +new Date(), text: 'bar' }]
     }));
   }
 
-  removeCard = (state, id) => {
+  removeListItem = (state, id) => {
     const cards = state.cards.filter(card => card.id !== id);
     this.setState({ cards });
   }
 
-  moveCard(dragIndex, hoverIndex) {
+  moveCard = (dragIndex, hoverIndex) => {
     const { cards } = this.state;
     const dragCard = cards[dragIndex];
 
@@ -74,9 +72,9 @@ class ListsPage extends React.Component {
     return (
       <div>
         <List
-          cards={ cards }
+          items={ cards }
           moveCard={ this.moveCard }
-          onAddClick={ this.addNewListCard }
+          onAddClick={ this.addNewListItem }
           renderItem={ (card, i) => (
             <Card
               key={ card.id }
@@ -84,7 +82,7 @@ class ListsPage extends React.Component {
               id={ card.id }
               text={ card.text }
               moveCard={ this.moveCard }
-              onRemove={ () => this.removeCard(this.state, card.id) }
+              onRemove={ () => this.removeListItem(this.state, card.id) }
             />
           ) }
         />

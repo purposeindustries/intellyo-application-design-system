@@ -1,4 +1,6 @@
 .intellyo-list {
+  user-select: none;
+  
   & .list-new-button-wrap {
       display: flex;
       align-items: center;

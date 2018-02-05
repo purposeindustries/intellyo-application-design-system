@@ -9,7 +9,6 @@ const style = {
   padding: '0.5rem 1rem',
   marginBottom: '.5rem',
   backgroundColor: 'white',
-  cursor: 'move',
 };
 
 const cardSource = {
@@ -75,36 +74,56 @@ const collectDrop = (connect) => ({
 const collectDrag = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
+  connectDragPreview: connect.dragPreview(),
 });
 
-class Card extends Component {
-  static propTypes = {
-    connectDragSource: PropTypes.func.isRequired,
-    connectDropTarget: PropTypes.func.isRequired,
-    index: PropTypes.number.isRequired,
-    isDragging: PropTypes.bool.isRequired,
-    id: PropTypes.any.isRequired,
-    text: PropTypes.string.isRequired,
-    moveCard: PropTypes.func.isRequired,
-  }
+const handleStyle = {
+  backgroundColor: 'green',
+  width: '1rem',
+  height: '1rem',
+  display: 'inline-block',
+  marginRight: '0.75rem',
+  cursor: 'move',
+};
 
+class Card extends Component {
   render() {
     const {
       text,
       isDragging,
       connectDragSource,
       connectDropTarget,
+      connectDragPreview,
     } = this.props;
     const opacity = isDragging ? 0 : 1;
 
-    return connectDragSource(
+    return connectDragPreview(
       connectDropTarget(
         <div style={ { ...style, opacity } }>
+          {connectDragSource(<div style={ handleStyle } />)}
           {text} <button onClick={ this.props.onRemove }>Remove</button>
-        </div>),
-    );
+        </div>)
+      );
   }
 }
+
+Card.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  connectDragPreview: PropTypes.func.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  isDragging: PropTypes.bool.isRequired,
+  id: PropTypes.any.isRequired,
+  text: PropTypes.string.isRequired,
+  moveCard: PropTypes.func.isRequired,
+  onRemove: PropTypes.func
+};
+
+Card.defaultProps = {
+  onRemove: () => {}
+};
+
+Card.displayName = 'Card';
 
 export default DropTarget(ItemTypes.CARD, cardTarget, collectDrop)(
   DragSource(ItemTypes.CARD, cardSource, collectDrag)(Card)

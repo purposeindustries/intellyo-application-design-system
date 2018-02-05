@@ -1,0 +1,24 @@
+.tab-panels-page {
+
+  & .tab-panel-container {
+    margin-bottom: calc(3 * $gutter-base);
+
+    & .tab-list {
+      margin-top: -$gutter-base;
+      margin-left: -$gutter-base;
+      margin-right: -$gutter-base;
+    }
+
+    & .tab {
+      height: 100vh;
+
+      & .box {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+      }
+    }
+  }
+}

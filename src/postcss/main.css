@@ -54,6 +54,7 @@
 @import './pages/tables.css';
 @import './pages/modals.css';
 @import './pages/sections.css';
+@import './pages/tab-panels.css';
 
 body {
   margin: 0;

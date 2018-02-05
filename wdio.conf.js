@@ -8,11 +8,10 @@ const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegres
 
 const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
-const e2eProfile = (process.env.E2EPROFILE || '').split(',');
-let isDefaultBrowser = true;
-let sauceLabsUsername;
+const e2eProfile = (process.env.E2EPROFILE || '').split(',').filter(profile => profile !== '');
+const browsers = [];
+let isDefaultBrowser = false;
 let saucelabsAccesKey;
-let browsers = [];
 let driver = 'selenium-standalone';
 
 if (e2eProfile.includes('saucelight')) {
@@ -25,8 +24,6 @@ if (e2eProfile.includes('saucelight')) {
   });
 
   driver = 'sauce';
-  isDefaultBrowser = false;
-  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
 
 }
@@ -70,8 +67,6 @@ if (e2eProfile.includes('sauceextended')) {
   });
 
   driver = 'sauce';
-  isDefaultBrowser = false;
-  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
 
 }
@@ -114,7 +109,7 @@ if (e2eProfile.includes('headless-firefox')) {
   });
 }
 
-if (e2eProfile[0] === '') {
+if (e2eProfile.length === 0) {
   browsers.push({
     width: resolution.width,
     height: resolution.height,
@@ -123,6 +118,7 @@ if (e2eProfile[0] === '') {
       'args': ['disable-infobars', '--headless']
     }
   });
+  isDefaultBrowser = true;
 }
 
 exports.config = {
@@ -158,7 +154,7 @@ exports.config = {
       misMatchTolerance: 3.0
     }),
   },
-  user: sauceLabsUsername,
+  user: process.env.SAUCE_LABS_USERNAME,
   key: saucelabsAccesKey,
   sauceConnect: true,
 

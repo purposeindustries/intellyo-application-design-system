@@ -5,6 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import List from '../components/list/';
 import DragSort from '../components/list/dragSort';
 import Item from '../components/list/item';
+import Button from '../../dist/button/';
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class ListsPage extends React.Component {
           text: 'PROFIT',
         },
       ],
+      isEditing: false,
     };
   }
 
@@ -75,6 +77,7 @@ class ListsPage extends React.Component {
         <List
           items={ cards }
           onAddClick={ this.addNewListItem }
+          isEditing={ this.state.isEditing }
         >
           {
             (card, i) => (
@@ -83,15 +86,23 @@ class ListsPage extends React.Component {
                 index={ i }
                 id={ card.id }
                 moveListItem={ this.moveListItem }
+                isDragEnabled={ this.state.isEditing }
               >
                 <Item
-                  onRemove={ () => this.removeListItem(card.id) }
+                  onRemove={ this.state.isEditing && (() => this.removeListItem(card.id)) }
                   text={ card.text }
                 />
               </DragSort>
             )
           }
         </List>
+        <div style={ {marginTop: 25} }>
+          <Button
+            onClick={ () => this.setState(state => ({ isEditing: !state.isEditing })) }
+          >
+            { this.state.isEditing ? 'Done' : 'Edit' }
+          </Button>
+        </div>
       </div>
     );
   }

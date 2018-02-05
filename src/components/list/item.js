@@ -7,10 +7,12 @@ class Item extends React.Component {
     return (
       <div className="intellyo-list-item">
         { this.props.text }
-        <Icon
-          onClick={ this.props.onRemove }
-          icon="ion-ios-trash"
-        />
+        { this.props.onRemove &&
+          <Icon
+            onClick={ this.props.onRemove }
+            icon="ion-ios-trash"
+          />
+        }
       </div>
     );
   }
@@ -20,7 +22,11 @@ Item.displayName = 'Item';
 
 Item.propTypes = {
   text: PropTypes.node,
-  onRemove: PropTypes.func
+  onRemove: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
+};
+
+Item.defaultProps = {
+  onRemove: null
 };
 
 export default Item;

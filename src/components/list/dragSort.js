@@ -71,6 +71,10 @@ const collectDrag = (connect, monitor) => ({
 
 class DragSort extends Component {
   render() {
+    if (!this.props.isDragEnabled) {
+      return <React.Fragment>{this.props.children}</React.Fragment>;
+    }
+
     const {
       isDragging,
       connectDragSource,
@@ -102,6 +106,7 @@ DragSort.propTypes = {
   moveListItem: PropTypes.func.isRequired,
   onRemove: PropTypes.func,
   children: PropTypes.node,
+  isDragEnabled: PropTypes.bool,
 };
 
 DragSort.defaultProps = {

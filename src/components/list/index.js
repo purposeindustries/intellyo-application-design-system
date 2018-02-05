@@ -8,16 +8,18 @@ class List extends React.Component {
     return (
       <div className="intellyo-list">
         { this.props.items.map(this.props.children) }
-        <div
-          className="list-new-button-wrap"
-          onClick={ this.props.onAddClick }
-        >
-          <Button
-            icon={ <Icon icon="ion-plus-round" /> }
-            neutral={ true }
-          />
-          <div>{ this.props.newItemDescription }</div>
-        </div>
+        { this.props.isEditing &&
+          <div
+            className="list-new-button-wrap"
+            onClick={ this.props.onAddClick }
+          >
+            <Button
+              icon={ <Icon icon="ion-plus-round" /> }
+              neutral={ true }
+            />
+            <div>{ this.props.newItemDescription }</div>
+          </div>
+        }
       </div>
     );
   }
@@ -30,10 +32,12 @@ List.propTypes = {
   onAddClick: PropTypes.func,
   newItemDescription: PropTypes.node,
   children: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool,
 };
 
 List.defaultProps = {
-  newItemDescription: 'Add new item'
+  newItemDescription: 'Add new item',
+  isEditing: false
 };
 
 

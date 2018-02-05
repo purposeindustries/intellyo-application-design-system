@@ -9,7 +9,7 @@ const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegres
 const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
 const browserName = 'chrome';
-const e2eProfile = (process.env.E2EPROFILE) ? process.env.E2EPROFILE : '';
+const e2eProfile = process.env.E2EPROFILE || '';
 let isDefaultBrowser = true;
 let sauceLabsUsername;
 let saucelabsAccesKey;
@@ -17,7 +17,6 @@ let driver = 'selenium-standalone';
 let browsers = [];
 
 if (e2eProfile.includes('sauce')) {
-  console.log('sauce');
   isDefaultBrowser = false;
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
@@ -70,7 +69,6 @@ if (e2eProfile.includes('sauce')) {
     }];
   }
 } else if (!e2eProfile.includes('sauce') && e2eProfile !== '') {
-  console.log('not sauce');
   isDefaultBrowser = false;
   e2eProfile.split(',').forEach(element => {
     if (element !== 'chrome') {
@@ -90,7 +88,6 @@ if (e2eProfile.includes('sauce')) {
     }
   });
 } else {
-  console.log('chrome default');
   browsers = [{
     width: resolution.width,
     height: resolution.height,

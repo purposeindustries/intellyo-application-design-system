@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { DragSource, DropTarget } from 'react-dnd';
 
-const style = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
-  backgroundColor: 'white',
-};
-
 const itemSource = {
   beginDrag(props) {
     return {
@@ -90,7 +83,7 @@ class DragSort extends Component {
       connectDropTarget(
         <div
           className="intellyo-drag-sort"
-          style={ { ...style, opacity } }
+          style={ { opacity } }
         >
           {connectDragSource(<div className="drag-and-drop-handle" />)}
           { this.props.children }

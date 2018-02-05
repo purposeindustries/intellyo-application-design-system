@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Item extends React.Component {
   render() {
     return (
-      <div>
+      <div className="intellyo-list-item">
         { this.props.text }
         <button onClick={ this.props.onRemove }>Remove</button>
       </div>

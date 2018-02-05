@@ -75,20 +75,23 @@ class ListsPage extends React.Component {
         <List
           items={ cards }
           onAddClick={ this.addNewListItem }
-          renderItem={ (card, i) => (
-            <DragSort
-              key={ card.id }
-              index={ i }
-              id={ card.id }
-              moveListItem={ this.moveListItem }
-            >
-              <Item
-                onRemove={ () => this.removeListItem(card.id) }
-                text={ card.text }
-              />
-            </DragSort>
-          ) }
-        />
+        >
+          {
+            (card, i) => (
+              <DragSort
+                key={ card.id }
+                index={ i }
+                id={ card.id }
+                moveListItem={ this.moveListItem }
+              >
+                <Item
+                  onRemove={ () => this.removeListItem(card.id) }
+                  text={ card.text }
+                />
+              </DragSort>
+            )
+          }
+        </List>
       </div>
     );
   }

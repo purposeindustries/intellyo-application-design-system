@@ -7,7 +7,7 @@ class List extends React.Component {
   render() {
     return (
       <div className="intellyo-list">
-        { this.props.items.map(this.props.renderItem) }
+        { this.props.items.map(this.props.children) }
         <div
           className="list-new-button-wrap"
           onClick={ this.props.onAddClick }
@@ -29,7 +29,8 @@ List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   renderItem: PropTypes.func.isRequired,
   onAddClick: PropTypes.func,
-  newItemDescription: PropTypes.node
+  newItemDescription: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 List.defaultProps = {

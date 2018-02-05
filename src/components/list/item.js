@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../icon/';
 
 class Item extends React.Component {
   render() {
     return (
       <div className="intellyo-list-item">
         { this.props.text }
-        <button onClick={ this.props.onRemove }>Remove</button>
+        <Icon
+          onClick={ this.props.onRemove }
+          icon="ion-ios-trash"
+        />
       </div>
     );
   }

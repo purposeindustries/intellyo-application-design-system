@@ -29,7 +29,7 @@
     height: 100%;
     display: inline-block;
     cursor: move;
-    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="3px" height="16px" viewBox="0 0 3 16" enable-background="new 0 0 3 16" xml:space="preserve"><circle fill="#989898" cx="1.5" cy="1.5" r="1.5"/><circle fill="#989898" cx="1.5" cy="14.5" r="1.5"/><circle fill="#989898" cx="1.5" cy="7.838" r="1.5"/></svg>');
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="3px" height="16px" viewBox="0 0 3 16" enable-background="new 0 0 3 16" xml:space="preserve"><circle fill="#989898" cx="1.5" cy="1.5" r="1.5"/><circle fill="#989898" cx="1.5" cy="14.5" r="1.5"/><circle fill="#989898" cx="1.5" cy="7.838" r="1.5"/></svg>');
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 4px 0 0 4px;
@@ -40,5 +40,17 @@
   padding: 0.5rem 1rem;
   margin-bottom: .5rem;
   background-color: #f8f8f8;
+  min-height: 60px;
+
+  & .icon {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+
+    & svg {
+      fill: #373737;
+    }
+  }
 
 }

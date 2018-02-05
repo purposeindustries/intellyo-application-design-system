@@ -27,10 +27,9 @@ List.displayName = 'List';
 
 List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
-  renderItem: PropTypes.func.isRequired,
   onAddClick: PropTypes.func,
   newItemDescription: PropTypes.node,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
 };
 
 List.defaultProps = {

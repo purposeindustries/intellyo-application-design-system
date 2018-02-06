@@ -188,6 +188,7 @@ exports.config = {
         height: capabilities.height
       });
     }
+    browser.driver = driver;
   },
   staticServerPort: process.env.STATIC_PORT || 4567,
   staticServerFolders: [{

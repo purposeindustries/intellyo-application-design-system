@@ -7,7 +7,8 @@
     "repository": "https://npm.registry.purposeindustries.co"
   },
   "pre-commit": [
-    "test"
+    "test",
+    "test:e2e"
   ],
   "license": "MIT",
   "scripts": {

@@ -12,6 +12,7 @@ $sauce-labs-text-color: #474C55;
   flex-direction: column;
   align-items: center;
   padding: $gutter-base 0;
+  overflow-y: auto;
 
   & nav {
     width: 100%;

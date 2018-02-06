@@ -7,7 +7,7 @@ business in the interface.
 
 | Prop | Type | Description | Default value |
 | ---- | ---- | ----------- | -------------
-| size | string | Size of the avatar | `none` |
+| size | string | Size of the avatar. It can be either `"small"`, `"medium"`, `"extraLarge"`. | `"large"` |
 | style | object | Set the style of the avatar | `none` |
 | name | string | The name of the person the avatar displays | `'John Doe'` |
 | caption | string | Short description next to the avatar | `none` |

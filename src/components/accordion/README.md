@@ -106,7 +106,7 @@ import { SingleAccordion } from '@pi/intellyo-components';
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | children | node | You can put any element. |
-| title | string | You can define the title of the AccordionItem. |
+| title | node | You can define the title of the AccordionItem. |
 | icon | element | You can define the which `<Icon />` should get rendered. |
 | isOpen | boolean | isOpen is responsible whether the item should be open or not. |
 

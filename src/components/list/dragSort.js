@@ -84,17 +84,13 @@ DragSort.propTypes = {
   connectDragSource: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
   isDragging: PropTypes.bool.isRequired,
+
+  index: PropTypes.number.isRequired,
   id: PropTypes.any.isRequired,
   moveListItem: PropTypes.func.isRequired,
-  onRemove: PropTypes.func,
   children: PropTypes.node,
   isDragEnabled: PropTypes.bool,
-};
-
-DragSort.defaultProps = {
-  onRemove: () => {}
 };
 
 DragSort.displayName = 'DragSort';

@@ -2,10 +2,67 @@ import React from 'react';
 import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import PropTypes from 'prop-types';
 import List from '../components/list/';
 import DragSort from '../components/list/dragSort';
-import Item from '../components/list/item';
 import Button from '../components/button/';
+import Icon from '../components/icon/';
+import Input from '../components/input/';
+
+class Item extends React.Component {
+  state = {
+    textInput: ''
+  };
+
+  handleChange = (e) => {
+    this.setState({ textInput: e.target.value });
+  };
+
+  render() {
+    if (this.props.isEditing) {
+      return (
+        <div className="intellyo-list-item list-item-editing">
+          <Input
+            defaultValue={ this.props.text }
+            onChange={ this.handleChange }
+          />
+          <Button
+            onClick={ () => this.props.onUpdate(this.state.textInput) }
+          >
+            Save
+          </Button>
+        </div>
+      );
+    }
+
+    return (
+      <div className="intellyo-list-item">
+        { this.props.text }
+        { this.props.onRemove &&
+          <Icon
+            onClick={ this.props.onRemove }
+            icon="ion-ios-trash"
+          />
+        }
+      </div>
+    );
+  }
+}
+
+Item.displayName = 'Item';
+
+Item.propTypes = {
+  text: PropTypes.node,
+  onRemove: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  isEditing: PropTypes.bool,
+  onUpdate: PropTypes.func,
+};
+
+Item.defaultProps = {
+  onRemove: null,
+  isEditing: false,
+};
+
 
 class ListsPage extends React.Component {
   constructor(props) {

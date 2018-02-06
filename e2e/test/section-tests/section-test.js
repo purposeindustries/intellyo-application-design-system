@@ -28,7 +28,7 @@ describe('FEF sections tests', () => {
        'Added tags input is not similar to the reference');
   });
 
-  it.only('should check the section ' + DANGER_ZONE_BUTTON_MOUSEOVER, () => {
+  it('should check the section ' + DANGER_ZONE_BUTTON_MOUSEOVER, () => {
     browser.url('/sections');
     const isItSauce = (process.env.E2EPROFILE || '').includes('sauce');
     assert(browser.isExisting(DANGER_ZONE_DELETE_BUTTON), 'Danger zone is not existing in the DOM');

@@ -5,7 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import List from '../components/list/';
 import DragSort from '../components/list/dragSort';
 import Item from '../components/list/item';
-import Button from '../../dist/button/';
+import Button from '../components/button/';
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -52,11 +52,18 @@ class ListsPage extends React.Component {
     };
   }
 
+  // immutability helper examples and more about usage here:
+  // https://reactjs.org/docs/update.html
+  // https://github.com/kolodny/immutability-helper
+  // https://stackoverflow.com/questions/29537299/react-how-do-i-update-state-item1-on-setstate-with-jsfiddle
+  // https://github.com/react-dnd/react-dnd/blob/master/examples/04%20Sortable/Simple/Container.js
+
+
   addNewListItem = () => {
     const id = +new Date();
-    this.setState(prevState => ({
-      cards: [...prevState.cards, { id, text: '' }]
-    }), () => this.editItem(this.state.cards.length - 1));
+    this.setState({
+      cards: update(this.state.cards, {$push: [{ id, text: '' }]})
+    }, () => this.editItem(this.state.cards.length - 1));
   }
 
   editItem = (index) => {
@@ -83,7 +90,6 @@ class ListsPage extends React.Component {
 
   moveListItem = (dragIndex, hoverIndex) => {
     const { cards } = this.state;
-
     this.setState(
       update(this.state, {
         cards: {

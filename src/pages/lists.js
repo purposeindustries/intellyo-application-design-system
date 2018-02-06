@@ -135,4 +135,4 @@ class ListsPage extends React.Component {
 
 ListsPage.displayName = 'ListPage';
 
-export default DragDropContext(HTML5Backend)(ListsPage);
+export default DragDropContext(HTML5Backend)(ListsPage); // eslint-disable-line new-cap

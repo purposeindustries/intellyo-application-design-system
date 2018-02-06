@@ -99,6 +99,6 @@ DragSort.defaultProps = {
 
 DragSort.displayName = 'DragSort';
 
-export default DropTarget('card', itemTarget, collectDrop)(
-  DragSource('card', itemSource, collectDrag)(DragSort)
+export default DropTarget('card', itemTarget, collectDrop)( // eslint-disable-line new-cap
+  DragSource('card', itemSource, collectDrag)(DragSort) // eslint-disable-line new-cap
 );

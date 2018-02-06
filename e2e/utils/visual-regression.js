@@ -80,7 +80,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
   if (options.localTolerance
-  && !(process.env.E2EPROFILE || '').includes('sauce')) {
+  && !browser.driver.includes('sauce')) {
     misMatchTolerance = options.localTolerance;
   }
 
@@ -89,7 +89,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   }
 
   if (options.localIgnoreComparison
-  && !(process.env.E2EPROFILE || '').includes('sauce')) {
+  && !browser.driver.includes('sauce')) {
     ignoreComparisonValue = 'colors';
   }
 
@@ -132,7 +132,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   if (options.localTolerance
-  && !(process.env.E2EPROFILE || '').includes('sauce')) {
+  && !browser.driver.includes('sauce')) {
     misMatchTolerance = options.localTolerance;
   }
 
@@ -147,7 +147,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   if (options.localIgnoreComparison
-  && !(process.env.E2EPROFILE || '').includes('sauce')) {
+  && !browser.driver.includes('sauce')) {
     ignoreComparisonValue = 'colors';
   }
 
@@ -298,7 +298,7 @@ module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
   if (options.localTolerance
-  && !(process.env.E2EPROFILE || '').includes('sauce')) {
+  && !browser.driver.includes('sauce')) {
     misMatchTolerance = options.localTolerance;
   }
 

@@ -43,6 +43,7 @@ describe('FEF tags input tests', () => {
     browser.moveToElement(TAGS_INPUT_SMALL_SELECTOR, 0, 0);
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_SMALL_SELECTOR,
       {defaultTolerance: 3, ignoreComparison: false, localIgnoreComparison: true}),
+       'Mouse over tags input is not similar to the reference');
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_CLICK, () => {

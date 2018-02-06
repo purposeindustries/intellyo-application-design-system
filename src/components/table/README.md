@@ -52,7 +52,7 @@ Baisc example of using `<Table /> `.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| name | string | Name of the given column. |
+| name | string | The key of the data, which will be rendered. |
 | label | node | The content to display in the table header. |
 | complex | boolean | `complex` has only some styling purpose. You can set whether it's a complex value or not. There'll be a secondary blob rendered in the loading animation if you set it to true. Take a look at the [Table with loader](https://ux.intellyo.com/tables) as an example! |
 | renderCell | function | You have the ability to overwrite the default cell rendering. It takes 4 arguments: (prop, item, column, instance). |

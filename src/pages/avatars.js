@@ -6,9 +6,24 @@ import Row from '../components/row/';
 import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar/';
 import Icon from '../components/icon/';
+import AvatarEditor from '../components/avatar-editor';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
+
+  state = {
+    imageSrc: ''
+  }
+
+  handleImageChange = (file) => {
+    if (!file) {
+      return;
+    }
+    const src = window.URL.createObjectURL(file);
+
+    this.setState({ imageSrc: src });
+  }
+
   render() {
     return (
       <div>
@@ -29,6 +44,10 @@ export default class Avatars extends Component {
                   <Avatar
                     name=""
                   />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
+                  />
                 </div>
                 <div className="avatar-wrapper">
                   <Avatar
@@ -44,6 +63,11 @@ export default class Avatars extends Component {
                   />
                   <Avatar
                     name="Donald Trump"
+                    src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
                     src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   />
                 </div>
@@ -87,6 +111,17 @@ export default class Avatars extends Component {
                 />
               </Col>
             </Row>
+          </Card>
+          <Card title="Avatar editor" className="card-avatar-editor">
+            <AvatarEditor
+              src={ this.state.imageSrc }
+              onChange={ this.handleImageChange }
+            />
+            <AvatarEditor
+              src={ this.state.imageSrc }
+              isProfileAvatar={ false }
+              onChange={ this.handleImageChange }
+            />
           </Card>
         </div>
       </div>

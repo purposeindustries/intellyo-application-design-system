@@ -16,6 +16,7 @@ click or tap. They can be used for any type of action, including navigation.
 | icon | node | Set the icon, displayed within the button | `none` |
 | onClick | function | Invokes the default click action | `noop` |
 | className | string | Module aiding multiple class activation | `none` |
+| type | string | This prop defines the type of the button. It can be either `submit`, `reset` or `button`. | `none` |
 
 ## Examples
 

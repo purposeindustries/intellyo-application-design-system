@@ -10,7 +10,8 @@ const Avatar = (props) => {
 
   const sizes = {
     small: 25,
-    medium: 40
+    medium: 40,
+    extraLarge: 120,
   };
   const defaultSize = 60;
 
@@ -19,6 +20,7 @@ const Avatar = (props) => {
       className={ classNames('user-avatar', {
         'user-avatar--small': props.size === 'small',
         'user-avatar--medium': props.size === 'medium',
+        'user-avatar--extra-large': props.size === 'extraLarge',
         'user-avatar--horizontal': props.caption
       }) }
       style={ props.style }

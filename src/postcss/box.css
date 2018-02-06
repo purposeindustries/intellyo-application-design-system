@@ -1,0 +1,6 @@
+.box {
+  background-color: #fff;
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-base;
+  padding: $gutter-base;
+}

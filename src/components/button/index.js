@@ -13,6 +13,7 @@ const Button = (props) => (
         [`button--${props.size}`]: true
       })
     }
+    type={ props.type }
     onClick={ (e) => {
       if (!props.disabled) {
         props.onClick(e);
@@ -57,6 +58,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   active: PropTypes.bool,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
 Button.defaultProps = {

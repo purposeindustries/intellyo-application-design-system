@@ -7,7 +7,7 @@ class List extends React.Component {
   render() {
     return (
       <div className="intellyo-list">
-        { this.props.items.map(this.props.children) }
+        { this.props.items.map(this.props.renderItem) }
         { this.props.isEditing &&
           <div
             className="list-new-button-wrap"
@@ -31,7 +31,7 @@ List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   onAddClick: PropTypes.func,
   newItemDescription: PropTypes.node,
-  children: PropTypes.func.isRequired,
+  renderItem: PropTypes.func.isRequired,
   isEditing: PropTypes.bool,
 };
 

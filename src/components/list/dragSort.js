@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
-import { DragSource, DropTarget } from 'react-dnd';
+import {
+  DragSource as dragSource,
+  DropTarget as dropTarget
+} from 'react-dnd';
 
 const itemSource = {
   beginDrag(props) {
@@ -54,6 +57,21 @@ const collectDrag = (connect, monitor) => ({
 });
 
 class DragSort extends Component {
+  displayName = 'DragSort';
+
+  static propTypes = {
+    connectDragSource: PropTypes.func.isRequired,
+    connectDragPreview: PropTypes.func.isRequired,
+    connectDropTarget: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool,
+
+    index: PropTypes.number.isRequired,
+    id: PropTypes.any.isRequired,
+    moveListItem: PropTypes.func.isRequired,
+    children: PropTypes.node,
+    isDragEnabled: PropTypes.bool,
+  };
+
   render() {
     if (!this.props.isDragEnabled) {
       return <React.Fragment>{this.props.children}</React.Fragment>;
@@ -80,21 +98,6 @@ class DragSort extends Component {
   }
 }
 
-DragSort.propTypes = {
-  connectDragSource: PropTypes.func.isRequired,
-  connectDragPreview: PropTypes.func.isRequired,
-  connectDropTarget: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired,
-
-  index: PropTypes.number.isRequired,
-  id: PropTypes.any.isRequired,
-  moveListItem: PropTypes.func.isRequired,
-  children: PropTypes.node,
-  isDragEnabled: PropTypes.bool,
-};
-
-DragSort.displayName = 'DragSort';
-
-export default DropTarget('card', itemTarget, collectDrop)( // eslint-disable-line new-cap
-  DragSource('card', itemSource, collectDrag)(DragSort) // eslint-disable-line new-cap
+export default dropTarget('card', itemTarget, collectDrop)(
+  dragSource('card', itemSource, collectDrag)(DragSort)
 );

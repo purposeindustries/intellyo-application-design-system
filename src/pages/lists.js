@@ -118,25 +118,21 @@ class ListsPage extends React.Component {
 
   addNewListItem = () => {
     const id = +new Date();
-    this.setState({
-      cards: update(this.state.cards, {$push: [{ id, text: '' }]})
-    }, () => this.editItem(this.state.cards.length - 1));
+    this.setState(prevState => ({
+      cards: [...prevState.cards, { id, text: '' }]
+    }), () => this.updateItem(this.state.cards.length - 1, { isEditing: true }));
   }
 
-  editItem = (index) => {
+  updateItem = (index, propValue) => {
     this.setState({
-      cards: update(this.state.cards, {[index]: {
-        isEditing: {$set: true}
-      }})
-    });
-  }
-
-  updateItem = (index, newValue) => {
-    this.setState({
-      cards: update(this.state.cards, {[index]: {
-        text: {$set: newValue},
-        isEditing: {$set: false}
-      }})
+      cards: [
+        ...this.state.cards.slice(0, index),
+        {
+          ...this.state.cards[index],
+          ...propValue
+        },
+        ...this.state.cards.slice(index + 1)
+      ]
     });
   }
 
@@ -164,8 +160,7 @@ class ListsPage extends React.Component {
           items={ cards }
           onAddClick={ this.addNewListItem }
           isEditing={ this.state.isEditing }
-        >
-          {
+          renderItem={
             (card, i) => (
               <DragSort
                 key={ card.id }
@@ -178,12 +173,12 @@ class ListsPage extends React.Component {
                   onRemove={ this.state.isEditing && (() => this.removeListItem(card.id)) }
                   text={ card.text }
                   isEditing={ card.isEditing }
-                  onUpdate={ (newValue) => this.updateItem(i, newValue) }
+                  onUpdate={ (newValue) => this.updateItem(i, {text: newValue, isEditing: false}) }
                 />
               </DragSort>
             )
           }
-        </List>
+        />
         <div style={ {marginTop: 25} }>
           <Button
             onClick={ () => this.setState(state => ({ isEditing: !state.isEditing })) }

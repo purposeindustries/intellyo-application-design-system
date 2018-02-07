@@ -1,6 +1,6 @@
 # Confirmation
 
-The `Confirmation` component is used to wrap any custom notification component.
+The `Confirmation` component is used in case of components where you need an additional confirmation step before performing a dangerous and permanent action like removing an item from the database.
 
 ## Props
 

@@ -10,7 +10,7 @@ const FIRST_AVATAR_SELECTOR = '.card-body:nth-child(2) .user-avatar';
 const UPLOAD_FILE = 'upload-file';
 
 //pic path
-const PIC_PATH = '/Users/kristofmolnosi/repo/intellyo-application-design-system/e2e/utils/pics/IMG_0090.jpg';
+const PIC_PATH = './e2e/utils/pics/IMG_0090.jpg';
 
 describe('FEF avatars tests', () => {
 

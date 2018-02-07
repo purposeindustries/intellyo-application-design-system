@@ -75,8 +75,8 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   }
 
   if (options.ffAndWindowsTolerance
-  && browser.desiredCapabilities.browserName
-  && browser.desiredCapabilities.browserName.includes('firefox')) {
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
   if (options.localTolerance
@@ -137,8 +137,8 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   if (options.ffAndWindowsTolerance
-  && browser.desiredCapabilities.browserName
-  && browser.desiredCapabilities.browserName.includes('firefox')) {
+    && browser.desiredCapabilities.browserName
+    && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
 

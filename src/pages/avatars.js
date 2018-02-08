@@ -121,6 +121,7 @@ export default class Avatars extends Component {
               src={ this.state.imageSrc }
               isProfileAvatar={ false }
               onChange={ this.handleImageChange }
+              buttonLabel="Upload logo"
             />
           </Card>
         </div>

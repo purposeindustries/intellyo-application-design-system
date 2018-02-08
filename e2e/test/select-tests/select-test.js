@@ -21,7 +21,7 @@ describe('FEF select tests', () => {
     'Whole FEF select page screenshot compare to a reference picture');
   });
 
-  it('should check the input ' + SELECT_HELLO, () => {
+  it.skip('should check the input ' + SELECT_HELLO, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     assert(takeScreenShotOfElement(SELECT_HELLO_SELECTOR,
@@ -29,7 +29,7 @@ describe('FEF select tests', () => {
        '"Hello" select is not similar to the reference');
   });
 
-  it('should check the input ' + SELECT_HELLO_OPENED, () => {
+  it.skip('should check the input ' + SELECT_HELLO_OPENED, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);
@@ -39,7 +39,7 @@ describe('FEF select tests', () => {
        '"Hello" select opened is not similar to the reference');
   });
 
-  it('should check the input ' + SELECT_HELLO_CLOSED, () => {
+  it.skip('should check the input ' + SELECT_HELLO_CLOSED, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);

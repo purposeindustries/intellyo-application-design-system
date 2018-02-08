@@ -19,8 +19,8 @@ describe('FEF tooltip tests', () => {
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3, ignoreComparison: false}),
       'Whole FEF tooltips page screenshot not similar to other configurations');
   });
-
-  it('should check ' + TOOLTIP_RIGHT_ONE, () => {
+  
+  it.skip('should check ' + TOOLTIP_RIGHT_ONE, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
@@ -28,7 +28,7 @@ describe('FEF tooltip tests', () => {
       'Avatar input screenshot not similar to other configurations');
   });
 
-  it('should check ' + TOOLTIP_RIGHT_TWO, () => {
+  it.skip('should check ' + TOOLTIP_RIGHT_TWO, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);

@@ -79,8 +79,17 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
+  if (options.localTolerance
+  && !browser.driver.includes('sauce')) {
+    misMatchTolerance = options.localTolerance;
+  }
 
   if (options.ignoreComparison) {
+    ignoreComparisonValue = 'colors';
+  }
+
+  if (options.localIgnoreComparison
+  && !browser.driver.includes('sauce')) {
     ignoreComparisonValue = 'colors';
   }
 
@@ -122,6 +131,11 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     misMatchTolerance = options.firefoxTolerance;
   }
 
+  if (options.localTolerance
+  && !browser.driver.includes('sauce')) {
+    misMatchTolerance = options.localTolerance;
+  }
+
   if (options.ffAndWindowsTolerance
   && browser.desiredCapabilities.browserName
   && browser.desiredCapabilities.browserName.includes('firefox')) {
@@ -129,6 +143,11 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   if (options.ignoreComparison) {
+    ignoreComparisonValue = 'colors';
+  }
+
+  if (options.localIgnoreComparison
+  && !browser.driver.includes('sauce')) {
     ignoreComparisonValue = 'colors';
   }
 
@@ -278,10 +297,19 @@ module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
   && browser.desiredCapabilities.browserName.includes('firefox')) {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
+  if (options.localTolerance
+  && !browser.driver.includes('sauce')) {
+    misMatchTolerance = options.localTolerance;
+  }
 
   browser.saveElementScreenshot(selector, testPathAndName);
   const img = resemble(getRefPicName()).compareTo(testPathAndName);
   if (options.ignoreComparison === true) {
+    img.ignoreColors();
+  }
+
+  if (options.localIgnoreComparison === true
+  && !((process.env.E2EPROFILE || '') || '').includes('sauce')) {
     img.ignoreColors();
   }
 

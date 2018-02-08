@@ -5,6 +5,7 @@ import Multiselect from '../components/multiselect';
 import DropdownItem from '../components/dropdown-item';
 import OptionSeparator from '../components/option-separator';
 import Option from '../components/option';
+import Caption from '../components/caption';
 
 export default class SelectPage extends React.Component {
 
@@ -81,6 +82,7 @@ export default class SelectPage extends React.Component {
 
           <Select
             id="car"
+            label={ <Caption>Select without a default value</Caption> }
             onChange={ this.handleSelectChange }
             value={ this.state.car }
           >

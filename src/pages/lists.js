@@ -1,5 +1,4 @@
 import React from 'react';
-import update from 'immutability-helper';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PropTypes from 'prop-types';
@@ -63,6 +62,14 @@ Item.defaultProps = {
   isEditing: false,
 };
 
+
+const rearrangeItems = (items, moveFromIndex, moveToIndex) => {
+  const movingItem = items[moveFromIndex];
+  items.splice(moveFromIndex, 1);
+  items.splice(moveToIndex, 0, movingItem);
+
+  return items;
+};
 
 class ListsPage extends React.Component {
   constructor(props) {
@@ -142,14 +149,9 @@ class ListsPage extends React.Component {
   }
 
   moveListItem = (dragIndex, hoverIndex) => {
-    const { cards } = this.state;
-    this.setState(
-      update(this.state, {
-        cards: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, cards[dragIndex]]],
-        },
-      }),
-    );
+    const cardsCopy = [...this.state.cards];
+    const cards = rearrangeItems(cardsCopy, dragIndex, hoverIndex);
+    this.setState({ cards });
   }
 
   render() {

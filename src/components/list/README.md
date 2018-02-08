@@ -121,12 +121,12 @@ class ListsPage extends React.Component {
     this.setState({ cards });
   }
 
-  moveListItem = (dragIndex, hoverIndex) => {
+  moveListItem = (moveFromIndex, moveToIndex) => {
     const { cards } = this.state;
     this.setState(
       update(this.state, {
         cards: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, cards[dragIndex]]],
+          $splice: [[moveFromIndex, 1], [moveToIndex, 0, cards[moveFromIndex]]],
         },
       }),
     );

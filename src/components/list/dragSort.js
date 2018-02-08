@@ -17,10 +17,10 @@ const itemSource = {
 
 const itemTarget = {
   hover(props, monitor, component) {
-    const dragIndex = monitor.getItem().index;
-    const hoverIndex = props.index;
+    const moveFromIndex = monitor.getItem().index;
+    const moveToIndex = props.index;
 
-    if (dragIndex === hoverIndex) {
+    if (moveFromIndex === moveToIndex) {
       return;
     }
 
@@ -32,17 +32,17 @@ const itemTarget = {
 
     const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+    if (moveFromIndex < moveToIndex && hoverClientY < hoverMiddleY) {
       return;
     }
 
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+    if (moveFromIndex > moveToIndex && hoverClientY > hoverMiddleY) {
       return;
     }
 
-    props.moveListItem(dragIndex, hoverIndex);
+    props.moveListItem(moveFromIndex, moveToIndex);
 
-    monitor.getItem().index = hoverIndex;
+    monitor.getItem().index = moveToIndex;
   },
 };
 

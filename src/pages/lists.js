@@ -1,5 +1,5 @@
 import React from 'react';
-import { DragDropContext } from 'react-dnd';
+import { DragDropContext as dragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PropTypes from 'prop-types';
 import List from '../components/list/';
@@ -116,13 +116,6 @@ class ListsPage extends React.Component {
     };
   }
 
-  // immutability helper examples and more about usage here:
-  // https://reactjs.org/docs/update.html
-  // https://github.com/kolodny/immutability-helper
-  // https://stackoverflow.com/questions/29537299/react-how-do-i-update-state-item1-on-setstate-with-jsfiddle
-  // https://github.com/react-dnd/react-dnd/blob/master/examples/04%20Sortable/Simple/Container.js
-
-
   addNewListItem = () => {
     const id = +new Date();
     this.setState(prevState => ({
@@ -148,9 +141,9 @@ class ListsPage extends React.Component {
     this.setState({ cards });
   }
 
-  moveListItem = (dragIndex, hoverIndex) => {
+  moveListItem = (moveFromIndex, moveToIndex) => {
     const cardsCopy = [...this.state.cards];
-    const cards = rearrangeItems(cardsCopy, dragIndex, hoverIndex);
+    const cards = rearrangeItems(cardsCopy, moveFromIndex, moveToIndex);
     this.setState({ cards });
   }
 
@@ -195,4 +188,4 @@ class ListsPage extends React.Component {
 
 ListsPage.displayName = 'ListPage';
 
-export default DragDropContext(HTML5Backend)(ListsPage); // eslint-disable-line new-cap
+export default dragDropContext(HTML5Backend)(ListsPage);

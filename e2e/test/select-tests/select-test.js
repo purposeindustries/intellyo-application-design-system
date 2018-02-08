@@ -3,7 +3,7 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 
 //Selectors/xpaths
-const SELECT_HELLO_SELECTOR = '.dropdown:nth-child(2)';
+const SELECT_HELLO_SELECTOR = '.dropdown.select:nth-child(4)';
 const SELECT_HELLO_OPENED_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]';
 const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]//*[@class="dropdown-items"]';
 

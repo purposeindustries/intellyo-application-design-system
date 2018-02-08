@@ -47,4 +47,4 @@ export { default as ToggleableTags } from './toggleable-tags';
 export { default as AvatarEditor } from './avatar-editor';
 export { default as Box } from './box';
 export { default as Section } from './section';
-export { default as Tab, TabPanel } from './section';
+export { default as Tab, TabPanel } from './tab-panel';

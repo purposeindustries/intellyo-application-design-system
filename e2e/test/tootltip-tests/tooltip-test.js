@@ -20,20 +20,20 @@ describe('FEF tooltip tests', () => {
       'Whole FEF tooltips page screenshot not similar to other configurations');
   });
 
-  it('should check ' + TOOLTIP_RIGHT_ONE, () => {
-    browser.url('/tooltip');
-    assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
-    browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
-    assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {defaultTolerance: 4.3, ignoreComparison: false}),
-      'Avatar input screenshot not similar to other configurations');
-  });
-
-  it.skip('should check ' + TOOLTIP_RIGHT_TWO, () => {
+  it('should check ' + TOOLTIP_RIGHT_TWO, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
     browser.waitForExist('.overlay-trigger--active .user-avatar');
-    assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {defaultTolerance: 5.9, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {localTolerance: 5.8, ffAndWindowsTolerance: 2.7, defaultTolerance: 2, ignoreComparison: false}),
+      'Avatar input screenshot not similar to other configurations');
+  });
+
+  it.skip('should check ' + TOOLTIP_RIGHT_ONE, () => {
+    browser.url('/tooltip');
+    assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
+    browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
+    assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {defaultTolerance: 0, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });
 

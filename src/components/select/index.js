@@ -12,6 +12,7 @@ export default class Select extends React.Component {
     style: PropTypes.object,
     icon: PropTypes.element,
     label: PropTypes.node,
+    className: PropTypes.string,
   }
   static defaultProps = {
     onChange: () => {}
@@ -33,7 +34,7 @@ export default class Select extends React.Component {
   }
   render() {
     return (
-      <div className="select-wrapper">
+      <div className={ classNames('select-wrapper', this.props.className) }>
         { this.props.label && (
           <div className="select-label">{ this.props.label }</div>
         ) }

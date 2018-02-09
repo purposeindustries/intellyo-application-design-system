@@ -38,6 +38,7 @@
 @import './avatar-editor';
 @import './box';
 @import './section';
+@import './list';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

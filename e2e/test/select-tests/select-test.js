@@ -45,7 +45,7 @@ describe('FEF select tests', () => {
     browser.click(SELECT_HELLO_SELECTOR);
     browser.click(SELECT_HELLO_OPENED_XPATH);
     assert(takeScreenShotOfElement(SELECT_HELLO_SELECTOR,
-      {firefoxTolerance: 15, defaultTolerance: 5.7, ignoreComparison: false}),
+      {firefoxTolerance: 15.5, defaultTolerance: 5.7, ignoreComparison: false}),
        '"Hello" select closed is not similar to the reference');
   });
 });

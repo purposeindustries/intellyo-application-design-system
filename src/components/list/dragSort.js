@@ -57,7 +57,7 @@ const collectDrag = (connect, monitor) => ({
 });
 
 class DragSort extends Component {
-  displayName = 'DragSort';
+  static displayName = 'DragSort';
 
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,

@@ -9,6 +9,21 @@ import Icon from '../components/icon/';
 import Input from '../components/input/';
 
 class Item extends React.Component {
+
+  static displayName = 'Item';
+
+  static propTypes = {
+    text: PropTypes.node,
+    onRemove: PropTypes.func,
+    isEditing: PropTypes.bool,
+    onUpdate: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onRemove: null,
+    isEditing: false,
+  };
+
   state = {
     textInput: ''
   };
@@ -47,21 +62,6 @@ class Item extends React.Component {
     );
   }
 }
-
-Item.displayName = 'Item';
-
-Item.propTypes = {
-  text: PropTypes.node,
-  onRemove: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  isEditing: PropTypes.bool,
-  onUpdate: PropTypes.func,
-};
-
-Item.defaultProps = {
-  onRemove: null,
-  isEditing: false,
-};
-
 
 const rearrangeItems = (items, moveFromIndex, moveToIndex) => {
   const movingItem = items[moveFromIndex];
@@ -165,7 +165,7 @@ class ListsPage extends React.Component {
                 isDragEnabled={ this.state.isEditing }
               >
                 <Item
-                  onRemove={ this.state.isEditing && (() => this.removeListItem(card.id)) }
+                  onRemove={ () => this.removeListItem(card.id) }
                   text={ card.text }
                   isEditing={ card.isEditing }
                   onUpdate={ (newValue) => this.updateItem(i, {text: newValue, isEditing: false}) }

@@ -4,6 +4,21 @@ import Button from '../button';
 import Icon from '../icon';
 
 class List extends React.Component {
+
+  static displayName = 'List';
+
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.any),
+    onAddClick: PropTypes.func,
+    newItemDescription: PropTypes.node,
+    renderItem: PropTypes.func.isRequired,
+    isEditing: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    newItemDescription: 'Add new item',
+  };
+
   render() {
     return (
       <div className="intellyo-list">
@@ -24,21 +39,5 @@ class List extends React.Component {
     );
   }
 }
-
-List.displayName = 'List';
-
-List.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.any),
-  onAddClick: PropTypes.func,
-  newItemDescription: PropTypes.node,
-  renderItem: PropTypes.func.isRequired,
-  isEditing: PropTypes.bool,
-};
-
-List.defaultProps = {
-  newItemDescription: 'Add new item',
-  isEditing: false
-};
-
 
 export default List;

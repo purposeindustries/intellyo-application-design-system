@@ -7,8 +7,7 @@ const TOOLTIP_RIGHT_SELECTOR = '.card-body .col:nth-child(2) .overlay-trigger .U
 const WHOLE_TOOLTIP_DIV_SELECTOR = '.card-body';
 
 //test names
-const TOOLTIP_RIGHT_ONE = 'tooltip-right-one';
-const TOOLTIP_RIGHT_TWO = 'tooltip-right-two';
+const TOOLTIP_RIGHT = 'tooltip-right';
 
 
 describe('FEF tooltip tests', () => {
@@ -20,7 +19,7 @@ describe('FEF tooltip tests', () => {
       'Whole FEF tooltips page screenshot not similar to other configurations');
   });
 
-  it('should check ' + TOOLTIP_RIGHT_TWO, () => {
+  it('should check ' + TOOLTIP_RIGHT, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
@@ -28,13 +27,4 @@ describe('FEF tooltip tests', () => {
     assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {localTolerance: 5.8, ffAndWindowsTolerance: 2.7, defaultTolerance: 2, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });
-
-  it.skip('should check ' + TOOLTIP_RIGHT_ONE, () => {
-    browser.url('/tooltip');
-    assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
-    browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
-    assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {defaultTolerance: 0, ignoreComparison: false}),
-      'Avatar input screenshot not similar to other configurations');
-  });
-
 });

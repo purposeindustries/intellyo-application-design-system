@@ -39,6 +39,7 @@
 @import './box';
 @import './section';
 @import './tab-panel';
+@import './list';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

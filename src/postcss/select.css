@@ -28,7 +28,7 @@
 
     }
 
-    & .icon {
+    & .icon.dropdown-arrow {
       position: absolute;
       width: $select-icon-dimension;
       height: $select-icon-dimension;

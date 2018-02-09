@@ -155,6 +155,7 @@ $dropdown-item-bg-color--active: $color-grey-2;
 
     & .dropdown-item,
     & .prefixed-item {
+      position: relative;
       font-size: 12px;
       min-height: 30px;
       cursor: pointer;

@@ -60,7 +60,10 @@ export default class Dropdown extends React.Component {
       return;
     }
     return this.props.arrow ? this.props.arrow : (
-      <Icon icon="ion-android-arrow-dropdown" />
+      <Icon
+        className="dropdown-arrow"
+        icon="ion-android-arrow-dropdown"
+      />
     );
   }
 

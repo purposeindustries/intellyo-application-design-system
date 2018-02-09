@@ -6,6 +6,7 @@ import DropdownItem from '../components/dropdown-item';
 import OptionSeparator from '../components/option-separator';
 import Option from '../components/option';
 import Caption from '../components/caption';
+import Icon from '../components/icon/';
 
 export default class SelectPage extends React.Component {
 
@@ -70,6 +71,41 @@ export default class SelectPage extends React.Component {
               value="what"
             >
               what
+            </DropdownItem>
+            <DropdownItem
+              value="where"
+            >
+              where
+            </DropdownItem>
+          </Select>
+
+          <br /><br />
+
+          <Select
+            id="car2"
+            onChange={ this.handleSelectChange }
+            value={ this.state.car2 }
+          >
+            <DropdownItem
+              value={ '' }
+              disabled
+            >
+              Choose an option
+            </DropdownItem>
+            <DropdownItem
+              value="hello"
+            >
+              <Icon icon="ion-android-happy" /><span>Hello</span>
+            </DropdownItem>
+            <DropdownItem
+              value="yeah"
+            >
+              <Icon icon="ion-android-locate" /><span>yeah dafdsfa</span>
+            </DropdownItem>
+            <DropdownItem
+              value="what"
+            >
+              <Icon icon="ion-android-microphone-off" /><span>what</span>
             </DropdownItem>
             <DropdownItem
               value="where"

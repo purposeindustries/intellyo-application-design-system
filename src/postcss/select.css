@@ -42,4 +42,13 @@
       fill: $select-svg-fill--hover;
     }
   }
+
+  &.car-3-selector {
+    & .dropdown-item {
+      & .icon {
+        margin-right: 8px;
+      }
+    }
+  }
+
 }

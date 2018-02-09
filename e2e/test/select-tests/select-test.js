@@ -3,7 +3,7 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
 
 //Selectors/xpaths
-const SELECT_HELLO_SELECTOR = '.dropdown.select:nth-child(4)';
+const SELECT_HELLO_SELECTOR = '.dropdown:nth-child(2)';
 const SELECT_HELLO_OPENED_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]';
 const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]//*[@class="dropdown-items"]';
 
@@ -21,15 +21,15 @@ describe('FEF select tests', () => {
     'Whole FEF select page screenshot compare to a reference picture');
   });
 
-  it.skip('should check the input ' + SELECT_HELLO, () => {
+  it('should check the input ' + SELECT_HELLO, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     assert(takeScreenShotOfElement(SELECT_HELLO_SELECTOR,
-      {firefoxTolerance: 15, defaultTolerance: 5.7, ignoreComparison: false}),
+      {firefoxTolerance: 15.5, defaultTolerance: 5.7, ignoreComparison: false}),
        '"Hello" select is not similar to the reference');
   });
 
-  it.skip('should check the input ' + SELECT_HELLO_OPENED, () => {
+  it('should check the input ' + SELECT_HELLO_OPENED, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);
@@ -39,7 +39,7 @@ describe('FEF select tests', () => {
        '"Hello" select opened is not similar to the reference');
   });
 
-  it.skip('should check the input ' + SELECT_HELLO_CLOSED, () => {
+  it('should check the input ' + SELECT_HELLO_CLOSED, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);

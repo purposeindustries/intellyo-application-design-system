@@ -5,6 +5,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCo
 //Selectors/xpaths
 const TOOLTIP_RIGHT_SELECTOR = '.card-body .col:nth-child(2) .overlay-trigger .UserAvatar';
 const WHOLE_TOOLTIP_DIV_SELECTOR = '.card-body';
+const ACTIVE_AVATAR = '.overlay-trigger--active .user-avatar';
 
 //test names
 const TOOLTIP_RIGHT = 'tooltip-right';
@@ -23,7 +24,7 @@ describe('FEF tooltip tests', () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
-    browser.waitForExist('.overlay-trigger--active .user-avatar');
+    browser.waitForExist(ACTIVE_AVATAR);
     assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {localTolerance: 5.8, ffAndWindowsTolerance: 2.7, defaultTolerance: 2, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });

@@ -7,6 +7,7 @@ const INPUT_SELECTOR = 'input[type=file]';
 const UPDLOAD_PICTURE_SELECTOR = '.card-body:nth-child(2) .user-avatar';
 const MEDIUM_AVATAR_SELECTOR = '.avatar-wrapper:nth-child(2) .user-avatar--medium';
 const SECOND_AVATAR_WRAPPER = '.avatar-wrapper:nth-child(2)';
+const ACTIVE_AVATAR = '.overlay-trigger--active';
 
 //test names
 const UPLOAD_FILE = 'upload-file';
@@ -36,7 +37,7 @@ describe('FEF avatars tests', () => {
     browser.url('/avatars');
     assert(browser.isExisting(MEDIUM_AVATAR_SELECTOR), 'Input selector is not existing in the DOM');
     browser.moveToElement(MEDIUM_AVATAR_SELECTOR);
-    browser.waitForExist('.overlay-trigger--active');
+    browser.waitForExist(ACTIVE_AVATAR);
     assert(takeScreenShotOfElementAndCompareWithRef(SECOND_AVATAR_WRAPPER, {localTolerance: 14, firefoxTolerance: 3.5, defaultTolerance: 2, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });

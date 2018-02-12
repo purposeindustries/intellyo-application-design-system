@@ -21,9 +21,8 @@ const ADD_NEW_ELEMENT = 'add-new-element';
 
 describe('FEF lists tests', () => {
 
-  it('Checks the the fef lists page title and browser compare visual regression', () => {
+  it('Checks the fef lists page title and browser compare visual regression', () => {
     browser.url('/lists');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3, ignoreComparison: false}),
       'Whole FEF avatars page screenshot not similar to other configurations');
   });

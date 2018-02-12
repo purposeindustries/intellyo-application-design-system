@@ -16,14 +16,12 @@ describe('FEF card tests', () => {
 
   it('Checks the the fef cards page title and browser compare visual regression', () => {
     browser.url('/cards');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),
       'Whole FEF cards page screenshot not similar to other configurations');
   });
 
   it('should check ' + CARD, () => {
     browser.url('/cards');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_XPATH,
       {windowsTolerance: 6.5, defaultTolerance: 5, ignoreComparison: false}),
       'Card is not similar to reference picture');
@@ -31,7 +29,6 @@ describe('FEF card tests', () => {
 
   it('should check ' + CARD_WITH_CAPTION, () => {
     browser.url('/cards');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElement(CARD_WITH_CAPTION_XPATH,
       {windowsTolerance: 6.5, defaultTolerance: 5, ignoreComparison: false}),
       'Card with caption is not similar to reference picture');

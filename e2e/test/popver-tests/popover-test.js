@@ -18,14 +18,12 @@ describe('FEF popover tests', () => {
 
   it('Checks the the fef modal page title and browser compare visual regression', () => {
     browser.url('/popover');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),
       'Whole FEF popover page screenshot not similar to other configurations');
   });
 
   it('should check ' + CLICK_ME_POPOVER, () => {
     browser.url('/popover');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(browser.element(TRIGERED_OVERLAY).message
     === 'An element could not be located on the page using the given search parameters.',
     'Triggered overlay shows where its not allowed');
@@ -36,7 +34,6 @@ describe('FEF popover tests', () => {
 
   it('should check ' + OVERLAY_POPOVER, () => {
     browser.url('/popover');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(CLICK_ME_POPOVER_XPATH);
     assert(takeScreenShotOfElement(OVERLAY_POPOVER_XPATH,
       {defaultTolerance: 11, ignoreComparison: false}),
@@ -45,7 +42,6 @@ describe('FEF popover tests', () => {
 
   it('should check ' + HOVER_ME_POPOVER, () => {
     browser.url('/popover');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.moveToElement(HOVER_ME_POPOVER_XPATH);
     browser.waitUntil(() =>
       browser.element(TRIGERED_OVERLAY_XPATH).isExisting(),

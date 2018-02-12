@@ -16,14 +16,12 @@ describe('FEF accordions tests', () => {
 
   it('Checks the the fef accordions page title and browser compare visual regression', () => {
     browser.url('/accordions');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),
       'Whole FEF accordions page screenshot not similar to other configurations');
   });
 
   it('should check ' + BASIC_INFO_ACCORDION, () => {
     browser.url('/accordions');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(browser.element(BASIC_INFO_ACCORDION_INNER_WRAP_XPATH).message
      === 'An element could not be located on the page using the given search parameters.');
     assert(browser.getAttribute(BASIC_INFO_ACCORDION_CHILDREN_XPATH, 'style') === 'height: 0px; opacity: 0;', 'Accordion children height and/or opacity note 0');
@@ -34,7 +32,6 @@ describe('FEF accordions tests', () => {
 
   it('should check ' + BASIC_INFO_ACCORDION_OPEN, () => {
     browser.url('/accordions');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INFO_ACCORDION_XPATH);
     assert(takeScreenShotOfElement(BASIC_INFO_ACCORDION_OPEN_XPATH,
       {defaultTolerance: 6, ignoreComparison: false}),

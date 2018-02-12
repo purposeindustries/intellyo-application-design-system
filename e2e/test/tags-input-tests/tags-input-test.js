@@ -23,7 +23,6 @@ describe('FEF tags input tests', () => {
 
   it('Checks the the fef tags input page title and browser compare visual regression', () => {
     browser.url('/tagsinput');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false}),
     'Whole FEF tags input page screenshot compare to a reference picture');
   });

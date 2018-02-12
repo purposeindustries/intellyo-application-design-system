@@ -16,14 +16,12 @@ describe('FEF modal tests', () => {
 
   it('Checks the the fef modal page title and browser compare visual regression', () => {
     browser.url('/modals');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3.5, ignoreComparison: false}),
       'Whole FEF modal page screenshot not similar to other configurations');
   });
 
   it('should check ' + MODAL, () => {
     browser.url('/modals');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_XPATH);
     assert(takeScreenShotOfElement(MODAL_XPATH,
       {defaultTolerance: 3, ignoreComparison: false}),
@@ -32,7 +30,6 @@ describe('FEF modal tests', () => {
 
   it('should check ' + MODAL_WITH_ANIMATION, () => {
     browser.url('/modals');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_WITH_ANIMATION_XPATH);
     assert(browser.getAttribute(MODAL_WITH_ANIMATION_XPATH, 'style').includes('animation-duration: 300ms;'), 'Animation duration is not 300ms');
     assert(takeScreenShotOfElement(MODAL_WITH_ANIMATION_XPATH,

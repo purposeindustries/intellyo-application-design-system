@@ -6,12 +6,24 @@ const SidebarHelperConsumer = () => (
   <TemplateContext.Consumer>
     {(context) => (
       <div>
-        isSidebarOpen is { context.isSidebarOpen.toString() }
+        isSidebarOpen is <strong>{ context.isSidebarOpen.toString() }</strong>
+
+        { !context.isSidebarOpen &&
         <Button
-          onClick={ context.openSidebar }
+          onClick={ context.showSidebar }
         >
           Open Sidebar
         </Button>
+        }
+
+        { context.isSidebarOpen &&
+        <Button
+          onClick={ context.hideSidebar }
+        >
+          Close Sidebar
+        </Button>
+        }
+
       </div>
     )}
   </TemplateContext.Consumer>

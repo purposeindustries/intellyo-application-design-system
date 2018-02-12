@@ -3,7 +3,7 @@ import { TemplateContext } from './sidebar-context';
 import SidebarHelperConsumer from './sidebar-helper-consumer';
 
 class SidebarHelper extends React.Component {
-  static displayName = SidebarHelper;
+  static displayName = 'SidebarHelper';
 
   state = {
     isSidebarOpen: false
@@ -13,8 +13,9 @@ class SidebarHelper extends React.Component {
     return (
       <TemplateContext.Provider
         value={ {
-          openSidebar: () => this.setState({ isSidebarOpen: true }),
-          isSidebarOpen: this.state.isSidebarOpen
+          showSidebar: () => this.setState({ isSidebarOpen: true }),
+          hideSidebar: () => this.setState({ isSidebarOpen: false }),
+          isSidebarOpen: this.state.isSidebarOpen,
         } }
       >
         <SidebarHelperConsumer />

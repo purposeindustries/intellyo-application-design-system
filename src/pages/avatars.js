@@ -7,6 +7,7 @@ import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar/';
 import Icon from '../components/icon/';
 import AvatarEditor from '../components/avatar-editor';
+import silhouette from '../components/avatar/silhouette';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
@@ -116,10 +117,16 @@ export default class Avatars extends Component {
             <AvatarEditor
               src={ this.state.imageSrc }
               onChange={ this.handleImageChange }
+              placeholder={ silhouette }
             />
             <AvatarEditor
               src={ this.state.imageSrc }
-              isProfileAvatar={ false }
+              onChange={ this.handleImageChange }
+              buttonLabel="Upload logo"
+            />
+            <AvatarEditor
+              src={ this.state.imageSrc }
+              borderRadius={ 25 }
               onChange={ this.handleImageChange }
               buttonLabel="Upload logo"
             />

@@ -64,6 +64,15 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-sections" href="/sections">
               Sections
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-tabs" href="/tabs">
+              Tab panels
+            </SidebarItem>,
+            <SidebarItem key="sidebar-item-modals" href="/confirmations">
+              Confirmations
+            </SidebarItem>,
+            <SidebarItem key="sidebar-item-lists" href="/lists">
+              Lists
+            </SidebarItem>,
           ]) }
         >
           Components

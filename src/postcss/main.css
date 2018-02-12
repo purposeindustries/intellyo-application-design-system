@@ -38,6 +38,8 @@
 @import './avatar-editor';
 @import './box';
 @import './section';
+@import './tab-panel';
+@import './list';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -53,6 +55,8 @@
 @import './pages/tables.css';
 @import './pages/modals.css';
 @import './pages/sections.css';
+@import './pages/tab-panels.css';
+@import './pages/confirmations.css';
 
 body {
   margin: 0;

@@ -1,0 +1,10 @@
+.confirmations-page {
+  & .modal-button-wrap {
+    display: flex;
+    margin-top: 10px;
+
+    & .button:not(:last-child) {
+      margin-right: 10px; 
+    }
+  }
+}

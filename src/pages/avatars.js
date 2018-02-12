@@ -13,16 +13,20 @@ export default class Avatars extends Component {
   displayName = 'Avatars'
 
   state = {
-    imageSrc: ''
+    profileImageSrc: '',
+    logoImageSrc: '',
+    otherImageSrc: '',
   }
 
-  handleImageChange = (file) => {
+  handleImageChange = (file, field) => {
     if (!file) {
       return;
     }
     const src = window.URL.createObjectURL(file);
 
-    this.setState({ imageSrc: src });
+    this.setState({
+      [field]: src
+    });
   }
 
   render() {
@@ -115,19 +119,19 @@ export default class Avatars extends Component {
           </Card>
           <Card title="Avatar editor" className="card-avatar-editor">
             <AvatarEditor
-              src={ this.state.imageSrc }
-              onChange={ this.handleImageChange }
+              src={ this.state.profileImageSrc }
+              onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
               placeholder={ silhouette }
             />
             <AvatarEditor
-              src={ this.state.imageSrc }
-              onChange={ this.handleImageChange }
+              src={ this.state.logoImageSrc }
+              onChange={ (file) => this.handleImageChange(file, 'logoImageSrc') }
               buttonLabel="Upload logo"
             />
             <AvatarEditor
-              src={ this.state.imageSrc }
+              src={ this.state.otherImageSrc }
               borderRadius={ 25 }
-              onChange={ this.handleImageChange }
+              onChange={ (file) => this.handleImageChange(file, 'otherImageSrc') }
               buttonLabel="Upload logo"
             />
           </Card>

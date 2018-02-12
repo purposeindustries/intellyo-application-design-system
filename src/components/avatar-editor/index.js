@@ -6,9 +6,11 @@ export default class AvatarEditor extends React.PureComponent {
   static propTypes = {
     src: PropTypes.string,
     onChange: PropTypes.func,
-    isProfileAvatar: PropTypes.bool,
     buttonLabel: PropTypes.node,
-    borderRadius: PropTypes.string,
+    borderRadius: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     placeholder: PropTypes.node,
   }
 

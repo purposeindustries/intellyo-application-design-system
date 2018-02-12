@@ -1,32 +1,23 @@
-import React, { createContext } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../components/button/'
-
-const TemplateContext = createContext({
-  isSidebarOpen: true
-});
+import React from 'react';
+import { TemplateContext } from './sidebar-context';
+import SidebarHelperConsumer from './sidebar-helper-consumer';
 
 class SidebarHelper extends React.Component {
+  static displayName = SidebarHelper;
+
+  state = {
+    isSidebarOpen: false
+  };
+
   render() {
     return (
       <TemplateContext.Provider
         value={ {
-          isSidebarOpen: false,
-          addSidebar: () => console.log('as')
+          openSidebar: () => this.setState({ isSidebarOpen: true }),
+          isSidebarOpen: this.state.isSidebarOpen
         } }
       >
-        <TemplateContext.Consumer>
-          {(context) => (
-            <div>
-              isSidebarOpen is { context.isSidebarOpen.toString() }
-              <Button
-                onClick={ () => context.addSidebar() }
-              >
-                Open Sidebar
-              </Button>
-            </div>
-          )}
-        </TemplateContext.Consumer>
+        <SidebarHelperConsumer />
       </TemplateContext.Provider>
     );
   }

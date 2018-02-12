@@ -122,6 +122,7 @@ export default class Avatars extends Component {
               src={ this.state.profileImageSrc }
               onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
               placeholder={ silhouette }
+              borderRadius={ 100 }
             />
             <AvatarEditor
               src={ this.state.logoImageSrc }

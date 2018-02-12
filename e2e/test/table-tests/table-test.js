@@ -7,18 +7,20 @@ const REGULAR_TABLE_SELECTOR = '.card-body .row:nth-child(1) .col:nth-child(1)';
 const STICKY_TABLE_SELECTOR = '.card-body .row:nth-child(1) .col:nth-child(2)';
 const EXPANDER_NO1_SELECTOR = '.card-body .row:nth-child(1) .col:nth-child(2) .table--row:nth-child(1) .icon';
 const NO1_STICKY_LIST_ELEMENT_SELECTOR = '.card-body .row:nth-child(1) .col:nth-child(2) .table--rows .table--row:nth-child(1)';
+const SORTABLE_TABLE_SELECTOR = '.card-body .row:nth-child(2)';
 
 //test names
 const REGULAR_TABLE = 'regular-table';
 const STICKY_TABLE = 'sticky-table';
 const STICKY_TABLE_EXPANDING = 'sticky-table-expanding';
+const SORTABLE_TABLE = 'sortable-table';
 
 describe('FEF table tests', () => {
 
   it('Checks the the fef table page title and browser compare visual regression', () => {
     browser.url('/tables');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 7, ignoreComparison: false}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 7.5, ignoreComparison: false}),
       'Whole FEF popover page screenshot not similar to other configurations');
   });
 
@@ -51,6 +53,16 @@ describe('FEF table tests', () => {
     assert(takeScreenShotOfElement(NO1_STICKY_LIST_ELEMENT_SELECTOR,
       {defaultTolerance: 5.5, ignoreComparison: false}),
       'Sticky table expanded first element is not similar to reference picture');
+  });
+
+  it('should check ' + SORTABLE_TABLE, () => {
+    browser.url('/tables');
+    browser.url('/tables');
+    assert(browser.isExisting(SORTABLE_TABLE_SELECTOR),
+    'Sortable table element not found');
+    assert(takeScreenShotOfElement(SORTABLE_TABLE_SELECTOR,
+      {firefoxTolerance: 7.5, defaultTolerance: 4.5, ignoreComparison: false}),
+      'Sortable table is not similar to reference picture');
   });
 
 });

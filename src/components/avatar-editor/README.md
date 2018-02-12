@@ -8,8 +8,9 @@ This is our avatar editor component. You can use it to change your profiles', or
 | ---- | ---- | ----------- | ------------- |
 | src | string | The url of the src attribute on the image tag. | `none` |
 | onChange | function | It's responsible for creating a valid url for the img tag by converting a blob to a valid url string. | `none` |
-| isProfileAvatar | boolean | `isProfileAvatar` determines whether the component should render an UserAvatar or an org logo as its child. | `true` |
 | buttonLabel | node | You can specify the label of the Button. | `'Upload picture'` |
+| borderRadius | `string` || `number` | You can specify the border-radius of the div, which contains the image. | `'4px'` |
+| placeholder | `node` | You can customise the placeholder, when the component is empty. | `none` |
 
 ## Examples
 

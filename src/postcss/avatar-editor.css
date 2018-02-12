@@ -11,7 +11,7 @@
       margin: $gutter-base auto 0;
     }
 
-    & .avatar-editor-org-image-wrapper {
+    & .avatar-editor-image-wrapper {
       margin: 0 auto;
       height: 120px;
       width: 120px;
@@ -37,7 +37,7 @@
         }
       }
 
-      & .avatar-editor-org-image {
+      & .avatar-editor-image {
         display: block;
         height: 100%;
         width: auto;

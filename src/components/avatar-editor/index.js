@@ -36,12 +36,12 @@ export default class AvatarEditor extends React.PureComponent {
       <div className="avatar-editor">
         <label className="avatar-editor-label">
           <div
-            className={ `avatar-editor-org-image-wrapper ${
-              (!this.props.src && !this.props.placeholder) ? 'avatar-editor-org-image-wrapper--empty' : ''}` }
+            className={ `avatar-editor-image-wrapper ${
+              (!this.props.src && !this.props.placeholder) ? 'avatar-editor-image-wrapper--empty' : ''}` }
             style={ this.getBorderRadius() }
           >
             <img
-              className="avatar-editor-org-image"
+              className="avatar-editor-image"
               src={ this.props.src || this.props.placeholder }
             />
           </div>

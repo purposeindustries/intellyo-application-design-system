@@ -57,6 +57,7 @@
 @import './pages/sections.css';
 @import './pages/tab-panels.css';
 @import './pages/confirmations.css';
+@import './pages/index-page.css';
 
 body {
   margin: 0;

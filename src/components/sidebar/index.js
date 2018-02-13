@@ -75,7 +75,7 @@ const Sidebar = (props) => (
     className="sidebar"
   >
     <div className="logo">
-      { props.head || <Logo /> }
+      <a href="/">{ props.head || <Logo /> }</a>
     </div>
     <nav>
       <ul>

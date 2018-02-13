@@ -1,27 +1,27 @@
 import React from 'react';
 import { TemplateContext } from './sidebar-context';
-import SidebarHelperConsumer from './sidebar-helper-consumer';
+import MenuPanelHelperConsumer from './sidebar-helper-consumer';
 
-class SidebarHelper extends React.Component {
-  static displayName = 'SidebarHelper';
+class MenuPanelHelper extends React.Component {
+  static displayName = 'MenuPanelHelper';
 
   state = {
-    isSidebarOpen: false
+    isMenuPanelOpen: false
   };
 
   render() {
     return (
       <TemplateContext.Provider
         value={ {
-          showSidebar: () => this.setState({ isSidebarOpen: true }),
-          hideSidebar: () => this.setState({ isSidebarOpen: false }),
-          isSidebarOpen: this.state.isSidebarOpen,
+          showMenuPanel: () => this.setState({ isMenuPanelOpen: true }),
+          hideMenuPanel: () => this.setState({ isMenuPanelOpen: false }),
+          isMenuPanelOpen: this.state.isMenuPanelOpen,
         } }
       >
-        <SidebarHelperConsumer />
+        <MenuPanelHelperConsumer />
       </TemplateContext.Provider>
     );
   }
 }
 
-export default SidebarHelper;
+export default MenuPanelHelper;

@@ -2,25 +2,25 @@ import React from 'react';
 import { TemplateContext } from './sidebar-context';
 import Button from '../components/button/';
 
-const SidebarHelperConsumer = () => (
+const MenuPanelHelperConsumer = () => (
   <TemplateContext.Consumer>
     {(context) => (
       <div>
-        isSidebarOpen is <strong>{ context.isSidebarOpen.toString() }</strong>
+        isMenuPanelOpen is <strong>{ context.isMenuPanelOpen.toString() }</strong>
 
-        { !context.isSidebarOpen &&
+        { !context.isMenuPanelOpen &&
         <Button
-          onClick={ context.showSidebar }
+          onClick={ context.showMenuPanel }
         >
-          Open Sidebar
+          Open MenuPanel
         </Button>
         }
 
-        { context.isSidebarOpen &&
+        { context.isMenuPanelOpen &&
         <Button
-          onClick={ context.hideSidebar }
+          onClick={ context.hideMenuPanel }
         >
-          Close Sidebar
+          Close MenuPanel
         </Button>
         }
 
@@ -29,6 +29,6 @@ const SidebarHelperConsumer = () => (
   </TemplateContext.Consumer>
 );
 
-SidebarHelperConsumer.displayName = 'SidebarHelperConsumer';
+MenuPanelHelperConsumer.displayName = 'MenuPanelHelperConsumer';
 
-export default SidebarHelperConsumer;
+export default MenuPanelHelperConsumer;

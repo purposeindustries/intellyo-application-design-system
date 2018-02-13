@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Sidebar, { SidebarItem } from '../components/sidebar/';
+import MenuPanel, { MenuPanelItem } from '../components/menu-panel/';
 
 import '../css/main.css';
 
@@ -12,75 +12,78 @@ const TemplateWrapper = ({ children }) => (
       title="Intellyo Application Design System"
     />
     <div className="main">
-      <Sidebar>
-        <SidebarItem href="/grid">
+      <MenuPanel>
+        <MenuPanelItem href="/grid">
           Grid System
-        </SidebarItem>
-        <SidebarItem href="/typography">
+        </MenuPanelItem>
+        <MenuPanelItem href="/typography">
           Typography
-        </SidebarItem>
-        <SidebarItem href="/colors">
+        </MenuPanelItem>
+        <MenuPanelItem href="/colors">
           Colors
-        </SidebarItem>
-        <SidebarItem
+        </MenuPanelItem>
+        <MenuPanelItem
           expandable={ true }
           items={ ([
-            <SidebarItem key="sidebar-item-buttons" href="/buttons">
+            <MenuPanelItem key="menu-panel-item-buttons" href="/buttons">
               Buttons
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-inputs" href="/inputs">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-inputs" href="/inputs">
               Inputs
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-select" href="/select">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-select" href="/select">
               Select
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-tags" href="/tagsinput">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-tags" href="/tagsinput">
               TagsInput
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-avatars" href="/avatars">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-avatars" href="/avatars">
               Avatars
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-cards" href="/cards">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-cards" href="/cards">
               Cards
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-tooltips" href="/tooltip">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-tooltips" href="/tooltip">
               Tooltips
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-popovers" href="/popover">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-popovers" href="/popover">
               Popovers
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-tables" href="/tables">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-tables" href="/tables">
               Tables
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-charts" href="/charts">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-charts" href="/charts">
               Charts
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-accordions" href="/accordions">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-accordions" href="/accordions">
               Accordions
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-modals" href="/modals">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-modals" href="/modals">
               Modals
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-sections" href="/sections">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-sections" href="/sections">
               Sections
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-tabs" href="/tabs">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-tabs" href="/tabs">
               Tab panels
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-modals" href="/confirmations">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-confirmations" href="/confirmations">
               Confirmations
-            </SidebarItem>,
-            <SidebarItem key="sidebar-item-lists" href="/lists">
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-item-lists" href="/lists">
               Lists
-            </SidebarItem>,
+            </MenuPanelItem>,
+            <MenuPanelItem key="menu-panel-sidebar-helper" href="/layout-helper">
+              Layout Helper
+            </MenuPanelItem>,
           ]) }
         >
           Components
-        </SidebarItem>
-        <SidebarItem href="/icons">
+        </MenuPanelItem>
+        <MenuPanelItem href="/icons">
           Icons
-        </SidebarItem>
-      </Sidebar>
+        </MenuPanelItem>
+      </MenuPanel>
       <div className="content">
         { children() }
       </div>

@@ -44,7 +44,7 @@ Here you can find each of our components:
 - [Row](/src/components/row)
 - [Section](/src/components/section)
 - [Select](/src/components/select)
-- [Sidebar](/src/components/sidebar)
+- [MenuPanel](/src/components/menu-panel)
 - [SocialPrefixedInput](/src/components/social-prefixed-input)
 - [StackedAvatar](/src/components/stacked-avatar)
 - [Subheading](/src/components/subheading)
@@ -55,6 +55,7 @@ Here you can find each of our components:
 - [ToggleableTags](/src/components/toggleable-tags)
 - [Tooltip](/src/components/tooltip)
 - [withLimit](/src/components/with-limit)
+- [Layout](/src/components/layout)
 
 ## E2E tests usage:
 

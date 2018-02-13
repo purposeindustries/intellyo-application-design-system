@@ -7,7 +7,7 @@
 @import './subheading.css';
 @import './caption.css';
 @import './content.css';
-@import './sidebar.css';
+@import './menu-panel.css';
 @import './card.css';
 @import './grid.css';
 @import './button.css';
@@ -40,6 +40,7 @@
 @import './section';
 @import './tab-panel';
 @import './list';
+@import './layout.css';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -57,6 +58,7 @@
 @import './pages/sections.css';
 @import './pages/tab-panels.css';
 @import './pages/confirmations.css';
+@import './pages/layout-helper.css';
 
 body {
   margin: 0;

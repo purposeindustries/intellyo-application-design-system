@@ -1,7 +1,7 @@
 /* Local variables */
 $sauce-labs-text-color: #474C55;
 
-.sidebar {
+.menu-panel {
   background: #373737;
   width: 230px;
   height: 100%;
@@ -47,7 +47,7 @@ $sauce-labs-text-color: #474C55;
   }
 }
 
-.sidebar-item {
+.menu-panel-item {
   color: #fff;
   border-bottom: 1px solid $color-black-3;
   padding: $gutter-base;
@@ -93,7 +93,7 @@ $sauce-labs-text-color: #474C55;
     overflow: hidden;
     max-height: 0;
 
-    &> .sidebar-item {
+    &> .menu-panel-item {
       padding: 7px 20px 7px 30px;
       border: 0;
 
@@ -107,7 +107,7 @@ $sauce-labs-text-color: #474C55;
     }
   }
 
-  &.sidebar-item--expanded {
+  &.menu-panel-item--expanded {
     &> ul {
       max-height: 1000px;
       padding: 10px 0;

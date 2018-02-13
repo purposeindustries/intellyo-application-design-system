@@ -12,52 +12,52 @@ export default class Index extends React.Component {
           Intellyo's Application Design System
         </DisplayText>
         <Card className="index-main-card">
-          <a key="sidebar-item-buttons" href="/buttons">
+          <a href="/buttons">
             <Card><Heading>Buttons</Heading></Card>
           </a>
-          <a key="sidebar-item-inputs" href="/inputs">
+          <a href="/inputs">
             <Card><Heading>Inputs</Heading></Card>
           </a>
-          <a key="sidebar-item-select" href="/select">
+          <a href="/select">
             <Card><Heading>Select</Heading></Card>
           </a>
-          <a key="sidebar-item-tags" href="/tagsinput">
+          <a href="/tagsinput">
             <Card><Heading>TagsInput</Heading></Card>
           </a>
-          <a key="sidebar-item-avatars" href="/avatars">
+          <a href="/avatars">
             <Card><Heading>Avatars</Heading></Card>
           </a>
-          <a key="sidebar-item-cards" href="/cards">
+          <a href="/cards">
             <Card><Heading>Cards</Heading></Card>
           </a>
-          <a key="sidebar-item-tooltips" href="/tooltip">
+          <a href="/tooltip">
             <Card><Heading>Tooltips</Heading></Card>
           </a>
-          <a key="sidebar-item-popovers" href="/popover">
+          <a href="/popover">
             <Card><Heading>Popovers</Heading></Card>
           </a>
-          <a key="sidebar-item-tables" href="/tables">
+          <a href="/tables">
             <Card><Heading>Tables</Heading></Card>
           </a>
-          <a key="sidebar-item-charts" href="/charts">
+          <a href="/charts">
             <Card><Heading>Charts</Heading></Card>
           </a>
-          <a key="sidebar-item-accordions" href="/accordions">
+          <a href="/accordions">
             <Card><Heading>Accordions</Heading></Card>
           </a>
-          <a key="sidebar-item-modals" href="/modals">
+          <a href="/modals">
             <Card><Heading>Modals</Heading></Card>
           </a>
-          <a key="sidebar-item-sections" href="/sections">
+          <a href="/sections">
             <Card><Heading>Sections</Heading></Card>
           </a>
-          <a key="sidebar-item-tabs" href="/tabs">
+          <a href="/tabs">
             <Card><Heading>Tab</Heading> panels</Card>
           </a>
-          <a key="sidebar-item-modals" href="/confirmations">
+          <a href="/confirmations">
             <Card><Heading>Confirmations</Heading></Card>
           </a>
-          <a key="sidebar-item-lists" href="/lists">
+          <a href="/lists">
             <Card><Heading>Lists</Heading></Card>
           </a>
         </Card>

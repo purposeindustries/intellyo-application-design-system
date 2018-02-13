@@ -73,8 +73,8 @@ const TemplateWrapper = ({ children }) => (
             <MenuPanelItem key="menu-panel-item-lists" href="/lists">
               Lists
             </MenuPanelItem>,
-            <MenuPanelItem key="menu-panel-sidebar-helper" href="/sidebar-helper">
-              Sidebar Helper
+            <MenuPanelItem key="menu-panel-sidebar-helper" href="/layout-helper">
+              Layout Helper
             </MenuPanelItem>,
           ]) }
         >

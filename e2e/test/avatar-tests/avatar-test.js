@@ -1,13 +1,17 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const INPUT_SELECTOR = 'input[type=file]';
-const FIRST_AVATAR_SELECTOR = '.card-body:nth-child(2) .user-avatar';
+const UPDLOAD_PICTURE_SELECTOR = '.card-body:nth-child(2) .user-avatar';
+const MEDIUM_AVATAR_SELECTOR = '.avatar-wrapper:nth-child(2) .user-avatar--medium';
+const SECOND_AVATAR_WRAPPER = '.avatar-wrapper:nth-child(2)';
+const ACTIVE_AVATAR = '.overlay-trigger--active';
 
 //test names
 const UPLOAD_FILE = 'upload-file';
+const MEDIUM_AVATAR = 'medium-avatar';
 
 //pic path
 const PIC_PATH = './e2e/utils/pics/IMG_0090.jpg';
@@ -25,7 +29,16 @@ describe('FEF avatars tests', () => {
     browser.url('/avatars');
     assert(browser.isExisting(INPUT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.chooseFile(INPUT_SELECTOR, PIC_PATH);
-    assert(takeScreenShotOfElement(FIRST_AVATAR_SELECTOR, {defaultTolerance: 11, ignoreComparison: false}),
+    assert(takeScreenShotOfElement(UPDLOAD_PICTURE_SELECTOR, {defaultTolerance: 11, ignoreComparison: false}),
+      'Avatar input screenshot not similar to other configurations');
+  });
+
+  it('should check ' + MEDIUM_AVATAR, () => {
+    browser.url('/avatars');
+    assert(browser.isExisting(MEDIUM_AVATAR_SELECTOR), 'Input selector is not existing in the DOM');
+    browser.moveToElement(MEDIUM_AVATAR_SELECTOR);
+    browser.waitForExist(ACTIVE_AVATAR);
+    assert(takeScreenShotOfElementAndCompareWithRef(SECOND_AVATAR_WRAPPER, {localTolerance: 14, firefoxTolerance: 3.5, defaultTolerance: 2, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });
 

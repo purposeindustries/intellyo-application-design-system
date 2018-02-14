@@ -42,9 +42,6 @@ if (e2eProfile.includes('sauceextended')) {
     platform: 'macOS 10.13'
   }, {
     browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
     version: 'latest-1',
     screenResolution: screenResolution,
     platform: 'Windows 10'
@@ -55,9 +52,6 @@ if (e2eProfile.includes('sauceextended')) {
     platform: 'Windows 10'
   }, {
     browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
     version: 'latest',
     screenResolution: screenResolution,
     platform: 'Windows 10'

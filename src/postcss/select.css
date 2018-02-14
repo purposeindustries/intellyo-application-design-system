@@ -1,3 +1,21 @@
+/* Local variables */
+
+$select-height: 32px;
+$select-padding: 0px 40px 0px 20px;
+$select-icon-dimension: 16px;
+
+$select-border-radius: $border-radius-base;
+$select-border-color: $color-black-2;
+
+$select-font-family: $font-family-base;
+$select-font-size: $font-size-base;
+
+$select-background-color: #fff;
+
+$select-border-color--hover: $color-primary-4;
+$select-font-color--hover: $color-primary-4;
+$select-svg-fill--hover: $color-primary-4;
+
 .select-wrapper {
 
   & .select-label {

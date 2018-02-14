@@ -18,13 +18,11 @@
 
   & .button-text-style {
     font-size: $button-font-size;
-    line-height: $button-line-height;
     font-weight: $button-font-weight;
   }
 
   & .button-small-text-style {
     font-size: $button-font-size-small;
-    line-height: $button-line-height-small;
     font-weight: $button-font-weight-small;
   }
 

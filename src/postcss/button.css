@@ -50,7 +50,6 @@ $button-background-color-disabled: $color-light-grey-1;
   appearance: none;
   cursor: pointer;
   white-space: nowrap;
-  line-height: $button-line-height;
   height: $button-height;
   padding: 0px $button-horizontal-padding;
   vertical-align: middle;
@@ -80,7 +79,7 @@ $button-background-color-disabled: $color-light-grey-1;
 }
 
 .button-icon-wrapper {
-  line-height: normal;
+
   & svg {
     fill: $button-icon-fill-primary;
     display: block;
@@ -165,7 +164,6 @@ $button-background-color-disabled: $color-light-grey-1;
 
 .button--small {
   height: $button-height-small;
-  line-height: $button-line-height-small;
   font-size: $button-font-size-small;
   padding: 0 $button-horizontal-padding-small;
   font-weight: $button-font-weight-small;
@@ -173,7 +171,6 @@ $button-background-color-disabled: $color-light-grey-1;
 
 .button--large {
   height: $button-height-large;
-  line-height: $button-line-height-large;
   font-size: $button-font-size-large;
   padding: 0 $button-horizontal-padding-large;
   font-weight: $button-font-weight-large;

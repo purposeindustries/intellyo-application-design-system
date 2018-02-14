@@ -49,60 +49,6 @@
   $caption-font-size: 12px;
   $caption-line-height: calc($caption-font-size * $line-height-multiplier-base);
 
-/* Button */
-
-  $button-font-size: 12px;
-  $button-line-height: calc($button-font-size * $line-height-multiplier-base);
-  $button-font-weight: 600;
-  $button-horizontal-padding: 10px;
-  $button-height: 35px;
-  $button-line-height: 35px;
-
-  $button-font-size-small: 10px;
-  $button-font-weight-small: 600;
-  $button-horizontal-padding-small: 6.5px;
-  $button-height-small: 25px;
-  $button-line-height-small: 25px;
-
-  $button-font-size-large: 14px;
-  $button-font-weight-large: 600;
-  $button-horizontal-padding-large: 10px;
-  $button-height-large: 40px;
-  $button-line-height-large: 40px;
-
-  $button-color-primary: #fff;
-  $button-background-color-primary: $color-primary-2;
-  $button-background-color-primary-hover: $color-primary-1;
-  $button-background-color-primary-active: $color-primary-1;
-
-  $button-icon-fill-primary: #fff;
-
-  $button-color-danger: #fff;
-  $button-background-color-danger: $color-danger-4;
-  $button-background-color-danger-hover: $color-danger-5;
-  $button-background-color-danger-active: $color-danger-5;
-
-  $button-icon-fill-danger: #fff;
-
-  $button-color-neutral: $color-black-4;
-  $button-color-neutral-hover: $color-primary-4;
-  $button-color-neutral-active: $color-primary-5;
-  $button-background-color-neutral: #fff;
-  $button-border-color-neutral: $color-black-3;
-  $button-border-color-neutral-hover: $color-primary-4;
-  $button-border-color-neutral-active: $color-primary-5;
-
-  $button-icon-fill-neutral: $color-black-4;
-  $button-icon-fill-neutral-hover: $color-primary-4;
-
-  $button-background-color-disabled: $color-grey-4;
-  $button-background-color-disabled-neutral: #fff;
-  $button-border-color-disabled: $color-grey-4;
-  $button-color-disabled: $color-grey-4;
-  $button-icon-fill-disabled: $color-grey-4;
-  $button-color-disabled--hover: #fff;
-  $button-icon-fill-disabled--hover: #fff;
-
   /* Avatars */
 
   $avatar-font-size--default: 24px;

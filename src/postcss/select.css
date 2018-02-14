@@ -26,33 +26,22 @@ $select-svg-fill--hover: $color-primary-4;
     position: relative;
     width: auto;
 
-    & select {
-      appearance: none;
-      outline: none;
-      width: auto;
-      height: $select-height;
-      padding: $select-padding;
-      background: $select-background-color;
-      border-radius: $select-border-radius;
-      border: 1px solid $select-border-color;
-      font-family: $select-font-family;
-      font-size: $select-font-size;
+    & .dropdown-trigger {
+      padding-right: calc((2 * (1/2) * $gutter-base) + $select-icon-dimension);
 
-      &:hover,
-      &:active {
-        border-color: $select-border-color--hover;
-        color: $select-font-color--hover;
+      & .icon {
+        position: absolute;
+        width: $select-icon-dimension;
+        height: $select-icon-dimension;
+        right: calc((1/2) * $gutter-base);
+        top: 50%;
+        transform: translateY(-50%);
+
+        & svg {
+          width: $select-icon-dimension;
+          height: $select-icon-dimension;
+        }
       }
-
-    }
-
-    & .icon {
-      position: absolute;
-      width: $select-icon-dimension;
-      height: $select-icon-dimension;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     & select:hover + .icon svg,

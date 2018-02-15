@@ -128,7 +128,7 @@ exports.config = {
   exclude: [
   ],
 
-  maxInstances: 5,
+  maxInstances: 3,
 
   capabilities: browsers,
 

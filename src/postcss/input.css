@@ -52,11 +52,7 @@ $input-label-font-family: $font-family-base;
     outline: none;
     font-family: $input-font-family;
     font-size: $input-font-size;
-    /*
-      On Mozilla there is a generated
-      box-shadow, which needs to be disabled.
-    */
-    box-shadow: none;
+    box-shadow: none; /* On Mozilla there is a generated box-shadow, which needs to be disabled. */
 
     &::placeholder {
       color: $input-placeholder-color;

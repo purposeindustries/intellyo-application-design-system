@@ -21,11 +21,9 @@ $input-error-message-font-size: $caption-font-size;
 
 /* Disabled */
 
-/* TODO remove this line ⬇️ */
-$input-background-color--disabled: $color-grey-3;
+$input-background-color--disabled: $color-light-grey-1;
 $input-border-color--disabled: $color-grey-3;
 $button-icon-fill--disabled: $color-black-2;
-/* $input-background-color--disabled: $color-light-grey-1; */
 
 /* Input with an icon */
 

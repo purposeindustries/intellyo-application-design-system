@@ -14,9 +14,9 @@ test:
     #run tests
     - >
       if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-        E2EPROFILE=saucelight npm run test:e2e
+        E2EPROFILE=saucelight npm run test:e2e -- --spec e2e/test/every-test/every-test.js
       else
-        npm run test:e2e
+        npm run test:e2e -- --spec e2e/test/every-test/every-test.js
       fi
     #make html form from test result pictures
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS

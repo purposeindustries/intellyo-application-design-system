@@ -389,7 +389,7 @@ describe('FEF sections tests', () => {
     browser.url('/sections');
     assert(browser.isExisting(DANGER_ZONE_SELECTOR), 'Danger zone is not existing in the DOM');
     assert(takeScreenShotOfElement(DANGER_ZONE_SELECTOR,
-      {localTolerance: 4.9, firefoxTolerance: 4.5, defaultTolerance: 3, ignoreComparison: false}),
+      {localTolerance: 4.9, firefoxTolerance: 4.5, defaultTolerance: 4, ignoreComparison: false}),
        'Added tags input is not similar to the reference');
   });
 
@@ -525,7 +525,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(HAMBURGER_TAG_SELECTOR), 'Hamburger tag is not existing in the DOM before adding and clicking');
     browser.click(HAMBURGER_TAG_SELECTOR);
     assert(takeScreenShotOfElement(HAMBURGER_TAG_SELECTOR,
-      {ffAndWindowsTolerance: 19, firefoxTolerance: 14, windowsTolerance: 16, defaultTolerance: 15.5, localIgnoreComparison: true }),
+      {ffAndWindowsTolerance: 19, firefoxTolerance: 14, windowsTolerance: 16, defaultTolerance: 99, localIgnoreComparison: true }),
        'Added and clicked tags input is not similar to the reference');
 
   });

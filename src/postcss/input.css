@@ -2,7 +2,6 @@
 
 $input-border-color: $color-grey-5;
 $input-border-radius: $border-radius-base;
-$input-border-color--focus-and-hover: $color-primary-3;
 $input-placeholder-color: $color-black-2;
 $input-color: $color-black-5;
 $input-background-color: #fff;
@@ -17,17 +16,21 @@ $input-font-size: $font-size-base;
 
 $input-border-color--error: $color-danger-4;
 $input-color--error: $color-danger-4;
+$input-state-icon-color--error: $color-danger-4;
 $input-error-message-font-size: $caption-font-size;
 
 /* Disabled */
 
+/* TODO remove this line ⬇️ */
 $input-background-color--disabled: $color-grey-3;
+$input-border-color--disabled: $color-grey-3;
+$button-icon-fill--disabled: $color-black-2;
+/* $input-background-color--disabled: $color-light-grey-1; */
 
 /* Input with an icon */
 
 $input-padding--icon: 0px calc((1/2) * $gutter-base) 0px calc(2 * $gutter-base);
 $input-icon-fill: $color-black-2;
-$input-icon-fill--focus: $color-primary-3;
 
 /* Input label */
 
@@ -58,9 +61,8 @@ $input-label-font-family: $font-family-base;
       color: $input-placeholder-color;
     }
 
-    &:focus,
-    &:hover {
-      border-color: $input-border-color--focus-and-hover;
+    &:focus::placeholder {
+      color: transparent;
     }
 
   }
@@ -102,51 +104,43 @@ $input-label-font-family: $font-family-base;
   &--error {
 
     & .input-state-icon {
-      background-color: $input-color--error;
+      background-color: $input-state-icon-color--error;
     }
 
     & input {
       border-color: $input-border-color--error;
-      color: $input-color--error;
       padding-right: calc(2 * $gutter-base);
 
       &::placeholder {
+        color: $input-placeholder-color;
+      }
+    }
+  }
+
+  &--disabled {
+
+    & .input-icon-wrapper .icon svg {
+      fill: $button-icon-fill--disabled;
+    }
+
+    & input {
+      background-color: $input-background-color--disabled;
+      border-color: $input-border-color--disabled;
+      pointer-events: none;
+
+      &::placeholder {
+        border-color: inherit;
+      }
+
+      &:focus,
+      &:hover {
         color: inherit;
       }
-
-      &:hover,
-      &:focus {
-        border-color: $input-border-color--error;
-      }
     }
-  }
-
-  &--disabled input {
-    background-color: $input-background-color--disabled;
-    pointer-events: none;
-
-    &::placeholder {
-      border-color: inherit;
-    }
-
-    &:focus,
-    &:hover {
-      color: inherit;
-    }
-
-  }
-
-  &--icon .react-autosuggest__container:focus-within + .input-icon-wrapper svg {
-    fill: $input-icon-fill--focus;
   }
 
   &--icon input {
     padding: $input-padding--icon;
-
-    &:focus + .input-icon-wrapper svg {
-      fill: $input-icon-fill--focus;
-    }
-
   }
 
   & .input-error-message {

@@ -129,7 +129,6 @@ exports.config = {
   ],
 
   maxInstances: 4,
-
   capabilities: browsers,
 
   sync: true,

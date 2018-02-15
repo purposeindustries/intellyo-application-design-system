@@ -24,7 +24,7 @@ describe('FEF sections tests', () => {
     browser.url('/sections');
     assert(browser.isExisting(DANGER_ZONE_SELECTOR), 'Danger zone is not existing in the DOM');
     assert(takeScreenShotOfElement(DANGER_ZONE_SELECTOR,
-      {localTolerance: 4.9, firefoxTolerance: 4.5, defaultTolerance: 3, ignoreComparison: false}),
+      {localTolerance: 4.9, firefoxTolerance: 4.5, defaultTolerance: 3, ignoreComparison: false, localIgnoreComparison: true}),
        'Added tags input is not similar to the reference');
   });
 

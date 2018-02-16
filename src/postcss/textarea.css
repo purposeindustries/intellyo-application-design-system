@@ -2,22 +2,22 @@
 
   $textarea-width: 250px;
   $textarea-height: 95px;
-  $textarea-padding: 10px;
+  $textarea-padding: calc((1/2) * $gutter-base) calc((3/4) * $gutter-base);
 
   $textarea-border-radius: $border-radius-base;
-  $textarea-border-color: $color-black-2;
+  $textarea-border-color: $color-grey-5;
 
   $textarea-bg-color: #fff;
-  $textarea-border-color--focus-and-hover: $color-primary-3;
 
   $textarea-font-family: $font-family-base;
   $textarea-font-color : $color-black-5;
-  $textarea-placeholder-color: $color-black-1;
+  $textarea-placeholder-color: $color-black-2;
   $textarea-font-size: $font-size-base;
 
   /* disabled */
 
-  $textarea-background-color--disabled: $color-grey-3;
+  $textarea-background-color--disabled: $color-light-grey-1;
+  $textarea-border-color--disabled: $color-grey-3;
 
 .textarea {
   position: relative;
@@ -42,6 +42,7 @@
 
   &--disabled {
     background: $textarea-background-color--disabled;
+    border-color: $textarea-border-color--disabled;
     pointer-events: none;
     color: inherit;
 
@@ -51,9 +52,8 @@
 
   }
 
-  &:hover,
-  &:focus {
-    border-color: $textarea-border-color--focus-and-hover;
+  &:focus::placeholder {
+    color: transparent;
   }
 
   &--invisible {

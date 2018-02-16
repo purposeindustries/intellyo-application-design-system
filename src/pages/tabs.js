@@ -1,7 +1,8 @@
 import React from 'react';
 import { Tab, TabPanel } from '../components/tab-panel';
 import Box from '../components/box';
-
+import docs from '../components/tab-panel/README.md';
+console.log(docs);
 export default class TabPanels extends React.Component {
   static displayName = 'TabPanels'
   render() {

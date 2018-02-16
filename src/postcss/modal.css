@@ -3,6 +3,7 @@
 /* Local variables */
 $modal-shadow: $box-shadow-base;
 $modal-overlay-background: rgba(0,0,0,.6);
+$modal-gutter: calc((3/2) * $gutter-base);
 
 .modal {
 
@@ -16,11 +17,17 @@ $modal-overlay-background: rgba(0,0,0,.6);
     padding: 0;
 
     & .modal-header {
-      padding: 15px 15px 0;
+      padding: $modal-gutter 0 calc((3/4) * $gutter-base);
+      margin: 0 $modal-gutter;
+      border-bottom: 1px solid $color-grey-3;
+
+      & .heading {
+        margin-bottom: calc((1/2) * $gutter-base);
+      }
     }
 
     & .modal-body {
-      padding: 15px;
+      padding: $modal-gutter;
     }
 
     & .modal-footer {
@@ -28,8 +35,13 @@ $modal-overlay-background: rgba(0,0,0,.6);
     }
   }
 
-  & .rodal-close::before,
-  & .rodal-close::after {
-    border-radius: 0;
+  & .rodal-close {
+    top: calc($modal-gutter + 4px);
+    right: $modal-gutter;
+
+    &::before,
+    &::after {
+      border-radius: 0;
+    }
   }
 }

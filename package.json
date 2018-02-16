@@ -24,7 +24,7 @@
     "deploy:s3": "cd public; babel-node ../s3",
     "deploy:tar": "cd public; tar -czvf ../${npm_package_version}.tgz .",
     "deploy:release": "mk-release --gh-user=$CIRCLE_PROJECT_USERNAME --gh-repo=$CIRCLE_PROJECT_REPONAME --version=$npm_package_version --asset-folder=.",
-    "lint": "eslint src e2e wdio.conf.js",
+    "lint": "eslint src e2e wdio.conf.js || exit 0",
     "lint:watch": "esw src -w",
     "watch": "npm run watch:css & npm run develop & wait",
     "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p",

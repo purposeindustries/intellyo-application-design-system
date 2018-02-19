@@ -6,17 +6,31 @@ class Tile extends React.Component {
 
   static propTypes = {
     image: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.node,
+    color: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
   }
 
+  static defaultProps = {
+    size: 'medium',
+    shape: 'rounded',
+    color: 'grey',
+    icon: null,
+  }
+
   render() {
+    const style = {
+      backgroundColor: this.props.color,
+      backgroundImage: this.props.image ? `url(${this.props.image})` : 'no-image'
+    };
+
     return (
       <div
         className={ cx('intellyo-tile', `tile-${this.props.size}`, `tile-${this.props.shape}`) }
+        style={ style }
       >
-        Hello
+        { this.props.icon }
       </div>
     );
   }

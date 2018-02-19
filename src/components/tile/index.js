@@ -18,7 +18,7 @@ class Tile extends React.Component {
   static defaultProps = {
     size: 'medium',
     shape: 'rounded',
-    color: 'grey',
+    color: '#E6E6E6',
     icon: null,
   }
 

@@ -24,7 +24,7 @@ const Row = (props) => {
     };
   }
   return (
-    <div className={ cx('row', this.props.className) } style={ style }>
+    <div className={ cx('row', props.className) } style={ style }>
       { cols }
     </div>
   );

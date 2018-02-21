@@ -17,8 +17,12 @@
     "before": true,
     "beforeEach": true,
     "afterEach": true,
-},
+  },
+  "plugins": [
+    "mocha-no-only"
+  ],
   "rules": {
+    "mocha-no-only/mocha-no-only": ["error"],
     "react/jsx-boolean-value": 0,
     "no-console": 1
   }

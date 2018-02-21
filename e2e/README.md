@@ -51,7 +51,7 @@ To see more information about the failing tests you can use the 'DEBUG' environm
 
 You can skip the tests when you commit if necessary. Just use BYPASS_E2E env. variable like this:
 
-- `export BYPASS_E2E=true`
+- `BYPASS_E2E=true git commit`
 
 ### pictures
 

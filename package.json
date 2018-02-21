@@ -45,6 +45,7 @@
     "eslint-config-pi": "^10.0.0",
     "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-mocha-no-only": "0.0.6",
+    "eslint-plugin-output-todo-comments": "0.0.7",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
     "gatsby": "^1.9.128",

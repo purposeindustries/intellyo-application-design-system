@@ -13,14 +13,14 @@ test:
     - npm run test
     #run tests
     - >
-      if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-        if [ -z $BYPASS_E2E ] ; then
+      if [ -z $BYPASS_E2E ] ; then
+        if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
           E2EPROFILE=saucelight npm run test:e2e
         else
-          echo "E2E tests skipped"
+          npm run test:e2e
         fi
       else
-          npm run test:e2e
+        echo E2E tests skipped
       fi
     #make html form from test result pictures
     - tree -H "https://circle-artifacts.com/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_BUILD_NUM/artifacts/0/$CIRCLE_ARTIFACTS" -o $CIRCLE_ARTIFACTS/index.html $CIRCLE_ARTIFACTS
@@ -43,6 +43,7 @@ deployment:
     commands:
       - >
         if [ -n "$RELEASE_TYPE" ]; then
+          npm run test:e2e
           git config --global user.email "dev@purposeindustries.co"
           git config --global user.name "purpose-bot"
           npm version $RELEASE_TYPE --git-tag-version false

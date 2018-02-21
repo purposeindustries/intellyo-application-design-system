@@ -17,7 +17,7 @@ test:
         if [ -z $BYPASS_E2E ] ; then
           E2EPROFILE=saucelight npm run test:e2e
         else
-          E2E tests skipped
+          echo "E2E tests skipped"
         fi
       else
           npm run test:e2e

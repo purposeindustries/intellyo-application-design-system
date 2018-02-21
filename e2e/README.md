@@ -49,9 +49,9 @@ To see more information about the failing tests you can use the 'DEBUG' environm
 
 ### bypass
 
-You can skip the tests if necessary:
+You can skip the tests when you commit if necessary. Just use BYPASS_E2E env. variable like this:
 
-- `BYPASS_E2E=true npm run test:e2e`
+- `export BYPASS_E2E=true`
 
 ### pictures
 

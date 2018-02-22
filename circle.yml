@@ -43,7 +43,6 @@ deployment:
     commands:
       - >
         if [ -n "$RELEASE_TYPE" ]; then
-          npm run test:e2e
           git config --global user.email "dev@purposeindustries.co"
           git config --global user.name "purpose-bot"
           npm version $RELEASE_TYPE --git-tag-version false

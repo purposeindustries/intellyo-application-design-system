@@ -42,4 +42,8 @@
       fill: $select-svg-fill--hover;
     }
   }
+
+  &.not-choosen .dropdown--closed {
+    color: $color-black-2;
+  }
 }

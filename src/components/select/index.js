@@ -34,7 +34,11 @@ export default class Select extends React.Component {
   }
   render() {
     return (
-      <div className={ classnames('select-wrapper', this.props.className) }>
+      <div
+        className={ classnames('select-wrapper', this.props.className, {
+          'not-choosen': !this.state.label
+        }) }
+      >
         { this.props.label && (
           <div className="select-label">{ this.props.label }</div>
         ) }
@@ -48,7 +52,6 @@ export default class Select extends React.Component {
           {
             React.Children.map(this.props.children, (c) => {
               return React.cloneElement(c, {
-
                 onClick: (e) => {
                   if (c.props.onClick) {
                     c.props.onClick(e);

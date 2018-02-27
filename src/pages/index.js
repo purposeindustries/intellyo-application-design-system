@@ -52,7 +52,7 @@ export default class Index extends React.Component {
             <Card><Heading>Sections</Heading></Card>
           </a>
           <a href="/tabs">
-            <Card><Heading>Tab</Heading> panels</Card>
+            <Card><Heading>Tab panels</Heading></Card>
           </a>
           <a href="/confirmations">
             <Card><Heading>Confirmations</Heading></Card>
@@ -61,8 +61,6 @@ export default class Index extends React.Component {
             <Card><Heading>Lists</Heading></Card>
           </a>
         </Card>
-
-
       </div>
     );
   }

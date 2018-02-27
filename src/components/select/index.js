@@ -36,7 +36,7 @@ export default class Select extends React.Component {
     return (
       <div
         className={ classnames('select-wrapper', this.props.className, {
-          'not-choosen': !this.state.label
+          'select-wrapper--empty': !this.state.label && !this.props.label
         }) }
       >
         { this.props.label && (
@@ -45,7 +45,7 @@ export default class Select extends React.Component {
         <Dropdown
           label={ this.getLabel() }
           isActive={ this.state.isActive }
-          className={ classnames('select') }
+          className="select"
           style={ this.props.style }
           icon={ this.props.icon }
         >

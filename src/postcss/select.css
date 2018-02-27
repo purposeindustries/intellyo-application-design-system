@@ -43,7 +43,7 @@
     }
   }
 
-  &.not-choosen .dropdown--closed {
+  &--empty .dropdown--closed {
     color: $color-black-2;
   }
 }

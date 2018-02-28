@@ -28,7 +28,7 @@
 
     }
 
-    & .icon {
+    & .icon.dropdown-arrow {
       position: absolute;
       width: $select-icon-dimension;
       height: $select-icon-dimension;
@@ -42,4 +42,13 @@
       fill: $select-svg-fill--hover;
     }
   }
+
+  &.car-3-selector {
+    & .dropdown-item {
+      & .icon {
+        margin-right: 8px;
+      }
+    }
+  }
+
 }

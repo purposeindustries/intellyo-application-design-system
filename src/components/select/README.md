@@ -15,6 +15,8 @@ clutter up the interface.
 | onChange | func | Callback when selection is changed |
 | style | obj | Pass styles to the component Expected value: `{}` |
 | label | node | You can write any string which appears above select as a label. |
+| className | string | Use to specify any additional classes to the component. |
+
 
 ## Examples
 

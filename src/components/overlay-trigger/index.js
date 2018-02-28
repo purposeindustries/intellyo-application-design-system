@@ -79,7 +79,6 @@ class OverlayTrigger extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown);
     this.removeTimer();
-    this.outsideTap.remove();
   }
 
   render() {

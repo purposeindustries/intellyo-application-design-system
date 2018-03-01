@@ -65,11 +65,12 @@ Avatar.propTypes = {
   size: PropTypes.string,
   style: PropTypes.object,
   name: PropTypes.string,
-  caption: PropTypes.string,
+  caption: PropTypes.node,
   icon: PropTypes.node,
   src: PropTypes.string,
   tooltipPlacement: PropTypes.string,
   showTooltip: PropTypes.bool,
+  title: PropTypes.node,
 };
 
 Avatar.defaultProps = {

@@ -21,11 +21,11 @@ const Avatar = (props) => {
         'user-avatar--small': props.size === 'small',
         'user-avatar--medium': props.size === 'medium',
         'user-avatar--extra-large': props.size === 'extraLarge',
-        'user-avatar--horizontal': props.caption
+        'user-avatar--horizontal': props.title
       }) }
       style={ props.style }
     >
-      { !props.caption && props.showTooltip ? (
+      { !props.title && props.showTooltip ? (
         <OverlayTrigger
           trigger="hover"
           delay={ 0 }
@@ -46,13 +46,13 @@ const Avatar = (props) => {
           name={ props.name === '' ? 'N/A' : props.name }
         />
       ) }
-      { props.caption && (
+      { props.title && (
         <div className="avatar-caption-wrapper">
-          <span className="avatar-name">{ props.name }</span>
-          <div className="caption-wrap">
+          <span className="avatar-name">{ props.title }</span>
+          { props.caption && <div className="caption-wrap">
             { props.icon }
             <span className="avatar-caption">{ props.caption }</span>
-          </div>
+          </div> }
         </div>
       ) }
     </div>

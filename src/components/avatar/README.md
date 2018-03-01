@@ -10,7 +10,8 @@ business in the interface.
 | size | string | Size of the avatar. It can be either `"small"`, `"medium"`, `"extraLarge"`. | `"large"` |
 | style | object | Set the style of the avatar | `none` |
 | name | string | The name of the person the avatar displays | `'John Doe'` |
-| caption | string | Short description next to the avatar | `none` |
+| title | node | Functions the same way as `name` prop, but accepts `FormattedMessage` as well. | `none` |
+| caption | node | Short description next to the avatar | `none` |
 | icon | node | Icon to appear before the caption | `none` |
 | src | string | URL of the avatar image | `none` |
 | tooltipPlacement | `oneOf(['left', 'right', 'top', 'bottom'])` | It's an optional prop for placing the tooltip. If nothing is specified, the `<Tooltip />` will appear at the top as `<Tooltip />`'s default placement is `'top'`. | `<Tooltip />`'s `'top'` |

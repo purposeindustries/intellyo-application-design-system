@@ -2,6 +2,7 @@ import React from 'react';
 import { bool, string, node, func, number, object } from 'prop-types';
 import Heading from '../heading/';
 import Rodal from 'rodal';
+import classnames from 'classnames';
 
 export default class Modal extends React.PureComponent {
 
@@ -41,14 +42,12 @@ export default class Modal extends React.PureComponent {
   }
 
   render() {
-    const autoHeightStyles = {
-      'height': 'auto',
-      'bottom': 'auto',
-      'top': '50%',
-      'transform': 'translateY(-50%)',
-    };
     return (
-      <div className="modal">
+      <div
+        className={ classnames('modal', {
+          'modal--auto-height': this.props.hasAutoHeight
+        }) }
+      >
         <Rodal
           visible={ this.props.visible }
           onClose={ this.props.onClose }
@@ -61,9 +60,7 @@ export default class Modal extends React.PureComponent {
           closeOnEsc
           animation={ this.props.animation }
           onAnimationEnd={ this.handleAnimationEnd }
-          customStyles={ this.props.hasAutoHeight
-            ? Object.assign(this.props.customStyles, autoHeightStyles)
-            : this.props.customStyles }
+          customStyles={ this.props.customStyles }
           customMaskStyles={ this.props.customMaskStyles }
         >
           { (this.props.title || this.props.header) && (

@@ -32,4 +32,18 @@ $modal-overlay-background: rgba(0,0,0,.6);
   & .rodal-close::after {
     border-radius: 0;
   }
+
+  &--auto-height .rodal-dialog {
+    height: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-flow: column;
+
+    & .modal-body {
+      flex: 2;
+      overflow: auto;
+    }    
+  }
 }

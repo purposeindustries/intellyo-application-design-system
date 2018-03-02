@@ -41,6 +41,14 @@ export default class Modal extends React.PureComponent {
     return;
   }
 
+  componentDidUpdate() {
+    if (document && this.props.visible) {
+      document.body.classList.add('modal--open');
+    } else {
+      document.body.classList.remove('modal--open');
+    }
+  }
+
   render() {
     return (
       <div

@@ -4,8 +4,12 @@
 $modal-shadow: $box-shadow-base;
 $modal-overlay-background: rgba(0,0,0,.6);
 
+body.modal--open {
+  overflow: hidden;
+}
+
 .modal {
-  
+
   & .modal-header,
   & .modal-body,
   & .modal-footer {

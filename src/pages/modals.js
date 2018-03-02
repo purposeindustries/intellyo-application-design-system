@@ -5,7 +5,6 @@ import Col from '../components/col/';
 import Modal from '../components/modals/';
 import Button from '../components/button/';
 import DisplayText from '../components/display-text';
-import Caption from '../components/caption/';
 
 export default class ModalsPage extends Component {
   static displayName = 'ModalsPage'
@@ -150,7 +149,8 @@ export default class ModalsPage extends Component {
                 height={ 60 }
                 isAnimated={ false }
                 hasAutoHeight={ true }
-                title={ <div><DisplayText>Modal with scroll</DisplayText><Caption>Subheadline</Caption></div> }
+                title={ <div><DisplayText>Modal with scroll</DisplayText></div> }
+                titleCaption="Header height is flexible"
                 footer={ (
                   <div className="dialog-exmaple-buttons">
                     <Button onClick={ () => this.handleModalClose('modalWithScroll') }>Close</Button>

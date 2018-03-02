@@ -10,9 +10,13 @@ body.modal--open {
 
 .modal {
 
-  & .modal-header,
-  & .modal-body,
-  & .modal-footer {
+  &-header .caption {
+    color: $caption-color;
+  }
+
+  &-header,
+  &-body,
+  &-footer {
     padding: $gutter-base;
   }
 

@@ -45,7 +45,9 @@ export default class Modal extends React.PureComponent {
     return (
       <div
         className={ classnames('modal', {
-          'modal--auto-height': this.props.hasAutoHeight
+          'modal--auto-height': this.props.hasAutoHeight,
+          'modal--has-header': this.props.title || this.props.header,
+          'modal--has-footer': this.props.footer,
         }) }
       >
         <Rodal

@@ -16,7 +16,8 @@ class OverlayTrigger extends React.Component {
     children: PropTypes.node.isRequired,
     trigger: PropTypes.oneOf(['click', 'hover']),
     className: PropTypes.string,
-    delay: PropTypes.number
+    delay: PropTypes.number,
+    innerRef: PropTypes.func,
   }
 
   static defaultProps = {
@@ -98,10 +99,14 @@ class OverlayTrigger extends React.Component {
         this.deactivate();
       };
     }
-
     return (
       <Manager>
         <div
+          ref={ () => {
+            if (typeof this.props.innerRef === 'function') {
+              this.props.innerRef(this);
+            }
+          } }
           className={
             classNames('overlay-trigger', {
               'overlay-trigger--active': this.state.isActive

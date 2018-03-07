@@ -47,6 +47,12 @@ To see more information about the failing tests you can use the 'DEBUG' environm
 
 - `DEBUG=test npm run test:e2e`
 
+### bypass
+
+You can skip the tests when you commit if necessary. Just use BYPASS_E2E env. variable like this:
+
+- `BYPASS_E2E=true git commit`
+
 ### pictures
 
 The results of the tests are written in the terminal, but you can check the created pictures about the elements in the same folder where the tests are located in the ./pics folder, next to the references.

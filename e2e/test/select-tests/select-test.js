@@ -16,7 +16,6 @@ describe('FEF select tests', () => {
 
   it('Checks the the fef select page title and browser compare visual regression', () => {
     browser.url('/select');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 5.1, ignoreComparison: false}),
     'Whole FEF select page screenshot compare to a reference picture');
   });

@@ -15,7 +15,6 @@ describe('FEF sections tests', () => {
 
   it('Checks the the fef modal page title and browser compare visual regression', () => {
     browser.url('/sections');
-    assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),
       'Whole FEF popover page screenshot not similar to other configurations');
   });

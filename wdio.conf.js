@@ -168,6 +168,7 @@ exports.config = {
   },
 
   mochaOpts: {
+    retries: isDefaultBrowser ? 0 : 3,
     ui: 'bdd',
     timeout: 99999999,
     require: './e2e/utils/mocha-setup.js'

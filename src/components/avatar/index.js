@@ -1,75 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserAvatar from 'react-user-avatar';
 import classNames from 'classnames';
 import silhouette from './silhouette';
 import Tooltip from '../tooltip';
 import OverlayTrigger from '../overlay-trigger';
 
-const Avatar = (props) => {
-
-  const sizes = {
-    small: 25,
-    medium: 40,
-    extraLarge: 120,
-  };
-  const defaultSize = 60;
-
-  return (
-    <div
-      className={ classNames('user-avatar', {
-        'user-avatar--small': props.size === 'small',
-        'user-avatar--medium': props.size === 'medium',
-        'user-avatar--extra-large': props.size === 'extraLarge',
-        'user-avatar--horizontal': props.caption
-      }) }
-      style={ props.style }
-    >
-      { !props.caption && props.showTooltip ? (
-        <OverlayTrigger
-          trigger="hover"
-          delay={ 0 }
-          overlay={
-            <Tooltip placement={ props.tooltipPlacement }>{ props.name === '' ? 'N/A' : props.name }</Tooltip>
-          }
-        >
-          <UserAvatar
-            size={ sizes[props.size] || defaultSize }
-            src={ props.src || silhouette }
-            name={ props.name === '' ? 'N/A' : props.name }
+const Avatar = (props) => (
+  <div
+    className={ classNames('user-avatar', {
+      'user-avatar--small': props.size === 'small',
+      'user-avatar--medium': props.size === 'medium',
+      'user-avatar--extra-large': props.size === 'extraLarge',
+    }) }
+    style={ props.style }
+  >
+    { props.showTooltip ? (
+      <OverlayTrigger
+        trigger="hover"
+        delay={ 0 }
+        overlay={
+          <Tooltip placement={ props.tooltipPlacement }>{ props.name === '' ? 'N/A' : props.name }</Tooltip>
+        }
+      >
+        <div className="user-avatar-img">
+          <img
+            src={ props.src }
+            alt={ `picture of ${props.name}` }
           />
-        </OverlayTrigger>
-      ) : (
-        <UserAvatar
-          size={ sizes[props.size] || defaultSize }
-          src={ props.src || silhouette }
-          name={ props.name === '' ? 'N/A' : props.name }
-        />
-      ) }
-      { props.caption && (
-        <div className="avatar-caption-wrapper">
-          <span className="avatar-name">{ props.name }</span>
-          <div className="caption-wrap">
-            { props.icon }
-            <span className="avatar-caption">{ props.caption }</span>
-          </div>
         </div>
-      ) }
-    </div>
-  );
-};
+      </OverlayTrigger>
+    ) : (
+      <div className="user-avatar-img">
+        <img
+          src={ props.src || silhouette }
+          alt={ `picture of ${props.name}` }
+        />
+      </div>
+    ) }
+  </div>
+);
 
 Avatar.displayName = 'Avatar';
 
 Avatar.propTypes = {
   size: PropTypes.string,
-  style: PropTypes.object,
   name: PropTypes.string,
-  caption: PropTypes.string,
-  icon: PropTypes.node,
   src: PropTypes.string,
   tooltipPlacement: PropTypes.string,
   showTooltip: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 Avatar.defaultProps = {

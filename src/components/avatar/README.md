@@ -10,8 +10,6 @@ business in the interface.
 | size | string | Size of the avatar. It can be either `"small"`, `"medium"`, `"extraLarge"`. | `"large"` |
 | style | object | Set the style of the avatar | `none` |
 | name | string | The name of the person the avatar displays | `'John Doe'` |
-| caption | string | Short description next to the avatar | `none` |
-| icon | node | Icon to appear before the caption | `none` |
 | src | string | URL of the avatar image | `none` |
 | tooltipPlacement | `oneOf(['left', 'right', 'top', 'bottom'])` | It's an optional prop for placing the tooltip. If nothing is specified, the `<Tooltip />` will appear at the top as `<Tooltip />`'s default placement is `'top'`. | `<Tooltip />`'s `'top'` |
 | showTooltip | `boolean` | Whether you'd like to render a tooltip or not. | `true` |
@@ -34,16 +32,5 @@ Use to display the `image` inside your `src` prop's url.
   name="Donald Trump"
   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
   size="medium"
-/>
-```
-
-Use to display an `icon` below the `name` prop, next to the `caption`.
-
-```jsx
-<Avatar
-  name="Donald Trump"
-  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
-  size="medium"
-  icon={ (<Icon icon="ion-ios-location" />) }
 />
 ```

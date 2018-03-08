@@ -2,6 +2,8 @@ import React from 'react';
 import { bool, string, node, func, number, object } from 'prop-types';
 import Heading from '../heading/';
 import Rodal from 'rodal';
+import classnames from 'classnames';
+import Caption from '../caption/';
 
 export default class Modal extends React.PureComponent {
 
@@ -26,6 +28,7 @@ export default class Modal extends React.PureComponent {
     hasAutoHeight: bool,
     customStyles: object,
     customMaskStyles: object,
+    titleCaption: node,
   }
 
   static defaultProps = {
@@ -40,15 +43,23 @@ export default class Modal extends React.PureComponent {
     return;
   }
 
+  componentDidUpdate() {
+    if (document && this.props.visible) {
+      document.body.classList.add('modal--open');
+    } else {
+      document.body.classList.remove('modal--open');
+    }
+  }
+
   render() {
-    const autoHeightStyles = {
-      'height': 'auto',
-      'bottom': 'auto',
-      'top': '50%',
-      'transform': 'translateY(-50%)',
-    };
     return (
-      <div className="modal">
+      <div
+        className={ classnames('modal', {
+          'modal--auto-height': this.props.hasAutoHeight,
+          'modal--has-header': this.props.title || this.props.header,
+          'modal--has-footer': this.props.footer,
+        }) }
+      >
         <Rodal
           visible={ this.props.visible }
           onClose={ this.props.onClose }
@@ -61,17 +72,18 @@ export default class Modal extends React.PureComponent {
           closeOnEsc
           animation={ this.props.animation }
           onAnimationEnd={ this.handleAnimationEnd }
-          customStyles={ this.props.hasAutoHeight
-            ? Object.assign(this.props.customStyles, autoHeightStyles)
-            : this.props.customStyles }
+          customStyles={ this.props.customStyles }
           customMaskStyles={ this.props.customMaskStyles }
         >
           { (this.props.title || this.props.header) && (
             <header className="modal-header">
-              { this.props.title && (
-                <Heading>{ this.props.title }</Heading>
-              ) }
-              { this.props.header }
+              <div className="modal-header-wrap">
+                { this.props.title && (
+                  <Heading>{ this.props.title }</Heading>
+                ) }
+                { this.props.header }
+              </div>
+              { this.props.titleCaption && <Caption>{ this.props.titleCaption }</Caption> }
             </header>
           ) }
           <main className="modal-body">

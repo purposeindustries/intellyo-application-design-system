@@ -102,10 +102,12 @@ export default class Avatars extends Component {
               <Col span={ 6 }>
                 <Avatar
                   name="Donald Trump"
+                  title="Donald Trump"
                   caption="President of the United States"
                 />
                 <Avatar
                   name="Donald Trump"
+                  title="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   icon={ (
                     <Icon icon="ion-ios-location" />

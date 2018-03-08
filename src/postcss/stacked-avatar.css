@@ -1,0 +1,12 @@
+/* Stacked avatar */
+
+$stacked-avatar-height: 25px;
+$stacked-avatar-min-width: 100px;
+
+$stacked-avatar--additional-font-color: $avatar-font-color;
+$stacked-avatar--additional-left: 45px;
+$stacked-avatar--additional-dimensions: 25px;
+$stacked-avatar--additional-font-size: $avatar-font-size--small;
+$stacked-avatar--additional-background-color: $color-primary-3;
+$stacked-avatar--additional-font-weight: $avatar-font-weight;
+$stacked-avatar--additional-border-raius: 100%;

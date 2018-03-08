@@ -10,6 +10,10 @@
   &--small .UserAvatar--inner {
     font-size: $avatar-font-size--small;
   }
+$avatar-img-size: 60px;
+$avatar-img-size--small: 25px;
+$avatar-img-size--medium: 40px;
+$avatar-img-size--extra-large: 120px;
 
   &--medium .UserAvatar--inner {
     font-size: $avatar-font-size--medium;
@@ -23,6 +27,11 @@
       display: flex;
       flex-direction: column;
       margin: 0 0 0 10px;
+$avatar-font-size--default: 24px;
+$avatar-font-size--small: 12px;
+$avatar-font-size--medium: 16px;
+$avatar-font-weight: 700;
+$avatar-font-color: #fff;
 
       & .avatar-name {
         font-size: $avatar-name-font-size;
@@ -30,6 +39,9 @@
         font-weight: $avatar-name-font-weight;
         color: $avatar-name-font-color;
       }
+$avatar-caption-font-size: $caption-font-size;
+$avatar-caption-line-height: $caption-line-height;
+$avatar-caption-font-color: $color-black-2;
 
       & .avatar-caption {
         font-size: $avatar-caption-font-size;

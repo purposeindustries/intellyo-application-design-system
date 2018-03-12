@@ -13,6 +13,7 @@ business in the interface.
 | src | string | URL of the avatar image | `none` |
 | tooltipPlacement | `oneOf(['left', 'right', 'top', 'bottom'])` | It's an optional prop for placing the tooltip. If nothing is specified, the `<Tooltip />` will appear at the top as `<Tooltip />`'s default placement is `'top'`. | `<Tooltip />`'s `'top'` |
 | showTooltip | `boolean` | Whether you'd like to render a tooltip or not. | `true` |
+| className | string | Specify a custom className for the component | `none` |
 
 ## Examples
 

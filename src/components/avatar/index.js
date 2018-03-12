@@ -26,7 +26,7 @@ const Avatar = (props) => (
       'user-avatar--small': props.size === 'small',
       'user-avatar--medium': props.size === 'medium',
       'user-avatar--extra-large': props.size === 'extraLarge',
-    }) }
+    }, props.className) }
     style={ props.style }
   >
     { props.showTooltip ? (
@@ -57,6 +57,7 @@ Avatar.propTypes = {
   size: PropTypes.string,
   name: PropTypes.string,
   src: PropTypes.string,
+  className: PropTypes.string,
   tooltipPlacement: PropTypes.string,
   showTooltip: PropTypes.bool,
   style: PropTypes.object,

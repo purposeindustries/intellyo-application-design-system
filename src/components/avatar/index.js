@@ -5,6 +5,21 @@ import silhouette from './silhouette';
 import Tooltip from '../tooltip';
 import OverlayTrigger from '../overlay-trigger';
 
+const AvatarImg = (props) => (
+  <div className="user-avatar-img">
+    <img
+      src={ props.src || silhouette }
+      alt={ `picture of ${props.name || 'N/A'}` }
+    />
+  </div>
+);
+
+AvatarImg.displayName = 'AvatarImg';
+AvatarImg.propTypes = {
+  src: PropTypes.string,
+  name: PropTypes.string,
+};
+
 const Avatar = (props) => (
   <div
     className={ classNames('user-avatar', {
@@ -22,20 +37,16 @@ const Avatar = (props) => (
           <Tooltip placement={ props.tooltipPlacement }>{ props.name === '' ? 'N/A' : props.name }</Tooltip>
         }
       >
-        <div className="user-avatar-img">
-          <img
-            src={ props.src }
-            alt={ `picture of ${props.name}` }
-          />
-        </div>
+        <AvatarImg
+          src={ props.src }
+          name={ props.name }
+        />
       </OverlayTrigger>
     ) : (
-      <div className="user-avatar-img">
-        <img
-          src={ props.src || silhouette }
-          alt={ `picture of ${props.name}` }
-        />
-      </div>
+      <AvatarImg
+        src={ props.src }
+        name={ props.name }
+      />
     ) }
   </div>
 );

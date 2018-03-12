@@ -61,7 +61,7 @@ export default class Modal extends React.PureComponent {
         height: 'auto',
       };
     }
-    
+
     return (
       <div
         className={ classnames('modal', {

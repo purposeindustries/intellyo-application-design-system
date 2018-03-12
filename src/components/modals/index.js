@@ -52,6 +52,16 @@ export default class Modal extends React.PureComponent {
   }
 
   render() {
+    let autoHeightStyles = {};
+
+    if (this.props.hasAutoHeight) {
+      autoHeightStyles = {
+        measure: '',
+        width: this.props.width + this.props.measure,
+        height: 'auto',
+      };
+    }
+
     return (
       <div
         className={ classnames('modal', {
@@ -72,7 +82,10 @@ export default class Modal extends React.PureComponent {
           closeOnEsc
           animation={ this.props.animation }
           onAnimationEnd={ this.handleAnimationEnd }
-          customStyles={ this.props.customStyles }
+          customStyles={ {
+            ...this.props.customStyles,
+            ...autoHeightStyles,
+          } }
           customMaskStyles={ this.props.customMaskStyles }
         >
           { (this.props.title || this.props.header) && (

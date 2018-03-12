@@ -51,3 +51,4 @@ export { Tab, TabPanel } from './tab-panel';
 export { default as List } from './list';
 export { default as DragSort } from './list/dragSort';
 export { default as Tile } from './tile/';
+export { default as Confirmation } from './confirmation/';

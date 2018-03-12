@@ -11,6 +11,7 @@ business in the interface.
 | icon | node | Icon to appear before the caption | `none` |
 | caption | string | Short description next to the avatar | `none` |
 | src | string | URL of the avatar image | `none` |
+| className | string | Specify a custom className for the component | `none` |
 
 ## Examples
 

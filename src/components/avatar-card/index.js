@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Avatar from '../avatar';
 
 const AvatarCard = (props) => (
-  <div className="user-avatar-card">
+  <div className={ classNames('user-avatar-card', props.className) }>
     <Avatar
       name={ props.name }
       src={ props.src }
@@ -26,6 +27,7 @@ AvatarCard.propTypes = {
   src: PropTypes.string,
   caption: PropTypes.node,
   icon: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default AvatarCard;

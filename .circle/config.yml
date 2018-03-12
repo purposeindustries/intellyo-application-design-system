@@ -1,0 +1,99 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/purposeindustries/content-editor
+    parallelism: 1
+    shell: /bin/bash --login
+
+    environment:
+      E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
+      E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
+      E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
+      E2EPROFILE: sauceextended
+
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+
+      - restore_cache:
+          keys:
+            - dependency-cache
+
+      - run: echo -e "$NPMRC" >>$HOME/.npmrc
+
+      - run: npm i --prefer-offline
+
+      - save_cache:
+          key: dependency-cache
+          paths:
+          - ~/.npm
+          - ./node_modules
+
+      - run:
+          name: install system wide tools
+          command: apt-get install tree
+
+      - run:
+          name: test
+          command: npm run test
+
+      - run:
+          name: build assets
+          command: npm run build
+          environment:
+            NODE_ENV: production
+
+      - run:
+          name: e2e test
+          command: |
+            if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
+              E2EPROFILE=saucelight npm run test:e2e
+            else
+              npm run test:e2e
+            fi
+      - store_test_results:
+          path: /tmp/circleci-test-results
+      # Save artifacts
+      - store_artifacts:
+          path: /tmp/circleci-artifacts
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+      - deploy:
+          name: Deploy and release
+          command: |
+            if [ -n "$RELEASE_TYPE" ]; then
+              git config --global user.email "dev@purposeindustries.co"
+              git config --global user.name "purpose-bot"
+              npm version $RELEASE_TYPE --git-tag-version false
+              npm publish
+              VERSION=$(node -pe 'require("./package.json").version')
+              git add package.json package-lock.json
+              git commit --no-verify -m "chore: $RELEASE_TYPE bump to v$VERSION"
+              git tag "v$VERSION"
+              repo=https://$GITHUB_ACCESS_TOKEN@github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME.git;
+              git push $repo $CIRCLE_BRANCH &> /dev/null;
+              git push --tags $repo &> /dev/null;
+            fi
+workflows:
+  version: 2
+
+  commit:
+    filters:
+      branches:
+        ignore: /v[0-9]+(\.[0-9]+)*/
+    requires:
+      - build
+
+  release:
+    filters:
+      branches:
+        only: /v[0-9]+(\.[0-9]+)*/
+    requires:
+      - build
+    steps:
+      - run:
+          name: deploy
+          command: npm run deploy

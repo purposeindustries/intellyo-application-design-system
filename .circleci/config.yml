@@ -35,7 +35,7 @@ jobs:
 
       - run:
           name: install system wide tools
-          command: apt-get install tree
+          command: sudo apt-get install tree
 
       - run:
           name: test

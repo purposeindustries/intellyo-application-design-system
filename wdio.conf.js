@@ -3,7 +3,7 @@ const VisualRegressionCompare = require('wdio-visual-regression-service/compare'
 const os = require('os');
 const visualRegression = require('./e2e/utils/visual-regression');
 const ScreenshotService = require('./e2e/utils/screenshot');
-
+const slugify = require('slugify');
 const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
 
 const resolution = { width: 1400, height: 1050 };
@@ -21,7 +21,6 @@ if (e2eProfile.includes('saucelight')) {
     version: 'latest',
     screenResolution: screenResolution,
     platform: 'macOS 10.13'
-
   });
 
   driver = 'sauce';
@@ -82,7 +81,20 @@ if (e2eProfile.includes('headless-chrome')) {
     height: resolution.height,
     browserName: 'chrome',
     chromeOptions: {
-      'args': ['disable-infobars', '--headless']
+      //args: [
+      //'disable-infobars',
+      /*'--headless',  '--remote-debugging-port=9222'*/
+      //],
+      args: [
+        'disable-infobars',
+        //'--remote-debugging-port=9222',
+        //'--user-data-dir=/tmp/', // + Date.now(),
+        //'--noerrdialogs',
+        //'--no-first-run'
+        //'--headless'
+      ]
+      //binary:
+      //'/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
     }
   });
 }
@@ -117,16 +129,16 @@ if (e2eProfile.length === 0) {
   });
   isDefaultBrowser = true;
 }
-
+const frames = {};
 exports.config = {
-  seleniumInstallArgs: {version: '3.4.0'},
-  seleniumArgs: {version: '3.4.0'},
+  seleniumInstallArgs: { version: '3.4.0' },
+  seleniumArgs: { version: '3.4.0' },
 
   specs: [
     './e2e/test/**/*.js'
+    //'./e2e/test/card-tests/card-test.js'
   ],
-  exclude: [
-  ],
+  exclude: [],
 
   maxInstances: 4,
   capabilities: browsers,
@@ -141,14 +153,20 @@ exports.config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  services: [driver, 'visual-regression', 'static-server', ScreenshotService],
+  services: [
+    driver,
+    'devtools',
+    'visual-regression',
+    'static-server',
+    ScreenshotService
+  ],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
       referenceName: getRefPicName(),
       screenshotName: getScreenshotName(isDefaultBrowser),
       diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
-    }),
+    })
   },
   user: sauceLabsUsername,
   key: saucelabsAccesKey,
@@ -173,7 +191,7 @@ exports.config = {
     require: './e2e/utils/mocha-setup.js'
   },
 
-  before: function (capabilities, tests) {
+  before: function(capabilities, tests) {
     browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
@@ -182,9 +200,91 @@ exports.config = {
       });
     }
     browser.driver = driver;
+    //browser.url('chrome://version');
+    //require('fs').writeFileSync('./version.html', browser.getSource());
+  },
+  beforeTest: (test) => {
+    const testName = slugify(test.fullTitle, {
+      lower: true
+    });
+    if (!frames[testName]) {
+      frames[testName] = [];
+    }
+    console.log('before test: %s', testName);
+    browser.on('Page.screencastFrame', result => {
+      
+      browser.cdp('Page', 'screencastFrameAck', {
+        sessionId: result.sessionId
+      });
+      const binaryBlob = Buffer.from(result.data, 'base64');
+      const len = frames[testName].length;
+      const framePath = `${testName}-${len}.jpg`;
+      console.log('before test: %s (%s)', testName, len);
+      frames[testName].push({ framePath });
+      require('fs').writeFileSync('./imgs/' + framePath, binaryBlob);
+    });
+    browser.cdp('Page', 'startScreencast', {
+      format: 'png',
+      quality: 80,
+      everyNthFrame: 1
+    });
+  },
+  afterTest: (test) => {
+    browser.cdp('Page', 'stopScreencast');
+    browser.removeAllListeners('Page.screencastFrame');
+    const testName = slugify(test.fullTitle, { lower: true });
+    
+    console.log('after test: %s (%s)', testName, frames[testName].length);
+    const files = frames[testName].map(frame => {
+      return `file ${frame.framePath}`;
+    });
+
+    const inputFiles = `./imgs/${testName}.txt`;
+    const outputFile = `./imgs/${testName}.mp4`;
+    require('fs').writeFileSync(inputFiles, files.join('\n'));
+    const args = [
+      '-safe',
+      '0',
+      '-y',
+      '-f',
+      'concat',
+      '-i',
+      inputFiles,
+      '-crf',
+      '30',
+      '-minrate',
+      '500k',
+      '-maxrate',
+      '2000k',
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-vf',
+      'scale=trunc(iw/2)*2:trunc(ih/2)*2', // make sure the size is dividable by 2
+      '-r',
+      '1',
+      outputFile
+    ];
+    console.log('ffmpeg %s', args.join(' '));
+    
+    require('child_process').execFileSync('ffmpeg', args);
+    unlink(inputFiles);
+    frames[testName].forEach(frame => {
+      unlink(`./imgs/${frame.framePath}`);
+    });
+    console.log('file written to %s', outputFile);
   },
   staticServerPort: process.env.STATIC_PORT || 4567,
-  staticServerFolders: [{
-    mount: '/', path: './public'
-  }]
+  staticServerFolders: [
+    {
+      mount: '/',
+      path: './public'
+    }
+  ]
 };
+const fs = require('fs');
+function unlink(file) {
+  console.log('unlink %s', file);
+  fs.unlinkSync(file);
+}

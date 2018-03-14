@@ -44,3 +44,5 @@ e2e/test_results
 
 #Environment variables
 .env
+
+imgs/*

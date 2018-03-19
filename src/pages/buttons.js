@@ -289,7 +289,7 @@ export default class Buttons extends Component {
           </Card>
         </div>
         <DisplayText>Loading Button</DisplayText>
-        <Card>
+        <Card className="loading-buttons">
           <Row>
             <Col span={ 12 }>
               <LoadingButton
@@ -300,6 +300,17 @@ export default class Buttons extends Component {
                   this.setState({loading: false});
                 } }
               />
+              <LoadingButton
+                loading={ this.state.loading }
+                loadingText={ <span>Publishing</span> }
+                onClick={ async () => {
+                  this.setState({loading: true});
+                  await sleep(7000);
+                  this.setState({loading: false});
+                } }
+              >
+                <span>Publish</span>
+              </LoadingButton>
             </Col>
           </Row>
         </Card>

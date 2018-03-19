@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const Row = (props) => {
   const cols = React.Children.map(props.children, (col) => {
@@ -23,7 +24,7 @@ const Row = (props) => {
     };
   }
   return (
-    <div className="row" style={ style }>
+    <div className={ cx('row', props.className) } style={ style }>
       { cols }
     </div>
   );
@@ -31,7 +32,8 @@ const Row = (props) => {
 
 Row.propTypes = {
   gutter: PropTypes.number,
-  style: PropTypes.object
+  style: PropTypes.object,
+  className: PropTypes.string,
 };
 
 Row.defaultProps = {

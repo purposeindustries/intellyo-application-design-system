@@ -55,6 +55,7 @@ Here you can find each of our components:
 - [ToggleableTags](/src/components/toggleable-tags)
 - [Tooltip](/src/components/tooltip)
 - [withLimit](/src/components/with-limit)
+- [Tile](/src/components/tile/index)
 
 ## E2E tests usage:
 

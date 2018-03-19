@@ -1,3 +1,6 @@
+$tag-dimension: 32px;
+$tag-dimension--large: 40px;
+
 .tagsinput {
   background: #fff;
   border-radius: $border-radius-base;
@@ -11,9 +14,16 @@
   }
 }
 
-/* @TODO needs discussion whether this is right */
 .tagsinput-add-tag {
   border: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: $tag-dimension;
+
+  &.button--large {
+    width: 40px;
+  }
 }
 
 .tagsinput--input-visible {
@@ -31,7 +41,7 @@
   color: #fff;
   display: flex;
   float: left;
-  height: 35px;
+  height: $tag-dimension;
   line-height: 30px;
   white-space: nowrap;
   padding: 0 10px;

@@ -12,7 +12,7 @@ export default class Modal extends React.PureComponent {
   static propTypes = {
     visible: bool.isRequired,
     onClose: func,
-    title: string,
+    title: node,
     header: node,
     children: node,
     footer: node,

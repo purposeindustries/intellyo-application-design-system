@@ -53,7 +53,6 @@ export default class Modal extends React.PureComponent {
 
   render() {
     let autoHeightStyles = {};
-    let measure = this.props.measure;
 
     if (this.props.hasAutoHeight) {
       autoHeightStyles = {
@@ -61,7 +60,6 @@ export default class Modal extends React.PureComponent {
         height: 'auto',
         maxHeight: this.props.height + this.props.measure,
       };
-      measure = '';
     }
 
     return (
@@ -75,7 +73,7 @@ export default class Modal extends React.PureComponent {
         <Rodal
           visible={ this.props.visible }
           onClose={ this.props.onClose }
-          measure={ measure }
+          measure={ this.props.measure }
           width={ this.props.width }
           height={ this.props.height }
           className={ this.props.className }

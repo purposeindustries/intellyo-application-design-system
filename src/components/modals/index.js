@@ -34,6 +34,7 @@ export default class Modal extends React.PureComponent {
   static defaultProps = {
     isAnimated: true,
     customStyles: {},
+    measure: 'px',
   }
 
   handleAnimationEnd = () => {

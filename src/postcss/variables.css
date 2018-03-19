@@ -140,24 +140,6 @@
   $stacked-avatar--additional-font-weight: $avatar-font-weight;
   $stacked-avatar--additional-border-raius: 100%;
 
-/* Select */
-
-$select-height: 35px;
-$select-padding: 7.5px 40px 7.5px 20px;
-$select-icon-dimension: 20px;
-
-$select-border-radius: $border-radius-base;
-$select-border-color: $color-black-2;
-
-$select-font-family: $font-family-base;
-$select-font-size: $font-size-base;
-
-$select-background-color: #fff;
-
-$select-border-color--hover: $color-primary-4;
-$select-font-color--hover: $color-primary-4;
-$select-svg-fill--hover: $color-primary-4;
-
   /* charCounter */
 
   $char-counter-margin: 0 5px 0 auto;

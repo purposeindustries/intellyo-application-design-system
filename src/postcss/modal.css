@@ -31,7 +31,9 @@ $modal-gutter: calc((3/2) * $gutter-base);
     }
 
     & .modal-footer {
-      padding: 0 15px 15px;
+      margin: 0 $modal-gutter;
+      border-top: 1px solid $color-grey-3;
+      padding: $modal-gutter 0;
     }
   }
 

@@ -73,6 +73,9 @@ const TemplateWrapper = ({ children }) => (
             <SidebarItem key="sidebar-item-lists" href="/lists">
               Lists
             </SidebarItem>,
+            <SidebarItem key="sidebar-item-tiles" href="/tiles">
+              Tiles
+            </SidebarItem>,
           ]) }
         >
           Components

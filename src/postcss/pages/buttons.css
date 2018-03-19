@@ -1,5 +1,8 @@
-.buttons-page .button {
-  margin-bottom: $gutter-base;
+.buttons-page {
+
+  & .button {
+    margin-bottom: $gutter-base;
+  }
 }
 
 .dropdown-page .dropdowns {
@@ -9,5 +12,12 @@
   & .dropdown {
     margin-right: $gutter-base;
   }
+}
 
+.loading-buttons .col {
+  display: flex;
+
+  & .button {
+    margin-right: calc(2 * $gutter-base);
+  }
 }

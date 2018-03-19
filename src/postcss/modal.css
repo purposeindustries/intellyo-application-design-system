@@ -3,6 +3,7 @@
 /* Local variables */
 $modal-shadow: $box-shadow-base;
 $modal-overlay-background: rgba(0,0,0,.6);
+$modal-gutter: calc((3/2) * $gutter-base);
 
 body.modal--open {
   overflow: hidden;
@@ -36,11 +37,36 @@ body.modal--open {
     border-radius: $border-radius-base;
     box-shadow: $modal-shadow;
     padding: 0;
+
+    & .modal-header {
+      padding: $modal-gutter 0 calc((3/4) * $gutter-base);
+      margin: 0 $modal-gutter;
+      border-bottom: 1px solid $color-grey-3;
+
+      & .heading {
+        margin-bottom: calc((1/2) * $gutter-base);
+      }
+    }
+
+    & .modal-body {
+      padding: $modal-gutter;
+    }
+
+    & .modal-footer {
+      margin: 0 $modal-gutter;
+      border-top: 1px solid $color-grey-3;
+      padding: $modal-gutter 0;
+    }
   }
 
-  & .rodal-close::before,
-  & .rodal-close::after {
-    border-radius: 0;
+  & .rodal-close {
+    top: calc($modal-gutter + 4px);
+    right: $modal-gutter;
+
+    &::before,
+    &::after {
+      border-radius: 0;
+    }
   }
 
   &--auto-height .rodal-dialog {

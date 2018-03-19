@@ -93,7 +93,8 @@ export default class ModalsPage extends Component {
                 onClose={ () => this.handleModalClose('dialog') }
                 measure="px"
                 width={ 500 }
-                height={ 162 }
+                height={ 210 }
+                hasAutoHeight={ true }
                 isAnimated={ true }
                 duration={ 300 }
                 animation="fade"

@@ -5,7 +5,29 @@ $modal-shadow: $box-shadow-base;
 $modal-overlay-background: rgba(0,0,0,.6);
 $modal-gutter: calc((3/2) * $gutter-base);
 
+body.modal--open {
+  overflow: hidden;
+}
+
 .modal {
+
+  &-header .caption {
+    color: $caption-color;
+  }
+
+  &-header,
+  &-body,
+  &-footer {
+    padding: $gutter-base;
+  }
+
+  &--has-header .modal-body {
+    padding-top: 0;
+  }
+
+  &--has-footer .modal-body {
+    padding-bottom: 0;
+  }
 
   & .rodal-mask {
     background: $modal-overlay-background;
@@ -45,5 +67,19 @@ $modal-gutter: calc((3/2) * $gutter-base);
     &::after {
       border-radius: 0;
     }
+  }
+
+  &--auto-height .rodal-dialog {
+    height: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-flow: column;
+
+    & .modal-body {
+      flex: 2;
+      overflow: auto;
+    }    
   }
 }

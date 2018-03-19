@@ -91,6 +91,7 @@ export default class ModalsPage extends Component {
                 measure="px"
                 width={ 500 }
                 height={ 210 }
+                hasAutoHeight={ true }
                 isAnimated={ true }
                 duration={ 300 }
                 animation="fade"

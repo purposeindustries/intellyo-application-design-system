@@ -41,6 +41,7 @@
 @import './tab-panel';
 @import './list';
 @import './tile';
+@import './checkbox';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

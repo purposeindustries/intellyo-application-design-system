@@ -9,7 +9,7 @@ const AvatarImg = (props) => (
   <div className="user-avatar-img">
     <img
       src={ props.src || silhouette }
-      alt={ `picture of ${props.name || 'N/A'}` }
+      alt={ `Picture of ${props.name || 'unknown user'}` }
     />
   </div>
 );

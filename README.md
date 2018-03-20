@@ -13,6 +13,7 @@ Here you can find each of our components:
 
 - [Accordion](/src/components/accordion)
 - [Avatar](/src/components/avatar)
+- [AvatarCard](/src/components/avatar-card)
 - [AvatarEditor](/src/components/avatar-editor)
 - [Box](/src/components/box)
 - [Button](/src/components/button)

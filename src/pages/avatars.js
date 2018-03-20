@@ -5,6 +5,7 @@ import Card from '../components/card/';
 import Row from '../components/row/';
 import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar/';
+import AvatarCard from '../components/avatar-card/';
 import Icon from '../components/icon/';
 import AvatarEditor from '../components/avatar-editor';
 
@@ -100,11 +101,10 @@ export default class Avatars extends Component {
                 </div>
               </Col>
               <Col span={ 6 }>
-                <Avatar
+                <AvatarCard
                   name="Donald Trump"
-                  caption="President of the United States"
                 />
-                <Avatar
+                <AvatarCard
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   icon={ (

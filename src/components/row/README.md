@@ -8,6 +8,7 @@ The `Row` component is used to horizontally separate the elements.
 | ---- | ---- | ----------- |
 | children | node | Use to render out elements passed into the component. |
 | gutter | number | You can set a custom value for the left and right paddings of the Row. The default value is `15`. |
+| className | string | You can set custom class name for the row div |
 
 ## Examples
 

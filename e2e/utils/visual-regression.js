@@ -92,9 +92,9 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   && !browser.driver.includes('sauce')) {
     ignoreComparisonValue = 'colors';
   }
-
   const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
+
   if (isTestPassed) {
     return isTestPassed;
   }

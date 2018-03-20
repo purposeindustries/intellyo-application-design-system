@@ -7,7 +7,7 @@ Options can be used with the Multiselect component. They provide a string and a 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | value | string | It's the value what's going to be used within the Multiselect component. You can set any value there. |
-| children | string | Custom string, which is displayed to the user. |
+| children | node | Custom text (node), which is displayed to the user. |
 | onClick | func | Used by the Multiselect component. |
 | checked | boolean | Used by the Multiselect component. |
 

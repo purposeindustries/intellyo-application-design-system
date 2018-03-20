@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool, func } from 'prop-types';
+import { string, bool, func, node } from 'prop-types';
 
 const Option = (props) => (
   <div className="dropdown-item option">
@@ -12,7 +12,7 @@ const Option = (props) => (
 
 Option.displayName = 'Option';
 Option.propTypes = {
-  children: string,
+  children: node,
   checked: bool,
   onClick: func,
   value: string,

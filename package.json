@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "7.2.1",
+  "version": "8.0.1",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
@@ -44,6 +44,8 @@
     "eslint": "^3.19.0",
     "eslint-config-pi": "^10.0.0",
     "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-mocha-no-only": "0.0.6",
+    "eslint-plugin-output-todo-comments": "0.0.7",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
     "gatsby": "^1.9.128",
@@ -89,9 +91,9 @@
     "classnames": "^2.2.5",
     "debug": "^3.1.0",
     "lodash.throttle": "^4.1.1",
-    "outy": "^0.1.2",
     "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
+    "react-click-outside": "^3.0.1",
     "react-dnd": "^2.5.4",
     "react-dnd-html5-backend": "^2.5.4",
     "react-hide-at": "^1.0.4",

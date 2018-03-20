@@ -5,7 +5,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, tak
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
 const YEAH_DROPDOWN_XPATH = '.dropdown';
-const SAVE_BUTTON_XPATH = '/html/body/div[1]/div/div/div/div/div[4]/div/div/div/button'; //TODO: create a normal xpath
+const SAVE_BUTTON_SELECTOR_LOADING = '.loading-buttons .button:first-of-type';
 
 //test names
 const YEAH_DROPDOWN_NAME = 'Yeah-button';
@@ -43,15 +43,15 @@ describe('FEF buttons tests', () => {
 
   it('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
-    $(SAVE_BUTTON_XPATH).scroll();
-    assert(browser.isExisting(SAVE_BUTTON_XPATH), 'Save button is not existing in the DOM');
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+    $(SAVE_BUTTON_SELECTOR_LOADING).scroll();
+    assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');
+    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
       {defaultTolerance: 17.5, ignoreComparison: true}),
        'Save button is not similar to the reference before click');
-    browser.click(SAVE_BUTTON_XPATH);
+    browser.click(SAVE_BUTTON_SELECTOR_LOADING);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
       {defaultTolerance: 17.5, ignoreComparison: true}),
        'Save button is not similar to the reference after click');
   });
@@ -61,7 +61,7 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_XPATH,
+    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
       {windowsTolerance: 8.8, defaultTolerance: 3, ignoreComparison: false}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);

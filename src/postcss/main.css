@@ -40,6 +40,7 @@
 @import './section';
 @import './tab-panel';
 @import './list';
+@import './tile';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

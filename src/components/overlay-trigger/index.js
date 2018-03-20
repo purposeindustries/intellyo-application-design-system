@@ -3,11 +3,11 @@ import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Manager, Target } from 'react-popper';
-import outy from 'outy';
+import enhanceWithClickOutside from 'react-click-outside';
 
 const ESCKeyCode = 27;
 
-export default class OverlayTrigger extends React.Component {
+class OverlayTrigger extends React.Component {
 
   static displayName = 'Overlay Trigger'
 
@@ -16,7 +16,8 @@ export default class OverlayTrigger extends React.Component {
     children: PropTypes.node.isRequired,
     trigger: PropTypes.oneOf(['click', 'hover']),
     className: PropTypes.string,
-    delay: PropTypes.number
+    delay: PropTypes.number,
+    innerRef: PropTypes.func,
   }
 
   static defaultProps = {
@@ -68,25 +69,17 @@ export default class OverlayTrigger extends React.Component {
     }
   }
 
-  handleOutSideTap = () => {
-    const elements = [this.target, this.popper].filter(Boolean);
-
-    this.outsideTap = outy(
-      elements,
-      ['click', 'touchstart'],
-      this.deactivate
-    );
+  handleClickOutside = () => {
+    this.deactivate();
   }
 
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
-    this.handleOutSideTap();
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown);
     this.removeTimer();
-    this.outsideTap.remove();
   }
 
   render() {
@@ -106,10 +99,14 @@ export default class OverlayTrigger extends React.Component {
         this.deactivate();
       };
     }
-
     return (
       <Manager>
         <div
+          ref={ () => {
+            if (typeof this.props.innerRef === 'function') {
+              this.props.innerRef(this);
+            }
+          } }
           className={
             classNames('overlay-trigger', {
               'overlay-trigger--active': this.state.isActive
@@ -138,3 +135,5 @@ export default class OverlayTrigger extends React.Component {
     );
   }
 }
+
+export default enhanceWithClickOutside(OverlayTrigger);

@@ -9,4 +9,7 @@
        white-space: nowrap;
     }
   }
+  & .selected-label {
+    padding-left: .25em;
+  }
 }

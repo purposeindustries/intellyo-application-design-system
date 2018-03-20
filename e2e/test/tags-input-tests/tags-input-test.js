@@ -4,6 +4,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, tak
 
 //Selectors/xpaths
 const TAGS_INPUT_WHOLE_ORIG_XPATH = '//*[@class="tagsinput tagsinput--size-normal"]';
+const TAGS_INPUT_SMALL_SELECTOR = '.card .tagsinput .button';
 const TAGS_INPUT_CLICKABLE = '//*[@class="button tagsinput-add-tag button--normal"]';
 const TAGS_INPUT_WHOLE_CLICKED_XPATH = '//*[@class="tagsinput tagsinput--size-normal react-tagsinput--focused"]';
 const TAGS_INPUT_INPUT = '//*[@class="react-tagsinput-input tagsinput-input"]';
@@ -37,14 +38,12 @@ describe('FEF tags input tests', () => {
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_MOUSE_OVER, () => {
-    if (!browser.desiredCapabilities.browserName.includes('firefox')) { //TODO: We should find solutions for moveToObject and other cross-browser problems
-      browser.url('/tagsinput');
-      assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before mouse over');
-      browser.moveToObject(TAGS_INPUT_CLICKABLE, 0, 0);
-      assert(takeScreenShotOfElement(TAGS_INPUT_WHOLE_ORIG_XPATH,
-        {defaultTolerance: 10, ignoreComparison: false}),
-         'Mouse over tags input is not similar to the reference');
-    }
+    browser.url('/tagsinput');
+    assert(browser.isExisting(TAGS_INPUT_SMALL_SELECTOR), 'Tags input is not existing in the DOM before mouse over');
+    browser.moveToElement(TAGS_INPUT_SMALL_SELECTOR, 0, 0);
+    assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_SMALL_SELECTOR,
+      {defaultTolerance: 3, ignoreComparison: false, localIgnoreComparison: true}),
+       'Mouse over tags input is not similar to the reference');
   });
 
   it('should check the input: ' + TEST_NAME_TAGS_INPUT_CLICK, () => {

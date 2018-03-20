@@ -1,0 +1,14 @@
+.select-page {
+
+  & .card {
+    margin-bottom: calc(2 * $gutter-base);
+  }
+
+  & .checkboxes {
+    display: flex;
+
+    & .checkbox-wrapper:not(:last-child) {
+      margin-right: calc($gutter-base / 2);
+    }
+  }
+}

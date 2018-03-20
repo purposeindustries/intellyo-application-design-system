@@ -41,6 +41,8 @@
 @import './tab-panel';
 @import './list';
 @import './tile';
+@import './avatar-card';
+@import './stacked-avatar';
 
 @import './pages/typography.css';
 @import './pages/grid.css';

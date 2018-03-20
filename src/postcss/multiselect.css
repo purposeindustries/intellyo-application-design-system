@@ -1,12 +1,19 @@
 .multiselect {
-  & .dropdown-inner-wrap .dropdown-items {
-    width: auto;
-    left: 50%;
-    transform: translateX(-50%);
+  & .dropdown-inner-wrap {
 
-    & .dropdown-item > label > span {
-       margin-right: 15px;
-       white-space: nowrap;
+    & .dropdown-trigger {
+      padding-right: calc(2 * ((1/2) * $gutter-base) + 16px);
+    }
+
+    & .dropdown-items {
+      width: auto;
+      left: 50%;
+      transform: translateX(-50%);
+
+      & .dropdown-item > label > span {
+         margin-right: 15px;
+         white-space: nowrap;
+      }
     }
   }
   & .selected-label {

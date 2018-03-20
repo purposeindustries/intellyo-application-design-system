@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from '../dropdown';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 export default class Select extends React.Component {
   static propTypes = {
@@ -12,6 +12,7 @@ export default class Select extends React.Component {
     style: PropTypes.object,
     icon: PropTypes.element,
     label: PropTypes.node,
+    className: PropTypes.string,
   }
   static defaultProps = {
     onChange: () => {}
@@ -33,21 +34,24 @@ export default class Select extends React.Component {
   }
   render() {
     return (
-      <div className="select-wrapper">
+      <div
+        className={ classnames('select-wrapper', this.props.className, {
+          'select-wrapper--empty': !this.state.label && !this.props.label
+        }) }
+      >
         { this.props.label && (
           <div className="select-label">{ this.props.label }</div>
         ) }
         <Dropdown
           label={ this.getLabel() }
           isActive={ this.state.isActive }
-          className={ classNames('select') }
+          className="select"
           style={ this.props.style }
           icon={ this.props.icon }
         >
           {
             React.Children.map(this.props.children, (c) => {
               return React.cloneElement(c, {
-
                 onClick: (e) => {
                   if (c.props.onClick) {
                     c.props.onClick(e);

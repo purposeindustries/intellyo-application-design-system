@@ -13,10 +13,12 @@ const AvatarCard = (props) => (
     />
     <div className="user-avatar-card-caption-wrapper">
       <span className="user-avatar-card-name">{ props.name }</span>
-      { props.caption && <div className="card-caption-wrap">
-        { props.icon }
-        <span className="user-avatar-card-caption">{ props.caption }</span>
-      </div> }
+      { props.caption && (
+        <div className="card-caption-wrap">
+          { props.icon }
+          <span className="user-avatar-card-caption">{ props.caption }</span>
+        </div>
+      ) }
     </div>
   </div>
 );

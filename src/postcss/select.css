@@ -49,4 +49,8 @@ $select-svg-fill--hover: $color-primary-4;
       fill: $select-svg-fill--hover;
     }
   }
+
+  &--empty .dropdown--closed {
+    color: $color-black-2;
+  }
 }

@@ -13,6 +13,9 @@ Here you can find each of our components:
 
 - [Accordion](/src/components/accordion)
 - [Avatar](/src/components/avatar)
+- [AvatarCard](/src/components/avatar-card)
+- [AvatarEditor](/src/components/avatar-editor)
+- [Box](/src/components/box)
 - [Button](/src/components/button)
 - [ButtonGroup](/src/components/button-group)
 - [Caption](/src/components/caption)
@@ -20,6 +23,7 @@ Here you can find each of our components:
 - [Chart](/src/components/chart)
 - [ChartTraceSummaryItem](/src/components/chart-trace-summary-item)
 - [Col](/src/components/col)
+- [Confirmation](/src/components/confirmation)
 - [DisplayText](/src/components/display-text)
 - [Dropdown](/src/components/dropdown)
 - [DropdownItem](/src/components/dropdown-item)
@@ -28,6 +32,7 @@ Here you can find each of our components:
 - [HorizontallyScrollableRow](/src/components/horizontally-scrollable-row)
 - [Icon](/src/components/icon)
 - [Input](/src/components/input)
+- [List](src/components/list)
 - [LoadingButton](/src/components/loading-button)
 - [Logo](/src/components/logo)
 - [Modals](/src/components/modals)
@@ -38,18 +43,31 @@ Here you can find each of our components:
 - [Popover](/src/components/popover)
 - [PrefixedInput](/src/components/prefixed-input)
 - [Row](/src/components/row)
+- [Section](/src/components/section)
 - [Select](/src/components/select)
 - [Sidebar](/src/components/sidebar)
 - [SocialPrefixedInput](/src/components/social-prefixed-input)
 - [StackedAvatar](/src/components/stacked-avatar)
 - [Subheading](/src/components/subheading)
 - [Table](/src/components/table)
+- [TabPanel](/src/components/tab-panel)
 - [Tagsinput](/src/components/tagsinput)
 - [Textarea](/src/components/textarea)
 - [ToggleableTags](/src/components/toggleable-tags)
 - [Tooltip](/src/components/tooltip)
 - [withLimit](/src/components/with-limit)
+- [Tile](/src/components/tile/index)
 
 ## E2E tests usage:
 
 You can find the README.md in the [e2e](/e2e/) folder.
+
+### Big Thanks
+
+Cross-browser Testing Platform and Open Source <3 Provided by [Sauce Labs][homepage]
+
+[homepage]: https://saucelabs.com
+
+## License
+
+MIT

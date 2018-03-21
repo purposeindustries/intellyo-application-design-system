@@ -1,15 +1,17 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "6.1.3",
+  "version": "9.0.3",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
   },
   "pre-commit": [
-    "test"
+    "test",
+    "test:e2e",
+    "clean-test"
   ],
-
+  "license": "MIT",
   "scripts": {
     "build": "npm run build:css && gatsby build",
     "build:components": "rm -rf dist && mkdir dist && babel src/components -d dist",
@@ -17,7 +19,6 @@
     "develop": "gatsby develop --host localhost --port 8000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "npm run lint",
-    "pretest:e2e": "curl -O /dev/null localhost:9000",
     "test:e2e": "E2E_OUTPUT=${E2E_OUTPUT-./e2e/test_results} E2E_ERRORSHOTS_OUTPUT=${E2E_ERRORSHOTS_OUTPUT-./e2e/errorShots} E2E_SCREENSHOTS=${E2E_SCREENSHOTS-./e2e/screenshots/} wdio",
     "deploy": "npm run deploy:s3 && npm run deploy:tar && npm run deploy:release",
     "deploy:s3": "cd public; babel-node ../s3",
@@ -28,7 +29,8 @@
     "watch": "npm run watch:css & npm run develop & wait",
     "watch:css": "chokidar 'src/postcss/**/*.css' -c 'npm run build:css' --initial -p",
     "prepublish": "npm t && npm run build:css && npm run build:components",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "clean-test": "find ./e2e/ \\( -name 'diff' -o -name 'screen' -o -name '*browser-compare-visual-regression' \\) -exec rm -r '{}' \\; || exit 0"
   },
   "devDependencies": {
     "aws-sdk-then": "^1.1.0",
@@ -42,6 +44,8 @@
     "eslint": "^3.19.0",
     "eslint-config-pi": "^10.0.0",
     "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-mocha-no-only": "0.0.6",
+    "eslint-plugin-output-todo-comments": "0.0.7",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^2.1.14",
     "gatsby": "^1.9.128",
@@ -50,6 +54,9 @@
     "gatsby-plugin-react-helmet": "^1.0.1",
     "lorem-ipsum": "^1.0.4",
     "mk-release": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "node-resemble-js": "^0.2.0",
+    "png-crop": "0.0.1",
     "postcss-at2x": "^3.2.0",
     "postcss-cli": "^4.1.0",
     "postcss-cssnext": "^2.11.0",
@@ -71,8 +78,9 @@
     "wdio-junit-reporter": "^0.3.1",
     "wdio-mocha-framework": "^0.5.11",
     "wdio-sauce-service": "^0.4.4",
-    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "^0.1.3",
+    "wdio-static-server-service": "^1.0.1",
     "wdio-visual-regression-service": "https://github.com/purposeindustries/wdio-visual-regression-service/releases/download/ignore-comparison/wdio-visual-regression-service-0.8.0.tgz",
     "webdriver": "^5.0.0-rc1",
     "webdriverio": "^4.9.11",
@@ -81,17 +89,19 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "debug": "^3.1.0",
     "lodash.throttle": "^4.1.1",
-    "outy": "^0.1.2",
     "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
+    "react-click-outside": "^3.0.1",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-hide-at": "^1.0.4",
     "react-ionicons": "^1.5.9",
     "react-motion": "^0.5.2",
     "react-popper": "^0.7.4",
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.19.0",
-    "react-user-avatar": "^1.9.0",
     "rodal": "^1.6.1"
   }
 }

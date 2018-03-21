@@ -4,10 +4,12 @@
 
 ## Props
 
-| Prop | Type | Description |
-| ---- | ---- | ----------- |
-| onClick | func | Callback function to be called on `click`. |
-| loading | bool | Button loading state, `true` when it is loading. |
+| Prop | Type | Description | Default value |
+| ---- | ---- | ----------- | ------------- |
+| onClick | func | Callback function to be called on `click`. | `none` |
+| loading | bool | Button loading state, `true` when it is loading. | `none` |
+| children | node | You can customise what the Button label should be in **non-loading** state. | `'Save'` |
+| loadingText | node | You can customise what the Button label should be in **loading** state. | `'Loading...'` |
 | size | oneOf(['small', 'normal', 'large']) | Button size |
 
 ## Examples
@@ -20,4 +22,13 @@ Use to give rise to your `Popover` passed as `prop` to `overlay`.
     setTimeout(resolve, 3000);
   }) }
 />
+
+<LoadingButton
+  onClick={ () => new root.Promise((resolve) => {
+    setTimeout(resolve, 3000);
+  }) }
+  loadingText={ <span>Publishing...</span> }
+>
+  <span>Publish</span>
+</LoadingButton>
 ```

@@ -1,8 +1,55 @@
+/* Local variables */
+
+$button-font-size: 12px;
+$button-font-weight: 600;
+$button-horizontal-padding: 12px;
+$button-height: 32px;
+
+$button-font-size-small: 10px;
+$button-font-weight-small: 600;
+$button-horizontal-padding-small: 8px;
+$button-height-small: 24px;
+
+$button-font-size-large: 14px;
+$button-font-weight-large: 600;
+$button-horizontal-padding-large: 12px;
+$button-height-large: 40px;
+
+$button-color-primary: #fff;
+$button-background-color-primary: $color-primary-2;
+$button-background-color-primary-hover: $color-primary-3;
+$button-background-color-primary-active: $color-primary-2;
+
+$button-icon-fill-primary: #fff;
+
+$button-color-danger: #fff;
+$button-background-color-danger: $color-danger-4;
+$button-background-color-danger-hover: $color-danger-5;
+$button-background-color-danger-active: $color-danger-4;
+
+$button-icon-fill-danger: #fff;
+
+$button-color-neutral: $color-black-5;
+$button-color-neutral-hover: $color-primary-2;
+$button-color-neutral-active: $color-black-5;
+$button-background-color-neutral: $color-light-grey-1;
+$button-border-color-neutral: $color-black-2;
+$button-border-color-neutral-hover: $color-primary-4;
+$button-border-color-neutral-active: $color-black-5;
+
+$button-icon-fill-neutral: $color-black-5;
+$button-icon-fill-neutral-hover: $color-primary-2;
+$button-icon-fill-neutral-active: $color-black-5;
+
+$button-border-color-disabled: $color-grey-3;
+$button-color-disabled: $color-black-2;
+$button-icon-fill-disabled: $color-black-2;
+$button-background-color-disabled: $color-light-grey-1;
+
 .button {
   appearance: none;
   cursor: pointer;
   white-space: nowrap;
-  line-height: $button-line-height;
   height: $button-height;
   padding: 0px $button-horizontal-padding;
   vertical-align: middle;
@@ -17,7 +64,10 @@
   border: 1px solid transparent;
   display: flex;
   align-items: center;
-  box-sizing: content-box;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
 
 .button:hover {
@@ -29,7 +79,7 @@
 }
 
 .button-icon-wrapper {
-  line-height: normal;
+
   & svg {
     fill: $button-icon-fill-primary;
     display: block;
@@ -86,35 +136,34 @@
   background: $button-background-color-neutral;
   border-color: $button-border-color-neutral-active;
   color: $button-color-neutral-active;
+
+  & .button-icon-wrapper svg {
+    fill: $button-icon-fill-neutral-active;
+  }
 }
 
 .button--disabled {
-  background: $button-background-color-disabled;
-  background: $button-background-color-disabled;
   cursor: default;
+  color: $button-color-disabled;
+  border-color: $button-border-color-disabled;
+  background-color: $button-background-color-disabled;
 
-  &.button--neutral {
-    color: $button-color-disabled;
-    border-color: $button-border-color-disabled;
-    background-color: $button-background-color-disabled-neutral;
-
-    & .button-icon-wrapper .icon svg {
-      fill: $button-icon-fill-disabled;
-    }
+  & .button-icon-wrapper .icon svg {
+    fill: $button-icon-fill-disabled;
   }
 }
 
 .button--disabled:hover {
-  background: $button-background-color-disabled;
+  background-color: $button-background-color-disabled;
 
   &.button--neutral {
-    background-color: $button-background-color-disabled-neutral;
+    color: $button-color-disabled;
+    border-color: $button-border-color-disabled;
   }
 }
 
 .button--small {
   height: $button-height-small;
-  line-height: $button-line-height-small;
   font-size: $button-font-size-small;
   padding: 0 $button-horizontal-padding-small;
   font-weight: $button-font-weight-small;
@@ -122,7 +171,6 @@
 
 .button--large {
   height: $button-height-large;
-  line-height: $button-line-height-large;
   font-size: $button-font-size-large;
   padding: 0 $button-horizontal-padding-large;
   font-weight: $button-font-weight-large;

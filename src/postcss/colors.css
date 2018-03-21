@@ -7,6 +7,8 @@ $color-grey-3: #DCDCDC;
 $color-grey-4: #D1D1D1;
 $color-grey-5: #B5B5B5;
 
+$color-light-grey-1: #F8F8F8;
+
 $color-black-1: #BDBDBD;
 $color-black-2: #989898;
 $color-black-3: #767676;
@@ -15,11 +17,11 @@ $color-black-5: #373737;
 
 /* Basic colors */
 
-$color-primary-1: #5F9AE7;
-$color-primary-2: #377DE0;
-$color-primary-3: #0F65D9;
-$color-primary-4: #0053D2;
-$color-primary-5: #00398C;
+$color-primary-1: #F22A5D;
+$color-primary-2: #FF336D;
+$color-primary-3: #F4547D;
+$color-primary-4: #F5698D;
+$color-primary-5: #F67E9D;
 
 $color-danger-1: #F9ACBC;
 $color-danger-2: #F67D95;

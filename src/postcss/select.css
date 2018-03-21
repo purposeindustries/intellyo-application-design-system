@@ -1,39 +1,56 @@
-.select {
-  position: relative;
-  width: auto;
+/* Local variables */
 
-  & select {
-    appearance: none;
-    outline: none;
+$select-height: 32px;
+$select-padding: 0px 40px 0px 20px;
+$select-icon-dimension: 16px;
+
+$select-border-radius: $border-radius-base;
+$select-border-color: $color-black-2;
+
+$select-font-family: $font-family-base;
+$select-font-size: $font-size-base;
+
+$select-background-color: #fff;
+
+$select-border-color--hover: $color-primary-4;
+$select-font-color--hover: $color-primary-4;
+$select-svg-fill--hover: $color-primary-4;
+
+.select-wrapper {
+
+  & .select-label {
+    margin-bottom: calc((1/2) * $gutter-base);
+  }
+
+  & .select {
+    position: relative;
     width: auto;
-    height: $select-height;
-    padding: $select-padding;
-    background: $select-background-color;
-    border-radius: $select-border-radius;
-    border: 1px solid $select-border-color;
-    font-family: $select-font-family;
-    font-size: $select-font-size;
 
-    &:hover,
-    &:active {
-      border-color: $select-border-color--hover;
-      color: $select-font-color--hover;
+    & .dropdown-trigger {
+      padding-right: calc((2 * (1/2) * $gutter-base) + $select-icon-dimension);
+
+      & .icon {
+        position: absolute;
+        width: $select-icon-dimension;
+        height: $select-icon-dimension;
+        right: calc((1/2) * $gutter-base);
+        top: 50%;
+        transform: translateY(-50%);
+
+        & svg {
+          width: $select-icon-dimension;
+          height: $select-icon-dimension;
+        }
+      }
     }
 
+    & select:hover + .icon svg,
+    & select:active + .icon svg {
+      fill: $select-svg-fill--hover;
+    }
   }
 
-  & .icon {
-    position: absolute;
-    width: $select-icon-dimension;
-    height: $select-icon-dimension;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+  &--empty .dropdown--closed {
+    color: $color-black-2;
   }
-
-  & select:hover + .icon svg,
-  & select:active + .icon svg {
-    fill: $select-svg-fill--hover;
-  }
-
 }

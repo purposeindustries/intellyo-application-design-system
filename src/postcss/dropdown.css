@@ -1,11 +1,11 @@
 /* Local variables */
 
-$hover-color: $color-primary-4;
-$active-color: $color-primary-5;
+$hover-color: $color-primary-3;
+$active-color: $color-primary-2;
 
 /* Dropdown */
 
-$dropdown-height: 35px;
+$dropdown-height: 32px;
 $dropdown-bg-color: #fff;
 $dropdown-border-radius: $border-radius-base;
 $dropdown-border-color: $color-black-3;
@@ -100,7 +100,7 @@ $dropdown-item-bg-color--active: $color-grey-2;
   }
 
   &-trigger {
-    padding: 0 50px 0 20px;
+    padding: 0 calc(30px + ((3/4) * $gutter-base)) 0 calc((3/4) * $gutter-base);
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -111,11 +111,16 @@ $dropdown-item-bg-color--active: $color-grey-2;
 
     & .icon {
       position: absolute;
-      width: 22px;
-      height: 22px;
-      right: 10px;
+      width: 16px;
+      height: 16px;
+      right: calc((1/2) * $gutter-base);
       top: 50%;
       transform: translateY(-50%);
+
+      & svg {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &-label {
@@ -143,7 +148,7 @@ $dropdown-item-bg-color--active: $color-grey-2;
   &-items {
     position: absolute;
     width: 100%;
-    top: 35px;
+    top: $dropdown-height;
     left: 0px;
     z-index: $dropdown-items-z-index;
     padding: 5px 0;
@@ -234,8 +239,13 @@ $dropdown-item-bg-color--active: $color-grey-2;
         & .icon {
           position: static;
           transform: none;
-          width: 22px;
-          height: 22px;
+          width: 16px;
+          height: 16px;
+
+          & svg {
+            width: 16px;
+            height: 16px;
+          }
         }
 
       }

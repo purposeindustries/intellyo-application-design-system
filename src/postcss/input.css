@@ -1,15 +1,14 @@
 /* Local variables */
 
-$input-border-color: $color-black-2;
+$input-border-color: $color-grey-5;
 $input-border-radius: $border-radius-base;
-$input-border-color--focus-and-hover: $color-primary-3;
-$input-placeholder-color: $color-black-1;
-$input-color: #000;
+$input-placeholder-color: $color-black-2;
+$input-color: $color-black-5;
 $input-background-color: #fff;
 
 $input-width: 200px;
-$input-height: 35px;
-$input-padding: 5px 8px;
+$input-height: 32px;
+$input-padding: 0px calc((3/4) * $gutter-base);
 $input-font-family: $font-family-base;
 $input-font-size: $font-size-base;
 
@@ -17,17 +16,19 @@ $input-font-size: $font-size-base;
 
 $input-border-color--error: $color-danger-4;
 $input-color--error: $color-danger-4;
+$input-state-icon-color--error: $color-danger-4;
 $input-error-message-font-size: $caption-font-size;
 
 /* Disabled */
 
-$input-background-color--disabled: $color-grey-3;
+$input-background-color--disabled: $color-light-grey-1;
+$input-border-color--disabled: $color-grey-3;
+$button-icon-fill--disabled: $color-black-2;
 
 /* Input with an icon */
 
-$input-padding--icon: 10px 8px 10px 35px;
+$input-padding--icon: 0px calc((1/2) * $gutter-base) 0px calc(2 * $gutter-base);
 $input-icon-fill: $color-black-2;
-$input-icon-fill--focus: $color-primary-3;
 
 /* Input label */
 
@@ -35,7 +36,11 @@ $input-label-font-size: $font-size-base;
 $input-label-font-family: $font-family-base;
 
 .input {
-  position: relative;
+  display: inline-block;
+
+  & .input-inner-wrapper {
+    position: relative;
+  }
 
   & input {
     background: $input-background-color;
@@ -48,59 +53,92 @@ $input-label-font-family: $font-family-base;
     outline: none;
     font-family: $input-font-family;
     font-size: $input-font-size;
+    box-shadow: none; /* On Mozilla there is a generated box-shadow, which needs to be disabled. */
 
     &::placeholder {
       color: $input-placeholder-color;
     }
 
-    &:focus,
-    &:hover {
-      border-color: $input-border-color--focus-and-hover;
+    &:focus::placeholder {
+      color: transparent;
     }
 
   }
 
-  &--error input {
-    border-color: $input-border-color--error;
-    color: $input-color--error;
+  & .input-state-icon {
+    position: absolute;
+    right: calc((1/2) * $gutter-base);
+    top: 7.5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
 
-    &::placeholder {
-      color: inherit;
+    & .icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & svg {
+        fill: #fff;
+        width: 12px;
+        height: 12px;
+      }
     }
-
-    &:hover,
-    &:focus {
-      border-color: inherit;
-    }
-
   }
 
-  &--disabled input {
-    background-color: $input-background-color--disabled;
-    pointer-events: none;
+  &--success {
 
-    &::placeholder {
-      border-color: inherit;
+    & .input-state-icon {
+      background-color: $color-success-4;
     }
 
-    &:focus,
-    &:hover {
-      color: inherit;
+    & input {
+      padding-right: calc(2 * $gutter-base);
     }
-
   }
 
-  &--icon .react-autosuggest__container:focus-within + .input-icon-wrapper svg {
-    fill: $input-icon-fill--focus;
+  &--error {
+
+    & .input-state-icon {
+      background-color: $input-state-icon-color--error;
+    }
+
+    & input {
+      border-color: $input-border-color--error;
+      padding-right: calc(2 * $gutter-base);
+
+      &::placeholder {
+        color: $input-placeholder-color;
+      }
+    }
+  }
+
+  &--disabled {
+
+    & .input-icon-wrapper .icon svg {
+      fill: $button-icon-fill--disabled;
+    }
+
+    & input {
+      background-color: $input-background-color--disabled;
+      border-color: $input-border-color--disabled;
+      pointer-events: none;
+
+      &::placeholder {
+        border-color: inherit;
+      }
+
+      &:focus,
+      &:hover {
+        color: inherit;
+      }
+    }
   }
 
   &--icon input {
     padding: $input-padding--icon;
-
-    &:focus + .input-icon-wrapper svg {
-      fill: $input-icon-fill--focus;
-    }
-
   }
 
   & .input-error-message {
@@ -111,17 +149,17 @@ $input-label-font-family: $font-family-base;
   }
 
   & .input-icon-wrapper {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     position: absolute;
-    left: 7px;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
 
     & svg {
       fill: $input-icon-fill;
-      height: 20px;
-      width: 20px;
+      height: 16px;
+      width: 16px;
     }
 
   }

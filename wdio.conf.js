@@ -1,150 +1,152 @@
 require('dotenv').config();
-const slugify = require('slugify');
-const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
-const hostname = require('os').hostname();
-const dateFormat = require('dateformat');
+const os = require('os');
+const visualRegression = require('./e2e/utils/visual-regression');
+const ScreenshotService = require('./e2e/utils/screenshot');
 
-const resolution = { width: 1024, height: 768 };
+const { getScreenshotName, getRefPicName, getDiffScreenshotName } = visualRegression;
+
+const resolution = { width: 1400, height: 1050 };
 const screenResolution = resolution.width.toString() + 'x' + resolution.height.toString();
-const browserName = 'chrome';
-let isDefaultBrowser = true;
+const e2eProfile = (process.env.E2EPROFILE || '').split(',').filter(profile => profile !== '');
+const browsers = [];
+let isDefaultBrowser = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
-let browsers = [];
 
-if (process.env.CI || process.env.TEST_PROVIDER === 'sauce') {
-  isDefaultBrowser = false;
+if (e2eProfile.includes('saucelight')) {
+  browsers.push({
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+
+  });
+
+  driver = 'sauce';
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+
+}
+if (e2eProfile.includes('sauceextended')) {
+  browsers.push({
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'firefox',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest',
+    screenResolution: screenResolution,
+    platform: 'Windows 10'
+  }, {
+    browserName: 'chrome',
+    version: 'latest-1',
+    screenResolution: screenResolution,
+    platform: 'macOS 10.13'
+  });
+
   driver = 'sauce';
+  sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
+  saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
+
 }
 
-if (process.env.BROWSER) {
-  isDefaultBrowser = false;
-  process.env.BROWSER.split(',').forEach(element => {
-    if (element !== 'chrome') {
-      browsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element
-      });
-    } else {
-      browsers.push({
-        width: resolution.width,
-        height: resolution.height,
-        browserName: element,
-        chromeOptions: {
-          'args': ['disable-infobars']
-        } });
-    }
-  });
-} else {
-  browsers = [{
+if (e2eProfile.includes('chrome')) {
+  browsers.push({
     width: resolution.width,
     height: resolution.height,
-    browserName: browserName,
+    browserName: 'chrome'
+  });
+}
+
+if (e2eProfile.includes('headless-chrome')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'chrome',
     chromeOptions: {
       'args': ['disable-infobars', '--headless']
     }
-  }];
+  });
 }
 
-function getScreenshotName(basePath) {
-  return function (context) {
-    const type = context.type;
-    const testName = context.test.title;
-    const browserVersion = parseInt(context.browser.version, 10);
-    const browserName = (isDefaultBrowser) ? 'chrome' : context.browser.name;
-    const browserViewport = context.meta.viewport;
-    const browserWidth = browserViewport.width;
-    const browserHeight = browserViewport.height;
-    const parent = context.test.parent;
-    const time = dateFormat(new Date(), 'dddd-mmmm-dS-yyyy-h-MM-ss-TT');
-
-    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${type}_${browserName.toLowerCase()}_v${browserVersion}_${browserWidth}x${browserHeight}_${slugify(time.toLowerCase())}.png`);
-  };
+if (e2eProfile.includes('firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'firefox'
+  });
 }
 
-
-function getRefPicName(basePath) {
-  return function (context) {
-    const testName = context.test.title;
-    const parent = context.test.parent;
-    const lastWordOfTestName = testName.split(' ').pop();
-
-    if (typeof context.test.parent !== undefined && context.test.title.includes('browser compare visual regression')) {
-      return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/whole_page_reference.png`);
+if (e2eProfile.includes('headless-firefox')) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'firefox',
+    'moz:firefoxOptions': {
+      args: ['-headless']
     }
-    return path.join(basePath, `${slugify(parent.toLowerCase())}/${slugify(testName.toLowerCase())}/${lastWordOfTestName.toLowerCase()}_reference_pic.png`);
-  };
+  });
+}
+
+if (e2eProfile.length === 0) {
+  browsers.push({
+    width: resolution.width,
+    height: resolution.height,
+    browserName: 'chrome',
+    chromeOptions: {
+      'args': ['disable-infobars', '--headless']
+    }
+  });
+  isDefaultBrowser = true;
 }
 
 exports.config = {
+  seleniumInstallArgs: {version: '3.4.0'},
+  seleniumArgs: {version: '3.4.0'},
 
   specs: [
-    './e2e/test/*.js'
+    './e2e/test/**/*.js'
   ],
   exclude: [
   ],
 
-  maxInstances: 10,
-
-  capabilities: (process.env.CI || process.env.TEST_PROVIDER === 'sauce') ? [{
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }, {
-    browserName: 'chrome',
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'firefox',
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    'chromeOptions': {
-      'args': ['disable-infobars']
-    },
-    version: 'latest',
-    screenResolution: screenResolution,
-    platform: 'Windows 10'
-  }, {
-    browserName: 'chrome',
-    version: 'latest-1',
-    screenResolution: screenResolution,
-    platform: 'macOS 10.13'
-  }] : browsers,
+  maxInstances: 4,
+  capabilities: browsers,
 
   sync: true,
   logLevel: 'silent',
   coloredLogs: true,
-  deprecationWarnings: true,
+  deprecationWarnings: false,
   bail: 0,
   screenshotPath: process.env.E2E_ERRORSHOTS_OUTPUT,
-  baseUrl: 'http://localhost:9000',
+  baseUrl: `http://localhost:${process.env.STATIC_PORT || 4567}`,
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  services: [driver, 'visual-regression'],
+  services: [driver, 'visual-regression', 'static-server', ScreenshotService],
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getRefPicName('./e2e/screenshots/reference/'),
-      screenshotName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'screen/'),
-      diffName: getScreenshotName(process.env.E2E_SCREENSHOTS + 'diff/'),
+      referenceName: getRefPicName(),
+      screenshotName: getScreenshotName(isDefaultBrowser),
+      diffName: getDiffScreenshotName(isDefaultBrowser),
       misMatchTolerance: 3.0
     }),
   },
@@ -153,7 +155,7 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: hostname
+    tunnelIdentifier: os.hostname()
   },
 
   framework: 'mocha',
@@ -167,16 +169,22 @@ exports.config = {
 
   mochaOpts: {
     ui: 'bdd',
-    timeout: 99999999
+    timeout: 99999999,
+    require: './e2e/utils/mocha-setup.js'
   },
 
-  before: function (capabilities) {
+  before: function (capabilities, tests) {
+    browser.currentTest = tests[0];
     if (capabilities.width && capabilities.height) {
       browser.windowHandleSize({
         width: capabilities.width,
         height: capabilities.height
       });
     }
-
-  }
+    browser.driver = driver;
+  },
+  staticServerPort: process.env.STATIC_PORT || 4567,
+  staticServerFolders: [{
+    mount: '/', path: './public'
+  }]
 };

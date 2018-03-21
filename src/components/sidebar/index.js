@@ -75,13 +75,19 @@ const Sidebar = (props) => (
     className="sidebar"
   >
     <div className="logo">
-      { props.head || <Logo /> }
+      <a href="/">{ props.head || <Logo /> }</a>
     </div>
     <nav>
       <ul>
         { props.children }
       </ul>
     </nav>
+    <a className="saucelabs-logo-wrapper" href="https://saucelabs.com">
+      <div>
+        <p className="saucelabs-logo-text">Testing powered by</p>
+        <img className="saucelabs-logo" src="https://saucelabs.com/content/images/logo.png" alt="Tests powered by Saucelabs" />
+      </div>
+    </a>
   </aside>
 );
 

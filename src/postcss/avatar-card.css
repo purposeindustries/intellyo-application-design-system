@@ -1,0 +1,44 @@
+$avatar-name-font-size: $heading-font-size;
+$avatar-name-line-height: $heading-line-height;
+$avatar-name-font-weight: $heading-font-weight;
+$avatar-name-font-color: $color-black-5;
+
+.user-avatar-card {
+  display: flex;
+  align-items: center;
+
+  &-name {
+    display: block;
+    font-size: $avatar-name-font-size;
+    line-height: $avatar-name-line-height;
+    font-weight: $avatar-name-font-weight;
+    color: $avatar-name-font-color;
+  }
+
+  &-caption-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 10px;
+
+    & .user-avatar-card-caption {
+      font-size: $avatar-caption-font-size;
+      line-height: $avatar-caption-line-height;
+      color: $avatar-caption-font-color;
+    }
+  }
+
+  &-caption-wrapper .card-caption-wrap {
+    display: flex;
+    align-items: center;
+
+    & .icon {
+      height: 22px;
+
+      & svg {
+        fill: $color-black-2;
+      }
+
+    }
+
+  }
+}

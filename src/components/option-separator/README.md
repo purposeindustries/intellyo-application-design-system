@@ -6,7 +6,7 @@ OptionSeparators are used with the Multiselect and Option components. They provi
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| children | string | Custom string, which is displayed to the user, functions as a separator between set of groups of Options. |
+| children | node | Custom text (node), which is displayed to the user, functions as a separator between set of groups of Options. |
 
 
 ## Examples

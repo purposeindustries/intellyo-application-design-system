@@ -10,3 +10,6 @@ postcss.config.js
 public
 s3.js
 yarn.lock
+e2e
+allure-results
+errorShots

@@ -52,12 +52,12 @@ Baisc example of using `<Table /> `.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| name | string | Name of the given column. |
-| label | string | Give a value of string here, that you'd like to have shown as a table header. |
+| name | string | The key of the data, which will be rendered. |
+| label | node | The content to display in the table header. |
 | complex | boolean | `complex` has only some styling purpose. You can set whether it's a complex value or not. There'll be a secondary blob rendered in the loading animation if you set it to true. Take a look at the [Table with loader](https://ux.intellyo.com/tables) as an example! |
 | renderCell | function | You have the ability to overwrite the default cell rendering. It takes 4 arguments: (prop, item, column, instance). |
 | sortable | boolean | You can set whether the Table's rows' order is changeable or not. |
-| order | string | The defined order of the rows. Preferably it's a string. |
+| order | string | The defined order of the rows. It can be either `asc` or `desc`. |
 | onSort | function | A callback, which handles the sorting of the rows. |
 
 ### Examples of `<Column />`

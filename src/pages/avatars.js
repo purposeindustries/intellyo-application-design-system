@@ -5,10 +5,29 @@ import Card from '../components/card/';
 import Row from '../components/row/';
 import Col from '../components/col/';
 import StackedAvatar from '../components/stacked-avatar/';
+import AvatarCard from '../components/avatar-card/';
 import Icon from '../components/icon/';
+import AvatarEditor from '../components/avatar-editor';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
+
+  state = {
+    profileImageSrc: '',
+    logoImageSrc: ''
+  }
+
+  handleImageChange = (file, field) => {
+    if (!file) {
+      return;
+    }
+    const src = window.URL.createObjectURL(file);
+
+    this.setState({
+      [field]: src
+    });
+  }
+
   render() {
     return (
       <div>
@@ -29,6 +48,10 @@ export default class Avatars extends Component {
                   <Avatar
                     name=""
                   />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
+                  />
                 </div>
                 <div className="avatar-wrapper">
                   <Avatar
@@ -44,6 +67,11 @@ export default class Avatars extends Component {
                   />
                   <Avatar
                     name="Donald Trump"
+                    src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+                  />
+                  <Avatar
+                    name="Donald Trump"
+                    size="extraLarge"
                     src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   />
                 </div>
@@ -73,11 +101,10 @@ export default class Avatars extends Component {
                 </div>
               </Col>
               <Col span={ 6 }>
-                <Avatar
+                <AvatarCard
                   name="Donald Trump"
-                  caption="President of the United States"
                 />
-                <Avatar
+                <AvatarCard
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   icon={ (
@@ -87,6 +114,17 @@ export default class Avatars extends Component {
                 />
               </Col>
             </Row>
+          </Card>
+          <Card title="Avatar editor" className="card-avatar-editor">
+            <AvatarEditor
+              src={ this.state.logoImageSrc }
+              onChange={ (file) => this.handleImageChange(file, 'logoImageSrc') }
+            />
+            <AvatarEditor
+              src={ this.state.profileImageSrc }
+              isProfileAvatar={ false }
+              onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
+            />
           </Card>
         </div>
       </div>

@@ -35,6 +35,14 @@
 @import './multiselect';
 @import './overlay';
 @import './toggleable-tags';
+@import './avatar-editor';
+@import './box';
+@import './section';
+@import './tab-panel';
+@import './list';
+@import './tile';
+@import './avatar-card';
+@import './stacked-avatar';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -49,6 +57,10 @@
 @import './pages/accordions.css';
 @import './pages/tables.css';
 @import './pages/modals.css';
+@import './pages/sections.css';
+@import './pages/tab-panels.css';
+@import './pages/confirmations.css';
+@import './pages/index-page.css';
 
 body {
   margin: 0;

@@ -1,0 +1,55 @@
+.tab-panel-container {
+
+  & .tab-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $gutter-base;
+    background-color: #fff;
+    margin-bottom: $gutter-base;
+
+    & .tab-panel-title {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: $color-black-1;
+
+      &:not(:last-child) {
+        margin-right: $gutter-base;
+
+        &::after {
+          display: block;
+          content: '';
+          height: 1px;
+          width: calc(2 * $gutter-base);
+          background: $color-grey-4;
+          margin-left: 12px;
+        }
+      }
+
+      &::before {
+        display: block;
+        content: '';
+        min-width: 16px;
+        min-height: 16px;
+        background: $color-grey-4;
+        border-radius: 50%;
+        margin-right: 12px;
+      }
+
+      &--active {
+        color: $color-primary-2;
+
+        &::before {
+          background-color: $color-primary-2;
+        }
+      }
+    }
+  }
+
+  &--sticky .tab-list {
+    position: sticky;
+    top: 0;
+  }
+}

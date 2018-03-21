@@ -3,8 +3,31 @@
 /* Local variables */
 $modal-shadow: $box-shadow-base;
 $modal-overlay-background: rgba(0,0,0,.6);
+$modal-gutter: calc((3/2) * $gutter-base);
+
+body.modal--open {
+  overflow: hidden;
+}
 
 .modal {
+
+  &-header .caption {
+    color: $caption-color;
+  }
+
+  &-header,
+  &-body,
+  &-footer {
+    padding: $gutter-base;
+  }
+
+  &--has-header .modal-body {
+    padding-top: 0;
+  }
+
+  &--has-footer .modal-body {
+    padding-bottom: 0;
+  }
 
   & .rodal-mask {
     background: $modal-overlay-background;
@@ -16,20 +39,47 @@ $modal-overlay-background: rgba(0,0,0,.6);
     padding: 0;
 
     & .modal-header {
-      padding: 15px 15px 0;
+      padding: $modal-gutter 0 calc((3/4) * $gutter-base);
+      margin: 0 $modal-gutter;
+      border-bottom: 1px solid $color-grey-3;
+
+      & .heading {
+        margin-bottom: calc((1/2) * $gutter-base);
+      }
     }
 
     & .modal-body {
-      padding: 15px;
+      padding: $modal-gutter;
     }
 
     & .modal-footer {
-      padding: 0 15px 15px;
+      margin: 0 $modal-gutter;
+      border-top: 1px solid $color-grey-3;
+      padding: $modal-gutter 0;
     }
   }
 
-  & .rodal-close::before,
-  & .rodal-close::after {
-    border-radius: 0;
+  & .rodal-close {
+    top: calc($modal-gutter + 4px);
+    right: $modal-gutter;
+
+    &::before,
+    &::after {
+      border-radius: 0;
+    }
+  }
+
+  &--auto-height .rodal-dialog {
+    height: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-flow: column;
+
+    & .modal-body {
+      flex: 2;
+      overflow: auto;
+    }    
   }
 }

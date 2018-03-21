@@ -7,8 +7,8 @@ easier for users to scan, read, and get things done.
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| title | string | Title content for the card |
-| titleCaption | string | Caption which appears under the title |
+| title | node | Title content for the card |
+| titleCaption | node | Caption which appears under the title |
 | children | node | Inner content of the card |
 | icon | node | Use to display an arbitrary icon next to the title |
 | footer | node | A footer for the card |

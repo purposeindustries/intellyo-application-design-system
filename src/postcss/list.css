@@ -1,5 +1,7 @@
 .intellyo-list {
-  user-select: none;
+  & .is-dragging {
+    user-select: none;
+  }
 
   & .list-new-button-wrap {
       display: flex;

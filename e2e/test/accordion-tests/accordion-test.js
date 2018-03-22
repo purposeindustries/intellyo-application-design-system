@@ -17,7 +17,7 @@ describe('FEF accordions tests', () => {
   it('Checks the the fef accordions page title and browser compare visual regression', () => {
     browser.url('/accordions');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: -1, ignoreComparison: false}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),
       'Whole FEF accordions page screenshot not similar to other configurations');
   });
 

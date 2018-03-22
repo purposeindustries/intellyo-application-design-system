@@ -85,8 +85,10 @@ jobs:
               npm run test:e2e
             fi
             set -e
-            if [ $? -ne 0 && $FORCE_BUILD -ne "true" ]
-              exit 1
+            if [ $? -ne 0 && $FORCE_BUILD -eq "true" ]
+              exit 0
+            else
+              exit $?
             fi
   reporting:
     <<: *defaults

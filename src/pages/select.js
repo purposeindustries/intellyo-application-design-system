@@ -8,6 +8,7 @@ import DropdownItem from '../components/dropdown-item';
 import OptionSeparator from '../components/option-separator';
 import Option from '../components/option';
 import Caption from '../components/caption';
+import lipsum from 'lorem-ipsum';
 
 export default class SelectPage extends React.Component {
 
@@ -16,7 +17,8 @@ export default class SelectPage extends React.Component {
   state = {
     selected: [],
     car2: '',
-    car: 'hello'
+    car: 'hello',
+    extreme: '',
   }
 
   handleSelectChange = (value, id) => {
@@ -108,6 +110,24 @@ export default class SelectPage extends React.Component {
             >
               where
             </DropdownItem>
+          </Select>
+          <br /><br />
+          <Select
+            id="extreme"
+            value={ this.state.extreme }
+            onChange={ this.handleSelectChange }
+          >
+            <DropdownItem
+              value={ '' }
+              disabled
+            >
+              Choose an option
+            </DropdownItem>
+            { lipsum({ count: 100, units: 'words' }).split(' ').map((value, i) => (
+              <DropdownItem key={ i } value={ value }>
+                { value }
+              </DropdownItem>
+            )) }
           </Select>
         </Card>
         <Card

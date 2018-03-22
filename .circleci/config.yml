@@ -15,7 +15,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  checkout_code:
+  checkout-code:
     <<: *defaults
     steps:
       - checkout
@@ -91,7 +91,10 @@ jobs:
               npm version $RELEASE_TYPE
               git push
               git push --tags
+            else
+              echo "No RELEASE_TYPE is present, skipping creating new release."
             fi
+
   publish:
     <<: *defaults
     steps:
@@ -109,12 +112,9 @@ jobs:
 workflows:
   version: 2
 
-  commit:
-    filters:
-      branches:
-        ignore: /^v[0-9]+(\.[0-9]+)*/
+  build-and-deploy:
     jobs:
-      - checkout_code:
+      - checkout-code:
       - dependencies:
           requires:
             - checkout_code

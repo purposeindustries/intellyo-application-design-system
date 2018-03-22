@@ -1,11 +1,6 @@
-aliases:
-  - &workspace_dir    /home/circleci/purposeindustries/content-editor
-  - &step_attach_workspace
-    attach_workspace:
-      at: /home/circleci/purposeindustries/content-editor
 
 defaults: &defaults
-  working_directory:     /home/circleci/purposeindustries/content-editor
+  working_directory: /home/circleci/purposeindustries/content-editor
   parallelism: 1
   shell: /bin/bash --login
 
@@ -21,15 +16,16 @@ defaults: &defaults
 
 version: 2
 jobs:
-  build-environment:
+  build:
     <<: *defaults
     steps:
       - checkout
-      - *step_attach_workspace
+
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - ~/purposeindustries/content-editor
+
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
       - restore_cache:
@@ -51,13 +47,6 @@ jobs:
           name: install system wide tools
           command: sudo apt-get install tree
 
-      - persist_to_workspace:
-          root: /home/circleci/purposeindustries/content-editor
-          paths: .
-  test:
-    <<: *defaults
-    steps:
-      - *step_attach_workspace
       - run:
           name: test
           command: npm run test
@@ -76,10 +65,7 @@ jobs:
             else
               npm run test:e2e
             fi
-  reporting:
-    <<: *defaults
-    steps:
-      - *step_attach_workspace
+  
       - store_test_results:
           path: /tmp/circleci-test-results
       # Save artifacts
@@ -88,10 +74,6 @@ jobs:
       - store_artifacts:
           path: /tmp/circleci-test-results
 
-  release:
-    <<: *defaults
-    steps:
-      - *step_attach_workspace
       - run:
           name: Create new release
           command: |
@@ -104,53 +86,21 @@ jobs:
             else
               echo "No RELEASE_TYPE is present, skipping creating new release."
             fi
-
-  publish:
-    <<: *defaults
-    steps:
-      - *step_attach_workspace
       - run:
           name: Publish new version to npm
           command: |
-            npm publish
-  deploy:
-    <<: *defaults
-    steps:
-      - *step_attach_workspace
+            # matches v1.2.3-next, or v1.2.3-1
+            if [[ "$CIRCLE_TAG" =~ "^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)+(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$" ]]; then
+              npm publish
+            else
+              echo "We are not building a tag or the tag is not a valid semver ($CIRCLE_TAG)";
+            fi
+
       - run:
           name: Deploy the version
           command: |
-            npm run deploy
-workflows:
-  version: 2
-
-  build-and-deploy:
-    jobs:
-      - build-environment
-      - test:
-          requires:
-            - build-environment
-      - reporting:
-          requires:
-            - test
-      - release:
-          requires:
-            - test
-      - deploy:
-          requires:
-            - test
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              # matches v1.2.3, or v9.0.0
-              only: /^v[0-9]+(\.[0-9]+)*$/
-      - publish:
-          requires:
-            - test
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              # matches v1.2.3-next, or v1.2.3-1
-              only: /^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)+(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$/
+            if [[ "$CIRCLE_TAG" =~ "^v[0-9]+(\.[0-9]+)*$" ]]; then
+              npm run deploy
+            else
+              echo "We are not build a tag, or the tag is not major, minor or patch but preversion"
+            fi

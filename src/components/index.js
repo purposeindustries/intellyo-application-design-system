@@ -33,6 +33,7 @@ export { default as OptionSeparator } from './option-separator';
 export { default as Sidebar, SidebarItem } from './sidebar';
 export { default as SocialPrefixedInput } from './social-prefixed-input';
 export { default as StackedAvatar } from './stacked-avatar';
+export { default as AvatarCard } from './avatar-card';
 export { default as Subheading } from './subheading';
 export { default as Tagsinput, ResponsiveTagsInput, StandAloneInput, DefaultInput } from './tagsinput';
 export { default as Textarea, RichTextarea, InvisibleTextarea, autogrow } from './textarea';

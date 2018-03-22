@@ -124,6 +124,7 @@ export default class Dropdown extends React.Component {
       <div
         className={ cx('dropdown', this.props.className, {
           'dropdown--open': this.state.isActive,
+          'dropdown--closed': !this.state.isActive,
           'dropdown--only-child': React.Children.count(this.props.children) === 1
         }) }
         style={ this.props.style }

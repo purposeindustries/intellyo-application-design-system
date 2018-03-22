@@ -13,6 +13,10 @@ test:
     - npm run test
     #run tests
     - >
+      if [ -n "$FORCE_BUILD" ]; then
+        exit 0;
+      fi
+
       if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
         E2EPROFILE=saucelight npm run test:e2e
       else

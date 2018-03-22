@@ -13,12 +13,14 @@ export default class Multiselect extends React.Component {
     selected: array,
     isActive: bool,
     children: node,
-    defaultLabel: string,
+    defaultLabel: node,
+    selectedLabel: node,
   };
 
   static defaultProps = {
     onChange: () => {},
     defaultLabel: 'Nothing selected',
+    selectedLabel: 'selected',
     selected: [],
   }
 
@@ -36,7 +38,12 @@ export default class Multiselect extends React.Component {
     } else if (selected.length === 1) {
       return this._options[selected[0]].props.children;
     }
-    return `${selected.length} selected`;
+    return (
+      <React.Fragment>
+        <span>{ selected.length }</span>
+        <span className="selected-label">{this.props.selectedLabel}</span>
+      </React.Fragment>
+    );
   }
 
   componentWillReceiveProps(props) {

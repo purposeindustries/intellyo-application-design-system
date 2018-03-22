@@ -1,8 +1,10 @@
 import React from 'react';
 
 import Card from '../components/card';
-import Select from '../components/select';
-import Multiselect from '../components/multiselect';
+import {
+  Select,
+  Multiselect,
+} from '../components';
 import DropdownItem from '../components/dropdown-item';
 import OptionSeparator from '../components/option-separator';
 import Option from '../components/option';
@@ -118,6 +120,7 @@ export default class SelectPage extends React.Component {
             id="dueDate"
             onChange={ this.handleMultiselectChange }
             selected={ this.state.selected }
+            selectedLabel={ <span>picked</span> }
           >
             <Option value="today">Today</Option>
             <Option value="tomorrow">Tomorrow</Option>

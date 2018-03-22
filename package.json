@@ -1,7 +1,7 @@
 {
   "name": "@pi/intellyo-components",
   "description": "Intellyo Application Design System",
-  "version": "8.0.1",
+  "version": "9.0.3",
   "main": "./dist/index.js",
   "publishConfig": {
     "repository": "https://npm.registry.purposeindustries.co"
@@ -78,7 +78,7 @@
     "wdio-junit-reporter": "^0.3.1",
     "wdio-mocha-framework": "^0.5.11",
     "wdio-sauce-service": "^0.4.4",
-    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "^0.1.3",
     "wdio-static-server-service": "^1.0.1",
     "wdio-visual-regression-service": "https://github.com/purposeindustries/wdio-visual-regression-service/releases/download/ignore-comparison/wdio-visual-regression-service-0.8.0.tgz",
@@ -102,7 +102,6 @@
     "react-popper": "^0.7.4",
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.19.0",
-    "react-user-avatar": "^1.9.0",
     "rodal": "^1.6.1"
   }
 }

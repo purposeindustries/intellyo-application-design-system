@@ -42,6 +42,8 @@
 @import './list';
 @import './tile';
 @import './checkbox';
+@import './avatar-card';
+@import './stacked-avatar';
 
 @import './pages/typography.css';
 @import './pages/grid.css';
@@ -60,6 +62,7 @@
 @import './pages/tab-panels.css';
 @import './pages/confirmations.css';
 @import './pages/select.css';
+@import './pages/index-page.css';
 
 body {
   margin: 0;

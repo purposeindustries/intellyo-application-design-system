@@ -1,26 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
 
 import { Icon } from '../index';
 
-const Checkbox = (props) => (
-  <label
-    className={ cx('checkbox-wrapper', {
-      'checkbox-wrapper--checked': props.checked
-    }) }
-    onClick={ (e) => {
-      e.preventDefault();
-      props.onChange();
-    } }
+const Checkbox = ({ checked, onChange }) => (
+  <div
+    role="checkbox"
+    onClick={ onChange }
+    onKeyDown={ (e) => e.keyCode === 13 && onChange() }
+    aria-checked={ checked }
+    tabIndex={ 0 }
+    className="checkbox"
   >
-    <div className="checkbox">
-      { props.checked && (
-        <Icon icon="ion-checkmark" />
-      ) }
-    </div>
-    <input checked={ props.checked } type="checkbox" />
-  </label>
+    <Icon icon="ion-checkmark" />
+  </div>
 );
 
 Checkbox.displayName = 'Checkbox';

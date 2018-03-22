@@ -15,7 +15,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  checkout-code:
+  build:
     <<: *defaults
     steps:
       - checkout
@@ -25,9 +25,6 @@ jobs:
             - ~/purposeindustries/content-editor
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
-  dependencies:
-    <<: *defaults
-    steps:
       - restore_cache:
           keys:
             - dependency-cache
@@ -114,25 +111,19 @@ workflows:
 
   build-and-deploy:
     jobs:
-      - checkout-code:
-      - dependencies:
-          requires:
-            - checkout_code
+      - build
       - test:
           requires:
             - dependencies
-      - build:
-          requires:
-            - test
       - reporting:
           requires:
-            - build
+            - test
       - release:
           requires:
-            - build
+            - test
       - deploy:
           requires:
-            - build
+            - test
           filters:
             branches:
               ignore: /.*/
@@ -141,7 +132,7 @@ workflows:
               only: /^v[0-9]+(\.[0-9]+)*$/
       - publish:
           requires:
-            - build
+            - test
           filters:
             branches:
               ignore: /.*/

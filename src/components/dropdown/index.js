@@ -27,6 +27,18 @@ export default class Dropdown extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (typeof window !== undefined) {
+      window.addEventListener('resize', this.closeOnResize, { passive: true });
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== undefined) {
+      window.removeEventListener('resize', this.closeOnResize);
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (typeof nextProps.isActive !== 'undefined' && nextProps.isActive !== this.state.isActive) {
       this.setState({
@@ -49,6 +61,13 @@ export default class Dropdown extends React.Component {
     } else {
       this.open();
     }
+  }
+
+  closeOnResize = () => {
+    if (!this.state.isActive) {
+      return;
+    }
+    this.close();
   }
 
   close() {

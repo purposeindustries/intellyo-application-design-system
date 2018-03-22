@@ -15,7 +15,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  build:
+  build-environment:
     <<: *defaults
     steps:
       - checkout
@@ -111,10 +111,10 @@ workflows:
 
   build-and-deploy:
     jobs:
-      - build
+      - build-environment
       - test:
           requires:
-            - dependencies
+            - build-environment
       - reporting:
           requires:
             - test

@@ -18,7 +18,7 @@ test:
       fi
 
       if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-        E2EPROFILE=saucelight npm run test:e2e
+        E2EPROFILE=sauceextended npm run test:e2e
       else
         npm run test:e2e
       fi

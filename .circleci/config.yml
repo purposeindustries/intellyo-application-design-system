@@ -82,9 +82,6 @@ jobs:
               git config --global user.name "purpose-bot"
               git config --global push.default simple
               npm version $RELEASE_TYPE --commit-hooks=false
-              #git add package.json package-lock.json
-              #VERSION=$(npm view content-editor version)
-              #git commit --no-verify -m "chore: $RELEASE_TYPE bump to v$VERSION"
               git push -u origin $CIRCLE_BRANCH
               git push --tags
             else

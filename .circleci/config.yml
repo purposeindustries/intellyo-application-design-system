@@ -2,10 +2,10 @@ aliases:
   - &workspace_dir    /home/circleci/purposeindustries/content-editor
   - &step_attach_workspace
     attach_workspace:
-      at: *workspace_dir
+      at: /home/circleci/purposeindustries/content-editor
 
 defaults: &defaults
-  working_directory: &workspace_dir
+  working_directory:     /home/circleci/purposeindustries/content-editor
   parallelism: 1
   shell: /bin/bash --login
 
@@ -52,7 +52,7 @@ jobs:
           command: sudo apt-get install tree
 
       - persist_to_workspace:
-          root: *workspace_dir
+          root: /home/circleci/purposeindustries/content-editor
           paths: .
   test:
     <<: *defaults

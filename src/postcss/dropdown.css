@@ -147,16 +147,15 @@ $dropdown-item-bg-color--active: $color-grey-2;
 
   &-items {
     position: absolute;
-    width: 100%;
+    width: auto;
     top: $dropdown-height;
     left: 0px;
     z-index: $dropdown-items-z-index;
     padding: 5px 0;
     background: $dropdown-items-background;
     border-radius: $dropdown-items-border-radius;
-    visibility: hidden;
-    pointer-events: none;
     box-shadow: $box-shadow-base;
+    margin-top: 1px; /* This is needed as Popper positions the element 1px above where it should */
 
     & .dropdown-item,
     & .prefixed-item {

@@ -7,7 +7,7 @@
   & .checkboxes {
     display: flex;
 
-    & .checkbox-wrapper:not(:last-child) {
+    & .checkbox:not(:last-child) {
       margin-right: calc($gutter-base / 2);
     }
   }

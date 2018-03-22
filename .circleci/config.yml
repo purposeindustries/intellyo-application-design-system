@@ -60,10 +60,11 @@ jobs:
       - run:
           name: e2e test
           command: |
+            set +e
             if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-              set +e; E2EPROFILE=saucelight npm run test:e2e; STATUS=$?;
+              E2EPROFILE=saucelight npm run test:e2e; STATUS=$?;
             else
-              set +e; npm run test:e2e; STATUS=$?;
+              npm run test:e2e; STATUS=$?;
             fi
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo 'FORCE_BUILD active!'

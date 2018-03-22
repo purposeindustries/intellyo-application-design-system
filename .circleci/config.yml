@@ -1,8 +1,9 @@
 aliases:
-  - &workspace_dir  /home/circleci/purposeindustries/content-editor
+  - &workspace_dir    /home/circleci/purposeindustries/content-editor
   - &step_attach_workspace
     attach_workspace:
       at: *workspace_dir
+
 defaults: &defaults
   working_directory: &workspace_dir
   parallelism: 1
@@ -23,8 +24,8 @@ jobs:
   build-environment:
     <<: *defaults
     steps:
-      - *step_attach_workspace
       - checkout
+      - *step_attach_workspace
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
@@ -49,6 +50,7 @@ jobs:
       - run:
           name: install system wide tools
           command: sudo apt-get install tree
+
       - persist_to_workspace:
           root: *workspace_dir
           paths: .

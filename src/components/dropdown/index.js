@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Icon from '../icon';
+import DropdownItems from '../dropdown-items/';
+import { Manager, Target } from 'react-popper';
 
 export default class Dropdown extends React.Component {
   static displayName = 'Dropdown';
@@ -66,9 +68,8 @@ export default class Dropdown extends React.Component {
 
   renderSplitTrigger() {
     const children = React.Children.toArray(this.props.children);
-    const defaultItem = children.filter((child) => {
-      return child.props.default;
-    })[0];
+    const defaultItem = children.find((child) => child.props.default);
+
     const renderOtherChildren = () => {
       const otherChildren = children.filter((child) => !child.props.default);
       return React.Children.map(otherChildren, (c) => {
@@ -83,83 +84,85 @@ export default class Dropdown extends React.Component {
       });
     };
 
-    return (
-      <div
-        className="dropdown-inner-wrap dropdown-inner-wrap--split"
-        style={ this.props.style }
-      >
+    return ({
+      splitTrigger: () => (
         <div
-          className="dropdown-trigger"
-          onClick={ defaultItem.props.onClick }
+          className="dropdown-inner-wrap dropdown-inner-wrap--split"
+          style={ this.props.style }
         >
-          <span className="dropdown-trigger-label">
-            { defaultItem.props.icon && (
-              defaultItem.props.icon
-            ) }
-            { defaultItem.props.children }
-          </span>
+          <div
+            className="dropdown-trigger"
+            onClick={ defaultItem.props.onClick }
+          >
+            <span className="dropdown-trigger-label">
+              { defaultItem.props.icon && (
+                defaultItem.props.icon
+              ) }
+              { defaultItem.props.children }
+            </span>
+          </div>
+          <div
+            className="dropdown-trigger-arrow-wrap"
+            tabIndex="1"
+            onClick={ () => this.toggle() }
+          >
+            { this.renderArrow() }
+          </div>
         </div>
-        <div
-          className="dropdown-trigger-arrow-wrap"
-          tabIndex="1"
-          onClick={ () => this.toggle() }
-        >
-          { this.renderArrow() }
-        </div>
-        <div
-          className={ cx('dropdown-items', {
-            'dropdown-items--open': this.state.isActive
-          }) }
-        >
-          { renderOtherChildren() }
-        </div>
-      </div>
-    );
+      ),
+      renderOtherChildren
+    });
   }
 
   render() {
     const children = React.Children.toArray(this.props.children);
     const isSplit = children.filter((child) => child.props.default).length > 0;
+    const { splitTrigger, renderOtherChildren } = this.renderSplitTrigger();
+
     return (
-      <div
-        className={ cx('dropdown', this.props.className, {
-          'dropdown--open': this.state.isActive,
-          'dropdown--closed': !this.state.isActive,
-          'dropdown--only-child': React.Children.count(this.props.children) === 1
-        }) }
-        style={ this.props.style }
-      >
+      <Manager>
         <div
-          className="dropdown-overlay-background"
-          onClick={ () => {
-            this.close();
-          } }
-        />
-        { isSplit && (
-          <div>
-            { this.renderSplitTrigger() }
-          </div>
-        ) }
-        { !isSplit && (
-          <div className="dropdown-inner-wrap">
-            <div
-              className="dropdown-trigger"
-              tabIndex="1"
-              onClick={ () => this.toggle() }
-            >
-              <span className="dropdown-trigger-label">
-                { this.props.label }
-              </span>
-              { this.renderArrow() }
-            </div>
-            <div
-              className="dropdown-items"
-            >
-              { this.props.children }
-            </div>
-          </div>
-        ) }
-      </div>
+          className={ cx('dropdown', this.props.className, {
+            'dropdown--open': this.state.isActive,
+            'dropdown--closed': !this.state.isActive,
+            'dropdown--only-child': React.Children.count(this.props.children) === 1
+          }) }
+          style={ this.props.style }
+        >
+          <div
+            className="dropdown-overlay-background"
+            onClick={ () => {
+              this.close();
+            } }
+          />
+          <Target>
+            { isSplit && (
+              <React.Fragment>
+                { splitTrigger() }
+              </React.Fragment>
+            ) }
+            { !isSplit && (
+              <div className="dropdown-inner-wrap">
+                <div
+                  className="dropdown-trigger"
+                  tabIndex="1"
+                  onClick={ () => this.toggle() }
+                >
+                  <span className="dropdown-trigger-label">
+                    { this.props.label }
+                  </span>
+                  { this.renderArrow() }
+                </div>
+              </div>
+            ) }
+          </Target>
+          { this.state.isActive && (
+            <DropdownItems>
+              { isSplit ? renderOtherChildren() : this.props.children }
+            </DropdownItems>
+          ) }
+        </div>
+      </Manager>
     );
   }
 }

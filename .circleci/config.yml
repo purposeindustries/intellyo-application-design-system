@@ -126,7 +126,7 @@ workflows:
   daily_build:
     triggers:
       - schedule:
-          cron: "17 12 * * *"
+          cron: "23 11 * * *"
           filters:
             branches:
               only:

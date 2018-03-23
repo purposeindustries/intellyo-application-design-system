@@ -7,7 +7,7 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 | Prop | Type | Description | isRequired |
 | ---- | ---- | ----------- | ---------- |
 | header | node | The content to display inside your `<Modal />`'s header. | no |
-| title | string | This is the title of your `<Modal />` to display inside your `<Modal />`'s header. | no |
+| title | node | This is the title of your `<Modal />` to display inside your `<Modal />`'s header. | no |
 | children | node | The content to display inside your `<Modal />`'s body. | no |
 | footer | node | The content to display inside your `<Modal />`'s footer. | no |
 | measure | string | It can either be `"em"`, `"px"`, `"%"` or any other valid CSS metric. It is used for specifying in what measure you'd like to define the `<Modal />`'s dimensions. | yes |
@@ -23,7 +23,7 @@ Modals are widely used throughout the web. They can be used for displaying pop-u
 | duration | number | You can specify the duration of the animation. **NOTE**: In order to use animations, you need to set the `isAnimated` prop to `true`. | no |
 | customStyles | object | You can provide custom styles within an object to `<Modal />`'s dialog. | no |
 | customMaskStyles | object | Similarly to `<Modal />`'s dialog, you can provide custom styles within an object to `<Modal />`'s mask. | no |
-| hasAutoHeight | boolean | You can set the `<Modal />`'s height by setting the `hasAutoHeight` prop to true. **NOTE**: `height: auto` related styles will be merged into customStyles prop. | no |
+| hasAutoHeight | boolean | You can set the `<Modal />`'s height by setting the `hasAutoHeight` prop to true. **NOTE**: `height: auto` related styles will be merged into customStyles prop. AutoHeight with proper height setting triggers scroll inside the modal if the content overflows | no |
 
 ## Examples
 

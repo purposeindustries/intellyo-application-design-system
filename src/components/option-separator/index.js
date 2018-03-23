@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { node } from 'prop-types';
 
 export default function OptionSeparator(props) {
   return (
@@ -12,5 +12,5 @@ export default function OptionSeparator(props) {
 OptionSeparator.displayName = 'OptionSeparator';
 
 OptionSeparator.propTypes = {
-  children: string,
+  children: node,
 };

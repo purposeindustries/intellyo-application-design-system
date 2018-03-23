@@ -11,7 +11,8 @@ Multiselect looks like a select, but it supports multiple selection in a dropdow
 | selected | array | The `selected` prop contains all the selected elements. | no |
 | isActive | boolean | As `Multiselect` relies on the `Dropdown` component `isActive` needs to be handled in `Multiselect`'s state to specify, when the dropdown should be open or not. | no |
 | children | node | `Multiselect`'s children are preferably `Option` and `OptionSeparator` components. They are going to be rendered in a `Dropdown`. | no |
-| defaultLabel | string | You can specify the default label of the `Multiselect` component. It's optional. Default value is 'Nothing is selected.' | no |
+| defaultLabel | node | You can specify the default label of the `Multiselect` component. It's optional. Default value is 'Nothing is selected.' | no |
+| selectedLabel | node | you can modify the text of `selected` to something else for e.g. in language version | no |
 
 ## Examples
 

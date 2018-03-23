@@ -1,0 +1,37 @@
+/* Stacked avatar */
+
+$stacked-avatar-height: 25px;
+$stacked-avatar-min-width: 100px;
+
+$stacked-avatar--additional-font-color: $avatar-font-color;
+$stacked-avatar--additional-left: 45px;
+$stacked-avatar--additional-dimensions: 25px;
+$stacked-avatar--additional-font-size: $avatar-font-size--small;
+$stacked-avatar--additional-background-color: $color-primary-3;
+$stacked-avatar--additional-font-weight: $avatar-font-weight;
+$stacked-avatar--additional-border-raius: 100%;
+
+.stacked-avatar {
+  position: relative;
+  height: $stacked-avatar-height;
+  min-width: $stacked-avatar-min-width;
+
+  & .user-avatar {
+    position: absolute;
+  }
+
+  & .stacked-avatar--additional {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: $stacked-avatar--additional-left;
+    width: $stacked-avatar--additional-dimensions;
+    height: $stacked-avatar--additional-dimensions;
+    font-size: $stacked-avatar--additional-font-size;
+    background: $stacked-avatar--additional-background-color;
+    color: $stacked-avatar--additional-font-color;
+    font-weight: $stacked-avatar--additional-font-weight;
+    border-radius: $stacked-avatar--additional-border-raius;
+  }
+}

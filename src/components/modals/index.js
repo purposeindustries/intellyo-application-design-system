@@ -12,7 +12,7 @@ export default class Modal extends React.PureComponent {
   static propTypes = {
     visible: bool.isRequired,
     onClose: func,
-    title: string,
+    title: node,
     header: node,
     children: node,
     footer: node,
@@ -34,6 +34,7 @@ export default class Modal extends React.PureComponent {
   static defaultProps = {
     isAnimated: true,
     customStyles: {},
+    measure: 'px',
   }
 
   handleAnimationEnd = () => {
@@ -56,9 +57,9 @@ export default class Modal extends React.PureComponent {
 
     if (this.props.hasAutoHeight) {
       autoHeightStyles = {
-        measure: '',
         width: this.props.width + this.props.measure,
         height: 'auto',
+        maxHeight: this.props.height + this.props.measure,
       };
     }
 

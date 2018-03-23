@@ -1,0 +1,13 @@
+.intellyo-index-page {  
+  & .index-main-card {
+    margin-top: 22px;
+    & a {
+      text-decoration: none;
+      color: black;
+    }
+
+    & .card {
+      margin: 12px 0;
+    }
+  }
+}

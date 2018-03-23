@@ -5,12 +5,12 @@ defaults: &defaults
   shell: /bin/bash --login
 
   environment:
-    E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
-    E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
-    E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
-    E2EPROFILE: sauceextended
-    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    E2E_OUTPUT: /tmp/circleci-artifacts/e2e/
+    E2E_SCREENSHOTS: /tmp/circleci-artifacts/screenshots/
+    E2E_ERRORSHOTS_OUTPUT: /tmp/circleci-test-results/e2e-errorshots/
+    E2EPROFILE: sauceextended
   docker:
     - image: circleci/node:8.9.4
 
@@ -60,15 +60,20 @@ jobs:
       - run:
           name: e2e test
           command: |
+            set +e
             if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
               E2EPROFILE=saucelight npm run test:e2e
             else
               npm run test:e2e
             fi
-  
-      - store_test_results:
-          path: /tmp/circleci-test-results
-      # Save artifacts
+            STATUS=$?;
+            if [[ ! -z $FORCE_BUILD ]] ; then
+              echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
+              exit 0
+            else
+              exit $STATUS
+            fi
+            
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -105,3 +110,19 @@ jobs:
             else
               echo "We are not build a tag, or the tag is not major, minor or patch but preversion"
             fi
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+  nightly_build:
+    triggers:
+      - schedule:
+          cron: "00 16 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build

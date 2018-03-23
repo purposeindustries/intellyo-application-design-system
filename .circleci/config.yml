@@ -127,7 +127,11 @@ workflows:
   version: 2
   nightly_build:
     triggers:
-       - schedule:
-           cron: "36 10 * * *"
+      - schedule:
+          cron: "36 10 * * *"
+            filters:
+              branches:
+                ignore:
+                 - /^v[0-9]+(\.[0-9]+)*/
     jobs:
       - build

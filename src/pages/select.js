@@ -43,6 +43,13 @@ export default class SelectPage extends React.Component {
     });
   }
 
+  items = [<DropdownItem key="disabled" value="" disabled>Choose an option</DropdownItem>]
+    .concat(lipsum({ count: 100, units: 'words' }).split(' ').map((value, i) => (
+      <DropdownItem key={ i } value={ value }>
+        { value }
+      </DropdownItem>
+  )));
+
   render() {
     return (
       <div className="select-page">
@@ -117,17 +124,7 @@ export default class SelectPage extends React.Component {
             value={ this.state.extreme }
             onChange={ this.handleSelectChange }
           >
-            <DropdownItem
-              value={ '' }
-              disabled
-            >
-              Choose an option
-            </DropdownItem>
-            { lipsum({ count: 100, units: 'words' }).split(' ').map((value, i) => (
-              <DropdownItem key={ i } value={ value }>
-                { value }
-              </DropdownItem>
-            )) }
+            { this.items }
           </Select>
         </Card>
         <Card

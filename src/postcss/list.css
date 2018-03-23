@@ -1,5 +1,5 @@
 .intellyo-list {
-  & .is-dragging {
+  &--is-dragging {
     user-select: none;
   }
 

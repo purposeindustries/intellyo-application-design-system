@@ -89,7 +89,7 @@ class DragSort extends Component {
     return connectDragPreview(
       connectDropTarget(
         <div
-          className={ classnames('intellyo-drag-sort', { 'is-dragging': this.props.isDragging }) }
+          className={ classnames('intellyo-drag-sort', { 'intellyo-drag-sort--is-dragging': this.props.isDragging }) }
           style={ { opacity } }
         >
           {connectDragSource(<div className="drag-and-drop-handle" />)}

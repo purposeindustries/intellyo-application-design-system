@@ -68,7 +68,7 @@ jobs:
             fi
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
-              echo 'FORCE_BUILD active!'
+              echo 'FORCE_BUILD active! The build not fails if the tests are failing.'
               exit 0
             else
               exit $STATUS

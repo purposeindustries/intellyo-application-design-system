@@ -68,7 +68,7 @@ jobs:
             fi
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
-              echo 'The force build is active! The exit code: $STATUS'
+              echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
               exit 0
             else
               exit $STATUS

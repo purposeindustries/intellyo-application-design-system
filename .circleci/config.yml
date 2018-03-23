@@ -60,12 +60,20 @@ jobs:
       - run:
           name: e2e test
           command: |
+            set +e
             if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
               E2EPROFILE=saucelight npm run test:e2e
             else
               npm run test:e2e
             fi
-  
+            STATUS=$?;
+            if [[ ! -z $FORCE_BUILD ]] ; then
+              echo 'FORCE_BUILD active!'
+              exit 0
+            else
+              exit $STATUS
+            fi
+
       - store_test_results:
           path: /tmp/circleci-test-results
       # Save artifacts

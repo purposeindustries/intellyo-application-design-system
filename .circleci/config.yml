@@ -5,12 +5,12 @@ defaults: &defaults
   shell: /bin/bash --login
 
   environment:
+    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
     E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
     E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
     E2EPROFILE: sauceextended
-    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
   docker:
     - image: circleci/node:8.9.4
 

@@ -7,7 +7,7 @@ defaults: &defaults
   environment:
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
+    E2E_OUTPUT: /tmp/circleci-artifacts/e2e/
     E2E_SCREENSHOTS: /tmp/circleci-artifacts/screenshots/
     E2E_ERRORSHOTS_OUTPUT: /tmp/circleci-test-results/e2e-errorshots/
     E2EPROFILE: sauceextended

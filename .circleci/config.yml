@@ -122,11 +122,10 @@ workflows:
   build_and_teszt:
     jobs:
       - build
-
-  daily_build:
+  nightly_build:
     triggers:
       - schedule:
-          cron: "23 11 * * *"
+          cron: "50 12 * * *"
           filters:
             branches:
               only:

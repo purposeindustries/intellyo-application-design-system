@@ -129,8 +129,8 @@ workflows:
     triggers:
       - schedule:
           cron: "36 10 * * *"
-            filters:
-              branches:
+          filters:
+            branches:
                 ignore:
                  - /^v[0-9]+(\.[0-9]+)*/
     jobs:

@@ -123,15 +123,13 @@ workflows:
     jobs:
       - build
 
-# workflows:
-#   version: 2
-#   nightly_build:
-#     triggers:
-#       - schedule:
-#           cron: "36 10 * * *"
-#           filters:
-#             branches:
-#                 ignore:
-#                  - /^v[0-9]+(\.[0-9]+)*/
-#     jobs:
-#       - build
+  daily_build:
+    triggers:
+      - schedule:
+          cron: "0 8 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build

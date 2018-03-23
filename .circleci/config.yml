@@ -116,3 +116,12 @@ jobs:
             else
               echo "We are not build a tag, or the tag is not major, minor or patch but preversion"
             fi
+
+workflows:
+  version: 2
+  build_and_test:
+    triggers:
+       - schedule:
+           cron: "35 10 * * *"
+    jobs:
+      - build

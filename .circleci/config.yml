@@ -8,8 +8,8 @@ defaults: &defaults
     CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
     CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     E2E_OUTPUT: $CIRCLE_TEST_REPORTS/e2e/
-    E2E_SCREENSHOTS: $CIRCLE_ARTIFACTS/screenshots/
-    E2E_ERRORSHOTS_OUTPUT: $CIRCLE_ARTIFACTS/e2e-errorshots/
+    E2E_SCREENSHOTS: /tmp/circleci-artifacts/screenshots/
+    E2E_ERRORSHOTS_OUTPUT: /tmp/circleci-test-results/e2e-errorshots/
     E2EPROFILE: sauceextended
   docker:
     - image: circleci/node:8.9.4
@@ -75,9 +75,9 @@ jobs:
             fi
       # Save artifacts
       - store_artifacts:
-          path: $E2E_ERRORSHOTS_OUTPUT
+          path: /tmp/circleci-artifacts
       - store_artifacts:
-          path: $E2E_SCREENSHOTS
+          path: /tmp/circleci-test-results
 
       - run:
           name: Create new release

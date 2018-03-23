@@ -68,7 +68,7 @@ jobs:
             fi
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
-              echo 'FORCE_BUILD active!'
+              echo 'The force build is active! The exit code: $STATUS'
               exit 0
             else
               exit $STATUS
@@ -116,13 +116,13 @@ jobs:
 
 workflows:
   version: 2
-  build_and_teszt:
+  build_and_test:
     jobs:
       - build
   nightly_build:
     triggers:
       - schedule:
-          cron: "50 12 * * *"
+          cron: "00 16 * * *"
           filters:
             branches:
               only:

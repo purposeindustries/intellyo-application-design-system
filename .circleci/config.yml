@@ -73,7 +73,7 @@ jobs:
             else
               exit $STATUS
             fi
-      # Save artifacts
+            
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -122,7 +122,7 @@ workflows:
   nightly_build:
     triggers:
       - schedule:
-          cron: "00 16 * * *"
+          cron: "30 16 * * *"
           filters:
             branches:
               only:

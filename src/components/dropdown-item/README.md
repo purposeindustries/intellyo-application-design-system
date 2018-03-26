@@ -6,7 +6,7 @@
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| children | string | Use to render out text inside the component. |
+| children | node | Use to render out text inside the component. |
 | onClick | func | Callback function which fires when there is a click. |
 | onMouseDown | func | Callback function which fires on a mouse-down event. |
 | default | bool | Use to set the component to its default state. |

@@ -7,7 +7,7 @@ export default class Dropdown extends React.Component {
   static displayName = 'Dropdown';
   static propTypes = {
     isActive: PropTypes.bool,
-    label: PropTypes.string,
+    label: PropTypes.node,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     onChange: PropTypes.func,
     onClick: PropTypes.func,

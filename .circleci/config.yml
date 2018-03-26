@@ -62,9 +62,9 @@ jobs:
           command: |
             set +e
             if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-              E2EPROFILE=saucelight npm run test:e2e
+              E2EPROFILE=saucelight npm run test:e2e -- --spec e2e/test/avatar-tests/avatar-test.js
             else
-              npm run test:e2e
+              E2EPROFILE=sauceextended npm run test:e2e -- --spec e2e/test/avatar-tests/avatar-test.js
             fi
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
@@ -73,7 +73,7 @@ jobs:
             else
               exit $STATUS
             fi
-            
+
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -87,6 +87,9 @@ jobs:
               git config --global user.name "purpose-bot"
               git config --global push.default simple
               npm version $RELEASE_TYPE --commit-hooks=false
+              #git add package.json package-lock.json
+              #VERSION=$(npm view content-editor version)
+              #git commit --no-verify -m "chore: $RELEASE_TYPE bump to v$VERSION"
               git push -u origin $CIRCLE_BRANCH
               git push --tags
             else
@@ -119,7 +122,7 @@ workflows:
   nightly_build:
     triggers:
       - schedule:
-          cron: "00 16 * * *"
+          cron: "30 16 * * *"
           filters:
             branches:
               only:

@@ -1,11 +1,15 @@
 import React from 'react';
 import { string, bool, func, node } from 'prop-types';
+import { Checkbox } from '../index';
 
 const Option = (props) => (
-  <div className="dropdown-item option">
+  <div
+    className="dropdown-item option"
+    onClick={ props.onClick }
+  >
     <label>
       <span>{ props.children }</span>
-      <input type="checkbox" onChange={ props.onClick } checked={ props.checked } />
+      <Checkbox checked={ props.checked } onChange={ props.onClick } />
     </label>
   </div>
 );

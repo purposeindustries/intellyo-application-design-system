@@ -96,7 +96,7 @@ jobs:
           name: Publish new version to npm
           command: |
             # matches v1.2.3-next, or v1.2.3-1
-            if [[ "$CIRCLE_TAG$CIRCLE_BRANCH" =~ "^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)+(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$" ]]; then
+            if [[ "$CIRCLE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)+(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then
               npm publish
             else
               echo "We are not building a tag or the tag is not a valid semver ($CIRCLE_TAG)";
@@ -105,10 +105,10 @@ jobs:
       - run:
           name: Deploy the version
           command: |
-            if [[ "$CIRCLE_TAG$CIRCLE_BRANCH" =~ "^v[0-9]+(\.[0-9]+)*$" ]]; then
+            if [[ "$CIRCLE_TAG" =~ ^v[0-9]+(\.[0-9]+)*$ ]]; then
               npm run deploy
             else
-              echo "We are not build a tag, or the tag is not major, minor or patch but preversion"
+              echo "We are not building a tag, or the tag is not major, minor or patch but preversion ($CIRCLE_TAG)"
             fi
 
 workflows:

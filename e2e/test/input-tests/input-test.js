@@ -3,7 +3,7 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const BASIC_INPUT = '::Basic';
+const BASIC_INPUT = '.col-3 .input:nth-child(1) input[type=text]';
 
 //test names
 const BASIC_INPUT_NAME = 'Basic-input';

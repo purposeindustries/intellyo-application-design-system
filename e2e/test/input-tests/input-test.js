@@ -23,7 +23,7 @@ describe('FEF input tests', () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INPUT,
-      {firefoxTolerance: 11.5, defaultTolerance: 4, ignoreComparison: false}), //TODO : Why firefox problematic?
+      {localTolerance: 4.5, firefoxTolerance: 11.5, defaultTolerance: 4, ignoreComparison: false}), //TODO : Why firefox problematic?
       'Basic input is not similar to reference picture');
   });
 

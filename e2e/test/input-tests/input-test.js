@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const BASIC_INPUT = '//*[@placeholder="Basic"]';
@@ -22,7 +22,7 @@ describe('FEF input tests', () => {
   it('should check ' + BASIC_INPUT_NAME, () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    assert(takeScreenShotOfElement(BASIC_INPUT,
+    assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INPUT,
       {firefoxTolerance: 11.5, defaultTolerance: 4, ignoreComparison: false}), //TODO : Why firefox problematic?
       'Basic input is not similar to reference picture');
   });
@@ -31,7 +31,7 @@ describe('FEF input tests', () => {
     browser.url('/inputs');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INPUT);
-    assert(takeScreenShotOfElement(BASIC_INPUT,
+    assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INPUT,
       {firefoxTolerance: 12, defaultTolerance: 9.2, ignoreComparison: false}), //TODO : Why firefox problematic?
       'Basic input clicked is not similar to reference picture');
   });
@@ -41,7 +41,7 @@ describe('FEF input tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INPUT);
     browser.setValue(BASIC_INPUT, 'foobar\n');
-    assert(takeScreenShotOfElement(BASIC_INPUT,
+    assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INPUT,
       {firefoxTolerance: 14, defaultTolerance: 11, ignoreComparison: false}), //TODO : Why firefox problematic?
       'Basic input with added text is not similar to reference picture');
   });

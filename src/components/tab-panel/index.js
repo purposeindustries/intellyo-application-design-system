@@ -52,7 +52,7 @@ export class TabPanel extends React.Component {
         }) }
       >
         <div className="tab-list">
-          { React.Children.map(this.props.children, (child, index) => (
+          { React.Children.map(React.Children.toArray(this.props.children), (child, index) => (
             <div
               className={ cx('tab-panel-title', {
                 'tab-panel-title--active': this.state.activeIndex === index
@@ -61,7 +61,7 @@ export class TabPanel extends React.Component {
             >
               { child.props.title }
             </div>
-            )) }
+          )) }
         </div>
         { activeTab }
       </div>

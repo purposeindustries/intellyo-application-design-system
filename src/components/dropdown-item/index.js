@@ -22,7 +22,7 @@ export default function DropdownItem(props) {
 DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
   value: PropTypes.string,
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,

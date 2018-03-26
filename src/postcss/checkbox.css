@@ -1,0 +1,35 @@
+$checkbox-dimension: 12px;
+
+.checkbox {
+  width: $checkbox-dimension;
+  height: $checkbox-dimension;
+  border: 2px solid $color-grey-2;
+  border-radius: calc($border-radius-base / 2);
+  transition: all 0.25s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .icon {
+    visibility: hidden;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+      fill: #fff;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &[aria-checked="true"] {
+    background-color: $color-primary-2;
+    border-color: $color-primary-2;
+
+    & .icon {
+      visibility: visible;
+    }
+  }
+}

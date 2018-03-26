@@ -41,6 +41,7 @@
 @import './tab-panel';
 @import './list';
 @import './tile';
+@import './checkbox';
 @import './avatar-card';
 @import './stacked-avatar';
 
@@ -60,6 +61,7 @@
 @import './pages/sections.css';
 @import './pages/tab-panels.css';
 @import './pages/confirmations.css';
+@import './pages/select.css';
 @import './pages/index-page.css';
 
 body {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from '../components/card';
 import {
   Select,
@@ -8,6 +9,7 @@ import DropdownItem from '../components/dropdown-item';
 import OptionSeparator from '../components/option-separator';
 import Option from '../components/option';
 import Caption from '../components/caption';
+import { Checkbox } from '../components/index';
 
 export default class SelectPage extends React.Component {
 
@@ -16,7 +18,8 @@ export default class SelectPage extends React.Component {
   state = {
     selected: [],
     car2: '',
-    car: 'hello'
+    car: 'hello',
+    checkbox: false,
   }
 
   handleSelectChange = (value, id) => {
@@ -126,6 +129,13 @@ export default class SelectPage extends React.Component {
             <OptionSeparator>Other</OptionSeparator>
             <Option value="the-day-after-tomorrow">Day after tomorrow</Option>
           </Multiselect>
+        </Card>
+        <Card title="Checkboxes">
+          <div className="checkboxes">
+            <Checkbox checked={ false } />
+            <Checkbox checked={ true } />
+            <Checkbox checked={ this.state.checkbox } onChange={ () => this.setState({ checkbox: !this.state.checkbox }) } />
+          </div>
         </Card>
       </div>
     );

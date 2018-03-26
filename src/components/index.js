@@ -12,6 +12,7 @@ export {
   layouts as chartLayouts
 } from './chart';
 export { default as ChartTraceSummaryItem } from './chart-trace-summary-item';
+export { default as Checkbox } from './checkbox';
 export { default as Col } from './col';
 export { default as DisplayText } from './display-text';
 export { default as Dropdown } from './dropdown';

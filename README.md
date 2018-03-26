@@ -22,6 +22,7 @@ Here you can find each of our components:
 - [Card](/src/components/card)
 - [Chart](/src/components/chart)
 - [ChartTraceSummaryItem](/src/components/chart-trace-summary-item)
+- [Checkbox](/src/components/checkbox)
 - [Col](/src/components/col)
 - [Confirmation](/src/components/confirmation)
 - [DisplayText](/src/components/display-text)

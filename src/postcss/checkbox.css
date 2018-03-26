@@ -5,7 +5,7 @@ $checkbox-dimension: 12px;
   height: $checkbox-dimension;
   border: 2px solid $color-grey-2;
   border-radius: calc($border-radius-base / 2);
-  transition: all 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out,;
   display: flex;
   align-items: center;
   justify-content: center;

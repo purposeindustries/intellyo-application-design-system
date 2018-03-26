@@ -7,7 +7,7 @@
     align-items: center;
     cursor: pointer;
 
-    & input[type="checkbox"] {
+    & .checkbox {
       margin-left: auto;
     }
   }

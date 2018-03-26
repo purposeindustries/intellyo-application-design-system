@@ -3,7 +3,8 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const CLICK_ME_POPOVER_XPATH = '.col:nth-child(2) .overlay-trigger';
+const CLICK_ME_POPOVER_XPATH = '.col:nth-child(2)';
+const CLICK_ME_POPOVER_CLICKABLE_XPATH = '.col:nth-child(2) .overlay-trigger';
 const OVERLAY_POPOVER_XPATH = '//*[@class="overlay-trigger overlay-trigger--active"]//*[@class="overlay popover"]';
 const TRIGERED_OVERLAY = '//*[@class="overlay-trigger overlay-trigger--active"]';
 const HOVER_ME_POPOVER_XPATH = '//*[@class="col col-3"][1]//*[@class="overlay-trigger"]//*[contains(text(),"Hover me!")]';
@@ -37,7 +38,7 @@ describe('FEF popover tests', () => {
   it('should check ' + OVERLAY_POPOVER, () => {
     browser.url('/popover');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
-    browser.click(CLICK_ME_POPOVER_XPATH);
+    browser.click(CLICK_ME_POPOVER_CLICKABLE_XPATH);
     assert(takeScreenShotOfElement(OVERLAY_POPOVER_XPATH,
       {defaultTolerance: 11, ignoreComparison: false}),
       'Overlay popover for click me is not similar to reference picture');

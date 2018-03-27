@@ -8,7 +8,7 @@ $active-color: $color-primary-2;
 $dropdown-height: 32px;
 $dropdown-bg-color: #fff;
 $dropdown-border-radius: $border-radius-base;
-$dropdown-border-color: $color-black-3;
+$dropdown-border-color: $color-grey-5;
 $dropdown-border-color--hover: $hover-color;
 $dropdown-border-color--active: $active-color;
 $dropdown-border: 1px solid $dropdown-border-color;

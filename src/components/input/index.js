@@ -211,7 +211,7 @@ Input.propTypes = {
   type: PropTypes.string,
   required: PropTypes.bool,
   inputRef: PropTypes.func,
-  label: PropTypes.string,
+  label: PropTypes.node,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   onKeyDown: PropTypes.func,

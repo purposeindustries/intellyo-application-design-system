@@ -33,7 +33,7 @@ describe('FEF sections tests', () => {
     assert(browser.isExisting(DANGER_ZONE_DELETE_BUTTON), 'Danger zone is not existing in the DOM');
     browser.moveToElement(DANGER_ZONE_DELETE_BUTTON);
     assert(takeScreenShotOfElementAndCompareWithRef(DANGER_ZONE_DELETE_BUTTON,
-      {ffAndWindowsTolerance: 11.5, windowsTolerance: 10.5, defaultTolerance: 1, localIgnoreComparison: true}),
+      {localTolerance: 3.7, ffAndWindowsTolerance: 11.5, windowsTolerance: 10.5, defaultTolerance: 1, localIgnoreComparison: true}),
        'Added tags input is not similar to the reference');
   });
 });

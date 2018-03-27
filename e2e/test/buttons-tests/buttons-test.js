@@ -28,7 +28,7 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_SELECTOR), '"Yeah dropdown" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(YEAH_DROPDOWN_SELECTOR,
-      {ffAndWindowsTolerance: 7, windowsTolerance: 6, defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 6, ffAndWindowsTolerance: 7, windowsTolerance: 6, defaultTolerance: 1, ignoreComparison: false}),
        '"Yeah dropdown" is not similar to the reference');
   });
 

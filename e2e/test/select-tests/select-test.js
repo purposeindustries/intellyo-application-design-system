@@ -4,8 +4,8 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCo
 
 //Selectors/xpaths
 const SELECT_HELLO_SELECTOR = '.dropdown:nth-child(2)';
-const SELECT_HELLO_OPENED_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]';
-const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]//*[@class="dropdown-items"]';
+const SELECT_HELLO_OPENED_XPATH = '.dropdown--open';
+const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '.dropdown--open .dropdown-items';
 
 //test names
 const SELECT_HELLO = 'select-hello';
@@ -35,7 +35,7 @@ describe('FEF select tests', () => {
     browser.click(SELECT_HELLO_SELECTOR);
     assert(browser.isExisting(SELECT_HELLO_OPENED_XPATH), 'Select "Hello-opened" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_OPENED_DROPDOWN_XPATH,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {windowsTolerance: 9, defaultTolerance: 3, ignoreComparison: false}),
        '"Hello" select opened is not similar to the reference');
   });
 
@@ -45,7 +45,7 @@ describe('FEF select tests', () => {
     browser.click(SELECT_HELLO_SELECTOR);
     browser.click(SELECT_HELLO_OPENED_XPATH);
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {defaultTolerance: 6, ignoreComparison: false}),
        '"Hello" select closed is not similar to the reference');
   });
 });

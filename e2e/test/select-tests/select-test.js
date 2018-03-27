@@ -21,7 +21,7 @@ describe('FEF select tests', () => {
     'Whole FEF select page screenshot compare to a reference picture');
   });
 
-  it.only('should check the input ' + SELECT_HELLO, () => {
+  it('should check the input ' + SELECT_HELLO, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,

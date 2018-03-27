@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 export default class Select extends React.Component {
   static propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     children: PropTypes.node,
     id: PropTypes.string,

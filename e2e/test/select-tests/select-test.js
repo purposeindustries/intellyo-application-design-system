@@ -21,11 +21,11 @@ describe('FEF select tests', () => {
     'Whole FEF select page screenshot compare to a reference picture');
   });
 
-  it('should check the input ' + SELECT_HELLO, () => {
+  it.only('should check the input ' + SELECT_HELLO, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
-      {firefoxTolerance: 15.5, defaultTolerance: 5.7, ignoreComparison: false}),
+      {firefoxTolerance: 5.5, ffAndWindowsTolerance: 7.8, windowsTolerance: 7, defaultTolerance: 1, ignoreComparison: false}),
        '"Hello" select is not similar to the reference');
   });
 
@@ -45,7 +45,7 @@ describe('FEF select tests', () => {
     browser.click(SELECT_HELLO_SELECTOR);
     browser.click(SELECT_HELLO_OPENED_XPATH);
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
-      {defaultTolerance: 6, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 7.5, defaultTolerance: 6, ignoreComparison: false}),
        '"Hello" select closed is not similar to the reference');
   });
 });

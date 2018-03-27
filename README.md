@@ -72,3 +72,82 @@ Cross-browser Testing Platform and Open Source <3 Provided by [Sauce Labs][homep
 ## License
 
 MIT
+
+## Deployment and release
+
+[hubot](https://hubot.github.com) is here to rescue us all
+
+### Release
+
+```
+hubot ci build intellyo-application-design-system@patch
+```
+
+Instead of patch you can use:
+- premajor
+- major
+- preminor
+- minor
+- prepatch
+- patch
+- prerelease
+
+This will create a new patch release and it'll deploy it automatically.
+
+### Deployment
+
+Deployment is handled by CircleCI, if you are deploying which was a patch, minor or major the new version will be published to the npm repository and rolled out to [http://intellyo.design/](intellyo.design). 
+If you are deploying a prerelease, prepatch, preminor, premajor then it'll be published to npm but won't be rolled out [http://intellyo.design/](intellyo.design).
+
+If you want to manually deploy a version, or roll back to previous one, you can do it:
+
+```
+hubot ci deploy intellyo-application-design-system@v1.0.1
+```
+
+### Force build
+
+If the build fails because there's a broken e2e test, unit test or a lint issue you still can build a new version, you just need to force it. Force build still runs the tests but independently of their result the build will be marked as green. 
+
+```
+hubot ci force build intellyo-application-design-system@prepatch
+```
+
+To prevent any accidental executions you have to supply the daily villain (since you are doing a dangerous thing), but hubot is here to help you:
+
+```
+oroce: hubot ci force build intellyo-application-design-system@prepatch
+
+hubot: oroce: You are trying to be a villain, aren't you?
+       It's ok from time to time to be one, but you gotta know the safe word, today's one is: 
+       *Scream*
+       hubot ci force build intellyo-application-design-system@prepatch daily-villain=Scream
+```
+
+The daily villain is changed -as you'd guess- every day.
+
+Since you used `force build`, probably your branch was failing. Even though we'll try to autodeploy it, it'll will too. So you need to `force deploy` it.
+
+### Force deploy
+
+If autodeploy fails, you can manually force it.
+
+```
+hubot ci force deploy intellyo-application-design-system@v1.0.1-0
+```
+
+You will supply the daily villain again, similarly to `force build`.
+
+### Build from feature branch
+
+Sometimes you want to create a new release from a feature branch (great for an rc, prelease, premajor), you can use both build and force build to do that as well.
+
+```
+hubot ci build intellyo-application-design-system#feat/breaking-change@prepatch
+```
+
+or 
+
+```
+hubot ci force build intellyo-application-design-system#feat/breaking-change@prepatch
+```

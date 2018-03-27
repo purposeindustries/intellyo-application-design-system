@@ -62,9 +62,9 @@ jobs:
           command: |
             set +e
             if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-              E2EPROFILE=sauceextended npm run test:e2e -- --spec e2e/test/buttons-tests/buttons-test.js
+              E2EPROFILE=sauceextended npm run test:e2e
             else
-               E2EPROFILE=sauceextended npm run test:e2e -- --spec e2e/test/buttons-tests/buttons-test.js
+               E2EPROFILE=sauceextended npm run test:e2e
             fi
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then

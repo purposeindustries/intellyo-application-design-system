@@ -92,7 +92,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(HAMBURGER_TAG_SELECTOR), 'Hamburger tag is not existing in the DOM before adding and clicking');
     browser.moveToElement(HAMBURGER_TAG_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(HAMBURGER_TAG_SELECTOR,
-      {defaultTolerance: 10, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 16, windowsTolerance: 15.5, defaultTolerance: 2, ignoreComparison: false}),
        'Added and clicked tags input is not similar to the reference');
 
   });

@@ -17,7 +17,7 @@
 | onChange | func | A callback function which fires every time there is a change present. |
 | error | shape({ message: string }) | Use to set-up an error message. |
 | id | string | Use to give an `id` to the component. |
-| label | string | Use to specify a label for the component. |
+| label | node | Use to specify a label for the component. |
 | type | string | Use to specify the type of the input. |
 | required | bool | Use to make the the component mandatory to fill in. |
 | inputRef | func | Use to set-up an input reference. |

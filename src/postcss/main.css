@@ -18,6 +18,7 @@
 @import './pages/confirmations.css';
 @import './pages/select.css';
 @import './pages/index-page.css';
+@import './pages/sidebar.css';
 
 body {
   margin: 0;

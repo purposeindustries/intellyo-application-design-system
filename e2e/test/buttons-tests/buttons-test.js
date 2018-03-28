@@ -27,8 +27,8 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(YEAH_DROPDOWN_SELECTOR), '"Yeah dropdown" is not existing in the DOM');
-    assert(takeScreenShotOfElement(YEAH_DROPDOWN_SELECTOR,
-      {defaultTolerance: 6, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(YEAH_DROPDOWN_SELECTOR,
+      {localTolerance: 6, ffAndWindowsTolerance: 7, windowsTolerance: 6, defaultTolerance: 1, ignoreComparison: false}),
        '"Yeah dropdown" is not similar to the reference');
   });
 
@@ -62,7 +62,7 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
     assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
-      {localTolerance: 3.5, windowsTolerance: 8.8, defaultTolerance: 3, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 9.6, windowsTolerance: 5, defaultTolerance: 4, ignoreComparison: false}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

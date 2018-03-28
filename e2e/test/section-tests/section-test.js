@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const DANGER_ZONE_SELECTOR = '.sections-page .row .box';
@@ -23,8 +23,8 @@ describe('FEF sections tests', () => {
   it('should check the section ' + DANGER_ZONE, () => {
     browser.url('/sections');
     assert(browser.isExisting(DANGER_ZONE_SELECTOR), 'Danger zone is not existing in the DOM');
-    assert(takeScreenShotOfElement(DANGER_ZONE_SELECTOR,
-      {localTolerance: 4.9, firefoxTolerance: 4.5, defaultTolerance: 3, ignoreComparison: false, localIgnoreComparison: true}),
+    assert(takeScreenShotOfElementAndCompareWithRef(DANGER_ZONE_SELECTOR,
+      {ffAndWindowsTolerance: 5, defaultTolerance: 3, ignoreComparison: false, localIgnoreComparison: true}),
        'Added tags input is not similar to the reference');
   });
 
@@ -33,7 +33,7 @@ describe('FEF sections tests', () => {
     assert(browser.isExisting(DANGER_ZONE_DELETE_BUTTON), 'Danger zone is not existing in the DOM');
     browser.moveToElement(DANGER_ZONE_DELETE_BUTTON);
     assert(takeScreenShotOfElementAndCompareWithRef(DANGER_ZONE_DELETE_BUTTON,
-      {localTolerance: 3.5, windowsTolerance: 11, defaultTolerance: 1, localIgnoreComparison: true}),
+      {localTolerance: 3.7, ffAndWindowsTolerance: 11.5, windowsTolerance: 10.5, defaultTolerance: 1, localIgnoreComparison: true}),
        'Added tags input is not similar to the reference');
   });
 });

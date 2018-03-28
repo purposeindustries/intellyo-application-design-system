@@ -126,7 +126,7 @@ hubot: oroce: You are trying to be a villain, aren't you?
 
 The daily villain is changed -as you'd guess- every day.
 
-Since you used `force build`, probably your branch was failing. Even though we'll try to autodeploy it, it'll will too. So you need to `force deploy` it.
+Since you used `force build`, probably your branch was failing. Even though we'll try to autodeploy it, it'll too. So you need to `force deploy` it.
 
 ### Force deploy
 

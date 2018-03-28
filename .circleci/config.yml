@@ -10,7 +10,7 @@ defaults: &defaults
     E2E_OUTPUT: /tmp/circleci-artifacts/e2e/
     E2E_SCREENSHOTS: /tmp/circleci-artifacts/screenshots/
     E2E_ERRORSHOTS_OUTPUT: /tmp/circleci-test-results/e2e-errorshots/
-    E2EPROFILE: sauceextended
+    E2EPROFILE: saucelight
   docker:
     - image: circleci/node:8.9.4
 
@@ -61,11 +61,7 @@ jobs:
           name: e2e test
           command: |
             set +e
-            if [[ $CIRCLE_BRANCH != *"master"* || ! -z $CIRCLE_TAG ]] ; then
-              E2EPROFILE=saucelight npm run test:e2e
-            else
-              npm run test:e2e
-            fi
+            npm run test:e2e
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
@@ -73,7 +69,100 @@ jobs:
             else
               exit $STATUS
             fi
-            
+
+      - store_artifacts:
+          path: /tmp/circleci-artifacts
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+
+      - run:
+          name: Create new release
+          command: |
+            if [ -n "$RELEASE_TYPE" ]; then
+              git config --global user.email "dev@purposeindustries.co"
+              git config --global user.name "purpose-bot"
+              git config --global push.default simple
+              npm version $RELEASE_TYPE --commit-hooks=false
+              git push -u origin $CIRCLE_BRANCH
+              git push --tags
+            else
+              echo "No RELEASE_TYPE is present, skipping creating new release."
+            fi
+      - run:
+          name: Publish new version to npm
+          command: |
+            # matches v1.2.3-next, or v1.2.3-1
+            if [[ "$CIRCLE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)+(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then
+              npm publish
+            else
+              echo "We are not building a tag or the tag is not a valid semver ($CIRCLE_TAG)";
+            fi
+
+      - run:
+          name: Deploy the version
+          command: |
+            if [[ "$CIRCLE_TAG" =~ ^v[0-9]+(\.[0-9]+)*$ ]]; then
+              npm publish
+              npm run deploy
+            else
+              echo "We are not building a tag, or the tag is not major, minor or patch but preversion ($CIRCLE_TAG)"
+            fi
+
+  #Duplicated code. Not possible to solve with yaml references on circleci
+  nightly_build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/purposeindustries/content-editor
+
+      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+
+      - restore_cache:
+          keys:
+            - dependency-cache
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+
+      - run: echo -e "$NPMRC" >>$HOME/.npmrc
+
+      - run: npm i --prefer-offline
+
+      - save_cache:
+          key: dependency-cache
+          paths:
+          - ~/.npm
+          - ./node_modules
+
+      - run:
+          name: install system wide tools
+          command: sudo apt-get install tree
+
+      - run:
+          name: test
+          command: npm run test
+
+      - run:
+          name: build assets
+          command: npm run build
+          environment:
+            NODE_ENV: production
+
+      - run:
+          name: e2e test
+          command: |
+            set +e
+            E2EPROFILE=sauceextended npm run test:e2e
+            STATUS=$?;
+            if [[ ! -z $FORCE_BUILD ]] ; then
+              echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
+              exit 0
+            else
+              exit $STATUS
+            fi
+
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -120,10 +209,10 @@ workflows:
   nightly_build:
     triggers:
       - schedule:
-          cron: "00 16 * * *"
+          cron: "00 23 * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
-      - build
+      - nightly_build

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-class SidebarItem extends Component {
-  static displayName = 'SidebarItem'
+class MenuPanelItem extends Component {
+  static displayName = 'MenuPanelItem'
 
   static propTypes = {
     children: PropTypes.node,
@@ -32,8 +32,8 @@ class SidebarItem extends Component {
     return (
       <li
         className={
-          classNames('sidebar-item', this.props.className, {
-            'sidebar-item--expanded': this.props.expandable && this.state.open
+          classNames('menu-panel-item', this.props.className, {
+            'menu-panel-item--expanded': this.props.expandable && this.state.open
           })
         }
       >
@@ -70,9 +70,9 @@ class SidebarItem extends Component {
   }
 }
 
-const Sidebar = (props) => (
+const MenuPanel = (props) => (
   <aside
-    className="sidebar"
+    className="menu-panel"
   >
     <div className="logo">
       <a href="/">{ props.head || <Logo /> }</a>
@@ -91,13 +91,13 @@ const Sidebar = (props) => (
   </aside>
 );
 
-Sidebar.displayName = 'Sidebar';
+MenuPanel.displayName = 'MenuPanel';
 
-Sidebar.propTypes = {
+MenuPanel.propTypes = {
   children: PropTypes.node,
   head: PropTypes.node,
 };
 
-export { SidebarItem };
+export { MenuPanelItem };
 
-export default Sidebar;
+export default MenuPanel;

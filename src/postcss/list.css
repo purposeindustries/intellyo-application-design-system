@@ -1,6 +1,4 @@
 .intellyo-list {
-  user-select: none;
-
   & .list-new-button-wrap {
       display: flex;
       align-items: center;
@@ -34,6 +32,11 @@
     background-position: center;
     border-radius: 4px 0 0 4px;
   }
+  
+  &--is-dragging {
+    user-select: none;
+  }
+
 }
 
 .intellyo-list-item {

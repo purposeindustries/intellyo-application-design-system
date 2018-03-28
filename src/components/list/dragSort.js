@@ -5,6 +5,7 @@ import {
   DragSource as dragSource,
   DropTarget as dropTarget
 } from 'react-dnd';
+import classnames from 'classnames';
 
 const itemSource = {
   beginDrag(props) {
@@ -88,7 +89,7 @@ class DragSort extends Component {
     return connectDragPreview(
       connectDropTarget(
         <div
-          className="intellyo-drag-sort"
+          className={ classnames('intellyo-drag-sort', { 'intellyo-drag-sort--is-dragging': this.props.isDragging }) }
           style={ { opacity } }
         >
           {connectDragSource(<div className="drag-and-drop-handle" />)}

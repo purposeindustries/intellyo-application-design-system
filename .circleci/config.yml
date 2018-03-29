@@ -154,16 +154,7 @@ jobs:
 
       - run:
           name: e2e test
-          command: |
-            set +e
-            E2EPROFILE=sauceextended npm run test:e2e
-            STATUS=$?;
-            if [[ ! -z $FORCE_BUILD ]] ; then
-              echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
-              exit 0
-            else
-              exit $STATUS
-            fi
+          command: E2EPROFILE=sauceextended npm run test:e2e
 
       - store_artifacts:
           path: /tmp/circleci-artifacts

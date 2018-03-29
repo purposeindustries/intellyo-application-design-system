@@ -70,7 +70,9 @@ class OverlayTrigger extends React.Component {
   }
 
   handleClickOutside = () => {
-    this.deactivate();
+    if (this.state.isActive) {
+      this.deactivate();
+    }
   }
 
   componentDidMount() {
@@ -83,6 +85,7 @@ class OverlayTrigger extends React.Component {
   }
 
   render() {
+    console.trace(1);
     const triggers = {};
     if (this.props.trigger === 'click') {
       triggers.onClick = () => {

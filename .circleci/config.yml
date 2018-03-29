@@ -30,7 +30,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - dependency-cache
+            - dependency-cache-{{ checksum "package.json" }}
             - v1-repo-{{ checksum "package.json" }}
 
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
@@ -52,7 +52,7 @@ jobs:
             NODE_ENV: production
 
       - save_cache:
-          key: dependency-cache
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
           - ~/.npm
           - ./node_modules
@@ -124,7 +124,7 @@ jobs:
 
       - restore_cache:
           keys:
-            - dependency-cache
+            - dependency-cache-{{ checksum "package.json" }}
             - v1-repo-{{ checksum "package.json" }}
 
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
@@ -146,7 +146,7 @@ jobs:
             NODE_ENV: production
 
       - save_cache:
-          key: dependency-cache
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
           - ~/.npm
           - ./node_modules

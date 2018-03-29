@@ -57,10 +57,12 @@ class OverlayTrigger extends React.Component {
   }
 
   deactivate = () => {
-    this.setState({
-      isActive: false
-    });
-    this.removeTimer();
+    if (this.state.isActive === true) {
+      this.setState({
+        isActive: false
+      });
+      this.removeTimer();
+    }
   }
 
   onKeyDown = (e) => {
@@ -70,9 +72,7 @@ class OverlayTrigger extends React.Component {
   }
 
   handleClickOutside = () => {
-    if (this.state.isActive) {
-      this.deactivate();
-    }
+    this.deactivate();
   }
 
   componentDidMount() {
@@ -85,7 +85,6 @@ class OverlayTrigger extends React.Component {
   }
 
   render() {
-    console.trace(1);
     const triggers = {};
     if (this.props.trigger === 'click') {
       triggers.onClick = () => {

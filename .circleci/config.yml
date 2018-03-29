@@ -1,6 +1,6 @@
 
 defaults: &defaults
-  working_directory: /home/circleci/purposeindustries/content-editor
+  working_directory: /home/circleci/purposeindustries/intellyo-application-design-system
   parallelism: 1
   shell: /bin/bash --login
 
@@ -24,7 +24,7 @@ jobs:
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/purposeindustries/content-editor
+            - ~/purposeindustries/intellyo-application-design-system
 
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
@@ -36,12 +36,6 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-
-      - save_cache:
-          key: dependency-cache
-          paths:
-          - ~/.npm
-          - ./node_modules
 
       - run:
           name: install system wide tools
@@ -56,6 +50,13 @@ jobs:
           command: npm run build
           environment:
             NODE_ENV: production
+
+      - save_cache:
+          key: dependency-cache
+          paths:
+          - ~/.npm
+          - ./node_modules
+          - ./.cache
 
       - run:
           name: e2e test
@@ -117,7 +118,7 @@ jobs:
       - save_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/purposeindustries/content-editor
+            - ~/purposeindustries/intellyo-application-design-system
 
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
 
@@ -129,12 +130,6 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-
-      - save_cache:
-          key: dependency-cache
-          paths:
-          - ~/.npm
-          - ./node_modules
 
       - run:
           name: install system wide tools
@@ -149,6 +144,13 @@ jobs:
           command: npm run build
           environment:
             NODE_ENV: production
+
+      - save_cache:
+          key: dependency-cache
+          paths:
+          - ~/.npm
+          - ./node_modules
+          - ./.cache
 
       - run:
           name: e2e test

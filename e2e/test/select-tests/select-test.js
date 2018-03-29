@@ -1,11 +1,11 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const SELECT_HELLO_SELECTOR = '.dropdown:nth-child(2)';
-const SELECT_HELLO_OPENED_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]';
-const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '//*[@class="card"][1]//*[@class="card-body"]//*[@class="dropdown select dropdown--open"]//*[@class="dropdown-items"]';
+const SELECT_HELLO_OPENED_XPATH = '.dropdown--open';
+const SELECT_HELLO_OPENED_DROPDOWN_XPATH = '.dropdown--open .dropdown-items';
 
 //test names
 const SELECT_HELLO = 'select-hello';
@@ -24,8 +24,8 @@ describe('FEF select tests', () => {
   it('should check the input ' + SELECT_HELLO, () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
-    assert(takeScreenShotOfElement(SELECT_HELLO_SELECTOR,
-      {firefoxTolerance: 15.5, defaultTolerance: 5.7, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
+      {localTolerance: 6, firefoxTolerance: 5.5, ffAndWindowsTolerance: 7.8, windowsTolerance: 7, defaultTolerance: 1, ignoreComparison: false}),
        '"Hello" select is not similar to the reference');
   });
 
@@ -34,8 +34,8 @@ describe('FEF select tests', () => {
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);
     assert(browser.isExisting(SELECT_HELLO_OPENED_XPATH), 'Select "Hello-opened" is not existing in the DOM');
-    assert(takeScreenShotOfElement(SELECT_HELLO_OPENED_DROPDOWN_XPATH,
-      {defaultTolerance: 7.5, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_OPENED_DROPDOWN_XPATH,
+      {windowsTolerance: 9, defaultTolerance: 3, ignoreComparison: false}),
        '"Hello" select opened is not similar to the reference');
   });
 
@@ -44,8 +44,8 @@ describe('FEF select tests', () => {
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     browser.click(SELECT_HELLO_SELECTOR);
     browser.click(SELECT_HELLO_OPENED_XPATH);
-    assert(takeScreenShotOfElement(SELECT_HELLO_SELECTOR,
-      {firefoxTolerance: 15.5, defaultTolerance: 5.7, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
+      {ffAndWindowsTolerance: 7.5, defaultTolerance: 6, ignoreComparison: false}),
        '"Hello" select closed is not similar to the reference');
   });
 });

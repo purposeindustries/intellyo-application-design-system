@@ -142,6 +142,12 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
     misMatchTolerance = options.ffAndWindowsTolerance;
   }
 
+  if (options.chromeAndWindowsTolerance
+  && browser.desiredCapabilities.browserName
+  && browser.desiredCapabilities.browserName.includes('chrome')) {
+    misMatchTolerance = options.ffAndWindowsTolerance;
+  }
+
   if (options.ignoreComparison) {
     ignoreComparisonValue = 'colors';
   }

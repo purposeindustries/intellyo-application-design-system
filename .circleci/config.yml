@@ -70,7 +70,7 @@ jobs:
             else
               exit $STATUS
             fi
-
+            
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:

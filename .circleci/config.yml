@@ -199,6 +199,9 @@ workflows:
   build_and_test:
     jobs:
       - build
+          filters:
+            tags:
+              only: /^v.*/
   nightly_build:
     triggers:
       - schedule:
@@ -209,3 +212,4 @@ workflows:
                 - master
     jobs:
       - nightly_build
+  

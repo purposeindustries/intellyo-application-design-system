@@ -22,7 +22,7 @@ jobs:
       - checkout
 
       - save_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-repo-{{ checksum "package.json" }}
           paths:
             - ~/purposeindustries/intellyo-application-design-system
 
@@ -31,7 +31,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache
-            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-repo-{{ checksum "package.json" }}
 
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
@@ -116,7 +116,7 @@ jobs:
       - checkout
 
       - save_cache:
-          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          key: v1-repo-{{ checksum "package.json" }}
           paths:
             - ~/purposeindustries/intellyo-application-design-system
 
@@ -125,7 +125,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache
-            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+            - v1-repo-{{ checksum "package.json" }}
 
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 

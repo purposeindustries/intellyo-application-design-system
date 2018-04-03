@@ -1,3 +1,8 @@
+<a name="9.1.1"></a>
+## [9.1.1](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.1.0...v9.1.1) (2018-04-03)
+
+
+
 <a name="9.1.0"></a>
 # [9.1.0](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.0.8...v9.1.0) (2018-04-03)
 
@@ -15,11 +20,6 @@
 
 * add basic chart tests ([5a85054](https://github.com/purposeindustries/intellyo-application-design-system/commit/5a85054))
 * **Option:** use custom checkbox instead of native input ([1e1315a](https://github.com/purposeindustries/intellyo-application-design-system/commit/1e1315a))
-
-
-
-<a name="9.0.8"></a>
-## [9.0.8](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.0.7...v9.0.8) (2018-03-29)
 
 
 

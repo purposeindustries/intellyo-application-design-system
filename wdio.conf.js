@@ -132,7 +132,7 @@ exports.config = {
   capabilities: browsers,
 
   sync: true,
-  logLevel: 'silent',
+  logLevel: 'verbose',
   coloredLogs: true,
   deprecationWarnings: false,
   bail: 0,
@@ -155,7 +155,7 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: os.hostname()
+    tunnelIdentifier: Date.now()
   },
 
   framework: 'mocha',

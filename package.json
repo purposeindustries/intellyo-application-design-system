@@ -32,7 +32,7 @@
     "serve": "gatsby serve",
     "clean-test": "find ./e2e/ \\( -name 'diff' -o -name 'screen' -o -name '*browser-compare-visual-regression' \\) -exec rm -r '{}' \\; || exit 0",
     "preversion": "rm -rf CHANGELOG.md CHANGES.md",
-    "version": "conventional-changelog -p angular -i CHANGES.md -s -r 2 && git add CHANGES.md",
+    "version": "conventional-changelog -p angular -i CHANGES.md -s -r 1 && git add CHANGES.md",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "devDependencies": {

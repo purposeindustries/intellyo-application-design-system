@@ -171,6 +171,11 @@ jobs:
               npm version $RELEASE_TYPE --commit-hooks=false
               git push -u origin $CIRCLE_BRANCH
               git push --tags
+              npm run changelog
+              git add CHANGELOG.md
+              VERSION=$(npm view @pi/intellyo-components version -s)
+              git commit -m "rls($VERSION): changelog updated"
+              git push -f -u origin master
             else
               echo "No RELEASE_TYPE is present, skipping creating new release."
             fi

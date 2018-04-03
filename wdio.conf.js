@@ -155,7 +155,7 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: Date.now()
+    tunnelIdentifier: os.hostname()
   },
 
   framework: 'mocha',

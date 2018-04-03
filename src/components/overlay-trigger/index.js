@@ -61,8 +61,8 @@ class OverlayTrigger extends React.Component {
       this.setState({
         isActive: false
       });
-      this.removeTimer();
     }
+    this.removeTimer();
   }
 
   onKeyDown = (e) => {

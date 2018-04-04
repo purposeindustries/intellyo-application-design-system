@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popper, Arrow } from 'react-popper';
+import Popper from '../custom-popper';
 
 const Popover = (props) => (
   <Popper placement={ props.placement } className="overlay popover">
     { props.children }
-    <Arrow className="overlay-arrow" />
   </Popper>
 );
 

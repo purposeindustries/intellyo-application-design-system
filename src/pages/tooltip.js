@@ -25,6 +25,7 @@ export default class TooltipPage extends React.Component {
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   size="medium"
+                  showTooltip={ false }
                 />
               </OverlayTrigger>
             </Col>
@@ -40,6 +41,7 @@ export default class TooltipPage extends React.Component {
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   size="medium"
+                  showTooltip={ false }
                 />
               </OverlayTrigger>
             </Col>
@@ -55,6 +57,7 @@ export default class TooltipPage extends React.Component {
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   size="medium"
+                  showTooltip={ false }
                 />
               </OverlayTrigger>
             </Col>
@@ -70,6 +73,7 @@ export default class TooltipPage extends React.Component {
                   name="Donald Trump"
                   src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
                   size="medium"
+                  showTooltip={ false }
                 />
               </OverlayTrigger>
             </Col>

@@ -14,7 +14,7 @@ let isDefaultBrowser = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
-let maxInstances = 1;
+// let maxInstances = 1;
 
 if (e2eProfile.includes('saucelight')) {
   browsers.push({
@@ -66,7 +66,7 @@ if (e2eProfile.includes('sauceextended')) {
   driver = 'sauce';
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
-  maxInstances = 4
+  // maxInstances = 4;
 }
 
 if (e2eProfile.includes('chrome')) {

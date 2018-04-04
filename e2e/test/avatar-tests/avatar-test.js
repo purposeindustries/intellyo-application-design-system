@@ -4,7 +4,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = 
 
 //Selectors/xpaths
 const INPUT_SELECTOR = 'input[type=file]';
-const FIRST_AVATAR_SELECTOR = '.card-body:nth-child(2) .user-avatar';
+const FIRST_AVATAR_SELECTOR = '.card-body:nth-child(2) .avatar-editor:first-child .avatar-editor-image-wrapper:first-child';
 
 //test names
 const UPLOAD_FILE = 'upload-file';

@@ -1,4 +1,5 @@
 export { default as Avatar } from './avatar';
+export { default as silhouettePlaceholder } from './avatar/silhouette';
 export { default as Button } from './button';
 export { default as ButtonGroup } from './button-group';
 export { default as Caption } from './caption';

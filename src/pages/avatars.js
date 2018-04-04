@@ -8,13 +8,15 @@ import StackedAvatar from '../components/stacked-avatar/';
 import AvatarCard from '../components/avatar-card/';
 import Icon from '../components/icon/';
 import AvatarEditor from '../components/avatar-editor';
+import silhouette from '../components/avatar/silhouette';
 
 export default class Avatars extends Component {
   displayName = 'Avatars'
 
   state = {
     profileImageSrc: '',
-    logoImageSrc: ''
+    logoImageSrc: '',
+    otherImageSrc: '',
   }
 
   handleImageChange = (file, field) => {
@@ -117,13 +119,21 @@ export default class Avatars extends Component {
           </Card>
           <Card title="Avatar editor" className="card-avatar-editor">
             <AvatarEditor
-              src={ this.state.logoImageSrc }
-              onChange={ (file) => this.handleImageChange(file, 'logoImageSrc') }
+              src={ this.state.profileImageSrc }
+              onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
+              placeholder={ silhouette }
+              borderRadius={ 100 }
             />
             <AvatarEditor
-              src={ this.state.profileImageSrc }
-              isProfileAvatar={ false }
-              onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
+              src={ this.state.logoImageSrc }
+              onChange={ (file) => this.handleImageChange(file, 'logoImageSrc') }
+              buttonLabel="Upload logo"
+            />
+            <AvatarEditor
+              src={ this.state.otherImageSrc }
+              borderRadius={ 25 }
+              onChange={ (file) => this.handleImageChange(file, 'otherImageSrc') }
+              buttonLabel="Upload logo"
             />
           </Card>
         </div>

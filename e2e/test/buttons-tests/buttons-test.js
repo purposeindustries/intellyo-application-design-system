@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
@@ -45,14 +45,14 @@ describe('FEF buttons tests', () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR_LOADING).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');
-    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: 17.5, ignoreComparison: true}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
+      {defaultTolerance: 1, ignoreComparison: true}),
        'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_SELECTOR_LOADING);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: 17.5, ignoreComparison: true}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
+      {defaultTolerance: 1, ignoreComparison: true}),
        'Save button is not similar to the reference after click');
   });
 
@@ -61,8 +61,8 @@ describe('FEF buttons tests', () => {
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
-    assert(takeScreenShotOfElement(SAVE_BUTTON_SELECTOR_LOADING,
-      {ffAndWindowsTolerance: 9.6, windowsTolerance: 5, defaultTolerance: 4, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
+      {ffAndWindowsTolerance: -1, windowsTolerance: 5, defaultTolerance: 4, ignoreComparison: false}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

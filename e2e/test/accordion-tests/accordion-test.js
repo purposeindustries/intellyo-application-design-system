@@ -28,7 +28,7 @@ describe('FEF accordions tests', () => {
      === 'An element could not be located on the page using the given search parameters.');
     assert(browser.getAttribute(BASIC_INFO_ACCORDION_CHILDREN_SELECTOR, 'style') === 'height: 0px; opacity: 0;', 'Accordion children height and/or opacity note 0');
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INFO_ACCORDION_SELECTOR,
-      {defaultTolerance: 3.5, ignoreComparison: false}),
+      {defaultTolerance: -1, ignoreComparison: false}),
       'Basic accordion info is not similar to reference picture');
   });
 
@@ -37,7 +37,7 @@ describe('FEF accordions tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INFO_ACCORDION_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INFO_ACCORDION_OPEN_SELECTOR,
-      {defaultTolerance: 6, ignoreComparison: false}),
+      {defaultTolerance: -1, ignoreComparison: false}),
       'Basic accordion info in opened state is not similar to reference picture');
   });
 

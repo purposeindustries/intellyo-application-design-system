@@ -21,7 +21,7 @@ describe('FEF accordions tests', () => {
       'Whole FEF accordions page screenshot not similar to other configurations');
   });
 
-  it.only('should check ' + BASIC_INFO_ACCORDION, () => {
+  it('should check ' + BASIC_INFO_ACCORDION, () => {
     browser.url('/accordions');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(browser.element(BASIC_INFO_ACCORDION_INNER_WRAP_SELECTOR).message
@@ -32,7 +32,7 @@ describe('FEF accordions tests', () => {
       'Basic accordion info is not similar to reference picture');
   });
 
-  it.only('should check ' + BASIC_INFO_ACCORDION_OPEN, () => {
+  it('should check ' + BASIC_INFO_ACCORDION_OPEN, () => {
     browser.url('/accordions');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(BASIC_INFO_ACCORDION_SELECTOR);

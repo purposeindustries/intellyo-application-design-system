@@ -31,7 +31,7 @@ describe('FEF charts tests', () => {
     browser.url('/charts');
     assert(browser.isExisting(SCATTER_CHART_SELECTOR), 'Scatter chart is not existing in the DOM before click for loading button');
     assert(takeScreenShotOfElementAndCompareWithRef(SCATTER_CHART_SELECTOR,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {defaultTolerance: 9, ignoreComparison: false}),
       'Scatter chart is not similar to the reference after click loading on windows');
   });
 });

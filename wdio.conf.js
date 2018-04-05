@@ -14,7 +14,7 @@ let isDefaultBrowser = false;
 let sauceLabsUsername;
 let saucelabsAccesKey;
 let driver = 'selenium-standalone';
-// let maxInstances = 1;
+let maxInstances = process.env.MAX_INSTANCE || 4;
 
 if (e2eProfile.includes('saucelight')) {
   browsers.push({
@@ -30,7 +30,7 @@ if (e2eProfile.includes('saucelight')) {
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
 
 }
-if (e2eProfile.includes('sauceextended')) {
+if (e2eProfile.includes('sauceextended') || e2eProfile.includes('nightly')) {
   browsers.push({
     browserName: 'firefox',
     version: 'latest',
@@ -66,7 +66,9 @@ if (e2eProfile.includes('sauceextended')) {
   driver = 'sauce';
   sauceLabsUsername = process.env.SAUCE_LABS_USERNAME;
   saucelabsAccesKey = process.env.SAUCE_LABS_ACCESS_KEY;
-  // maxInstances = 4;
+  if (e2eProfile.includes('nightly')) {
+    maxInstances = 4;
+  }
 }
 
 if (e2eProfile.includes('chrome')) {
@@ -129,7 +131,7 @@ exports.config = {
   exclude: [
   ],
 
-  maxInstances: 1,
+  maxInstances: maxInstances,
   capabilities: browsers,
 
   sync: true,
@@ -156,7 +158,12 @@ exports.config = {
   sauceConnect: true,
 
   sauceConnectOpts: {
-    tunnelIdentifier: os.hostname()
+    tunnelIdentifier: os.hostname(),
+    logfile: './sauce-connect.log',
+    logStats: 1,
+    verbose: true,
+    verboseDebugging: true,
+    vv: true
   },
 
   framework: 'mocha',
@@ -170,7 +177,7 @@ exports.config = {
 
   mochaOpts: {
     ui: 'bdd',
-    timeout: 99999999,
+    timeout: 60000,
     require: './e2e/utils/mocha-setup.js'
   },
 

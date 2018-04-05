@@ -26,7 +26,7 @@ describe('FEF modal tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_XPATH);
     assert(takeScreenShotOfElementAndCompareWithRef(MODAL_SELECTOR,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Modal is not similar to reference picture');
   });
 
@@ -36,7 +36,7 @@ describe('FEF modal tests', () => {
     browser.click(OPEN_MODAL_WITH_ANIMATION_XPATH);
     assert(browser.getAttribute(MODAL_WITH_ANIMATION_XPATH, 'style').includes('animation-duration: 300ms;'), 'Animation duration is not 300ms');
     assert(takeScreenShotOfElementAndCompareWithRef(MODAL_WITH_ANIMATION_XPATH,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Basic input is not similar to reference picture');
   });
 

@@ -28,7 +28,7 @@ describe('FEF accordions tests', () => {
      === 'An element could not be located on the page using the given search parameters.');
     assert(browser.getAttribute(BASIC_INFO_ACCORDION_CHILDREN_SELECTOR, 'style') === 'height: 0px; opacity: 0;', 'Accordion children height and/or opacity note 0');
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_INFO_ACCORDION_SELECTOR,
-      {windowsTolerance: 4.9, defaultTolerance: 3, ignoreComparison: false}),
+      {windowsTolerance: 4.9, defaultTolerance: 4.4, ignoreComparison: false}),
       'Basic accordion info is not similar to reference picture');
   });
 

@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const CLICK_ME_POPOVER_XPATH = '.col:nth-child(2)';
@@ -39,7 +39,7 @@ describe('FEF popover tests', () => {
     browser.url('/popover');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(CLICK_ME_POPOVER_CLICKABLE_XPATH);
-    assert(takeScreenShotOfElement(OVERLAY_POPOVER_XPATH,
+    assert(takeScreenShotOfElementAndCompareWithRef(OVERLAY_POPOVER_XPATH,
       {ffAndWindowsTolerance: 11, defaultTolerance: 9, ignoreComparison: false}),
       'Overlay popover for click me is not similar to reference picture');
   });

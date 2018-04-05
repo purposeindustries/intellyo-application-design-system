@@ -40,7 +40,7 @@ describe('FEF popover tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(CLICK_ME_POPOVER_CLICKABLE_XPATH);
     assert(takeScreenShotOfElementAndCompareWithRef(OVERLAY_POPOVER_XPATH,
-      {defaultTolerance: 2, ignoreComparison: false}),
+      {defaultTolerance: 2.1, ignoreComparison: false}),
       'Overlay popover for click me is not similar to reference picture');
   });
 
@@ -52,7 +52,7 @@ describe('FEF popover tests', () => {
       browser.element(TRIGERED_OVERLAY_XPATH).isExisting(),
       15000,
       'does not show call button');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 1.5, ignoreComparison: false}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3, ignoreComparison: false}),
       'Click me popover is not similar to reference picture');
   });
 

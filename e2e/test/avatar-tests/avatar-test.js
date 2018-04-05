@@ -1,6 +1,6 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const INPUT_SELECTOR = 'input[type=file]';
@@ -25,7 +25,7 @@ describe('FEF avatars tests', () => {
     browser.url('/avatars');
     assert(browser.isExisting(INPUT_SELECTOR), 'Input selector is not existing in the DOM');
     browser.chooseFile(INPUT_SELECTOR, PIC_PATH);
-    assert(takeScreenShotOfElement(FIRST_AVATAR_SELECTOR, {defaultTolerance: 11, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(FIRST_AVATAR_SELECTOR, {defaultTolerance: -1, ignoreComparison: false}),
       'Avatar input screenshot not similar to other configurations');
   });
 

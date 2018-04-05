@@ -5,7 +5,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCo
 //Selectors/xpaths
 const MODAL_SELECTOR = '.rodal-zoom-enter';
 const OPEN_MODAL_XPATH = '//*[@class="button button--normal"][1]//*[@class="button-content"]';
-const MODAL_WITH_ANIMATION_XPATH = '.rodal-zoom-enter';
+const MODAL_WITH_ANIMATION_XPATH = '.rodal .rodal-fade-enter';
 const OPEN_MODAL_WITH_ANIMATION_XPATH = '//*[@class="button button--normal"][2]//*[@class="button-content"]';
 
 //test names

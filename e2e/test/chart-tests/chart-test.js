@@ -3,7 +3,7 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const BASIC_BAR_CHART_SELECTOR = '.col:nth-child(1) .chart:nth-child(1)';
+const BASIC_BAR_CHART_SELECTOR = '.col:nth-child(1) .chart:nth-child(1) .card';
 const SCATTER_CHART_SELECTOR = '.col:nth-child(1) .chart:nth-child(2)';
 
 //test names

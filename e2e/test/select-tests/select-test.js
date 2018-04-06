@@ -25,7 +25,7 @@ describe('FEF select tests', () => {
     browser.url('/select');
     assert(browser.isExisting(SELECT_HELLO_SELECTOR), 'Select "Hello" is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SELECT_HELLO_SELECTOR,
-      {localTolerance: 6.6, windowsTolerance: 7.2, firefoxTolerance: 5, defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 6.6, ffAndWindowsTolerance: 7.2, windowsTolerance: 7, firefoxTolerance: 5, defaultTolerance: 1, ignoreComparison: false}),
        '"Hello" select is not similar to the reference');
   });
 

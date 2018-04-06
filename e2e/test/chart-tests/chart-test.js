@@ -23,7 +23,7 @@ describe('FEF charts tests', () => {
     browser.url('/charts');
     assert(browser.isExisting(BASIC_BAR_CHART_SELECTOR), 'Basic bar chart is not existing in the DOM before click for loading button');
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_BAR_CHART_SELECTOR,
-      {defaultTolerance: -1, ignoreComparison: false}),
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Basic bar chart is not similar to the reference after click loading on windows');
   });
 

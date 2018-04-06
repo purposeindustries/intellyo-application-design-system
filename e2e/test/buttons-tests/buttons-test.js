@@ -5,7 +5,7 @@ const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCo
 //Selectors/xpaths
 const SAVE_BUTTON_SELECTOR = 'span=Save';
 const YEAH_DROPDOWN_SELECTOR = '.dropdowns .dropdown:first-child';
-const SAVE_BUTTON_SELECTOR_LOADING = '.loading-buttons .button:first-of-type';
+const SAVE_BUTTON_SELECTOR_LOADING = '.loading-buttons .button:nth-child(1)';
 
 //test names
 const YEAH_DROPDOWN_NAME = 'Yeah-button';
@@ -41,7 +41,7 @@ describe('FEF buttons tests', () => {
       '"Yeah dropdown" with mouseover is not similar to the reference');
   });
 
-  it('should check the button: ' + SAVE_BUTTON_NAME, () => {
+  it.only('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR_LOADING).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');
@@ -56,7 +56,7 @@ describe('FEF buttons tests', () => {
        'Save button is not similar to the reference after click');
   });
 
-  it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
+  it.only('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');

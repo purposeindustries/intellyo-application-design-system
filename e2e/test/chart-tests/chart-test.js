@@ -19,7 +19,7 @@ describe('FEF charts tests', () => {
       'Whole FEF charts page screenshot not similar to other configurations');
   });
 
-  it('should check the ' + BASIC_BAR_CHART, () => {
+  it.skip('should check the ' + BASIC_BAR_CHART, () => {
     browser.url('/charts');
     assert(browser.isExisting(BASIC_BAR_CHART_SELECTOR), 'Basic bar chart is not existing in the DOM before click for loading button');
     assert(takeScreenShotOfElementAndCompareWithRef(BASIC_BAR_CHART_SELECTOR,

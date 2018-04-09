@@ -36,6 +36,8 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
+      
+      - run: sudo npm i -g npm@latest
 
       - run:
           name: install system wide tools
@@ -88,7 +90,7 @@ jobs:
               git push --tags
               npm run changelog
               git add CHANGELOG.md
-              VERSION=$(npm view @pi/intellyo-components version -s)
+              VERSION=$(npx -q json -f package.json version)
               git commit -m "rls($VERSION): changelog updated"
               git push -f -u origin master
             else
@@ -135,6 +137,8 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
+      
+      - run: npm i -g npm@latest
 
       - run:
           name: install system wide tools

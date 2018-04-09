@@ -138,7 +138,7 @@ jobs:
 
       - run: npm i --prefer-offline
       
-      - run: npm i -g npm@latest
+      - run: sudo npm i -g npm@latest
 
       - run:
           name: install system wide tools

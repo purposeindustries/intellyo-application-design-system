@@ -43,7 +43,7 @@ jobs:
 
       - run:
           name: test
-          command: npm run test
+          command: MAX_INSTANCE=1 sauceextended npm run test
 
       - run:
           name: build assets

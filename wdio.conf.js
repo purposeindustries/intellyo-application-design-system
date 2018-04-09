@@ -156,11 +156,6 @@ exports.config = {
 
   sauceConnectOpts: {
     tunnelIdentifier: os.hostname(),
-    logfile: './sauce-connect.log',
-    logStats: 1,
-    verbose: true,
-    verboseDebugging: true,
-    vv: true
   },
 
   framework: 'mocha',

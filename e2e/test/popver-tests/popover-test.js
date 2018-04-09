@@ -31,7 +31,7 @@ describe('FEF popover tests', () => {
     === 'An element could not be located on the page using the given search parameters.',
     'Triggered overlay shows where its not allowed');
     assert(takeScreenShotOfElementAndCompareWithRef(CLICK_ME_POPOVER_XPATH,
-      {windowsTolerance: 6, defaultTolerance: 0.5, ignoreComparison: false}), //TODO: more than 20% tolerance
+      {localTolerance: 1.2, windowsTolerance: 6, defaultTolerance: 0.5, ignoreComparison: false}), //TODO: more than 20% tolerance
       'Click me popover is not similar to reference picture');
   });
 
@@ -40,7 +40,7 @@ describe('FEF popover tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(CLICK_ME_POPOVER_CLICKABLE_XPATH);
     assert(takeScreenShotOfElementAndCompareWithRef(OVERLAY_POPOVER_XPATH,
-      {defaultTolerance: 2.1, ignoreComparison: false}),
+      {localTolerance: 5, defaultTolerance: 2.1, ignoreComparison: false}),
       'Overlay popover for click me is not similar to reference picture');
   });
 

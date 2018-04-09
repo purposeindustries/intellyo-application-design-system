@@ -32,7 +32,7 @@ describe('FEF tags input tests', () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_ORIG_XPATH,
-      {defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 3, defaultTolerance: 1, ignoreComparison: false}),
        'Tags input is not similar to the reference');
   });
 
@@ -41,7 +41,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before mouse over');
     browser.moveToElement(TAGS_INPUT_CLICKABLE, 0, 0);
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_ORIG_XPATH,
-      {defaultTolerance: 2.1, ignoreComparison: false}),
+      {localTolerance: 3.1, defaultTolerance: 2.1, ignoreComparison: false}),
        'Mouse over tags input is not similar to the reference');
   });
 
@@ -50,7 +50,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before click');
     browser.click(TAGS_INPUT_CLICKABLE);
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_CLICKED_XPATH,
-      {defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 3, defaultTolerance: 1, ignoreComparison: false}),
        'Clicked tags input is not similar to the reference');
   });
 
@@ -60,7 +60,7 @@ describe('FEF tags input tests', () => {
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, 'foobar\n');
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_CLICKED_XPATH,
-      {defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 5, defaultTolerance: 1, ignoreComparison: false}),
        'Added tags input is not similar to the reference');
   });
 
@@ -71,7 +71,7 @@ describe('FEF tags input tests', () => {
     browser.setValue(TAGS_INPUT_INPUT, 'foobar\n');
     browser.click('span=hamburger');
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_ORIG_XPATH,
-      {defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 5, defaultTolerance: 1, ignoreComparison: false}),
        'Added and clicked tags input is not similar to the reference');
   });
 
@@ -80,7 +80,7 @@ describe('FEF tags input tests', () => {
     browser.url('/tagsinput');
     assert(browser.isExisting(HAMBURGER_TAG_SELECTOR), 'Hamburger tag is not existing in the DOM before adding and clicking');
     assert(takeScreenShotOfElementAndCompareWithRef(HAMBURGER_TAG_SELECTOR,
-      {windowsTolerance: 18, defaultTolerance: 1, ignoreComparison: false}),
+      {localTolerance: 10, windowsTolerance: 18, defaultTolerance: 1, ignoreComparison: false}),
        'Added and clicked tags input is not similar to the reference');
 
   });
@@ -90,7 +90,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(HAMBURGER_TAG_SELECTOR), 'Hamburger tag is not existing in the DOM before adding and clicking');
     browser.moveToElement(HAMBURGER_TAG_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(HAMBURGER_TAG_SELECTOR,
-      {windowsTolerance: 16, defaultTolerance: 2, ignoreComparison: false}),
+      {localTolerance: 10, windowsTolerance: 16, defaultTolerance: 2, ignoreComparison: false}),
        'Added and clicked tags input is not similar to the reference');
 
   });
@@ -100,7 +100,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(HAMBURGER_TAG_SELECTOR), 'Hamburger tag is not existing in the DOM before adding and clicking');
     browser.click(HAMBURGER_TAG_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(HAMBURGER_TAG_SELECTOR,
-      {windowsTolerance: 16, defaultTolerance: 1, localIgnoreComparison: true }),
+      {localTolerance: 5, windowsTolerance: 16, defaultTolerance: 1, localIgnoreComparison: true }),
        'Added and clicked tags input is not similar to the reference');
 
   });

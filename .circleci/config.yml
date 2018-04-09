@@ -62,7 +62,7 @@ jobs:
           name: e2e test
           command: |
             set +e
-            E2EPROFILE=sauceextended npm run test:e2e -- --spec e2e/test/buttons-tests/buttons-test.js
+            npm run test:e2e
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"

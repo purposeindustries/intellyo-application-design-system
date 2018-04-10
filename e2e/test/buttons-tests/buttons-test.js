@@ -41,22 +41,22 @@ describe('FEF buttons tests', () => {
       '"Yeah dropdown" with mouseover is not similar to the reference');
   });
 
-  it.skip('should check the button: ' + SAVE_BUTTON_NAME, () => {
+  it.only('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
-    $(SAVE_BUTTON_SELECTOR_LOADING).scroll();
+    browser.scroll(SAVE_BUTTON_SELECTOR_LOADING);
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: 1, ignoreComparison: true}),
+      {defaultTolerance: -1, ignoreComparison: true}),
        'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_SELECTOR_LOADING);
 
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: 1, ignoreComparison: true}),
+      {defaultTolerance: -1, ignoreComparison: true}),
        'Save button is not similar to the reference after click');
   });
 
-  it.skip('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
+  it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
     $(SAVE_BUTTON_SELECTOR).scroll();
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');

@@ -41,7 +41,7 @@ describe('FEF buttons tests', () => {
       '"Yeah dropdown" with mouseover is not similar to the reference');
   });
 
-  it.only('should check the button: ' + SAVE_BUTTON_NAME, () => {
+  it('should check the button: ' + SAVE_BUTTON_NAME, () => {
     browser.url('/buttons');
     browser.scroll(SAVE_BUTTON_SELECTOR_LOADING);
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');

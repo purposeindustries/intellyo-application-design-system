@@ -51,17 +51,17 @@ describe('FEF buttons tests', () => {
     browser.click(SAVE_BUTTON_SELECTOR_LOADING);
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: -1, ignoreComparison: true}),
+      {windowsTolerance: 6, defaultTolerance: 1, ignoreComparison: true}),
        'Save button is not similar to the reference after click');
   });
 
   it('should check the button: ' + SAVE_BUTTON_LOADING_NAME, () => {
     browser.url('/buttons');
-    $(SAVE_BUTTON_SELECTOR).scroll();
+    browser.scroll(SAVE_BUTTON_SELECTOR);
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {ffAndWindowsTolerance: -1, windowsTolerance: 5, defaultTolerance: 4, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 10, firefoxTolerance: 3, windowsTolerance: 9.9, defaultTolerance: 2, ignoreComparison: false}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

@@ -46,7 +46,7 @@ describe('FEF buttons tests', () => {
     browser.scroll(SAVE_BUTTON_SELECTOR_LOADING);
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR_LOADING), 'Save button is not existing in the DOM');
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {defaultTolerance: -1, ignoreComparison: true}),
+      {defaultTolerance: -2, ignoreComparison: true}),
        'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_SELECTOR_LOADING);
 

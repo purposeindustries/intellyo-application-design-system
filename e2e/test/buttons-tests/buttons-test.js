@@ -49,7 +49,6 @@ describe('FEF buttons tests', () => {
       {defaultTolerance: -2, ignoreComparison: true}),
        'Save button is not similar to the reference before click');
     browser.click(SAVE_BUTTON_SELECTOR_LOADING);
-
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
       {defaultTolerance: -1, ignoreComparison: true}),

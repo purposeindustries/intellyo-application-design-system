@@ -14,9 +14,7 @@ const ScreenshotService = {
 };
 
 function saveElementScreenshot(elementSelector, filename) {
-  console.log('BEFORE imageBuffer!!!!!!!!!!');
   const imageBuffer = this.takeElementScreenshot(elementSelector);
-  console.log('AFTER imageBuffer!!!!!!!!!!');
   return new Promise(resolve => {
     if (!imageBuffer) {
       return resolve(null);
@@ -31,7 +29,6 @@ function saveElementScreenshot(elementSelector, filename) {
  * @param {String} elementSelector
  */
 function takeElementScreenshot(elementSelector) {
-  console.log(typeof elementSelector);
   if (typeof elementSelector !== 'string') {
     return Promise.resolve(null);
   }
@@ -65,9 +62,6 @@ function cropScreenshot([rect, screenshot]) {
     height: Math.round(rect.height)
   };
   return new Promise(resolve => {
-    console.log('BEFORE CROP!!!!!!!!!!!');
-    console.log('maki ', screenshot);
-    require('fs').writeFileSync('./screenshot.png', screenshot);
     console.log(cropConfig);
     pngCrop.cropToStream(screenshot, cropConfig, (err, outputStream) => {
       if (err) {

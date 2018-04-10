@@ -307,10 +307,7 @@ module.exports.takeScreenShotOfElementWithCrop = (selector, options) => {
   && !browser.driver.includes('sauce')) {
     misMatchTolerance = options.localTolerance;
   }
-
-  console.log('BEFORE SAVELEMENT!!!!!!!!!!!');
   browser.saveElementScreenshot(selector, testPathAndName);
-  console.log('AFTER SAVELEMENT!!!!!!!!!!!');
   const img = resemble(getRefPicName()).compareTo(testPathAndName);
   if (options.ignoreComparison === true) {
     img.ignoreColors();

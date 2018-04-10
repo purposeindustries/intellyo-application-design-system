@@ -61,7 +61,7 @@ describe('FEF buttons tests', () => {
     assert(browser.isExisting(SAVE_BUTTON_SELECTOR), 'Save button is not existing in the DOM before click for loading button');
     browser.click(SAVE_BUTTON_SELECTOR);
     assert(takeScreenShotOfElementAndCompareWithRef(SAVE_BUTTON_SELECTOR_LOADING,
-      {ffAndWindowsTolerance: 10, firefoxTolerance: 3, windowsTolerance: 9.9, defaultTolerance: 2, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 9.8, firefoxTolerance: 3, windowsTolerance: 9.9, defaultTolerance: 2, ignoreComparison: false}),
       'Loading button is not similar to the reference after click loading on windows');
     $(SAVE_BUTTON_SELECTOR).waitForExist(8500);
   });

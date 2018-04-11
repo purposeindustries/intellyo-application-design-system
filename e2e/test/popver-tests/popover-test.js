@@ -1,11 +1,11 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
 const CLICK_ME_POPOVER_XPATH = '.col:nth-child(2)';
 const CLICK_ME_POPOVER_CLICKABLE_XPATH = '.col:nth-child(2) .overlay-trigger';
-const OVERLAY_POPOVER_XPATH = '//*[@class="overlay-trigger overlay-trigger--active"]//*[@class="overlay popover"]';
+const OVERLAY_POPOVER_XPATH = '.overlay-trigger--active';
 const TRIGERED_OVERLAY = '//*[@class="overlay-trigger overlay-trigger--active"]';
 const HOVER_ME_POPOVER_XPATH = '//*[@class="col col-3"][1]//*[@class="overlay-trigger"]//*[contains(text(),"Hover me!")]';
 const TRIGERED_OVERLAY_XPATH = '//*[@class="overlay-trigger overlay-trigger--active"]';
@@ -31,7 +31,7 @@ describe('FEF popover tests', () => {
     === 'An element could not be located on the page using the given search parameters.',
     'Triggered overlay shows where its not allowed');
     assert(takeScreenShotOfElementAndCompareWithRef(CLICK_ME_POPOVER_XPATH,
-      {windowsTolerance: 6, defaultTolerance: 3, ignoreComparison: false}), //TODO: more than 20% tolerance
+      {localTolerance: 1.2, windowsTolerance: 6, defaultTolerance: 0.5, ignoreComparison: false}), //TODO: more than 20% tolerance
       'Click me popover is not similar to reference picture');
   });
 
@@ -39,8 +39,8 @@ describe('FEF popover tests', () => {
     browser.url('/popover');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(CLICK_ME_POPOVER_CLICKABLE_XPATH);
-    assert(takeScreenShotOfElement(OVERLAY_POPOVER_XPATH,
-      {ffAndWindowsTolerance: 11, defaultTolerance: 9, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(OVERLAY_POPOVER_XPATH,
+      {localTolerance: 5, defaultTolerance: 2.1, ignoreComparison: false}),
       'Overlay popover for click me is not similar to reference picture');
   });
 
@@ -52,7 +52,7 @@ describe('FEF popover tests', () => {
       browser.element(TRIGERED_OVERLAY_XPATH).isExisting(),
       15000,
       'does not show call button');
-    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 2, ignoreComparison: false}),
+    assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 3, ignoreComparison: false}),
       'Click me popover is not similar to reference picture');
   });
 

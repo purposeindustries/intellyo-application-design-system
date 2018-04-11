@@ -123,7 +123,7 @@ function getElementBoundingRect(elementSelector) {
     return {
       left: (rect.left + frameOffset.left) * pixelRatio,
       right: (rect.right + frameOffset.left) * pixelRatio,
-      top: (rect.top + frameOffset.top) * pixelRatio,
+      top: (rect.top + frameOffset.top) * pixelRatio - (window.pageYOffset || document.documentElement.scrollTop),
       bottom: (rect.bottom + frameOffset.top) * pixelRatio,
       width: (rect.width) * pixelRatio,
       height: (rect.height) * pixelRatio

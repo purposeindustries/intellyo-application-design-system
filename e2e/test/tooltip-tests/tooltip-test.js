@@ -25,6 +25,6 @@ describe('FEF tooltip tests', () => {
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
     browser.waitForExist('.overlay-trigger--active .user-avatar');
     assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {localTolerance: 5.8, ffAndWindowsTolerance: 2.7, defaultTolerance: 2, ignoreComparison: false}),
-      'Avatar input screenshot not similar to other configurations');
+      'Tooltip not similar to other configurations');
   });
 });

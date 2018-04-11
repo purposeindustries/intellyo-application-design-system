@@ -1,10 +1,10 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const BASIC_BAR_CHART_XPATH = '//*[@class="row"][1]//*[@class="col col-6"][1]//*[@class="chart"][1]';
-const SCATTER_CHART_XPATH = '//*[@class="row"][1]//*[@class="col col-6"][1]//*[@class="chart"][2]';
+const BASIC_BAR_CHART_SELECTOR = '.col:nth-child(1) .chart:nth-child(1) .card';
+const SCATTER_CHART_SELECTOR = '.col:nth-child(1) .chart:nth-child(2)';
 
 //test names
 const BASIC_BAR_CHART = 'Basic-bar-chart';
@@ -19,19 +19,19 @@ describe('FEF charts tests', () => {
       'Whole FEF charts page screenshot not similar to other configurations');
   });
 
-  it('should check the ' + BASIC_BAR_CHART, () => {
+  it.skip('should check the ' + BASIC_BAR_CHART, () => {
     browser.url('/charts');
-    assert(browser.isExisting(BASIC_BAR_CHART_XPATH), 'Basic bar chart is not existing in the DOM before click for loading button');
-    assert(takeScreenShotOfElement(BASIC_BAR_CHART_XPATH,
-      {firefoxTolerance: 19, defaultTolerance: 15, ignoreComparison: false}),
+    assert(browser.isExisting(BASIC_BAR_CHART_SELECTOR), 'Basic bar chart is not existing in the DOM before click for loading button');
+    assert(takeScreenShotOfElementAndCompareWithRef(BASIC_BAR_CHART_SELECTOR,
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Basic bar chart is not similar to the reference after click loading on windows');
   });
 
   it('should check the ' + SCATTER_CHART, () => {
     browser.url('/charts');
-    assert(browser.isExisting(SCATTER_CHART_XPATH), 'Scatter chart is not existing in the DOM before click for loading button');
-    assert(takeScreenShotOfElement(SCATTER_CHART_XPATH,
-      {defaultTolerance: 5, ignoreComparison: false}),
+    assert(browser.isExisting(SCATTER_CHART_SELECTOR), 'Scatter chart is not existing in the DOM before click for loading button');
+    assert(takeScreenShotOfElementAndCompareWithRef(SCATTER_CHART_SELECTOR,
+      {defaultTolerance: 9, ignoreComparison: false}),
       'Scatter chart is not similar to the reference after click loading on windows');
   });
 });

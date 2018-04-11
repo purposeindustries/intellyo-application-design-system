@@ -43,7 +43,7 @@ jobs:
 
       - run:
           name: test
-          command: MAX_INSTANCE=1 E2EPROFILE=sauceextended npm run test
+          command: npm run test
 
       - run:
           name: build assets
@@ -62,7 +62,7 @@ jobs:
           name: e2e test
           command: |
             set +e
-            E2EPROFILE=sauceextended npm run test:e2e -- --spec e2e/test/buttons-tests/buttons-test.js 
+            npm run test:e2e
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
@@ -158,8 +158,11 @@ jobs:
           - ./.cache
 
       - run:
-          name: e2e test
-          command: E2EPROFILE=nightly npm run test:e2e
+          name: test
+          command: npm run test
+          environment:
+            MAX_INSTANCE: 1
+            E2EPROFILE: sauceextended
 
       - store_artifacts:
           path: /tmp/circleci-artifacts

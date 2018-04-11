@@ -62,7 +62,6 @@ function cropScreenshot([rect, screenshot]) {
     height: Math.round(rect.height)
   };
   return new Promise(resolve => {
-    console.log(cropConfig);
     pngCrop.cropToStream(screenshot, cropConfig, (err, outputStream) => {
       if (err) {
         return resolve(null);

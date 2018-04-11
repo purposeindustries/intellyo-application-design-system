@@ -159,7 +159,7 @@ jobs:
 
       - run:
           name: test
-          command: npm run test
+          command: npm run test:e2e
           environment:
             MAX_INSTANCE: 1
             E2EPROFILE: sauceextended

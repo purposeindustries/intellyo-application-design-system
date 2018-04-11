@@ -1,11 +1,11 @@
 const assert = require('assert');
 const visualRegression = require('../../utils/visual-regression');
-const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElement } = visualRegression;
+const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const MODAL_XPATH = '//*[@class="rodal-dialog rodal-zoom-enter"]';
+const MODAL_SELECTOR = '.rodal-zoom-enter';
 const OPEN_MODAL_XPATH = '//*[@class="button button--normal"][1]//*[@class="button-content"]';
-const MODAL_WITH_ANIMATION_XPATH = '//*[@class="rodal-dialog rodal-fade-enter"]';
+const MODAL_WITH_ANIMATION_XPATH = '.rodal .rodal-fade-enter';
 const OPEN_MODAL_WITH_ANIMATION_XPATH = '//*[@class="button button--normal"][2]//*[@class="button-content"]';
 
 //test names
@@ -25,8 +25,8 @@ describe('FEF modal tests', () => {
     browser.url('/modals');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_XPATH);
-    assert(takeScreenShotOfElement(MODAL_XPATH,
-      {defaultTolerance: 3, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(MODAL_SELECTOR,
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Modal is not similar to reference picture');
   });
 
@@ -35,8 +35,8 @@ describe('FEF modal tests', () => {
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     browser.click(OPEN_MODAL_WITH_ANIMATION_XPATH);
     assert(browser.getAttribute(MODAL_WITH_ANIMATION_XPATH, 'style').includes('animation-duration: 300ms;'), 'Animation duration is not 300ms');
-    assert(takeScreenShotOfElement(MODAL_WITH_ANIMATION_XPATH,
-      {defaultTolerance: 3, ignoreComparison: false}),
+    assert(takeScreenShotOfElementAndCompareWithRef(MODAL_WITH_ANIMATION_XPATH,
+      {defaultTolerance: 1, ignoreComparison: false}),
       'Basic input is not similar to reference picture');
   });
 

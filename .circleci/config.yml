@@ -118,7 +118,7 @@ jobs:
 
     notify:
       webhooks:
-        - url: https://requestbin.fullcontact.com/1ceca2a1?inspect
+        - url: http://requestbin.fullcontact.com/1ft6fls1
 
   #Duplicated code. Not possible to solve with yaml references on circleci
   nightly_build:
@@ -176,7 +176,7 @@ jobs:
 
     notify:
       webhooks:
-        - url: https://requestbin.fullcontact.com/1ceca2a1?inspect
+        - url: http://requestbin.fullcontact.com/1ft6fls1
 
 workflows:
   version: 2

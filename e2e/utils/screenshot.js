@@ -121,10 +121,10 @@ function getElementBoundingRect(elementSelector) {
     const rect = element.getBoundingClientRect();
     const pixelRatio = window.devicePixelRatio || 1;
     return {
-      left: (rect.left + frameOffset.left) * pixelRatio,
+      left: (rect.left + frameOffset.left) * pixelRatio - (window.pageXOffset || document.documentElement.scrollLeft),
       right: (rect.right + frameOffset.left) * pixelRatio,
       top: (rect.top + frameOffset.top) * pixelRatio - (window.pageYOffset || document.documentElement.scrollTop),
-      bottom: (rect.bottom + frameOffset.top) * pixelRatio - (window.pageXOffset || document.documentElement.scrollLeft),
+      bottom: (rect.bottom + frameOffset.top) * pixelRatio,
       width: (rect.width) * pixelRatio,
       height: (rect.height) * pixelRatio
     };

@@ -19,7 +19,7 @@ describe('FEF tooltip tests', () => {
       'Whole FEF tooltips page screenshot not similar to other configurations');
   });
 
-  it('should check ' + TOOLTIP_RIGHT, () => {
+  it.skip('should check ' + TOOLTIP_RIGHT, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Tooltip doesn\'t in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);

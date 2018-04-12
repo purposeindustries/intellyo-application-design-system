@@ -191,4 +191,4 @@ workflows:
 
 notify:
   webhooks:
-    - url: http://requestbin.fullcontact.com/1ft6fls1
+    - url: https://53943f58.ngrok.io/

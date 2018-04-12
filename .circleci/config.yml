@@ -191,4 +191,4 @@ workflows:
 
 notify:
   webhooks:
-    - url: https://53943f58.ngrok.io/
+    - url: http://67143c96.ngrok.io

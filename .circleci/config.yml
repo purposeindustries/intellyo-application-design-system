@@ -88,7 +88,7 @@ jobs:
               git push --tags
               npm run changelog
               git add CHANGELOG.md
-              VERSION=$(npm view @pi/intellyo-components version -s)
+              VERSION=$(npx -q json -f package.json version)
               git commit -m "rls($VERSION): changelog updated"
               git push -f -u origin master
             else
@@ -161,7 +161,7 @@ jobs:
           name: test
           command: npm run test:e2e
           environment:
-            MAX_INSTANCE: 1
+            E2E_MAX_INSTANCE: 1
             E2EPROFILE: sauceextended
 
       - store_artifacts:

@@ -3,7 +3,7 @@ const visualRegression = require('../../utils/visual-regression');
 const { takeScreenshotAndGetWholePageCompareResult, takeScreenShotOfElementAndCompareWithRef } = visualRegression;
 
 //Selectors/xpaths
-const TOOLTIP_RIGHT_SELECTOR = '.card-body .col:nth-child(2) .overlay-trigger .user-avatar';
+const TOOLTIP_RIGHT_SELECTOR = '.card-body .col:nth-child(4) .overlay-trigger .user-avatar';
 const WHOLE_TOOLTIP_DIV_SELECTOR = '.card-body';
 
 //test names

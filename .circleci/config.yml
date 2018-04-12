@@ -36,7 +36,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:
@@ -72,7 +72,7 @@ jobs:
             else
               exit $STATUS
             fi
-            
+
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -116,6 +116,10 @@ jobs:
               echo "We are not building a tag, or the tag is not major, minor or patch but preversion ($CIRCLE_TAG)"
             fi
 
+    notify:
+      webhooks:
+        - url: https://requestbin.fullcontact.com/1ceca2a1?inspect
+
   #Duplicated code. Not possible to solve with yaml references on circleci
   nightly_build:
     <<: *defaults
@@ -137,7 +141,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:
@@ -169,6 +173,10 @@ jobs:
           path: /tmp/circleci-artifacts
       - store_artifacts:
           path: /tmp/circleci-test-results
+
+    notify:
+      webhooks:
+        - url: https://requestbin.fullcontact.com/1ceca2a1?inspect
 
 workflows:
   version: 2

@@ -64,7 +64,7 @@ jobs:
           name: e2e test
           command: |
             set +e
-            npm run test:e2e  -- --spec e2e/test/tooltip-tests/tooltip-test.js 
+            npm run test:e2e  -- --spec e2e/test/tooltip-tests/tooltip-test.js
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
@@ -74,7 +74,7 @@ jobs:
             fi
 
       - store_test_results:
-          path: /tmp/test-results
+          path: e2e/test_results
       - store_artifacts:
           path: /tmp/circleci-test-results
 

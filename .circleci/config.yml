@@ -74,7 +74,7 @@ jobs:
             fi
 
       - store_test_results:
-          path: /test_results
+          path: test_results
       - store_artifacts:
           path: /tmp/circleci-test-results
 

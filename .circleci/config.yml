@@ -36,7 +36,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:
@@ -64,7 +64,7 @@ jobs:
           name: e2e test
           command: |
             set +e
-            npm run test:e2e
+            npm run test:e2e  -- --spec e2e/test/tooltip-tests/tooltip-test.js 
             STATUS=$?;
             if [[ ! -z $FORCE_BUILD ]] ; then
               echo "The force build is active! Independently of the tests exit code the build does not fail. The exit code: $STATUS"
@@ -72,9 +72,9 @@ jobs:
             else
               exit $STATUS
             fi
-            
-      - store_artifacts:
-          path: /tmp/circleci-artifacts
+
+      - store_test_results:
+          path: /tmp/test-results
       - store_artifacts:
           path: /tmp/circleci-test-results
 
@@ -137,7 +137,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:

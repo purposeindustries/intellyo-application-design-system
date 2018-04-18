@@ -94,6 +94,8 @@
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "debug": "^3.1.0",
+    "junit-xml-parser": "0.0.3",
+    "junitxml-to-javascript": "^1.0.0",
     "lodash.throttle": "^4.1.1",
     "plotly.js": "^1.30.0",
     "react-autosuggest": "^9.3.2",
@@ -106,6 +108,8 @@
     "react-popper": "^0.7.4",
     "react-show-at": "^1.0.0",
     "react-tagsinput": "^3.19.0",
-    "rodal": "^1.6.1"
+    "rodal": "^1.6.1",
+    "xml-js": "^1.6.2",
+    "xml-parser": "^1.2.1"
   }
 }

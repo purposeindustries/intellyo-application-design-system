@@ -41,4 +41,29 @@ describe('FEF accordions tests', () => {
       'Basic accordion info in opened state is not similar to reference picture');
   });
 
+
+  it.only('junit', () => {
+    var fs = require('fs');
+    if (fs.existsSync('e2e/test_results/WDIO.xunit.firefox.0-4.xml')) {
+        console.log('Yeeppp');
+    }
+    var parser = require('junit-xml-parser').parser;
+    var fs = require('fs');
+    let xml = fs.readFileSync('e2e/test_results/WDIO.xunit.firefox.0-4.xml', 'utf8');
+    const Parser = require("junitxml-to-javascript");
+    // console.log(xml);
+    // new Parser({customTag: "GENERAL1"})
+    //     .parseXMLString(xml)
+    //     .then(e => console.log(JSON.stringify(e, null, 2)))
+    //     .catch(e => console.error(e.message));
+
+    var fs = require('fs');
+    var parse = require('xml-parser');
+    var inspect = require('util').inspect;
+
+    var obj = parse(xml);
+    console.log(inspect(obj, { colors: true, depth: Infinity }));
+
+  });
+
 });

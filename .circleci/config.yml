@@ -36,7 +36,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:
@@ -72,7 +72,7 @@ jobs:
             else
               exit $STATUS
             fi
-            
+
       - store_artifacts:
           path: /tmp/circleci-artifacts
       - store_artifacts:
@@ -137,7 +137,7 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
-      
+
       - run: sudo npm i -g npm@latest
 
       - run:
@@ -162,8 +162,11 @@ jobs:
           - ./.cache
 
       - run:
-          name: e2e test
-          command: E2EPROFILE=sauceextended npm run test:e2e
+          name: test
+          command: npm run test:e2e
+          environment:
+            E2E_MAX_INSTANCE: 1
+            E2EPROFILE: sauceextended
 
       - store_artifacts:
           path: /tmp/circleci-artifacts

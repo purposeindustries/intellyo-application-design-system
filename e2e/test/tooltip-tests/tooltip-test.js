@@ -19,12 +19,12 @@ describe('FEF tooltip tests', () => {
       'Whole FEF tooltips page screenshot not similar to other configurations');
   });
 
-  it('should check ' + TOOLTIP_RIGHT, () => {
+  it.skip('should check ' + TOOLTIP_RIGHT, () => {
     browser.url('/tooltip');
     assert(browser.isExisting(TOOLTIP_RIGHT_SELECTOR), 'Tooltip doesn\'t in the DOM');
     browser.moveToElement(TOOLTIP_RIGHT_SELECTOR);
     browser.waitForExist('.overlay-trigger--active .user-avatar');
     assert(takeScreenShotOfElementAndCompareWithRef(WHOLE_TOOLTIP_DIV_SELECTOR, {localTolerance: 5.8, ffAndWindowsTolerance: 2.7, defaultTolerance: 2, ignoreComparison: false}),
-      'Avatar input screenshot not similar to other configurations');
+      'Tooltip not similar to other configurations');
   });
 });

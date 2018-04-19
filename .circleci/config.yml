@@ -37,6 +37,8 @@ jobs:
 
       - run: npm i --prefer-offline
 
+      - run: sudo npm i -g npm@latest
+
       - run:
           name: install system wide tools
           command: sudo apt-get install tree
@@ -135,6 +137,8 @@ jobs:
       - run: echo -e "$NPMRC" >>$HOME/.npmrc
 
       - run: npm i --prefer-offline
+
+      - run: sudo npm i -g npm@latest
 
       - run:
           name: install system wide tools

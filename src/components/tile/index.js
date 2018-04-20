@@ -11,7 +11,7 @@ const Tile = ({
   style,
   className,
 }) => {
-  const backgroundImage = image ? `url(${image})` : 'no-image';
+  const backgroundImage = image ? `url(${image})` : 'none';
   const styleWithBackground = {
     ...style,
     backgroundImage,

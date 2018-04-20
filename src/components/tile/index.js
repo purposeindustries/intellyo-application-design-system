@@ -2,42 +2,49 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-class Tile extends React.Component {
+const Tile = ({
+  image,
+  icon,
+  color,
+  size,
+  shape,
+  style,
+  className,
+}) => {
+  const backgroundImage = image ? `url(${image})` : 'none';
+  const styleWithBackground = {
+    ...style,
+    backgroundImage,
+    backgroundColor: color,
+  };
 
-  static propTypes = {
-    image: PropTypes.string,
-    icon: PropTypes.node,
-    color: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
-    style: PropTypes.object,
-    className: PropTypes.string,
-  }
+  return (
+    <div
+      className={ cx('intellyo-tile', `tile-${size}`, `tile-${shape}`, className) }
+      style={ styleWithBackground }
+    >
+      { icon }
+    </div>
+  );
+};
 
+Tile.displayName = 'Tile';
 
-  static defaultProps = {
-    size: 'medium',
-    shape: 'rounded',
-    color: '#E6E6E6',
-    icon: null,
-  }
+Tile.propTypes = {
+  image: PropTypes.string,
+  icon: PropTypes.node,
+  color: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
+  style: PropTypes.object,
+  className: PropTypes.string,
+};
 
-  render() {
-    const style = {
-      ...this.props.style,
-      backgroundColor: this.props.color,
-      backgroundImage: this.props.image ? `url(${this.props.image})` : 'no-image'
-    };
-
-    return (
-      <div
-        className={ cx('intellyo-tile', `tile-${this.props.size}`, `tile-${this.props.shape}`, this.props.className) }
-        style={ style }
-      >
-        { this.props.icon }
-      </div>
-    );
-  }
-}
+Tile.defaultProps = {
+  size: 'medium',
+  shape: 'rounded',
+  color: '#E6E6E6',
+  icon: null,
+};
 
 export default Tile;

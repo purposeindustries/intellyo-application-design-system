@@ -112,6 +112,23 @@ export default class Avatars extends Component {
                   ) }
                   caption="Washington DC"
                 />
+                <AvatarCard
+                  name="👈 👈 👈 🤩"
+                  caption="Shh, but it's custom."
+                  renderAvatar={ (/* avatarProps */) => (
+                    <div
+                      style={ {
+                        borderRadius: '100%',
+                        overflow: 'hidden'
+                      } }
+                    >
+                      <img
+                        src="https://dummyimage.com/60x60/000000/00ff00.png&text=Custom"
+                        style={ { display: 'block' } }
+                      />
+                    </div>
+                  ) }
+                />
               </Col>
             </Row>
           </Card>

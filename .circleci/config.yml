@@ -163,7 +163,7 @@ jobs:
 
       - run:
           name: test
-          command: npm run test:e2e
+          command: npm run test:e2e -- --spec e2e/test/tags-input-tests/tags-input-test.js
           environment:
             E2E_MAX_INSTANCE: 1
             E2EPROFILE: sauceextended

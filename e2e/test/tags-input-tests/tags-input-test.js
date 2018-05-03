@@ -69,7 +69,7 @@ describe('FEF tags input tests', () => {
     assert(browser.isExisting(TAGS_INPUT_WHOLE_ORIG_XPATH), 'Tags input is not existing in the DOM before adding and clicking');
     browser.click(TAGS_INPUT_CLICKABLE);
     browser.setValue(TAGS_INPUT_INPUT, 'foobar\n');
-    browser.click('span=hamburger');
+    browser.click('span=pizza');
     assert(takeScreenShotOfElementAndCompareWithRef(TAGS_INPUT_WHOLE_ORIG_XPATH,
       {localTolerance: 5, defaultTolerance: 1, ignoreComparison: false}),
        'Added and clicked tags input is not similar to the reference');

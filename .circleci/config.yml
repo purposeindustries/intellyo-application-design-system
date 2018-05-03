@@ -166,7 +166,7 @@ jobs:
           command: npm run test:e2e
           environment:
             E2E_MAX_INSTANCE: 1
-            E2EPROFILE: sauceextended
+            E2EPROFILE: sauceextendedd
 
       - store_artifacts:
           path: /tmp/circleci-artifacts
@@ -194,4 +194,4 @@ workflows:
 
 notify:
   webhooks:
-    - url: http://aleska-diamond.purposeindustries.co:8081/hubot/notification
+    - url: https://hubot.purposeindustries.co:8081/hubot/notification

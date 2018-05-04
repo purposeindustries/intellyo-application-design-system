@@ -191,3 +191,7 @@ workflows:
                 - master
     jobs:
       - nightly_build
+
+notify:
+  webhooks:
+    - url: https://hubot.purposeindustries.co:8081/hubot/notification

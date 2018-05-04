@@ -166,7 +166,7 @@ jobs:
           command: npm run test:e2e
           environment:
             E2E_MAX_INSTANCE: 1
-            E2EPROFILE: sauceextendedd
+            E2EPROFILE: sauceextended
 
       - store_artifacts:
           path: /tmp/circleci-artifacts

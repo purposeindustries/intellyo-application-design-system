@@ -194,4 +194,4 @@ workflows:
 
 notify:
   webhooks:
-    - url: https://hubot.purposeindustries.co:8081/hubot/notification
+    - url: http://hubot.purposeindustries.co:8081/hubot/notification

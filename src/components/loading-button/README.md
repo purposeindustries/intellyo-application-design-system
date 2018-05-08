@@ -11,6 +11,7 @@
 | children | node | You can customise what the Button label should be in **non-loading** state. | `'Save'` |
 | loadingText | node | You can customise what the Button label should be in **loading** state. | `'Loading...'` |
 | size | oneOf(['small', 'normal', 'large']) | Button size |
+| disabled | bool | disables the button | false |
 
 ## Examples
 

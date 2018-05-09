@@ -194,4 +194,4 @@ workflows:
 
 notify:
   webhooks:
-    - url: http://hubot.purposeindustries.co:8081/hubot/notification
+    - url: https://857fd416.ngrok.io

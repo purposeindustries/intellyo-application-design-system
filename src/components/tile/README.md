@@ -9,7 +9,7 @@
 | image | string | The url of the image |
 | icon | node | You can pass an icon as node here |
 | color | string | Color of solid brackground in hex or with color name. This background is visible under transparent png or icon.
-| size | string: `small`, `medium`, `large` | Size of the tile |
+| size | string: `small`, `medium`, `normal`, `large` | Size of the tile |
 | shape | string: `circle`, `rounded`, `square` | Shape of the tile |
 | style | object | Object of css properties and values in camel case format for custom styling |
 | className | string | Custom className for tile wrapper div |

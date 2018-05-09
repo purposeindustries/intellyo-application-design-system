@@ -1,7 +1,3 @@
-$size-small: 24px;
-$size-medium: 40px;
-$size-large: 118px;
-
 .intellyo-tile {
     background-position: center;
     background-size: cover;
@@ -22,18 +18,23 @@ $size-large: 118px;
 
   &.tile {
     &-small {
-      width: $size-small;
-      height: $size-small;
+      width: $avatar-img-size--small;
+      height: $avatar-img-size--small;
     }
 
     &-medium {
-      width: $size-medium;
-      height: $size-medium;
+      width: $avatar-img-size--medium;
+      height: $avatar-img-size--medium;
+    }    
+
+    &-normal {
+      width: $avatar-img-size;
+      height: $avatar-img-size;
     }    
 
     &-large {
-      width: $size-large;
-      height: $size-large;
+      width: $avatar-img-size--extra-large;
+      height: $avatar-img-size--extra-large;
     }    
 
     &-rounded {

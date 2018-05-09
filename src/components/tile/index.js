@@ -34,7 +34,7 @@ Tile.propTypes = {
   image: PropTypes.string,
   icon: PropTypes.node,
   color: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'normal', 'large']),
   shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
   style: PropTypes.object,
   className: PropTypes.string,

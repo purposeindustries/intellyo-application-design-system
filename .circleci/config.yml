@@ -162,7 +162,7 @@ jobs:
           - ./.cache
 
       - run:
-          name: test
+          name: e2e test
           command: npm run test:e2e
           environment:
             E2E_MAX_INSTANCE: 1

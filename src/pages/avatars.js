@@ -100,36 +100,6 @@ export default class Avatars extends Component {
                   />
                 </div>
               </Col>
-              <Col span={ 6 }>
-                <AvatarCard
-                  name="Donald Trump"
-                />
-                <AvatarCard
-                  name="Donald Trump"
-                  src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
-                  icon={ (
-                    <Icon icon="ion-ios-location" />
-                  ) }
-                  caption="Washington DC"
-                />
-                <AvatarCard
-                  name="👈 👈 👈 🤩"
-                  caption="Shh, but it's custom."
-                  renderAvatar={ (/* avatarProps */) => (
-                    <div
-                      style={ {
-                        borderRadius: '100%',
-                        overflow: 'hidden'
-                      } }
-                    >
-                      <img
-                        src="https://dummyimage.com/60x60/000000/00ff00.png&text=Custom"
-                        style={ { display: 'block' } }
-                      />
-                    </div>
-                  ) }
-                />
-              </Col>
             </Row>
           </Card>
           <Card title="Avatar editor" className="card-avatar-editor">
@@ -142,6 +112,41 @@ export default class Avatars extends Component {
               isProfileAvatar={ false }
               onChange={ (file) => this.handleImageChange(file, 'profileImageSrc') }
             />
+          </Card>
+          <Card title="Avatar card" className="card-avatar-editor">
+            <AvatarCard
+              name="Donald Trump"
+              src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+              size="small"
+            />
+            <AvatarCard
+              name="Donald Trump"
+            />
+            <AvatarCard
+              name="Donald Trump"
+              src="http://az616578.vo.msecnd.net/files/2016/11/10/6361441079692610831635571641_nast.jpg"
+              icon={ (
+                <Icon icon="ion-ios-location" />
+              ) }
+              caption="Washington DC"
+            />
+            <AvatarCard
+              name="👈 👈 👈 🤩"
+              caption="Shh, but it's custom."
+              renderAvatar={ (/* avatarProps */) => (
+                <div
+                  style={ {
+                    borderRadius: '100%',
+                    overflow: 'hidden'
+                  } }
+                >
+                  <img
+                    src="https://dummyimage.com/60x60/000000/00ff00.png&text=Custom"
+                    style={ { display: 'block' } }
+                  />
+                </div>
+              ) }
+            />   
           </Card>
         </div>
       </div>

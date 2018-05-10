@@ -3,6 +3,8 @@ $avatar-name-line-height: $heading-line-height;
 $avatar-name-font-weight: $heading-font-weight;
 $avatar-name-font-color: $color-black-5;
 
+$small-size-multiplier: 0.7;
+
 .user-avatar-card {
   display: flex;
   align-items: center;
@@ -13,6 +15,11 @@ $avatar-name-font-color: $color-black-5;
     line-height: $avatar-name-line-height;
     font-weight: $avatar-name-font-weight;
     color: $avatar-name-font-color;
+
+    &--small {
+      font-size: calc($avatar-name-font-size * $small-size-multiplier);
+      line-height: calc($avatar-name-line-height * $small-size-multiplier);
+    }
   }
 
   &-caption-wrapper {
@@ -24,6 +31,11 @@ $avatar-name-font-color: $color-black-5;
       font-size: $avatar-caption-font-size;
       line-height: $avatar-caption-line-height;
       color: $avatar-caption-font-color;
+
+      &--small {
+        font-size: calc($avatar-caption-font-size * $small-size-multiplier);
+        line-height: calc($avatar-caption-line-height * $small-size-multiplier);        
+      }
     }
   }
 
@@ -39,6 +51,10 @@ $avatar-name-font-color: $color-black-5;
       }
 
     }
+
+  }
+
+  &--small {
 
   }
 }

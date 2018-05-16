@@ -88,6 +88,8 @@ jobs:
               npm version $RELEASE_TYPE --commit-hooks=false
               git push -u origin $CIRCLE_BRANCH
               git push --tags
+              git tag -f vLATEST
+              git push --tags -f
               npm run changelog
               git add CHANGELOG.md
               VERSION=$(npx -q json -f package.json version)
@@ -189,6 +191,9 @@ workflows:
             branches:
               only:
                 - master
+            tags:
+              only:
+                - vLATEST
     jobs:
       - nightly_build
 

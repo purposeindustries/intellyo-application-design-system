@@ -190,10 +190,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
-            tags:
-              only:
-                - vLATEST
+                - master            
     jobs:
       - nightly_build
 

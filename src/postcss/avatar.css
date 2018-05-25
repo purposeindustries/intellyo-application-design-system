@@ -13,6 +13,7 @@ $avatar-caption-font-color: $color-black-2;
   &-img {
     width: $avatar-img-size;
     height: $avatar-img-size;
+    overflow: hidden;
 
     & > img {
       border-radius: 50%;

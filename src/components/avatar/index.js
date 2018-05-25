@@ -10,6 +10,9 @@ const AvatarImg = (props) => (
     <img
       src={ props.src || silhouette }
       alt={ `Picture of ${props.name || 'unknown user'}` }
+      onError={ (e) => {
+        e.target.src = silhouette;
+      } }
     />
   </div>
 );

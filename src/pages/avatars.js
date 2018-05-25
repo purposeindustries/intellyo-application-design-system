@@ -129,6 +129,11 @@ export default class Avatars extends Component {
                     </div>
                   ) }
                 />
+                <AvatarCard
+                  name="Cannot be loaded"
+                  caption="Fallback"
+                  src="http://this.is.not.a.real.page"
+                />
               </Col>
             </Row>
           </Card>

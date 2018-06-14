@@ -51,9 +51,7 @@ class OverlayTrigger extends React.Component {
   activate = (force) => {
     if (this.props.delay && !force) {
       this.timeoutId = setTimeout(() => {
-        if (this._mounted) {
-          this.activate(true);
-        }
+        this.activate(true);
       }, this.props.delay);
     } else {
       this.setState({
@@ -86,12 +84,10 @@ class OverlayTrigger extends React.Component {
   }
 
   componentDidMount() {
-    this._mounted = true;
     window.addEventListener('keydown', this.onKeyDown);
   }
 
   componentWillUnmount() {
-    this._mounted = false;
     window.removeEventListener('keydown', this.onKeyDown);
     this.removeTimer();
   }

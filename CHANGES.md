@@ -1,10 +1,10 @@
-<a name="9.4.2"></a>
-## [9.4.2](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.4.1...v9.4.2) (2018-05-25)
+<a name="9.5.0"></a>
+# [9.5.0](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.4.2...v9.5.0) (2018-06-14)
 
 
-### Bug Fixes
+### Features
 
-* **avatar:** fallback to silhouette on load error. ([#388](https://github.com/purposeindustries/intellyo-application-design-system/issues/388)) ([ca12c61](https://github.com/purposeindustries/intellyo-application-design-system/commit/ca12c61))
+* **overlay trigger:** add open close callbacks. ([#389](https://github.com/purposeindustries/intellyo-application-design-system/issues/389)) ([faab07e](https://github.com/purposeindustries/intellyo-application-design-system/commit/faab07e))
 
 
 

@@ -18,11 +18,15 @@ class OverlayTrigger extends React.Component {
     className: PropTypes.string,
     delay: PropTypes.number,
     innerRef: PropTypes.func,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func,
   }
 
   static defaultProps = {
     trigger: 'hover',
-    delay: 800
+    delay: 800,
+    onOpen: () => {},
+    onClose: () => {},
   }
 
   state = {
@@ -47,11 +51,15 @@ class OverlayTrigger extends React.Component {
   activate = (force) => {
     if (this.props.delay && !force) {
       this.timeoutId = setTimeout(() => {
-        this.activate(true);
+        if (this._mounted) {
+          this.activate(true);
+        }
       }, this.props.delay);
     } else {
       this.setState({
         isActive: true
+      }, () => {
+        this.props.onOpen();
       });
     }
   }
@@ -60,6 +68,8 @@ class OverlayTrigger extends React.Component {
     if (this.state.isActive === true) {
       this.setState({
         isActive: false
+      }, () => {
+        this.props.onClose();
       });
     }
     this.removeTimer();
@@ -76,10 +86,12 @@ class OverlayTrigger extends React.Component {
   }
 
   componentDidMount() {
+    this._mounted = true;
     window.addEventListener('keydown', this.onKeyDown);
   }
 
   componentWillUnmount() {
+    this._mounted = false;
     window.removeEventListener('keydown', this.onKeyDown);
     this.removeTimer();
   }

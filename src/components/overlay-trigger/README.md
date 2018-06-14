@@ -10,7 +10,9 @@
 | overlay | node | Supply the preferred component to appear as a Popover |
 | trigger | oneOf(['hover', 'click']) | The user event on which the action is invoked |
 | delay | number | You can choose to apply a delay on the Popover. The default is 800ms. |
-| className | string | Use to specify any additional classes to the component. | 
+| className | string | Use to specify any additional classes to the component. |
+| onOpen | func | invoked when the overlay opens. |
+| onClose | func | invoked when the overlay closes. |
 
 ## Examples
 

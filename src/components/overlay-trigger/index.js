@@ -18,11 +18,15 @@ class OverlayTrigger extends React.Component {
     className: PropTypes.string,
     delay: PropTypes.number,
     innerRef: PropTypes.func,
+    onOpen: PropTypes.func,
+    onClose: PropTypes.func,
   }
 
   static defaultProps = {
     trigger: 'hover',
-    delay: 800
+    delay: 800,
+    onOpen: () => {},
+    onClose: () => {},
   }
 
   state = {
@@ -52,6 +56,8 @@ class OverlayTrigger extends React.Component {
     } else {
       this.setState({
         isActive: true
+      }, () => {
+        this.props.onOpen();
       });
     }
   }
@@ -60,6 +66,8 @@ class OverlayTrigger extends React.Component {
     if (this.state.isActive === true) {
       this.setState({
         isActive: false
+      }, () => {
+        this.props.onClose();
       });
     }
     this.removeTimer();

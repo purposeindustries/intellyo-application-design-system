@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tab, TabPanel } from '../components/tab-panel';
 import Box from '../components/box';
+import Icon from '../components/icon';
 
 export default class TabPanels extends React.Component {
   static displayName = 'TabPanels'
@@ -26,6 +27,32 @@ export default class TabPanels extends React.Component {
           <Tab title="Members">
             <Box>
               Members
+            </Box>
+          </Tab>
+        </TabPanel>
+        <TabPanel isSticky={ true }>
+          <Tab
+            title="General"
+            img={ <Icon icon="ion-android-boat" /> }
+          >
+            <Box>
+              General
+            </Box>
+          </Tab>
+          <Tab
+            title="Projects"
+            img={ <Icon icon="ion-android-bicycle" /> }
+          >
+            <Box>
+              Projects
+            </Box>
+          </Tab>
+          <Tab
+            title="Workflow"
+            img={ <Icon icon="ion-android-bus" /> }
+          >
+            <Box>
+              Workflow
             </Box>
           </Tab>
         </TabPanel>

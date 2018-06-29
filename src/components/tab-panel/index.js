@@ -54,12 +54,21 @@ export class TabPanel extends React.Component {
         <div className="tab-list">
           { React.Children.map(React.Children.toArray(this.props.children), (child, index) => (
             <div
-              className={ cx('tab-panel-title', {
-                'tab-panel-title--active': this.state.activeIndex === index
+              className={ cx('tab-panel-title-wrapper', {
+                'tab-panel-title-wrapper--active': this.state.activeIndex === index
               }) }
               onClick={ () => this.activate(index) }
             >
-              { child.props.title }
+              { child.props.img ? (
+                <div className="tab-panel-title-inner-wrapper">
+                  <span className="tab-panel-image">{ child.props.img }</span>
+                  <span className="tab-panel-title">{ child.props.title }</span>
+                </div>
+              ) : (
+                <span className="tab-panel-title">
+                  { child.props.title }
+                </span>
+              ) }
             </div>
           )) }
         </div>

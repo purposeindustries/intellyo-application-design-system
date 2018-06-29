@@ -34,6 +34,8 @@ Tab is used separate each page in a TabPanel.
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
 | children | node | Content you'd like to display. |
+| title | node | The title you'd like to click on. |
+| img | node | You can render any node in here. |
 | isSticky | bool | If you'd like to set the TabPanel's header sticky, set this prop to `true`. |
 
 ## Example

@@ -11,7 +11,6 @@
     & .tab-panel-title-wrapper {
       display: flex;
       align-items: center;
-      text-transform: uppercase;
       cursor: pointer;
       color: $color-black-1;
 

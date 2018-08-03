@@ -1,10 +1,10 @@
-<a name="10.0.0"></a>
-# [10.0.0](https://github.com/purposeindustries/intellyo-application-design-system/compare/v9.5.1...v10.0.0) (2018-07-04)
+<a name="10.1.0"></a>
+# [10.1.0](https://github.com/purposeindustries/intellyo-application-design-system/compare/v10.0.0...v10.1.0) (2018-08-03)
 
 
 ### Features
 
-* use normal case letter in tab panel ([#391](https://github.com/purposeindustries/intellyo-application-design-system/issues/391)) ([2a9ef61](https://github.com/purposeindustries/intellyo-application-design-system/commit/2a9ef61))
+* accept node in avatar editor as button label ([#392](https://github.com/purposeindustries/intellyo-application-design-system/issues/392)) ([0cecea6](https://github.com/purposeindustries/intellyo-application-design-system/commit/0cecea6))
 
 
 

@@ -21,8 +21,10 @@ export default class AvatarEditor extends React.PureComponent {
     let uploadLabel;
     if (this.props.uploadLabel != null) {
       uploadLabel = this.props.uploadLabel;
+    } else if (this.props.isProfileAvatar) {
+      uploadLabel = 'Upload picture';
     } else {
-      uploadLabel = this.props.isProfileAvatar ? 'Upload picture' : 'Upload logo';
+      uploadLabel = 'Upload logo';
     }
 
     return (

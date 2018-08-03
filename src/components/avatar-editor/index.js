@@ -24,6 +24,7 @@ export default class AvatarEditor extends React.PureComponent {
     } else {
       uploadLabel = this.props.isProfileAvatar ? 'Upload picture' : 'Upload logo';
     }
+
     return (
       <div className="avatar-editor">
         <label className="avatar-editor-label">

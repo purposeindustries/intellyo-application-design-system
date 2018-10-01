@@ -99,6 +99,7 @@ class Input extends React.Component {
       renderSuggestion,
       inputRef,
       onSuggestionSelected,
+      alwaysRenderSuggestions,
       // eslint-disable-next-line
       onFetchRequested, error, limit, addTag, detailed, success,
       ...inputProps
@@ -118,6 +119,7 @@ class Input extends React.Component {
           getSuggestionValue={ getSuggestionValue }
           renderSuggestion={ renderSuggestion }
           onSuggestionSelected={ onSuggestionSelected }
+          alwaysRenderSuggestions={ alwaysRenderSuggestions }
           inputProps={ {
             ...inputProps,
             className: classNames(inputProps.className,

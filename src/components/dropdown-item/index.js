@@ -23,7 +23,10 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   children: PropTypes.node,
-  value: PropTypes.string,
+  value: PropTypes.oneOf([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
   default: PropTypes.bool,

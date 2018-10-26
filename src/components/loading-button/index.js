@@ -3,7 +3,7 @@ import Button from '../button';
 import Icon from '../icon';
 import PropTypes from 'prop-types';
 
-const LoadingButton = ({ loading, onClick, size, loadingText, children, disabled }) => (
+const LoadingButton = ({ loading, onClick, size, loadingText, children, disabled, neutral }) => (
   <Button
     size={ size }
     disabled={ loading || disabled }
@@ -11,6 +11,7 @@ const LoadingButton = ({ loading, onClick, size, loadingText, children, disabled
     icon={ loading ? (
       <Icon icon="ion-load-d" color="#fff" rotate={ true } />
     ) : null }
+    neutral={ neutral }
   >
     { loading ? loadingText : children }
   </Button>
@@ -28,6 +29,7 @@ LoadingButton.propTypes = {
   loadingText: PropTypes.node,
   children: PropTypes.node,
   disabled: PropTypes.bool,
+  neutral: PropTypes.bool
 };
 
 export default LoadingButton;

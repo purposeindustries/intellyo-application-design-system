@@ -14,7 +14,7 @@ const CARD_WITH_CAPTION_AND_I = 'Card-with-caption-and-i';
 
 describe('FEF card tests', () => {
 
-  it('Checks the the fef cards page title and browser compare visual regression', () => {
+  it('Checks the fef cards page title and browser compare visual regression', () => {
     browser.url('/cards');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenshotAndGetWholePageCompareResult({defaultTolerance: 4, ignoreComparison: false}),

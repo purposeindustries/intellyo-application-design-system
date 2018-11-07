@@ -23,7 +23,7 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   children: PropTypes.node,
-  value: PropTypes.oneOf([
+  value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
   ]),

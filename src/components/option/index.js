@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, bool, func, node } from 'prop-types';
+import { string, bool, func, node, oneOfType, number } from 'prop-types';
 import { Checkbox } from '../index';
 
 const Option = (props) => (
@@ -19,7 +19,7 @@ Option.propTypes = {
   children: node,
   checked: bool,
   onClick: func,
-  value: string,
+  value: oneOfType([string, number]),
 };
 
 export default Option;

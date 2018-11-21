@@ -34,7 +34,7 @@ export default class Dropdown extends React.Component {
   }
 
   open() {
-    if (React.Children.count(this.props.children) > 1) {
+    if (React.Children.count(this.props.children) > 0) {
       this.setState({
         isActive: true
       });
@@ -56,7 +56,7 @@ export default class Dropdown extends React.Component {
   }
 
   renderArrow() {
-    if (React.Children.count(this.props.children) <= 1) {
+    if (React.Children.count(this.props.children) < 1) {
       return;
     }
     return this.props.arrow ? this.props.arrow : (

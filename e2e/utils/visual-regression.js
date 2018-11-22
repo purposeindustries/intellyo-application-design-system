@@ -97,7 +97,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
   const isTestPassed = (misMatchPercentage <= misMatchTolerance * 2) || false;
 
-  if (!isTestWarn) {
+  if (isTestWarn) {
     testDebug('WARNING! WARNING! WARNING!');
 
     testDebug('Warning testName: ' + browser.currentTestName
@@ -171,7 +171,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
-  const isTestPassed = (misMatchPercentage < misMatchTolerance * 2) || false;
+  const isTestPassed = (misMatchPercentage < (misMatchTolerance * 2)) || false;
 
   if (isTestWarn) {
     testDebug('WARNING! WARNING! WARNING!');

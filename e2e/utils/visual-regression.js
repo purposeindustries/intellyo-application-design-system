@@ -95,7 +95,7 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
-  const isTestPassed = (misMatchPercentage <= misMatchTolerance * 2) || false;
+  const isTestPassed = (misMatchPercentage <= (misMatchTolerance * 2)) || false;
 
   if (!isTestWarn) {
     testDebug('WARNING! WARNING! WARNING!');
@@ -172,6 +172,7 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
   const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
   const isTestPassed = (misMatchPercentage < (misMatchTolerance * 2)) || false;
+
 
   if (!isTestWarn) {
     testDebug('WARNING! WARNING! WARNING!');
@@ -265,7 +266,19 @@ function getRefPicName() {
 }
 
 function handleTakenScreenshot(data, misMatchTolerance, selector) {
-  const isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+  const isTestWarn = (data.misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (data.misMatchPercentage <= (misMatchTolerance * 2)) || false;
+
+  if (!isTestWarn) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + data.misMatchPercentage);
+  }
+  
   return new Promise((resolve, reject) => {
     if (!isTestPassed) {
       mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);

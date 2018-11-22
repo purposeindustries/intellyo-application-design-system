@@ -94,7 +94,19 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   }
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
-  const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
+  const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (misMatchPercentage <= misMatchTolerance * 2) || false;
+
+  if (!isTestWarn) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + misMatchPercentage);
+  }
+
   if (isTestPassed) {
     return isTestPassed;
   }
@@ -158,10 +170,23 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
-  const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (misMatchPercentage < misMatchTolerance * 2) || false;
+
+  if (!isTestWarn) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + misMatchPercentage);
+  }
+
   if (isTestPassed) {
     return isTestPassed;
   }
+
   testDebug('failing testName: ' + browser.currentTestName
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform

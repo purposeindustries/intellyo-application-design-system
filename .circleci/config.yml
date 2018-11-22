@@ -179,7 +179,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - nightly_build:
+      - build:
           filters:
             tags:
               only: /^v.*/

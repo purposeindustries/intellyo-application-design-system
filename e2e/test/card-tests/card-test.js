@@ -25,7 +25,7 @@ describe('FEF card tests', () => {
     browser.url('/cards');
     assert.equal(browser.getTitle(), 'Intellyo Application Design System');
     assert(takeScreenShotOfElementAndCompareWithRef(CARD_XPATH,
-      {ffAndWindowsTolerance: 6.1, windowsTolerance: 6, defaultTolerance: 0.2, ignoreComparison: false}),
+      {ffAndWindowsTolerance: 6.1, windowsTolerance: 6, defaultTolerance: 1.5, ignoreComparison: false}),
       'Card is not similar to reference picture');
   });
 

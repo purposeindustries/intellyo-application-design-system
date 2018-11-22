@@ -278,7 +278,7 @@ function handleTakenScreenshot(data, misMatchTolerance, selector) {
     + '\nmisMatchTolerance: ' + misMatchTolerance
     + '\nmisMatchPercentage: ' + data.misMatchPercentage);
   }
-  
+
   return new Promise((resolve, reject) => {
     if (!isTestPassed) {
       mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);

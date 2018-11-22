@@ -165,7 +165,7 @@ jobs:
 
       - run:
           name: e2e test
-          command: npm run test:e2e -- --spec e2e/test/avatar-tests/avatar-test.js
+          command: npm run test:e2e
           environment:
             E2E_MAX_INSTANCE: 1
             E2EPROFILE: sauceextended

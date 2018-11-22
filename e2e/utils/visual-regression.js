@@ -269,7 +269,7 @@ function handleTakenScreenshot(data, misMatchTolerance, selector) {
   const isTestWarn = (data.misMatchPercentage < misMatchTolerance) || false;
   const isTestPassed = (data.misMatchPercentage <= (misMatchTolerance * 2)) || false;
 
-  if (!isTestWarn) {
+  if (!isTestWarn && isTestPassed) {
     testDebug('WARNING! WARNING! WARNING!');
 
     testDebug('Warning testName: ' + browser.currentTestName

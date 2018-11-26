@@ -94,7 +94,19 @@ module.exports.takeScreenshotAndGetWholePageCompareResult = (options) => {
   }
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkViewport({ ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
-  const isTestPassed = (misMatchPercentage <= misMatchTolerance) || false;
+  const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (misMatchPercentage <= (misMatchTolerance * 2)) || false;
+
+  if (!isTestWarn) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + misMatchPercentage);
+  }
+
   if (isTestPassed) {
     return isTestPassed;
   }
@@ -158,10 +170,24 @@ module.exports.takeScreenShotOfElement = (elementSelector, options) => {
   }
 
   const misMatchPercentage = getMisMatchPercentage(browser.checkElement(elementSelector, { ignoreComparison: ignoreComparisonValue }), browser.currentTestName);
-  const isTestPassed = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestWarn = (misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (misMatchPercentage < (misMatchTolerance * 2)) || false;
+
+
+  if (!isTestWarn) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + misMatchPercentage);
+  }
+
   if (isTestPassed) {
     return isTestPassed;
   }
+
   testDebug('failing testName: ' + browser.currentTestName
   + '\nbrowser: ' + browser.desiredCapabilities.browserName
   + '\nplatform: ' + browser.desiredCapabilities.platform
@@ -240,7 +266,19 @@ function getRefPicName() {
 }
 
 function handleTakenScreenshot(data, misMatchTolerance, selector) {
-  const isTestPassed = (data.misMatchPercentage < misMatchTolerance) || false;
+  const isTestWarn = (data.misMatchPercentage < misMatchTolerance) || false;
+  const isTestPassed = (data.misMatchPercentage <= (misMatchTolerance * 2)) || false;
+
+  if (!isTestWarn && isTestPassed) {
+    testDebug('WARNING! WARNING! WARNING!');
+
+    testDebug('Warning testName: ' + browser.currentTestName
+    + '\nbrowser: ' + browser.desiredCapabilities.browserName
+    + '\nplatform: ' + browser.desiredCapabilities.platform
+    + '\nmisMatchTolerance: ' + misMatchTolerance
+    + '\nmisMatchPercentage: ' + data.misMatchPercentage);
+  }
+
   return new Promise((resolve, reject) => {
     if (!isTestPassed) {
       mkdirp.sync(basePathDiff + `${slugify(browser.currentDescribe.toLowerCase())}/${slugify(browser.currentTestName.toLowerCase())}`);

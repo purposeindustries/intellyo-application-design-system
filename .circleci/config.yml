@@ -190,7 +190,7 @@ workflows:
           filters:
             branches:
               only:
-                - master            
+                - master
     jobs:
       - nightly_build
 

@@ -15,6 +15,7 @@ export class AccordionItem extends React.PureComponent {
     children: PropTypes.node,
     isOpen: PropTypes.bool,
     onClick: PropTypes.func,
+    className: PropTypes.string
   }
 
   constructor() {
@@ -62,7 +63,7 @@ export class AccordionItem extends React.PureComponent {
     const targetOpacity = this.props.isOpen ? 1 : 0;
     return (
       <div
-        className={ cx('accordion-item', {
+        className={ cx('accordion-item', this.props.className, {
           'accordion-item--open': this.props.isOpen
         }) }
       >
@@ -122,7 +123,8 @@ export class AccordionItem extends React.PureComponent {
 }
 
 AccordionItem.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
+  className: ''
 };
 
 export const Accordion = (props) => (

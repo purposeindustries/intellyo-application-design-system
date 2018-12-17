@@ -1,10 +1,10 @@
 {
-  "name": "@pi/intellyo-components",
+  "name": "@intellyo/intellyo-components",
   "description": "Intellyo Application Design System",
   "version": "11.2.0",
   "main": "./dist/index.js",
   "publishConfig": {
-    "repository": "https://npm.registry.purposeindustries.co"
+    "access": "public"
   },
   "pre-commit": [
     "test",

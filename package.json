@@ -3,6 +3,9 @@
   "description": "Intellyo Application Design System",
   "version": "11.2.0",
   "main": "./dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "pre-commit": [
     "test",
     "test:e2e",

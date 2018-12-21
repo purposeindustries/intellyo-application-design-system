@@ -7,6 +7,7 @@ const Caption = (props) => (
     className={
       classNames('caption', props.className)
     }
+    style={ props.style }
   >
     { props.children }
   </p>
@@ -16,7 +17,8 @@ Caption.displayName = 'Caption';
 
 Caption.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.object
 };
 
 export default Caption;

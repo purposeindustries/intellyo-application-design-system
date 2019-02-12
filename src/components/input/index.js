@@ -101,6 +101,7 @@ class Input extends React.Component {
       onSuggestionSelected,
       alwaysRenderSuggestions,
       shouldRenderSuggestions,
+      focusInputOnSuggestionClick,
       // eslint-disable-next-line
       onFetchRequested, error, limit, addTag, detailed, success,
       ...inputProps
@@ -122,6 +123,7 @@ class Input extends React.Component {
           onSuggestionSelected={ onSuggestionSelected }
           alwaysRenderSuggestions={ alwaysRenderSuggestions }
           shouldRenderSuggestions={ shouldRenderSuggestions }
+          focusInputOnSuggestionClick={ focusInputOnSuggestionClick }
           inputProps={ {
             ...inputProps,
             className: classNames(inputProps.className,
@@ -235,7 +237,8 @@ Input.propTypes = {
   ),
   onFetchRequested: PropTypes.func,
   onClearRequested: PropTypes.func,
-  shouldRenderSuggestions: PropTypes.func
+  shouldRenderSuggestions: PropTypes.func,
+  focusInputOnSuggestionClick: PropTypes.func,
 };
 
 Input.displayName = 'Input';

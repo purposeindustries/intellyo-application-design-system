@@ -135,6 +135,8 @@ export default class SelectPage extends React.Component {
             <Checkbox checked={ false } />
             <Checkbox checked={ true } />
             <Checkbox checked={ this.state.checkbox } onChange={ () => this.setState({ checkbox: !this.state.checkbox }) } />
+            <Checkbox checked={ true } disabled />
+            <Checkbox checked={ false } disabled />
           </div>
         </Card>
       </div>

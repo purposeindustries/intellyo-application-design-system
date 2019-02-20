@@ -32,4 +32,8 @@ $checkbox-dimension: 12px;
       visibility: visible;
     }
   }
+  &[aria-disabled="true"] {
+    background-color: $color-grey-2;
+    border-color: transparent;
+  }
 }

@@ -5,7 +5,7 @@ import { Icon } from '../index';
 const Checkbox = ({ checked, onChange, disabled }) => (
   <div
     role="checkbox"
-    onClick={ disabled !== true && onChange }
+    onClick={ disabled ? undefined : onChange }
     onKeyDown={ (e) => disabled !== true && e.keyCode === 13 && onChange() }
     aria-checked={ checked }
     aria-disabled={ disabled }
